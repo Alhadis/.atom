@@ -75,10 +75,6 @@ atom-text-editor .search-results .marker.current-result .region,
 	&.name.type{
 		color: #003a9e;
 	}
-
-	&.other.inherited-class{
-		color: @green;
-	}
 }
 
 
@@ -95,15 +91,31 @@ atom-text-editor .search-results .marker.current-result .region,
 		color: #ee000b;
 	}
 	
-	&.js,
-	.js > &{
+	&.js, .js > &{
 		color: #00c;
+	}
+	
+	&.php, .php > &{
+		color: #009714;
+		
+		&.operator{
+			color: #0035ff;
+		}
 	}
 }
 
 
 .storage{
 	color: #00c;
+	
+	&.php, .php &{
+		color: #009714;
+		
+		&.function,
+		&.type{
+			color: #24bf96;
+		}
+	}
 }
 
 
@@ -124,6 +136,10 @@ atom-text-editor .search-results .marker.current-result .region,
 	.js > &.numeric{
 		color: #369;
 	}
+	
+	.php, &.php{
+		color: #009714;
+	}
 }
 
 
@@ -137,6 +153,14 @@ atom-text-editor .search-results .marker.current-result .region,
 
 	&.parameter.function{
 		color: @syntax-text-color;
+	}
+	
+	&.php{
+		color: #000;
+	}
+	&.php.global,
+	&.php.global > *{
+		color: #0092f2 !important;
 	}
 }
 
@@ -208,15 +232,20 @@ atom-text-editor .search-results .marker.current-result .region,
 			color: @blue;
 		}
 	}
+
+
+	&.php.function,
+	.php &.function{
+		color: #0035ff;
+		
+		&.construct{
+			color: #009714;
+		}
+	}
 }
 
 
 .entity{
-
-	&.name.class,
-	&.name.type.class{
-		color: @light-orange;
-	}
 
 	&.name.section{
 		color: @blue;
@@ -236,7 +265,7 @@ atom-text-editor .search-results .marker.current-result .region,
 
 .meta{
 	&.class{
-		color: @light-orange;
+		color: #003a9e;
 	}
 
 	&.link{
@@ -277,6 +306,13 @@ atom-text-editor .search-results .marker.current-result .region,
 	&.sgml,
 	&.sgml .punctuation{
 		color: #c0c0c0 !important;
+	}
+	
+	
+	&.php{
+		.string:not(.function){
+			color: #e20000;
+		}
 	}
 }
 
