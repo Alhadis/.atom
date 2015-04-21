@@ -1,0 +1,28 @@
+"*":
+  editor:
+    tabLength: 4
+    fontFamily: "Menlo"
+    softTabs: false
+    autoIndentOnPaste: false
+    invisibles: {}
+    fontSize: 11
+    showIndentGuide: true
+  core:
+    themes: [
+      "atom-light-ui"
+      "phoenix-syntax"
+    ]
+    disabledPackages: [
+      "snippets"
+    ]
+  "exception-reporting":
+    userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
+  welcome:
+    showOnStartup: false
+  "tree-view":
+    hideIgnoredNames: true
+  whitespace:
+    ensureSingleTrailingNewline: false
+    removeTrailingWhitespace: false
+  "asciidoc-preview": {}
+  "autoclose-html": {}
