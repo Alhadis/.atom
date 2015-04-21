@@ -24,8 +24,21 @@
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
 
+
+# Display
 'body':
 	'cmd-alt-w':	'window:toggle-invisibles'
 
+
+# Editing
 'atom-text-editor:not([mini])':
 	'cmd-d':		'editor:delete-line'
+	'alt-up':		'editor:move-line-up'
+	'alt-down':		'editor:move-line-down'
+	'cmd-alt-up':	'editor:duplicate-lines'
+
+
+# Character transformation
+'.platform-darwin atom-text-editor':
+	'cmd-shift-U':	'editor:upper-case'
+	'cmd-u':		'editor:lower-case'
