@@ -1,29 +1,22 @@
 @import "syntax-variables";
 
+
 atom-text-editor, :host{
 	background-color:	@syntax-background-color;
 	color:				@syntax-text-color;
 
-	.wrap-guide{
-		background-color: @syntax-wrap-guide-color;
-	}
-
-	.indent-guide{
-		color: @syntax-indent-guide-color;
-	}
-
-	.invisible-character{
-		color: @syntax-invisible-character-color;
-	}
+	.wrap-guide				{	background-color:	@syntax-wrap-guide-color;			}
+	.indent-guide			{	color:				@syntax-indent-guide-color;			}
+	.invisible-character	{	color:				@syntax-invisible-character-color;	}
 
 	.gutter{
-		background-color: @syntax-gutter-background-color;
-		color: @syntax-gutter-text-color;
+		background-color:	@syntax-gutter-background-color;
+		color:				@syntax-gutter-text-color;
 
 		.line-number{
 			&.cursor-line{
-				background-color: @syntax-gutter-background-color-selected;
-				color: @syntax-gutter-text-color-selected;
+				background-color:	@syntax-gutter-background-color-selected;
+				color:				@syntax-gutter-text-color-selected;
 			}
 
 			&.cursor-line-no-selection{
@@ -34,73 +27,39 @@ atom-text-editor, :host{
 
 	.gutter .line-number.folded,
 	.gutter .line-number:after,
-	.fold-marker:after{
-		color: @light-gray;
-	}
-
-	.invisible{
-		color: @syntax-text-color;
-	}
-
-	.cursor{
-		color: @syntax-cursor-color;
-	}
-
-	.selection .region{
-		background-color: @syntax-selection-color;
-	}
+	.fold-marker:after	{	color: @light-gray;							}
+	.invisible			{	color: @syntax-text-color;					}
+	.cursor				{	color: @syntax-cursor-color;				}
+	.selection .region	{	background-color: @syntax-selection-color;	}
 }
 
-atom-text-editor .search-results .marker .region,
-:host .search-results .marker .region{
+
+/** Search markers */
+atom-text-editor	.search-results .marker .region,
+:host				.search-results .marker .region{
 	background-color: transparent;
-	border: 1px solid @syntax-result-marker-color;
+	border: 1px solid #969896;
 }
 
-atom-text-editor .search-results .marker.current-result .region,
-:host .search-results .marker.current-result .region{
-	border: 1px solid @syntax-result-marker-color-selected;
+atom-text-editor	.search-results .marker.current-result .region,
+:host				.search-results .marker.current-result .region{
+	border: 1px solid #fff;
 }
 
-.comment{
-	color: #009a00;
-}
 
-.regexp,
-.regexp *{
-	color: #009a00 !important;
-}
-
-.entity{
-	&.name.type{
-		color: #003a9e;
-	}
-}
+/** Code highlighting */
+.comment					{	color: #009a00;				}
+.regexp, .regexp *			{	color: #009a00 !important;	}
+.entity.name.type			{	color: #003a9e;				}
 
 
 .keyword{
-	&.operator{
-		color: @syntax-text-color;
-	}
-
-	&.other.special-method{
-		color: @blue;
-	}
-
-	&.other.important{
-		color: #ee000b;
-	}
-	
-	&.js, .js > &{
-		color: #00c;
-	}
-	
-	&.php, .php > &{
-		color: #009714;
-		
-		&.operator{
-			color: #0035ff;
-		}
+	&.operator				{	color: @syntax-text-color;	}
+	&.other.special-method	{	color: @blue;				}
+	&.other.important		{	color: #ee000b;				}
+	&.js,	.js  > &		{	color: #00c;				}
+	&.php,	.php > &		{	color: #009714;
+		&.operator{	color: #0035ff;	}
 	}
 }
 
@@ -110,9 +69,8 @@ atom-text-editor .search-results .marker.current-result .region,
 	
 	&.php, .php &{
 		color: #009714;
-		
-		&.function,
-		&.type{
+
+		&.function, &.type{
 			color: #24bf96;
 		}
 	}
@@ -120,48 +78,21 @@ atom-text-editor .search-results .marker.current-result .region,
 
 
 .constant{
-
-	&.other.color{
-		color: #0035ff;
-	}
-
-	&.other.symbol{
-		color: @green;
-	}
-	
-	&.null{
-		color: #00c;
-	}
-	
-	.js > &.numeric{
-		color: #369;
-	}
-	
-	.php, &.php{
-		color: #009714;
-	}
+	&.other.color	{	color: #0035ff;	}
+	&.other.symbol	{	color: @green;	}
+	&.null			{	color: #00c;	}
+	.js > &.numeric	{	color: #369;	}
+	.php, &.php		{	color: #009714;	}
 }
-
 
 
 .variable{
 	color: #00c;
-
-	&.interpolation{
-		color: darken(@red, 10%);
-	}
-
-	&.parameter.function{
-		color: @syntax-text-color;
-	}
-	
-	&.php{
-		color: #000;
-	}
+	&.interpolation			{	color: darken(@red, 10%);	}
+	&.parameter.function	{	color: @syntax-text-color;	}
+	&.php					{	color: #000;	}
 	&.php.global,
-	&.php.global > *{
-		color: #0092f2 !important;
-	}
+	&.php.global > *		{	color: #0092f2 !important;	}
 }
 
 
@@ -174,34 +105,17 @@ atom-text-editor .search-results .marker.current-result .region,
 .string{
 	color: #001eff;
 
-	&.js,
-	.js &{
-		color: #f39;
-	}
-
-	&.other.link{
-		color: @red;
-	}
+	&.js, .js &		{	color: #f39;	}
+	&.other.link	{	color: @red;	}
 }
 
 
 .punctuation{
+
 	&.definition{
-		&.comment{
-			color: @light-gray;
-		}
-
-		&.variable,
-		&.parameters,
-		&.array{
-			color: @syntax-text-color;
-		}
-
-		&.heading,
-		&.identity{
-			color: @blue;
-		}
-
+		&.comment							{	color: @light-gray;			}
+		&.variable,	&.parameters, &.array	{	color: @syntax-text-color;	}
+		&.heading,	&.identity				{	color: @blue;				}
 		&.bold{
 			color: @light-orange;
 			font-weight: bold;
@@ -224,8 +138,7 @@ atom-text-editor .search-results .marker.current-result .region,
 		color: #00c;
 	}
 
-	&.css.function,
-	.css &.function{
+	&.css.function, .css &.function{
 		color: #da29ff;
 
 		&.any-method{
@@ -234,10 +147,9 @@ atom-text-editor .search-results .marker.current-result .region,
 	}
 
 
-	&.php.function,
-	.php &.function{
+	&.php.function,	.php &.function{
 		color: #0035ff;
-		
+
 		&.construct{
 			color: #009714;
 		}
@@ -246,54 +158,24 @@ atom-text-editor .search-results .marker.current-result .region,
 
 
 .entity{
-
-	&.name.section{
-		color: @blue;
-	}
-
-	&.name.tag,
-	&.other.attribute-name{
-		color: #00359e;
-	}
-
-	&.css.other,
-	&.css.other .attribute-name{
-		color: #da29ff;
-	}
+	&.name.section								{	color: @blue;	}
+	&.name.tag,		&.other.attribute-name		{	color: #00359e;	}
+	&.css.other,	&.css.other .attribute-name	{	color: #da29ff;	}
 }
 
 
 .meta{
-	&.class{
-		color: #003a9e;
-	}
-
-	&.link{
-		color: @orange;
-	}
-
-	&.require{
-		color: @blue;
-	}
-
-	&.selector,
-	&.selector > .entity{
-		color: #da29ff;
-	}
+	&.class								{	color: #003a9e;	}
+	&.link								{	color: @orange;	}
+	&.require							{	color: @blue;	}
+	&.selector,	&.selector > .entity	{	color: #da29ff;	}
+	&.tag .punctuation					{	color: #00359e;	}
 
 	&.separator{
 		background-color: @gray;
 		color: @syntax-text-color;
 	}
 
-
-	&.tag{
-		.punctuation{
-			color: #00359e;
-		}
-	}
-	
-	
 	&.css{
 		&.property-name			{	color: #05208c;		}
 		&.property-value		{	color: #0035ff;		}
@@ -303,76 +185,51 @@ atom-text-editor .search-results .marker.current-result .region,
 		.string, .string > *	{	color: #106800 !important;	}
 	}
 
+	/** Doctypes */
 	&.sgml,
 	&.sgml .punctuation{
 		color: #c0c0c0 !important;
 	}
-	
-	
-	&.php{
-		.string:not(.function){
-			color: #e20000;
-		}
+
+	/** PHP string literals */
+	&.php .string:not(.function){
+		color: #e20000;
 	}
 }
+
+
 
 /** CSS media queries */
 .media{
 	color: #430303;
-	
-	> .support.property-name{
-		color: #05208c;
-	}
-	> .numeric.constant{
-		color: #0035ff;
-	}
+
+	> .support.property-name	{	color: #05208c;	}
+	> .numeric.constant			{	color: #0035ff;	}
 }
 
 .none{
 	color: @syntax-text-color;
 }
 
+
 .markup{
-	&.bold{
-		color: @orange;
-		font-weight: bold;
-	}
-
-	&.changed{
-		color: @purple;
-	}
-
-	&.deleted{
-		color: @red;
-	}
-
-	&.italic{
-		color: @purple;
-		font-style: italic;
-	}
+	&.bold		{	color: @orange;	font-weight: bold;	}
+	&.changed	{	color: @purple;						}
+	&.deleted	{	color: @red;						}
+	&.italic	{	color: @purple;	font-style: italic;	}
 
 	&.heading .punctuation.definition.heading{
 		color: @blue;
 	}
 
-	&.inserted{
-		color: @green;
-	}
-
-	&.list{
-		color: @red;
-	}
-
-	&.quote{
-		color: @orange;
-	}
-
-	&.raw.inline{
-		color: @green;
-	}
+	&.inserted	{	color: @green;	}
+	&.list		{	color: @red;	}
+	&.quote		{	color: @orange;	}
+	&.raw.inline{	color: @green;	}
 }
 
 
+/** GitHub-flavoured Markdown */
 .source.gfm .markup{
 	-webkit-font-smoothing: auto;
 
@@ -380,6 +237,7 @@ atom-text-editor .search-results .marker.current-result .region,
 		color: @green;
 	}
 }
+
 
 atom-text-editor[mini] .scroll-view,
 :host([mini]) .scroll-view{
@@ -395,16 +253,7 @@ atom-text-editor[mini] .scroll-view,
 
 /** SQL */
 .sql{
-	
-	.keyword{
-		color: #00c;
-	}
-	
-	.function{
-		color: #001eff;
-	}
-	
-	.numeric{
-		color: #a00;
-	}
+	.keyword	{	color: #00c;	}
+	.function	{	color: #001eff;	}
+	.numeric	{	color: #a00;	}
 }
