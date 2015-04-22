@@ -30,6 +30,11 @@
 	'cmd-alt-w':	'window:toggle-invisibles'
 
 
+# Navigation
+'.workspace .editor:not(.mini)':
+	'cmd-g':		'go-to-line:toggle'
+
+
 # Editing
 'atom-text-editor:not([mini])':
 	'cmd-d':		'editor:delete-line'
