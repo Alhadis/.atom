@@ -129,7 +129,7 @@ atom-text-editor	.search-results .marker.current-result .region,
 	}
 
 	&.section.embedded{
-		color: #f00;
+		color: #f00 !important;
 		font-weight: bold;
 	}
 }
@@ -171,7 +171,7 @@ atom-text-editor	.search-results .marker.current-result .region,
 	&.link								{	color: @orange;	}
 	&.require							{	color: @blue;	}
 	&.selector,	&.selector > .entity	{	color: #da29ff;	}
-	&.tag .punctuation					{	color: #00359e;	}
+	&.tag .punctuation:not(.php)		{	color: #00359e;	}
 
 	&.separator{
 		background-color: @gray;
