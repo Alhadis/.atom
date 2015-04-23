@@ -114,7 +114,7 @@ atom-text-editor	.search-results .marker.current-result .region,
 .punctuation{
 
 	&.definition{
-		&.comment							{	color: @light-gray;			}
+		&.comment							{	color: #009a00;				}
 		&.variable,	&.parameters, &.array	{	color: @syntax-text-color;	}
 		&.heading,	&.identity				{	color: @blue;				}
 		&.bold{
@@ -129,7 +129,8 @@ atom-text-editor	.search-results .marker.current-result .region,
 	}
 
 	&.section.embedded{
-		color: darken(@red, 10%);
+		color: #f00;
+		font-weight: bold;
 	}
 }
 
