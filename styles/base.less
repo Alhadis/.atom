@@ -259,3 +259,25 @@ atom-text-editor[mini] .scroll-view,
 	.function	{	color: #001eff;	}
 	.numeric	{	color: #a00;	}
 }
+
+
+/** Shell-scripts */
+.shell{
+	.function,
+	.builtin,
+	.control,
+	.keyword{
+		color: #00c;
+	}
+
+	.string,
+	.string span{
+		color: #f39 !important;
+	}
+
+	.variable,
+	.tilde,
+	.punctuation.definition.variable{
+		color: inherit;
+	}
+}
