@@ -106,8 +106,8 @@ atom-text-editor	.search-results .marker.current-result .region,
 .string{
 	color: #001eff;
 
-	&.js, .js &		{	color: #f39;	}
-	&.other.link	{	color: @red;	}
+	&.js:not(.html), .js &:not(.html)	{	color: #f39;	}
+	&.other.link						{	color: @red;	}
 }
 
 
@@ -125,6 +125,10 @@ atom-text-editor	.search-results .marker.current-result .region,
 		&.italic{
 			color: @purple;
 			font-style: italic;
+		}
+		
+		&.html.tag{
+			color: #00359e;
 		}
 	}
 
