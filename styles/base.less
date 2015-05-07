@@ -265,6 +265,35 @@ atom-text-editor[mini] .scroll-view,
 }
 
 
+/** Perl */
+.perl{
+
+	.keyword, .support{
+		color: #00c;
+	}
+
+	.string,
+	.string span{
+		color: #f39 !important;
+	}
+	
+	.string.q-ltgt{
+		> .string.begin,
+		> .string.end{
+			color: #00c !important;
+		}
+	}
+	
+	&.variable{
+		color: #906 !important;
+	}
+	
+	.punctuation.definition.variable{
+		color: inherit;
+	}
+}
+
+
 /** Shell-scripts */
 .shell{
 	.function,
