@@ -103,7 +103,7 @@ atom-text-editor	.search-results .marker.current-result .region,
 }
 
 
-.string{
+.string:not(.shell){
 	color: #001eff;
 
 	&.js:not(.html), .js &:not(.html)	{	color: #f39;	}
@@ -303,10 +303,19 @@ atom-text-editor[mini] .scroll-view,
 		color: #00c;
 	}
 
-	.string,
-	.string span{
-		color: #f39 !important;
+	.string:not(.dollar){
+		&, & span{
+			color: #f39 !important;
+		}
 	}
+	
+	.string.dollar{
+		> .begin,
+		> .end{
+			color: inherit !important;
+		}
+	}
+
 
 	.variable,
 	.tilde,
