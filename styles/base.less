@@ -283,11 +283,11 @@ atom-text-editor[mini] .scroll-view,
 			color: #00c !important;
 		}
 	}
-	
+
 	&.variable{
 		color: #906 !important;
 	}
-	
+
 	.punctuation.definition.variable{
 		color: inherit;
 	}
@@ -320,6 +320,16 @@ atom-text-editor[mini] .scroll-view,
 	.variable,
 	.tilde,
 	.punctuation.definition.variable{
+		color: inherit;
+	}
+}
+
+
+
+/** JSON */
+.json{
+	&.expected-dictionary-separator{
+		background-color: transparent;
 		color: inherit;
 	}
 }
