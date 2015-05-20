@@ -31,7 +31,7 @@
 
 
 # Navigation
-'.workspace .editor:not(.mini)':
+'atom-workspace atom-text-editor:not(.mini)':
 	'cmd-g':		'go-to-line:toggle'
 
 '.platform-darwin':
