@@ -37,6 +37,9 @@
 '.platform-darwin':
 	'cmd-0':		'tree-view:toggle'
 
+'atom-text-editor':
+	'cmd-l':		'grammar-selector:show'
+
 
 # Editing
 'atom-text-editor:not([mini])':
