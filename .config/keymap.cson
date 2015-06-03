@@ -47,6 +47,7 @@
 	'alt-up':		'editor:move-line-up'
 	'alt-down':		'editor:move-line-down'
 	'cmd-alt-up':	'editor:duplicate-lines'
+	'ctrl-w':		'whitespace:convert-spaces-to-tabs'
 
 
 # Character transformation
