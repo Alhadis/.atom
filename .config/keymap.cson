@@ -28,6 +28,7 @@
 # Display
 'body':
 	'cmd-alt-w':	'window:toggle-invisibles'
+	'shift-cmd-W':	'editor:toggle-soft-wrap'
 
 
 # Navigation
