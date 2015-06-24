@@ -82,6 +82,7 @@ atom-text-editor	.search-results .marker.current-result .region,
 	&.other.symbol	{	color: @green;	}
 	&.null			{	color: #00c;	}
 	&.boolean		{	color: #00c;	}
+	&.js.other		{	color: #00c;	}
 	.js > &.numeric	{	color: #369;	}
 	.php, &.php		{	color: #009714;	}
 }
@@ -100,6 +101,10 @@ atom-text-editor	.search-results .marker.current-result .region,
 .invalid.illegal{
  	background-color: @red;
 	color: @syntax-background-color;
+
+	.phpdoc &{
+		background-color: transparent !important;
+	}
 }
 
 
