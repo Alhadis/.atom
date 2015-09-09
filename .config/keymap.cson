@@ -34,6 +34,7 @@
 # Navigation
 'atom-workspace atom-text-editor:not(.mini)':
 	'cmd-g':		'go-to-line:toggle'
+	'cmd-enter':	'minimap:toggle'
 
 '.platform-darwin':
 	'cmd-0':		'tree-view:toggle'
