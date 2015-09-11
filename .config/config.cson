@@ -5,8 +5,8 @@
     softTabs: false
     autoIndentOnPaste: false
     invisibles: {}
+    lineHeight: 1.3
     fontSize: 11
-    showIndentGuide: true
   core:
     themes: [
       "atom-light-ui"
@@ -14,6 +14,16 @@
     ]
     disabledPackages: [
       "snippets"
+      "SFTP-deployment"
+      "spell-check"
+      "autocomplete-css"
+      "autocomplete-plus"
+      "compare-files"
+      "merge-conflicts"
+      "atom-compare-files"
+      "background-tips"
+      "welcome"
+      "docblockr"
     ]
   "exception-reporting":
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
@@ -22,7 +32,22 @@
   "tree-view":
     hideIgnoredNames: true
   whitespace:
-    ensureSingleTrailingNewline: false
     removeTrailingWhitespace: false
   "asciidoc-preview": {}
   "autoclose-html": {}
+  "SFTP-deployment": {}
+  "remote-sync": {}
+  "remote-edit": {}
+  "file-icons":
+    coloured: false
+  "recent-files":
+    updated: false
+  "spell-check": {}
+  "autocomplete-plus": {}
+  "atom-beautify":
+    _analyticsUserId: "84a7da30-e058-42d8-9fd2-cc0519eb2781"
+  "status-bar": {}
+  hex: {}
+  docblockr: {}
+  minimap:
+    autoToggle: false
