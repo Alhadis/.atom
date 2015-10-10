@@ -1,11 +1,11 @@
 {
-  "name": "Phoenix-Syntax",
-  "theme": "syntax",
-  "version": "0.0.1",
-  "description": "Personal Atom theme, not intended for anybody else to use/make sense of.",
-  "repository": "https://github.com/Alhadis/Atom-PhoenixTheme",
-  "license": "MIT",
-  "engines": {
-    "atom": ">=0.174.0 <2.0.0"
-  }
+	"name": "Phoenix-Syntax",
+	"theme": "syntax",
+	"version": "0.0.1",
+	"description": "Personal Atom theme, not intended for anybody else to use/make sense of.",
+	"repository": "https://github.com/Alhadis/Atom-PhoenixTheme",
+	"license": "MIT",
+	"engines": {
+		"atom": ">=0.174.0 <2.0.0"
+	}
 }
