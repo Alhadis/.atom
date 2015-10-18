@@ -50,6 +50,7 @@
 	'alt-down':		'editor:move-line-down'
 	'cmd-alt-up':	'editor:duplicate-lines'
 	'ctrl-w':		'whitespace:convert-spaces-to-tabs'
+	'cmd-b':		'atom-beautify:beautify-editor'
 
 
 # Character transformation
