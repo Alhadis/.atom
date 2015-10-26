@@ -57,3 +57,9 @@
 '.platform-darwin atom-text-editor':
 	'cmd-shift-U':	'editor:upper-case'
 	'cmd-u':		'editor:lower-case'
+	'cmd-r':		'unset!'
+
+
+# Find and replace
+'.platform-darwin .find-and-replace':
+	'cmd-r':		'find-and-replace:toggle-regex-option'
