@@ -30,6 +30,10 @@
 	'cmd-alt-w':	'window:toggle-invisibles'
 	'shift-cmd-W':	'editor:toggle-soft-wrap'
 	'cmd-alt-0':	'window:reset-font-size'
+	'cmd-k up':		'unset!'
+	'cmd-k right':	'unset!'
+	'cmd-k left':	'unset!'
+	'cmd-k down':	'unset!'
 
 
 # Navigation
