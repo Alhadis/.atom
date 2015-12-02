@@ -29,7 +29,6 @@
   welcome:
     showOnStartup: false
   "tree-view":
-    hideVcsIgnoredFiles: false
     hideIgnoredNames: true
   whitespace:
     removeTrailingWhitespace: false
