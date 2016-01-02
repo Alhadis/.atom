@@ -40,6 +40,9 @@
 'atom-workspace atom-text-editor:not(.mini)':
 	'cmd-g':		'go-to-line:toggle'
 	'cmd-enter':	'minimap:toggle'
+	'cmd-|':        'bookmarks:toggle-bookmark'
+	'cmd-{':        'bookmarks:jump-to-previous-bookmark'
+	'cmd-}':        'bookmarks:jump-to-next-bookmark'
 
 '.platform-darwin':
 	'cmd-0':		'tree-view:toggle'
