@@ -49,3 +49,5 @@
   hex: {}
   docblockr: {}
   "toggle-quotes": {}
+  "find-and-replace":
+    showSearchWrapIcon: false
