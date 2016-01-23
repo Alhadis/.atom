@@ -46,7 +46,6 @@
 
 '.platform-darwin':
 	'cmd-0':        'tree-view:toggle'
-	'shift-alt-W':  'window:close'
 
 'atom-text-editor':
 	'cmd-l':        'grammar-selector:show'
