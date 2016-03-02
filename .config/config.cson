@@ -1,17 +1,15 @@
 "*":
-  editor:
-    tabLength: 4
-    fontFamily: "Menlo"
-    softTabs: false
-    autoIndentOnPaste: false
-    invisibles: {}
-    lineHeight: 1.3
-    fontSize: 11
+  "SFTP-deployment": {}
+  "asciidoc-preview": {}
+  "atom-beautify":
+    _analyticsUserId: "84a7da30-e058-42d8-9fd2-cc0519eb2781"
+  "atom-material-ui":
+    fonts: {}
+    tabs: {}
+    ui: {}
+  "autoclose-html": {}
+  "autocomplete-plus": {}
   core:
-    themes: [
-      "atom-light-ui"
-      "phoenix-syntax"
-    ]
     disabledPackages: [
       "snippets"
       "SFTP-deployment"
@@ -24,30 +22,35 @@
       "background-tips"
       "welcome"
     ]
+    themes: [
+      "atom-light-ui"
+      "Phoenix-Syntax"
+    ]
+  docblockr: {}
+  editor:
+    autoIndentOnPaste: false
+    fontFamily: "Menlo"
+    fontSize: 11
+    invisibles: {}
+    lineHeight: 1.3
+    softTabs: false
+    tabLength: 4
   "exception-reporting":
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
-  welcome:
-    showOnStartup: false
-  "tree-view":
-    hideIgnoredNames: true
-  whitespace:
-    removeTrailingWhitespace: false
-  "asciidoc-preview": {}
-  "autoclose-html": {}
-  "SFTP-deployment": {}
-  "remote-sync": {}
-  "remote-edit": {}
   "file-icons":
     coloured: false
+  "find-and-replace": {}
+  hex: {}
   "recent-files":
     updated: false
+  "remote-edit": {}
+  "remote-sync": {}
   "spell-check": {}
-  "autocomplete-plus": {}
-  "atom-beautify":
-    _analyticsUserId: "84a7da30-e058-42d8-9fd2-cc0519eb2781"
   "status-bar": {}
-  hex: {}
-  docblockr: {}
   "toggle-quotes": {}
-  "find-and-replace":
-    showSearchWrapIcon: false
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    removeTrailingWhitespace: false
