@@ -381,9 +381,16 @@ atom-text-editor[mini] .scroll-view,
 		color: #f39;
 	}
 	
-	&.system.function{
-		color: #f00;
-		font-weight: bold;
+	&.command{
+		
+		&.name{
+			color: #f00;
+			font-weight: bold;
+		}
+		
+		.parameter{
+			color: #f00;
+		}
 	}
 }
 
