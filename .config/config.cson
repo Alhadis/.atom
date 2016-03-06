@@ -7,6 +7,8 @@
     fonts: {}
     tabs: {}
     ui: {}
+  "auto-detect-indentation":
+    showSpacingInStatusBar: false
   "autoclose-html": {}
   "autocomplete-plus": {}
   core:
