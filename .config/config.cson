@@ -13,7 +13,6 @@
   "autocomplete-plus": {}
   core:
     disabledPackages: [
-      "snippets"
       "SFTP-deployment"
       "spell-check"
       "autocomplete-css"
