@@ -27,6 +27,10 @@
 	"Node Script":
 		prefix: "node"
 		body: '#!/usr/local/bin/node --es_staging\n"use strict";\n\n'
+	
+	"Shell Script":
+		prefix: "sh"
+		body: "#!/bin/sh\nset +o posix;\n\n"
 
 
 # Makefile
