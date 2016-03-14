@@ -38,3 +38,10 @@
 	"Windows check":
 		prefix: "iswin"
 		body: '# Windows: CMD.exe\nifdef SystemRoot\n\tIS_WINDOWS = 1\nendif\n\n# Windows: MinGW / COMMAND.COM\nifdef SYSTEMROOT\n\tIS_WINDOWS = 1\nendif\n\n'
+
+
+# Cascading Style Sheets
+".source.css":
+	"Input Placeholder":
+		prefix: "placeholder"
+		body: "::-webkit-input-placeholder{    $1}\n::-ms-input-placeholder{        $1}\n:-ms-input-placeholder{         $1}\n::-moz-placeholder{opacity: 1;  $1}\n:-moz-placeholder{              $1}\n::placeholder{                  $1}\n:placeholder-shown{             $1}\n"
