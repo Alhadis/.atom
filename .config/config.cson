@@ -23,6 +23,7 @@
       "atom-compare-files"
       "background-tips"
       "welcome"
+      "language-java"
     ]
     themes: [
       "atom-light-ui"

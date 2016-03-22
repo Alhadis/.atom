@@ -45,3 +45,10 @@
 	"Input Placeholder":
 		prefix: "placeholder"
 		body: "::-webkit-input-placeholder{    $1}\n::-ms-input-placeholder{        $1}\n:-ms-input-placeholder{         $1}\n::-moz-placeholder{opacity: 1;  $1}\n:-moz-placeholder{              $1}\n::placeholder{                  $1}\n:placeholder-shown{             $1}\n"
+
+
+# JavaScript
+".source.js":
+	"Comment":
+		prefix: "c"
+		body: "/** $1 */"
