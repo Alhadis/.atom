@@ -65,3 +65,11 @@
 	"Extended Expression":
 		prefix: "xe"
 		body: "'(?x)\n\t$1\n'"
+	
+	# Symptoms of leaning toothpick syndrome:
+	"Escaped Backslash":
+		prefix: "\\"
+		body: "\\\\\\\\\\\\\\\\"
+	"Double Escaped Backslash":
+		prefix: "\\\\"
+		body: "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
