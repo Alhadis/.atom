@@ -62,3 +62,6 @@
 	"Include":
 		prefix: "inc"
 		body: "include: \"#$1\""
+	"Extended Expression":
+		prefix: "xe"
+		body: "'(?x)\n\t$1\n'"
