@@ -56,15 +56,15 @@
 
 # CoffeeScript/CSON
 ".source.coffee":
-	"Patterns":
+	"Patterns (Single-line)":
 		prefix: "pat"
+		body: "patterns: [{$1}]"
+	"Patterns (Multiline)":
+		prefix: "Pat"
 		body: "patterns: [{\n\t$1\n}]"
 	"Include":
 		prefix: "inc"
 		body: "include: \"#$1\""
-	"One-line pattern-inclusion":
-		prefix: "pic"
-		body: "patterns: [{include: \"#$1\"}]"
 	"Extended Expression":
 		prefix: "xe"
 		body: "'(?x)\n\t$1\n'"
