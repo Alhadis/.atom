@@ -76,3 +76,15 @@
 	"Double Escaped Backslash":
 		prefix: "\\\\"
 		body: "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+
+
+# Roff
+".text.roff":
+	"Macro-block header":
+		prefix: "mac"
+		body: """
+		.\\\\"=== ${1:NAME} ==================================================================
+		.\\\\" 1. ${2:Brief description}
+		.\\\\"      Usage:   ${3:Xx [argument-1] [argument-2]}
+		.\\\\"    Example:   ${4:Xx ABC 123}
+		"""
