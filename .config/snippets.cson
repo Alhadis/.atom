@@ -67,7 +67,7 @@
 		body: "include: \"#$1\""
 	"Extended Expression":
 		prefix: "xe"
-		body: "'(?x)\n\t$1\n'"
+		body: '"(?x)\n\t$1\n"'
 	
 	# Symptoms of leaning toothpick syndrome:
 	"Escaped Backslash":
