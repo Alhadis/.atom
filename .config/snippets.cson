@@ -77,6 +77,11 @@
 		prefix: "\\\\"
 		body: "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 
+".source.coffee .oniguruma":
+	"Include":
+		prefix: "inc"
+		body: "Include “#$1”"
+
 
 # Roff
 ".text.roff":
