@@ -1,7 +1,6 @@
 # Atom Phoenix-Syntax
 
-I'm absolutely loving Atom. As I make the gradual switch from Aptana and Text Wrangler towards GitHub's slick, sexy editor,
-I find myself unable to abandon my old coding habits. Being used to an extremely particular workflow for many years is a
-rather difficult thing to shake off, so I decided to preserve all the code-colours and keyboard shortcuts I'm familiar with
-in the form of a public repository. That way it's in the cloud, and I'll never have to keep zipped folders of INI files
-hidden in some remote hard-drive folder ever again.
+Personal theme for [Atom](https://atom.io/), an editor I'll use until I die.
+
+There's nothing here that's of use or value to you. Trust me.
+This is hosted on GitHub so if my computer karks it, I'll still have my personal workflow and setup available in the cloud.
