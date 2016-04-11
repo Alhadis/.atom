@@ -1,4 +1,5 @@
 "*":
+  "popupDismissDelay": 700
   "SFTP-deployment": {}
   "asciidoc-preview": {}
   "atom-beautify":
