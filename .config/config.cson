@@ -24,6 +24,7 @@
       "background-tips"
       "welcome"
       "language-java"
+      "git-time-machine"
     ]
     themes: [
       "atom-light-ui"
