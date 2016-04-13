@@ -1,5 +1,4 @@
 "*":
-  "popupDismissDelay": 700
   "SFTP-deployment": {}
   "asciidoc-preview": {}
   "atom-beautify":
@@ -47,6 +46,7 @@
   "find-and-replace":
     showSearchWrapIcon: false
   hex: {}
+  popupDismissDelay: 700
   "recent-files":
     updated: false
   "remote-edit": {}
