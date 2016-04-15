@@ -57,6 +57,7 @@
   "toggle-quotes": {}
   "tree-view":
     hideIgnoredNames: true
+    openFilesWithSingleClick: true
   welcome:
     showOnStartup: false
   whitespace:
