@@ -68,6 +68,12 @@
 	"Extended Expression":
 		prefix: "xe"
 		body: '"""(?x)\n\t$1\n"""'
+	"Capturing Groups: Begin":
+		prefix: "begin"
+		body: 'beginCaptures:\n\t0: name: "$2"'
+	"Capturing Groups: End":
+		prefix: "end"
+		body: 'endCaptures:\n\t0: name: "$2"'
 	
 	# Symptoms of leaning toothpick syndrome:
 	"Escaped Backslash":
