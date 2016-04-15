@@ -32,6 +32,7 @@ global.traceEmissions = (active) ->
 
 
 # Crude hack until atom/atom#11483 is fixed
+alreadyFolded = false
 atom.commands.add "body", "user:saved-bookmark", (event) ->
 	bookmark = atom.config.get "saved-bookmark"
 	editor = atom.workspace.getActiveTextEditor()
@@ -40,6 +41,16 @@ atom.commands.add "body", "user:saved-bookmark", (event) ->
 		view = editor.viewRegistry.getView editor
 		editor.setCursorBufferPosition bookmark.cursor, autoscroll: false
 		view.setScrollTop bookmark.scroll
+		
+		unless alreadyFolded
+			row    = bookmark.cursor.row
+			lines  = editor.buffer.getLines()?.slice(row)
+			rgRule = /\^\(\[\.'\]\)\[ \\t\]\*\(RG\)\(\?=\[ \\t\\\\\\\\\]\|\$\)"/
+			for i of lines
+				if rgRule.test lines[i]
+					editor.foldBufferRow(row + +i)
+					break
+			alreadyFolded = true
 	
 atom.commands.add "body", "user:reload-window", (event) ->
 	reload = () -> atom.commands.dispatch document.body, "window:reload"
