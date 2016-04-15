@@ -33,8 +33,27 @@ global.traceEmissions = (active) ->
 
 # Crude hack until atom/atom#11483 is fixed
 atom.commands.add "body", "user:saved-bookmark", (event) ->
-	line = atom.config.get("saved-bookmark-line")
-	if line
-		editor = atom.workspace.getActiveTextEditor()
-		editor.setCursorBufferPosition [line, 0], autoscroll: true
-		editor.scrollToBufferPosition [line, 0], center: true
+	bookmark = atom.config.get "saved-bookmark"
+	editor = atom.workspace.getActiveTextEditor()
+	
+	if bookmark and /roff\.cson/.test editor.getPath()
+		view = editor.viewRegistry.getView editor
+		editor.setCursorBufferPosition bookmark.cursor, autoscroll: false
+		view.setScrollTop bookmark.scroll
+	
+atom.commands.add "body", "user:reload-window", (event) ->
+	reload = () -> atom.commands.dispatch document.body, "window:reload"
+	editor = atom.workspace.getActiveTextEditor()
+	path = editor.getPath()
+	
+	if /language-roff\/grammars\/roff\.cson/.test path
+		onChange = atom.config.onDidChange () ->
+			onChange.dispose()
+			reload()
+		
+		view = editor.viewRegistry.getView editor
+		atom.config.set "saved-bookmark",
+			cursor: editor.getCursorBufferPosition()
+			scroll: view.getScrollTop()
+	
+	else reload()
