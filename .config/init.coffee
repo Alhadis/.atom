@@ -17,3 +17,15 @@ atom.workspace.notificationManager.onDidAddNotification (popup) ->
 		setTimeout (->
 			popup.dismiss()
 		), atom.config.get("popupDismissDelay") || 1000
+
+
+# Crude debugging method to see what events we can hook into
+prot = atom.emitter.constructor.prototype
+emit = prot.emit
+global.traceEmissions = (active) ->
+	if active
+		prot.emit = () ->
+			console.log arguments
+			emit.apply @, arguments
+	else
+		prot.emit = emit
