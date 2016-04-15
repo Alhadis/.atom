@@ -25,7 +25,7 @@ emit = prot.emit
 global.traceEmissions = (active) ->
 	if active
 		prot.emit = () ->
-			console.log arguments
+			console.trace arguments
 			emit.apply @, arguments
 	else
 		prot.emit = emit
