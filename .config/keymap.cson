@@ -49,6 +49,7 @@ body:
 	"cmd-|":          "bookmarks:toggle-bookmark"
 	"cmd-{":          "bookmarks:jump-to-previous-bookmark"
 	"cmd-}":          "bookmarks:jump-to-next-bookmark"
+	"shift-cmd-G":    "user:saved-bookmark"
 
 ".platform-darwin":
 	"cmd-0":          "tree-view:toggle"

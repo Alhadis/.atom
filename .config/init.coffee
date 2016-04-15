@@ -29,3 +29,12 @@ global.traceEmissions = (active) ->
 			emit.apply @, arguments
 	else
 		prot.emit = emit
+
+
+# Crude hack until atom/atom#11483 is fixed
+atom.commands.add "body", "user:saved-bookmark", (event) ->
+	line = atom.config.get("saved-bookmark-line")
+	if line
+		editor = atom.workspace.getActiveTextEditor()
+		editor.setCursorBufferPosition [line, 0], autoscroll: true
+		editor.scrollToBufferPosition [line, 0], center: true
