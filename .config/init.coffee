@@ -59,7 +59,7 @@ atom.commands.add "body", "user:saved-bookmark", (event) ->
 atom.commands.add "body", "user:reload-window", (event) ->
 	reload = () -> atom.commands.dispatch document.body, "window:reload"
 	editor = atom.workspace.getActiveTextEditor()
-	path = editor.getPath()
+	path = editor?.getPath()
 	
 	if /language-roff\/grammars\/roff\.cson/.test path
 		onChange = atom.config.onDidChange () ->

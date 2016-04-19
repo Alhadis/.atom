@@ -52,12 +52,12 @@ body:
 	
 	# TODO: Remove once atom/atom#11483 is resolved
 	"cmd-\\":         "user:saved-bookmark"
-	"shift-cmd-R":    "user:reload-window"
 
 ".platform-darwin":
 	"cmd-0":          "tree-view:toggle"
 	"shift-cmd-O":    "application:open-dev"
 #	"shift-cmd-R":    "window:reload" # See above TODO
+	"shift-cmd-R":    "user:reload-window"
 	"ctrl-alt-cmd-l": "unset!"
 	
 
