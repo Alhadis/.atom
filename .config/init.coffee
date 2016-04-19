@@ -31,6 +31,10 @@ global.traceEmissions = (active) ->
 		prot.emit = emit
 
 
+# Disable that useless pending item feature
+atom.workspace.onDidAddPaneItem ({pane}) -> pane.setPendingItem(null)
+
+
 # Crude hack until atom/atom#11483 is fixed
 alreadyFolded = false
 atom.commands.add "body", "user:saved-bookmark", (event) ->

@@ -12,7 +12,6 @@
   "autoclose-html": {}
   "autocomplete-plus": {}
   core:
-    allowPendingPaneItems: false
     disabledPackages: [
       "SFTP-deployment"
       "spell-check"
@@ -54,16 +53,18 @@
   "saved-bookmark":
     cursor:
       column: 24
-      row: 678
-    scroll: 9264
+      row: 45
+    scroll: 0
   "spell-check": {}
   "status-bar": {}
   tabs: {}
   "toggle-quotes": {}
   "tree-view":
     hideIgnoredNames: true
-    openFilesWithSingleClick: true
   welcome:
     showOnStartup: false
   whitespace:
     removeTrailingWhitespace: false
+".antlr.source":
+  editor:
+    tabLength: 4
