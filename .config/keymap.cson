@@ -50,15 +50,11 @@ body:
 	"cmd-|":          "bookmarks:toggle-bookmark"
 	"cmd-{":          "bookmarks:jump-to-previous-bookmark"
 	"cmd-}":          "bookmarks:jump-to-next-bookmark"
-	
-	# TODO: Remove once atom/atom#11483 is resolved
-	"cmd-\\":         "user:saved-bookmark"
 
 ".platform-darwin":
 	"cmd-0":          "tree-view:toggle"
 	"shift-cmd-O":    "application:open-dev"
-#	"shift-cmd-R":    "window:reload" # See above TODO
-	"shift-cmd-R":    "user:reload-window"
+	"shift-cmd-R":    "window:reload"
 	"ctrl-alt-cmd-l": "unset!"
 	
 

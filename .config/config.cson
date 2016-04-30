@@ -51,11 +51,6 @@
     updated: false
   "remote-edit": {}
   "remote-sync": {}
-  "saved-bookmark":
-    cursor:
-      column: 24
-      row: 45
-    scroll: 0
   "spell-check": {}
   "status-bar": {}
   "symbols-tree-view":
