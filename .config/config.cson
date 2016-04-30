@@ -24,6 +24,7 @@
       "welcome"
       "language-java"
       "git-time-machine"
+      "sublime-panes"
     ]
     themes: [
       "atom-light-ui"
@@ -57,6 +58,8 @@
     scroll: 0
   "spell-check": {}
   "status-bar": {}
+  "symbols-tree-view":
+    scrollAnimation: false
   tabs: {}
   "toggle-quotes": {}
   "tree-view":
@@ -66,5 +69,20 @@
   whitespace:
     removeTrailingWhitespace: false
 ".antlr.source":
+  editor:
+    tabLength: 4
+".generic-config.text":
+  editor:
+    tabLength: 4
+".lua.source":
+  editor:
+    tabLength: 4
+".postscript.source":
+  editor:
+    tabLength: 4
+".source.toc":
+  editor:
+    tabLength: 4
+".source.verilog":
   editor:
     tabLength: 4
