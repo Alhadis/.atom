@@ -30,7 +30,7 @@ body:
 	"cmd-alt-w":      "window:toggle-invisibles"
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
 	"cmd-alt-0":      "window:reset-font-size"
-	"shift-cmd-C":    "user:toggle-coloured-icons"
+	"shift-cmd-C":    "file-icons:toggle-colours"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"

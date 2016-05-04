@@ -51,6 +51,9 @@
     updated: false
   "remote-edit": {}
   "remote-sync": {}
+  "seti-ui":
+    compactView: true
+    fileIcons: false
   "spell-check": {}
   "status-bar": {}
   "symbols-tree-view":
@@ -64,6 +67,15 @@
   whitespace:
     removeTrailingWhitespace: false
 ".antlr.source":
+  editor:
+    tabLength: 4
+".applescript.source":
+  editor:
+    tabLength: 4
+".c.source":
+  editor:
+    tabLength: 4
+".cpp.source":
   editor:
     tabLength: 4
 ".generic-config.text":

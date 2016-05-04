@@ -33,9 +33,3 @@ global.traceEmissions = (active) ->
 
 # Disable that useless pending item feature
 atom.workspace.onDidAddPaneItem ({pane}) -> pane.setPendingItem(null)
-
-
-# Shortcut for quickly toggling the coloured icons setting
-atom.commands.add "body", "user:toggle-coloured-icons", (event) ->
-	name  = "file-icons.coloured"
-	atom.config.set name, !(atom.config.get name)
