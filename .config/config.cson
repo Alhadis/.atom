@@ -46,6 +46,8 @@
   "find-and-replace":
     showSearchWrapIcon: false
   hex: {}
+  minimap:
+    autoToggle: false
   popupDismissDelay: 700
   "recent-files":
     updated: false
@@ -91,5 +93,8 @@
   editor:
     tabLength: 4
 ".source.verilog":
+  editor:
+    tabLength: 4
+".source.viml":
   editor:
     tabLength: 4
