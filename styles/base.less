@@ -99,9 +99,16 @@ atom-text-editor    .search-results .marker.current-result .region,
 }
 
 
-.invalid.illegal{
-	background-color: @red;
-	color: @syntax-background-color !important;
+.invalid{
+	
+	&.illegal{
+		background-color: @red;
+		color: @syntax-background-color !important;
+	}
+	
+	&.deprecated{
+		color: @red !important;
+	}
 }
 
 
