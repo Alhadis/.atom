@@ -31,6 +31,7 @@ body:
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
 	"cmd-alt-0":      "window:reset-font-size"
 	"shift-cmd-C":    "file-icons:toggle-colours"
+	"alt-o":          "file-icons:debug-outlines"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
@@ -52,6 +53,7 @@ body:
 	"cmd-|":          "minimap:toggle"
 	"shift-cmd-O":    "application:open-dev"
 	"shift-cmd-R":    "window:reload"
+	"ctrl-shift-R":   "window:run-package-specs"
 	"ctrl-alt-cmd-l": "unset!"
 	
 
