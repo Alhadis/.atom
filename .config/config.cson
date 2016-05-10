@@ -26,6 +26,7 @@
       "git-time-machine"
       "sublime-panes"
     ]
+    openEmptyEditorOnStart: false
     themes: [
       "atom-light-ui"
       "Phoenix-Syntax"
@@ -45,6 +46,7 @@
     coloured: false
   "find-and-replace":
     showSearchWrapIcon: false
+  "grammar-selector": {}
   hex: {}
   minimap:
     autoToggle: false
@@ -68,33 +70,3 @@
     showOnStartup: false
   whitespace:
     removeTrailingWhitespace: false
-".antlr.source":
-  editor:
-    tabLength: 4
-".applescript.source":
-  editor:
-    tabLength: 4
-".c.source":
-  editor:
-    tabLength: 4
-".cpp.source":
-  editor:
-    tabLength: 4
-".generic-config.text":
-  editor:
-    tabLength: 4
-".lua.source":
-  editor:
-    tabLength: 4
-".postscript.source":
-  editor:
-    tabLength: 4
-".source.toc":
-  editor:
-    tabLength: 4
-".source.verilog":
-  editor:
-    tabLength: 4
-".source.viml":
-  editor:
-    tabLength: 4
