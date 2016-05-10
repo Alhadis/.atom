@@ -247,11 +247,38 @@ atom-text-editor    .search-results .marker.current-result .region,
 
 
 /** GitHub-flavoured Markdown */
-.source.gfm .markup{
+.source.gfm{
 	-webkit-font-smoothing: auto;
 
 	&.heading{
 		color: @green;
+	}
+	
+	&.raw, .raw{
+		color: #aaa;
+	}
+
+	/** Hyperlinks */
+	.link{
+		color: #00a;
+		text-decoration: none;
+		
+		/** Displayed name */
+		& > .entity{
+			color: #00f;
+		}
+		
+		& > .underline{
+			text-decoration: underline;
+			& > .punctuation{
+				text-decoration: none;
+			}
+		}
+	}
+	
+	/** Injected link */
+	.markup.underline.link{
+		text-decoration: underline;
 	}
 }
 
