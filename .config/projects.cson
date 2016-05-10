@@ -1,0 +1,131 @@
+Snippets:
+	title: "Snippets"
+	paths: [
+		"/Users/johngardner/Labs/Snippets"
+	]
+"WP-Scratch":
+	title: "WP-Scratch"
+	paths: [
+		"/Users/johngardner/Labs/WP-Scratch/wp-content/themes/scratch"
+		"/Users/johngardner/Labs/WP-Scratch"
+	]
+wordpress:
+	title: "wordpress"
+	paths: [
+		"/Users/johngardner/Labs/wordpress"
+	]
+"WP-HookTracer":
+	title: "WP-HookTracer"
+	paths: [
+		"/Users/johngardner/Labs/WP-HookTracer"
+	]
+Bowstring:
+	title: "Bowstring"
+	paths: [
+		"/Users/johngardner/Labs/Bowstring"
+	]
+"phoenix-syntax":
+	title: "phoenix-syntax"
+	devMode: true
+	paths: [
+		"/Users/johngardner/Labs/Atom/phoenix-syntax"
+	]
+"MA-Scraper":
+	title: "MA-Scraper"
+	paths: [
+		"/Users/johngardner/Jobs/MA-Scraper"
+	]
+JSForm:
+	title: "JSForm"
+	paths: [
+		"/Users/johngardner/Labs/JSForm"
+	]
+".files":
+	title: ".files"
+	devMode: true
+	paths: [
+		"/Users/johngardner/.files"
+	]
+IconForge:
+	title: "IconForge"
+	paths: [
+		"/Users/johngardner/Labs/IconForge"
+	]
+GetOptions:
+	title: "GetOptions"
+	paths: [
+		"/Users/johngardner/Labs/GetOptions"
+	]
+"MA-Mobile":
+	title: "MA-Mobile"
+	paths: [
+		"/Users/johngardner/Jobs/MA-Mobile"
+	]
+Accordion:
+	title: "Accordion"
+	paths: [
+		"/Users/johngardner/Labs/Accordion"
+	]
+Gestures:
+	title: "Gestures"
+	paths: [
+		"/Users/johngardner/Labs/Gestures"
+	]
+"G:":
+	title: "G:"
+	paths: [
+		"/Users/johngardner/VirtualBox/Shared"
+	]
+"Fix-IE":
+	title: "Fix-IE"
+	paths: [
+		"/Users/johngardner/Labs/Fix-IE"
+	]
+Pagination:
+	title: "Pagination"
+	paths: [
+		"/Users/johngardner/Labs/Pagination"
+	]
+"GNU-APL":
+	title: "GNU-APL"
+	paths: [
+		"/Users/johngardner/Forks/GNU-APL"
+	]
+"language-maxscript":
+	title: "language-maxscript"
+	paths: [
+		"/Users/johngardner/Labs/language-maxscript"
+	]
+DOMTokenList:
+	title: "DOMTokenList"
+	paths: [
+		"/Users/johngardner/Labs/DOMTokenList"
+	]
+Tables:
+	title: "Tables"
+	paths: [
+		"/Users/johngardner/Labs/Tables"
+	]
+"language-apl":
+	title: "language-apl"
+	paths: [
+		"/Users/johngardner/Labs/language-apl"
+	]
+"language-roff":
+	title: "language-roff"
+	devMode: true
+	paths: [
+		"/Users/johngardner/Labs/language-roff"
+	]
+"file-icons":
+	title: "file-icons"
+	paths: [
+		"/Users/johngardner/.atom/packages/file-icons"
+	]
+	devMode: true
+"language-viml":
+	title: "language-viml"
+	devMode: true
+	paths: [
+		"/Users/johngardner/.atom/packages/language-viml"
+	]
