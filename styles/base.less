@@ -53,6 +53,10 @@ atom-text-editor    .search-results .marker.current-result .region,
 .entity.name.type           { color: #003a9e;             }
 .underline, .link           { text-decoration: underline; }
 
+&.support:not(.js){ color: #00a; }
+&.function:not(.js),
+&.keyword:not(.js){ color: #00c; }
+
 .keyword{
 	&.operator              { color: @syntax-text-color;  }
 	&.other.special-method  { color: @blue;               }
@@ -409,28 +413,17 @@ atom-text-editor[mini] .scroll-view,
 	color: #001eff;
 }
 
-/** VimL */
-.viml{
-	
-	&.function,
-	&.keyword{
-		color: #00c;
-	}
-	
-	&.support.type{
-		color: #00a;
-	}
-}
 
 /** Python */
 .python{
-	&.keyword,
-	&.function{
-		color: #00c;
-	}
-	
-	&.numeric{
+	&.numeric,
+	&.constant.numeric{
 		color: #906;
+	}
+
+	&.keyword,
+	&.function-call{
+		color: #00c;
 	}
 }
 
