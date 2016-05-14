@@ -31,6 +31,8 @@ body:
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
 	"cmd-alt-0":      "window:reset-font-size"
 	"shift-cmd-C":    "file-icons:toggle-colours"
+	"shift-cmd-M":    "file-icons:toggle-changed-only"
+	"alt-shift-T":    "file-icons:toggle-tab-icons"
 	"alt-o":          "file-icons:debug-outlines"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"

@@ -35,4 +35,16 @@ global.traceEmissions = (active) ->
 atom.workspace.onDidAddPaneItem ({pane}) -> pane.setPendingItem(null)
 
 
+# Create a global reference to the File-Icons package
 global.fi = atom.packages.loadedPackages["file-icons"]
+
+
+# Debugging commands for developing the aforementioned package
+makeSetting = (name, config) ->
+	atom.commands.add "body", "file-icons:toggle-#{name}", ->
+		atom.config.set config, !(atom.config.get config)
+
+makeSetting(key, value) for key, value of {
+	"changed-only": "file-icons.onChanges"
+	"tab-icons":    "file-icons.tabPaneIcon"
+}
