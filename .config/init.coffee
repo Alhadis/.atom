@@ -33,3 +33,6 @@ global.traceEmissions = (active) ->
 
 # Disable that useless pending item feature
 atom.workspace.onDidAddPaneItem ({pane}) -> pane.setPendingItem(null)
+
+
+global.fi = atom.packages.loadedPackages["file-icons"]
