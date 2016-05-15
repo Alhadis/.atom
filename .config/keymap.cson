@@ -58,6 +58,16 @@ body:
 	"ctrl-shift-R":   "window:run-package-specs"
 	"ctrl-alt-cmd-l": "unset!"
 	
+".platform-darwin .tree-view":
+	"cmd-1":          "unset!"
+	"cmd-2":          "unset!"
+	"cmd-3":          "unset!"
+	"cmd-4":          "unset!"
+	"cmd-5":          "unset!"
+	"cmd-6":          "unset!"
+	"cmd-7":          "unset!"
+	"cmd-8":          "unset!"
+	"cmd-9":          "unset!"
 
 "atom-text-editor":
 	"cmd-l":          "grammar-selector:show"
