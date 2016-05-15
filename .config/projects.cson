@@ -121,6 +121,8 @@ Tables:
 	title: "file-icons"
 	paths: [
 		"/Users/johngardner/.atom/packages/file-icons"
+		"/Users/johngardner/Desktop/PathsTest/Root1/Root2"
+		"/Users/johngardner/Desktop/PathsTest"
 	]
 	devMode: true
 "language-viml":
