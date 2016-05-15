@@ -24,8 +24,8 @@ prot = atom.emitter.constructor.prototype
 emit = prot.emit
 global.traceEmissions = (active) ->
 	if active
-		prot.emit = () ->
-			console.trace arguments
+		prot.emit = (name) ->
+			console.trace arguments unless name is "did-update-state"
 			emit.apply @, arguments
 	else
 		prot.emit = emit
