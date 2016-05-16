@@ -48,3 +48,8 @@ makeSetting(key, value) for key, value of {
 	"changed-only": "file-icons.onChanges"
 	"tab-icons":    "file-icons.tabPaneIcon"
 }
+
+
+# Undo whitespace molestation applied by Project-Manager
+{exec} = require "child_process"
+exec "cd #{__dirname}/.. && make could-you-not"
