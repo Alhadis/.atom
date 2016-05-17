@@ -36,7 +36,7 @@ atom.workspace.onDidAddPaneItem ({pane}) -> pane.setPendingItem(null)
 
 
 # Create a global reference to the File-Icons package
-global.fi = atom.packages.loadedPackages["file-icons"]
+global.fi = atom.packages.loadedPackages["file-icons"]?.mainModule
 
 # Lazy alias for atom.grammars.grammarOverridesByPath
 Object.defineProperty global, "overrides",
