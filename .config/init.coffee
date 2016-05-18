@@ -53,6 +53,9 @@ makeSetting(key, value) for key, value of {
 	"tab-icons":    "file-icons.tabPaneIcon"
 }
 
+atom.commands.add "body", "file-icons:open-settings", ->
+	atom.workspace.open("atom://config/packages/file-icons")
+
 
 # Undo whitespace molestation applied by Project-Manager
 {exec} = require "child_process"

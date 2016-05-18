@@ -49,6 +49,7 @@ body:
 # Navigation
 "atom-workspace atom-text-editor:not(.mini)":
 	"cmd-g":          "go-to-line:toggle"
+	"alt-f":          "file-icons:open-settings"
 
 ".platform-darwin":
 	"cmd-0":          "tree-view:toggle"
