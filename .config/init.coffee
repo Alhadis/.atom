@@ -57,3 +57,15 @@ makeSetting(key, value) for key, value of {
 # Undo whitespace molestation applied by Project-Manager
 {exec} = require "child_process"
 exec "cd #{__dirname}/.. && make could-you-not"
+
+
+# Print a message to the console.
+#
+# If more than one argument is provided, they're grouped together in an expandable list.
+log = (text, args...) ->
+	if args.length
+		console.groupCollapsed text
+		console.log(i) for i in args
+		console.groupEnd()
+	else
+		console.trace text
