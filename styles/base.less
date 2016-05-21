@@ -57,9 +57,17 @@ atom-text-editor    .search-results .marker.current-result .region,
 .entity.name.type           { color: #003a9e;             }
 .underline, .link           { text-decoration: underline; }
 
-&.support:not(.js){ color: #00a; }
-&.function:not(.js),
-&.keyword:not(.js){ color: #00c; }
+
+/** Generic function/keyword highlighting */
+.source{
+	&:not(.js),
+	&:not(.apl){
+		
+		&.support{  color: #00a; }
+		&.function{ color: #00c; }
+		&.keyword{  color: #00c; }
+	}
+}
 
 .keyword{
 	&.other.special-method  { color: @blue;               }
