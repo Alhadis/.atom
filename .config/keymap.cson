@@ -49,6 +49,8 @@ body:
 # Navigation
 "atom-workspace atom-text-editor:not(.mini)":
 	"cmd-g":          "go-to-line:toggle"
+	"cmd-[":          "git-diff:move-to-previous-diff"
+	"cmd-]":          "git-diff:move-to-next-diff"
 	"ctrl-f":         "file-icons:open-settings"
 
 ".platform-darwin":
