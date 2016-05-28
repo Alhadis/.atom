@@ -1,9 +1,21 @@
 @import "syntax-variables";
 
-// Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22
+/** Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
 atom-text-editor::shadow .is-focused .cursors .cursor{
 	opacity: 1;
 }
+
+/** Bracket-matcher highlights */
+.bracket-matcher .region{
+	background: lime;
+	outline: 1px solid #0a0;
+	
+	/** Hide bracket-matching pairs unless requested */
+	.scroll-view:not(.show-bracket-matcher) &{
+		visibility: hidden;
+	}
+}
+
 
 atom-text-editor, :host{
 	background-color:   @syntax-background-color;

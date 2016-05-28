@@ -62,13 +62,8 @@ atom.commands.add "body", "file-icons:open-settings", ->
 exec "cd #{__dirname}/.. && make could-you-not"
 
 
-# Print a message to the console.
-#
-# If more than one argument is provided, they're grouped together in an expandable list.
-global.log = (text, args...) ->
-	if args.length
-		console.groupCollapsed text
-		console.log(i) for i in args
-		console.groupEnd()
-	else
-		console.trace text
+# Register command to toggle bracket-matcher
+atom.commands.add "body", "user:toggle-bracket-matcher", ->
+	ed = atom.workspace.getActiveTextEditor()
+	el = ed.getElement()?.shadowRoot.querySelector(".scroll-view")
+	el?.classList.toggle("show-bracket-matcher")
