@@ -58,7 +58,7 @@
 ".source.coffee":
 	"Patterns (Single-line)":
 		prefix: "pat"
-		body: "patterns: [{$1}]"
+		body: "patterns: [$1]"
 	"Patterns (Multiline)":
 		prefix: "Pat"
 		body: "patterns: [{\n\t$1\n}]"
