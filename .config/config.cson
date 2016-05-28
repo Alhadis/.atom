@@ -12,6 +12,16 @@
   "autoclose-html": {}
   "autocomplete-plus": {}
   core:
+    customFileTypes:
+      "nonexistent.language.kek": [
+        "kek"
+      ]
+      "source.matlab": [
+        "m"
+      ]
+      "text.roff": [
+        "mm"
+      ]
     disabledPackages: [
       "SFTP-deployment"
       "spell-check"
@@ -22,8 +32,9 @@
       "atom-compare-files"
       "background-tips"
       "welcome"
-      "language-java"
       "sublime-panes"
+      "language-java"
+      "git-time-machine"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -43,10 +54,12 @@
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
   "file-icons":
     coloured: false
+    iconMatching: {}
   "find-and-replace":
     showSearchWrapIcon: false
   "grammar-selector": {}
   hex: {}
+  "lisp-paredit": {}
   minimap:
     autoToggle: false
   popupDismissDelay: 700
