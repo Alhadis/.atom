@@ -50,7 +50,7 @@
 # JavaScript
 ".source.js":
 	"Comment":
-		prefix: "c"
+		prefix: "/"
 		body: "/** $1 */"
 
 
