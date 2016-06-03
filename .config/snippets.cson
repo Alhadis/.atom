@@ -107,12 +107,3 @@
 		.\\\\" ${2:Text}
 		.\\\\" 
 		"""
-
-# reStructuredText
-".text.restructuredtext, .source.gfm.restructuredtext":
-	"Code block":
-		prefix: "pre"
-		body: ".. code-block::\n\n\t$1"
-	"Code block (Alternate)":
-		prefix: "code"
-		body: ".. code-block::\n\n\t$1"
