@@ -25,15 +25,14 @@
     disabledPackages: [
       "spell-check"
       "autocomplete-css"
-      "autocomplete-plus"
       "background-tips"
       "welcome"
       "language-java"
     ]
     openEmptyEditorOnStart: false
     themes: [
-      "atom-light-ui"
-      "Phoenix-Syntax"
+      "seti-ui"
+      "seti-syntax"
     ]
   docblockr: {}
   editor:
@@ -47,16 +46,14 @@
   "exception-reporting":
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
   "file-icons":
-    coloured: false
     iconMatching: {}
   "find-and-replace":
     showSearchWrapIcon: false
   "grammar-selector": {}
   hex: {}
   "lisp-paredit": {}
-  minimap:
-    autoToggle: false
-  popupDismissDelay: 700
+  minimap: {}
+  popupDismissDelay: 70000
   "recent-files":
     updated: false
   "remote-edit": {}
