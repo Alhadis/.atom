@@ -53,7 +53,7 @@
   hex: {}
   "lisp-paredit": {}
   minimap: {}
-  popupDismissDelay: 70000
+  popupDismissDelay: false
   "recent-files":
     updated: false
   "remote-edit": {}
