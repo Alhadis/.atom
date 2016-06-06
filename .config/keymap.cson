@@ -38,6 +38,7 @@ body:
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
 	"cmd-k down":     "unset!"
+	"alt-cmd-0":      "unset!" # DIE
 	
 	# Disable MRU-tab switching
 	"ctrl-tab":       "pane:show-next-item"
