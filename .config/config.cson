@@ -65,7 +65,8 @@
     compactView: true
     fileIcons: false
   "spell-check": {}
-  "status-bar": {}
+  "status-bar":
+    fullWidth: false
   "symbols-tree-view":
     scrollAnimation: false
   tabs: {}
