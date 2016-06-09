@@ -63,6 +63,11 @@ atom.commands.add "body", "file-icons:open-settings", ->
 exec "cd #{__dirname}/.. && make could-you-not"
 
 
+# Clear .DS_Store junk from desktop when saving files
+atom.workspace.observeTextEditors (editor) ->
+	editor.onDidSave -> setTimeout (-> exec "~/.files/bin/dsclean ~/Desktop"), 50
+
+
 # Register command to toggle bracket-matcher
 atom.commands.add "body", "user:toggle-bracket-matcher", ->
 	ed = atom.workspace.getActiveTextEditor()
