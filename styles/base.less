@@ -72,7 +72,7 @@ atom-text-editor    .search-results .marker.current-result .region,
 
 /** Generic function/keyword highlighting */
 .source{
-	&:not(.js):not(.apl):not(.c){
+	&:not(.js):not(.apl):not(.c):not(.turing){
 		
 		.support{  color: #00a; }
 		.function{ color: #00c; }
@@ -411,6 +411,11 @@ atom-text-editor[mini] .scroll-view,
 		&, & span{
 			color: #f39 !important;
 		}
+		
+		.variable.other,
+		.variable.other span{
+			color: #00c !important;
+		}
 	}
 	
 	.string.dollar{
@@ -420,8 +425,6 @@ atom-text-editor[mini] .scroll-view,
 		}
 	}
 
-
-	.variable,
 	.tilde,
 	.punctuation.definition.variable{
 		color: inherit;
@@ -503,6 +506,21 @@ atom-text-editor[mini] .scroll-view,
 	&.invalid{
 		background: #f00 !important;
 		color: #fff !important;
+	}
+}
+
+/** Turing */
+.turing{
+	.function.entity.name{
+		color: #00f;
+	}
+	
+	.keyword{
+		color: #00f;
+	}
+	
+	.string{
+		color: #f00;
 	}
 }
 

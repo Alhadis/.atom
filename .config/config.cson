@@ -19,6 +19,9 @@
       "source.matlab": [
         "m"
       ]
+      "source.turing": [
+        "t"
+      ]
       "text.roff": [
         "mm"
       ]
@@ -48,6 +51,7 @@
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
   "file-icons":
     coloured: false
+    debugging: {}
     iconMatching: {}
   "find-and-replace":
     showSearchWrapIcon: false
