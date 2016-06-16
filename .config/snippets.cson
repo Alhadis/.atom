@@ -45,9 +45,12 @@
 
 # JavaScript
 ".source.js":
-	"Comment":
+	Comment:
 		prefix: "/"
 		body: "/** $1 */"
+	Babel:
+		prefix: "babel"
+		body: '"use babel";\n"use strict";\n\n'
 
 
 # CoffeeScript/CSON
