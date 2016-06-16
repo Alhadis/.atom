@@ -214,7 +214,6 @@ atom-text-editor    .search-results .marker.current-result .region,
 	&.tag .punctuation:not(.php)        { color: #00359e; }
 
 	&.separator{
-		background-color: @gray;
 		color: @syntax-text-color;
 	}
 
@@ -282,6 +281,56 @@ atom-text-editor    .search-results .marker.current-result .region,
 	&.list       { color: @red;     }
 	&.quote      { color: @orange;  }
 	&.raw.inline { color: @green;   }
+}
+
+
+/** Diffs/patches */
+.diff{
+	@deletion-bg: #ffecec;
+	@deletion-fg: #bd2c00;
+	@addition-bg: #eaffea;
+	@addition-fg: #55a532;
+	
+	.line > &.source{
+		color: #ccc;
+	}
+	
+	&.meta{
+		&.index,
+		&.header.git,
+		&.range.unified{
+			font-weight: bold;
+			color: #795da3;
+		}
+		
+		&.separator{
+			font-weight: bold;
+			color: #1d3e81;
+		}
+		
+		&.header.from-file{
+			background: @deletion-bg !important;
+			color:      @deletion-fg !important;
+		}
+		&.header.to-file{
+			background: @addition-bg !important;
+			color:      @addition-fg !important;
+		}
+	}
+	
+	&.markup{
+		&.deleted,
+		&.deleted > .deleted{
+			background: @deletion-bg !important;
+			color:      @deletion-fg !important;
+		}
+		
+		&.inserted,
+		&.inserted > .inserted{
+			background: @addition-bg !important;
+			color:      @addition-fg !important;
+		}
+	}
 }
 
 
