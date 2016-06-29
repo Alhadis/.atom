@@ -73,3 +73,8 @@ atom.commands.add "body", "user:toggle-bracket-matcher", ->
 	ed = atom.workspace.getActiveTextEditor()
 	el = ed.getElement()?.shadowRoot.querySelector(".scroll-view")
 	el?.classList.toggle("show-bracket-matcher")
+
+
+# Retrieve the contents of the current editor
+Object.defineProperty global, "text",
+	get: -> atom.workspace.getActiveTextEditor().buffer.getText()
