@@ -1,5 +1,6 @@
 Snippets:
 	title: "Snippets"
+	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/Snippets"
 	]
