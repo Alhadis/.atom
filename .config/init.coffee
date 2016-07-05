@@ -78,3 +78,6 @@ atom.commands.add "body", "user:toggle-bracket-matcher", ->
 # Retrieve the contents of the current editor
 Object.defineProperty global, "text",
 	get: -> atom.workspace.getActiveTextEditor().buffer.getText()
+
+
+global.__fileIconsDebugFilter = /Adding grammar/
