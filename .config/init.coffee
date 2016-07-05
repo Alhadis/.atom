@@ -80,4 +80,25 @@ Object.defineProperty global, "text",
 	get: -> atom.workspace.getActiveTextEditor().buffer.getText()
 
 
+
+# "Trendy Faggot" mode
+trendy = atom.config.get("core.themes").includes "seti-ui"
+Object.defineProperty global, "trendy",
+	get: -> trendy
+	set: (i) ->
+		return if i is trendy
+		atom.themes.onDidChangeActiveThemes => atom.reload()
+		
+		if trendy = i
+			atom.packages.enablePackage "autocomplete-plus"
+			atom.config.set "minimap.autoToggle", true
+			atom.config.set "core.themes", ["seti-ui", "seti-syntax"]
+			atom.config.set "file-icons.coloured", true
+		else
+			atom.packages.disablePackage "autocomplete-plus"
+			atom.config.set "minimap.autoToggle", false
+			atom.config.set "core.themes", ["atom-light-ui", "Phoenix-Syntax"]
+			atom.config.set "file-icons.coloured", false
+
+
 global.__fileIconsDebugFilter = /Adding grammar/
