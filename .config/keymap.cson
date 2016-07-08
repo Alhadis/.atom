@@ -30,11 +30,6 @@ body:
 	"cmd-alt-w":      "window:toggle-invisibles"
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
 	"cmd-alt-0":      "window:reset-font-size"
-	"shift-cmd-C":    "file-icons:toggle-colours"
-	"shift-cmd-M":    "file-icons:toggle-changed-only"
-	"alt-shift-T":    "file-icons:toggle-tab-icons"
-	"alt-o":          "file-icons:debug-outlines"
-	"alt-c":          "file-icons:recompile-config"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
@@ -53,7 +48,6 @@ body:
 	"cmd-g":          "go-to-line:toggle"
 	"cmd-[":          "git-diff:move-to-previous-diff"
 	"cmd-]":          "git-diff:move-to-next-diff"
-	"ctrl-f":         "file-icons:open-settings"
 
 ".platform-darwin":
 	"cmd-0":          "tree-view:toggle"
@@ -98,3 +92,13 @@ body:
 # Find and replace
 ".platform-darwin .find-and-replace":
 	"cmd-r":          "find-and-replace:toggle-regex-option"
+
+
+# File-Icons
+"atom-workspace":
+	"shift-cmd-C":    "file-icons:toggle-colours"
+	"shift-cmd-M":    "file-icons:toggle-changed-only"
+	"alt-shift-T":    "file-icons:toggle-tab-icons"
+	"alt-o":          "file-icons:debug-outlines"
+	"alt-c":          "file-icons:recompile-config"
+	"ctrl-f":         "file-icons:open-settings"
