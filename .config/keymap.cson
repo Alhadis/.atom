@@ -34,7 +34,7 @@ body:
 	"shift-cmd-M":    "file-icons:toggle-changed-only"
 	"alt-shift-T":    "file-icons:toggle-tab-icons"
 	"alt-o":          "file-icons:debug-outlines"
-	"alt-c":          "file-icons:recompile-cache"
+	"alt-c":          "file-icons:recompile-config"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
