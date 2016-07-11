@@ -102,3 +102,5 @@ Object.defineProperty global, "trendy",
 
 
 global.__fileIconsDebugFilter = /Adding grammar/
+global.fip = atom.packages.loadedPackages["file-icons"].path + "/"
+global.icons = require(fip + "lib/service/icon-service")
