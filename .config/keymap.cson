@@ -71,6 +71,7 @@ body:
 
 "atom-text-editor":
 	"cmd-l":          "grammar-selector:show"
+	"alt-f":          "user:toggle-faded-tokens"
 
 
 # Editing

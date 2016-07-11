@@ -68,11 +68,22 @@ atom.workspace.observeTextEditors (editor) ->
 	editor.onDidSave -> setTimeout (-> exec "~/.files/bin/dsclean ~/Desktop"), 50
 
 
+# Return a reference to the active text-editor's root element in the Shadow DOM
+getRootEditorElement = ->
+	ed = atom.workspace.getActiveTextEditor()
+	ed.getElement()?.shadowRoot.querySelector(".scroll-view")
+
 # Register command to toggle bracket-matcher
 atom.commands.add "body", "user:toggle-bracket-matcher", ->
-	ed = atom.workspace.getActiveTextEditor()
-	el = ed.getElement()?.shadowRoot.querySelector(".scroll-view")
-	el?.classList.toggle("show-bracket-matcher")
+	el = getRootEditorElement()
+	el?.classList.toggle "show-bracket-matcher"
+
+
+# HACK: Register command to toggle faded tokens
+atom.commands.add "body", "user:toggle-faded-tokens", ->
+	el = getRootEditorElement()
+	el?.classList.toggle "show-faded-tokens"
+	
 
 
 # Retrieve the contents of the current editor
