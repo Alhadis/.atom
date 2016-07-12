@@ -79,6 +79,9 @@
 	"Capturing Groups: End":
 		prefix: "end"
 		body: 'endCaptures:\n\t0: name: "$2"'
+	"Newline Snarf":
+		prefix: "nl"
+		body: 'begin: "\\\\\\\\\\\\\\\\$\\\\\\\\n"\nend: "^"'
 	
 	# Symptoms of leaning toothpick syndrome:
 	"Escaped Backslash":
