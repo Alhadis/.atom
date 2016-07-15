@@ -80,7 +80,7 @@ atom.commands.add "body", "user:toggle-bracket-matcher", ->
 
 
 # HACK: Register command to toggle faded tokens
-atom.commands.add "body", "user:toggle-faded-tokens", ->
+atom.commands.add "atom-workspace", "user:toggle-faded-tokens", ->
 	el = getRootEditorElement()
 	el?.classList.toggle "show-faded-tokens"
 	

@@ -71,7 +71,6 @@ body:
 
 "atom-text-editor":
 	"cmd-l":          "grammar-selector:show"
-	"alt-f":          "user:toggle-faded-tokens"
 
 
 # Editing
@@ -95,7 +94,7 @@ body:
 	"cmd-r":          "find-and-replace:toggle-regex-option"
 
 
-# File-Icons
+# Dev/Temp
 "atom-workspace":
 	"shift-cmd-C":    "file-icons:toggle-colours"
 	"shift-cmd-M":    "file-icons:toggle-changed-only"
@@ -103,3 +102,5 @@ body:
 	"alt-o":          "file-icons:debug-outlines"
 	"alt-c":          "file-icons:recompile-config"
 	"ctrl-f":         "file-icons:open-settings"
+	
+	"alt-f":          "user:toggle-faded-tokens"
