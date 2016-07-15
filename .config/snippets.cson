@@ -82,6 +82,18 @@
 	"Newline Snarf":
 		prefix: "nl"
 		body: 'begin: "\\\\\\\\\\\\\\\\$\\\\\\\\n"\nend: "^"'
+	"Roff Macro":
+		prefix: "mac"
+		body: """
+			name: "meta.function.\\${2:/downcase}.${1:PACKAGE}.macro.roff"
+			begin: "^([.'])[ \\\\t]*(${2:NAME})\\\\\\\\b"
+			end:   "(?<!\\\\\\\\\\\\\\\\)(?=\$)|(?=\\\\\\\\\\\\\\\\\\\\\\")"
+			beginCaptures:
+				1: {name: "punctuation.definition.macro.roff"}
+				2: {name: "entity.function.name.roff"}
+			$3
+		"""
+	
 	
 	# Symptoms of leaning toothpick syndrome:
 	"Escaped Backslash":
