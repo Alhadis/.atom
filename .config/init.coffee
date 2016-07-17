@@ -70,6 +70,11 @@ atom.commands.add "body", "user:toggle-bracket-matcher", ->
 	el?.classList.toggle "show-bracket-matcher"
 
 
+# Command to reset editor's size to my preferred default, not Atom's
+atom.commands.add "atom-workspace", "user:reset-font-size", ->
+	atom.config.set "editor.fontSize", 11
+
+
 # HACK: Register command to toggle faded tokens
 atom.commands.add "atom-workspace", "user:toggle-faded-tokens", ->
 	el = getRootEditorElement()
