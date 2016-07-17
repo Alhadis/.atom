@@ -1,1 +1,37 @@
 @import "./styles/base.less";
+
+/** Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
+atom-text-editor::shadow .is-focused .cursors .cursor{
+	opacity: 1;
+}
+
+/** Bracket-matcher highlights */
+.bracket-matcher .region{
+	background: lime;
+	outline: 1px solid #0a0;
+	
+	/** Hide bracket-matching pairs unless requested */
+	.scroll-view:not(.show-bracket-matcher) &{
+		visibility: hidden;
+	}
+}
+
+
+/** Debugging highlights for language-grammar development */
+.test-1, .test1{ background: #f00 !important; }
+.test-2, .test2{ background: #0e0 !important; }
+.test-3, .test3{ background: #6cf !important; }
+
+.box{
+	outline: 1px solid #ccc;
+	
+	&.test-1, .test1,
+	&.test-2, .test2,
+	&.test-3, .test3{
+		outline-color: #000;
+	}
+	
+	.show-faded-tokens &.faded{
+		opacity: .25;
+	}
+}
