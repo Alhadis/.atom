@@ -21,6 +21,7 @@ global.traceEmissions = (active) ->
 			emit.apply @, arguments
 	else
 		prot.emit = emit
+	undefined
 
 
 # Disable that useless pending item feature
