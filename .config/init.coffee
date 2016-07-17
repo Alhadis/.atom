@@ -11,15 +11,6 @@
 #     console.log "Saved! #{editor.getPath()}"
 
 
-# Hide scope-related notices shortly after displaying them
-if (delay = atom.config.get("popupDismissDelay"))? and delay isnt false
-	atom.workspace.notificationManager.onDidAddNotification (popup) ->
-		if /^\s*Scopes at Cursor/.test(popup.message)
-			setTimeout (->
-				popup.dismiss()
-			), atom.config.get("popupDismissDelay") || 1000
-
-
 # Crude debugging method to see what events we can hook into
 prot = atom.emitter.constructor.prototype
 emit = prot.emit
