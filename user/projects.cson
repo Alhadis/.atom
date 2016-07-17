@@ -29,7 +29,7 @@ Bowstring:
 	title: "Atom Theme"
 	devMode: true
 	paths: [
-		"/Users/johngardner/Labs/Atom/phoenix-syntax"
+		"/Users/johngardner/Labs/Atom-PhoenixTheme"
 	]
 "MA-Scraper":
 	title: "MA-Scraper"

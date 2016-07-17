@@ -1,4 +1,4 @@
-PROJECTS := .config/projects.cson
+PROJECTS := user/projects.cson
 
 # Undo Project-Manager's whitespace molestation
 could-you-not:
