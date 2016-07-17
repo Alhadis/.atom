@@ -5,7 +5,7 @@
 	"version": "0.0.1",
 	"description": "Personal Atom theme, not intended for anybody else to use/make sense of.",
 	"repository": "https://github.com/Alhadis/Atom-PhoenixTheme",
-	"license": "MIT",
+	"license": "ISC",
 	"engines": {
 		"atom": "*"
 	}
