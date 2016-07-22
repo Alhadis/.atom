@@ -55,7 +55,7 @@ atom-text-editor    .search-results .marker.current-result .region,
 
 /** Generic function/keyword highlighting */
 .source{
-	&:not(.js):not(.apl):not(.c):not(.turing){
+	&:not(.js):not(.apl):not(.c):not(.cpp):not(.turing){
 		
 		.support{  color: #00a; }
 		.function{ color: #00c; }
@@ -379,10 +379,14 @@ atom-text-editor[mini] .scroll-view,
 }
 
 
-/** C */
-.c{
+/** C/C++ */
+.c, .cpp{
 	.keyword, .any-method, .C99{
 		color: #00c
+	}
+	
+	&.entity.name.function{
+		color: #00f;
 	}
 	
 	&.preprocessor{
