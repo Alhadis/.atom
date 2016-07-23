@@ -1,7 +1,7 @@
 @import "./styles/base.less";
 
 /** Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
-atom-text-editor::shadow .is-focused .cursors .cursor{
+:host(.is-focused) .cursors .cursor{
 	opacity: 1;
 }
 
