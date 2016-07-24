@@ -86,6 +86,7 @@ atom.commands.add "atom-workspace", "user:toggle-faded-tokens", ->
 # Retrieve the contents of the current editor
 Object.defineProperty global, "text",
 	get: -> atom.workspace.getActiveTextEditor().buffer.getText()
+	set: -> atom.workspace.getActiveTextEditor().buffer.setText arguments[0]
 
 
 
