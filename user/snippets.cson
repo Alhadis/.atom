@@ -28,6 +28,9 @@
 		prefix: "sh"
 		body: "#!/bin/sh\nset +o posix;\n\n"
 
+	Perl:
+		prefix: "pl"
+		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\n$1"
 
 # Makefile
 ".source.makefile":
