@@ -74,6 +74,7 @@ Gestures:
 	]
 "G:":
 	title: "G:"
+	devMode: true
 	paths: [
 		"/Users/johngardner/VirtualBox/Shared"
 	]
