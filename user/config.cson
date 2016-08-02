@@ -57,6 +57,8 @@
     showSearchWrapIcon: false
   "grammar-selector": {}
   hex: {}
+  "language-applescript":
+    autoCompile: false
   "lisp-paredit": {}
   minimap:
     autoToggle: false
