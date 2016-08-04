@@ -54,6 +54,9 @@
 	Comment:
 		prefix: "/"
 		body: "/** $1 */"
+	DocBlock:
+		prefix: "/*"
+		body: "/**\n * $1\n */"
 	Babel:
 		prefix: "babel"
 		body: '"use babel";\n"use strict";\n\n'
