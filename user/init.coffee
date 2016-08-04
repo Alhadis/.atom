@@ -89,6 +89,10 @@ Object.defineProperty global, "text",
 	set: -> atom.workspace.getActiveTextEditor().buffer.setText arguments[0]
 
 
+# Access the currently active editor
+Object.defineProperty global, "ed",
+	get: -> atom.workspace.getActiveTextEditor()
+
 
 # "Trendy Faggot" mode
 trendy = atom.config.get("core.themes").includes "seti-ui"
