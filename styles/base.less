@@ -237,6 +237,11 @@ atom-text-editor    .search-results .marker.current-result .region,
 	&.meta.function-call > .support.function.js{
 		color: #00c;
 	}
+	
+	&.support.function,
+	&.entity.function.name{
+		color: #00f;
+	}
 }
 
 
@@ -487,6 +492,10 @@ atom-text-editor[mini] .scroll-view,
 .sigil-map{
 	&.meta.mapping &.string.unquoted{
 		color: #f00;
+	}
+	
+	&.entity.name{
+		color: #001eff;
 	}
 }
 
