@@ -60,6 +60,8 @@
   "language-applescript":
     autoCompile: false
   "lisp-paredit": {}
+  "markdown-preview":
+    useGitHubStyle: true
   minimap:
     autoToggle: false
   popupDismissDelay: false
