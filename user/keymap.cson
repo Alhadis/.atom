@@ -34,6 +34,7 @@ body:
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
 	"cmd-k down":     "unset!"
+	"cmd-m":          "unset!" # TODO: Make a make task
 	
 	# Disable MRU-tab switching
 	"ctrl-tab":       "pane:show-next-item"
