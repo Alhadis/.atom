@@ -85,3 +85,6 @@
     showOnStartup: false
   whitespace:
     removeTrailingWhitespace: false
+".atom-mocha":
+  editor:
+    fontSize: 13
