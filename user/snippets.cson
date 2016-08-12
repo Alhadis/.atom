@@ -76,6 +76,12 @@
 	Strict:
 		prefix: "js"
 		body: '"use strict";\n\n$1'
+	"Node-friendly log":
+		prefix: "nog"
+		body: 'console.log(JSON.stringify($1, null, "\\\\t"));'
+	Require:
+		prefix: "req"
+		body: 'const ${1:module} = require("${1:module}");'
 
 
 # CoffeeScript/CSON
