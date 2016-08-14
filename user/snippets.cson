@@ -82,6 +82,9 @@
 	Require:
 		prefix: "req"
 		body: 'const ${1:module} = require("${1:module}");'
+	For:
+		prefix: "for"
+		body: "for(let i = 0, l = ${1:array}.length; i < l; ++i){\n\t$2\n}"
 
 
 # CoffeeScript/CSON
