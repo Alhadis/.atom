@@ -88,6 +88,10 @@
 	For:
 		prefix: "for"
 		body: "for(let i = 0, l = ${1:array}.length; i < l; ++i){\n\tlet ${2:item} = ${1:array}[i];\n\t$3\n}"
+	"Read Stdin":
+		prefix: "stdin"
+		body: 'process.stdin.setEncoding("UTF8");\nprocess.stdin.on("readable", () => {\n\tlet chunk = process.stdin.read();\n\tif(null !== chunk){\n\t\t$1\n\t}\n})\n'
+		
 
 
 # CoffeeScript/CSON
