@@ -64,9 +64,12 @@
 	Babel:
 		prefix: "babel"
 		body: '"use babel";\n"use strict";\n\n'
+	Dir:
+		prefix: "dir"
+		body: "console.dir($1);$0"
 	Info:
 		prefix: "info"
-		body: 'console.info($1);$0'
+		body: "console.info($1);$0"
 	Spec:
 		prefix: "it"
 		body: 'it("$1", function(){\n\t$2\n});'
