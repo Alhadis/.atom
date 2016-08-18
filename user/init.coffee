@@ -55,6 +55,12 @@ atom.commands.add "body", "file-icons:open-settings", ->
 exec "cd #{__dirname}/.. && make could-you-not"
 
 
+# Command to run GNU Make from project directory
+atom.commands.add "atom-workspace", "user:make", ->
+	projectPath = atom.project.getPaths()?[0]
+	exec "cd '#{projectPath}' && make"
+
+
 # Clear .DS_Store junk from desktop when saving files
 atom.workspace.observeTextEditors (editor) ->
 	editor.onDidSave -> setTimeout (-> exec "~/.files/bin/dsclean ~/Desktop"), 50
