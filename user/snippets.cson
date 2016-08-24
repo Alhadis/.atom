@@ -72,10 +72,10 @@
 		body: "console.info($1);$0"
 	Spec:
 		prefix: "it"
-		body: 'it("$1", function(){\n\t$2\n});'
+		body: 'it("$1", () => {\n\t$2\n});'
 	"Spec Description":
 		prefix: "ds"
-		body: 'describe("$1", function(){\n\t$2\n});'
+		body: 'describe("$1", () => {\n\t$2\n});'
 	Strict:
 		prefix: "js"
 		body: '"use strict";\n\n$1'
