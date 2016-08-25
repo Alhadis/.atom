@@ -8,5 +8,8 @@
 	"license": "ISC",
 	"engines": {
 		"atom": "*"
+	},
+	"dependencies": {
+		"print": "*"
 	}
 }
