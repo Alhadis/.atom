@@ -10,16 +10,6 @@ Snippets:
 		"/Users/johngardner/Labs/WP-Scratch/wp-content/themes/scratch"
 		"/Users/johngardner/Labs/WP-Scratch"
 	]
-wordpress:
-	title: "wordpress"
-	paths: [
-		"/Users/johngardner/Labs/wordpress"
-	]
-"WP-HookTracer":
-	title: "WP-HookTracer"
-	paths: [
-		"/Users/johngardner/Labs/WP-HookTracer"
-	]
 Bowstring:
 	title: "Bowstring"
 	paths: [
@@ -129,8 +119,8 @@ reStructuredText:
 	]
 "language-emacs-lisp":
 	title: "language-emacs-lisp"
-	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/language-emacs-lisp"
 		"/Users/johngardner/Documents/Code-related/emacs-lisp"
 	]
+	devMode: true
