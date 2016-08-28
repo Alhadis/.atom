@@ -117,10 +117,3 @@ reStructuredText:
 	paths: [
 		"/Users/johngardner/.atom/packages/language-restructuredtext"
 	]
-"language-emacs-lisp":
-	title: "language-emacs-lisp"
-	paths: [
-		"/Users/johngardner/Labs/language-emacs-lisp"
-		"/Users/johngardner/Documents/Code-related/emacs-lisp"
-	]
-	devMode: true

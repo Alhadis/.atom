@@ -126,13 +126,3 @@ global.icons = require(fip + "lib/service/icon-service")
 
 
 global.print = require "print"
-
-
-# Temporary command: Toggle Lisps
-atom.commands.add "body", "user:toggle-lisps", ->
-	gram = ed.getGrammar().scopeName
-	gbsn = atom.grammars.grammarsByScopeName
-	A    = "source.emacs.lisp"
-	B    = "source.common.lisp"
-	if(gram is A)      then ed.setGrammar gbsn[B]
-	else if(gram is B) then ed.setGrammar gbsn[A]
