@@ -149,6 +149,13 @@
 		body: "Include “#$1”"
 
 
+# Perl
+".source.perl":
+	"Invocant":
+		prefix: "me"
+		body: "my \$self = shift;\n"
+
+
 # Roff
 ".text.roff":
 	"Macro-block header":
