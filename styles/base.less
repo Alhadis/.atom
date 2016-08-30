@@ -430,12 +430,17 @@ atom-text-editor[mini] .scroll-view,
 		color: #00c;
 	}
 
-	.string:not(.regexp){
+	.string,
+	.string > *{
 		color: #f39 !important;
 		
 		&.variable,
 		&.escape{
 			color: #00c !important;
+		}
+		
+		&.comment-ish{
+			color: #090 !important;
 		}
 	}
 	
