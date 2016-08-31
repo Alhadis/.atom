@@ -30,7 +30,7 @@
 
 	Perl:
 		prefix: "pl"
-		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\n$1"
+		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
 
 	"Boilerplate HTML":
 		prefix: "htmldoc"
@@ -154,6 +154,9 @@
 	"Invocant":
 		prefix: "me"
 		body: "my \$self = shift;\n"
+	"Executable":
+		prefix: "pl"
+		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
 
 
 # Roff
