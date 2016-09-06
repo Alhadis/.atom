@@ -17,11 +17,16 @@ emit = prot.emit
 global.traceEmissions = (active) ->
 	if active
 		prot.emit = (name) ->
-			console.trace arguments unless name is "did-update-state"
+			unless name is "did-update-state"
+				emissions.push Array.from arguments
+				console.trace arguments
 			emit.apply @, arguments
 	else
 		prot.emit = emit
 	undefined
+
+global.emissions = Object.defineProperty [], "log",
+	get: -> this.map((e) -> e[0]).join("\n")
 
 
 # Disable that useless pending item feature
