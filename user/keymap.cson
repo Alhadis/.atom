@@ -81,7 +81,7 @@ body:
 	"alt-down":       "editor:move-line-down"
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"ctrl-w":         "whitespace:convert-spaces-to-tabs"
-	"cmd-p":          "unset!" # For temporary commands
+	"cmd-p":          "user:temp-1" # For temporary commands
 
 
 # Character transformation
