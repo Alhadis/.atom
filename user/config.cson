@@ -31,6 +31,7 @@
       "background-tips"
       "welcome"
       "language-java"
+      "language-python"
       "autocomplete-plus"
     ]
     openEmptyEditorOnStart: false
