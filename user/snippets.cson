@@ -95,7 +95,20 @@
 	"Read Stdin":
 		prefix: "stdin"
 		body: 'process.stdin.setEncoding("UTF8");\nprocess.stdin.on("readable", () => {\n\tlet chunk = process.stdin.read();\n\tif(null !== chunk){\n\t\t$1\n\t}\n})\n'
-		
+	
+	# Module shortcuts for the impatient programmer
+	"Module - Filesystem":
+		prefix: "fs"
+		body: 'const fs = require("fs");$1'
+	"Module - Path":
+		prefix: "pat"
+		body: 'const path = require("path");$1'
+	"Module - Child Process":
+		prefix: "cp"
+		body: 'const childProcess = require("child_process");$1'
+	"Module - Print":
+		prefix: "print"
+		body: 'const print = require("print");$1'
 
 
 # CoffeeScript/CSON
