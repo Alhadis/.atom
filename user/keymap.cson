@@ -82,6 +82,7 @@ body:
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"ctrl-w":         "whitespace:convert-spaces-to-tabs"
 	"cmd-p":          "user:temp-1" # For temporary commands
+	"alt-f":          "user:temp-2"
 
 
 # Character transformation
@@ -104,5 +105,8 @@ body:
 	"alt-o":          "file-icons:debug-outlines"
 	"alt-c":          "file-icons:recompile-config"
 	"ctrl-f":         "file-icons:open-settings"
-	
-	"alt-f":          "user:toggle-faded-tokens"
+
+
+# Language-specific
+"atom-text-editor[data-grammar^='source emacs lisp']":
+	"cmd-p": "language-emacs-lisp:run-selection"
