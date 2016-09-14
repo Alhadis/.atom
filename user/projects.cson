@@ -99,6 +99,13 @@ Tables:
 	paths: [
 		"/Users/johngardner/Labs/language-roff"
 	]
+"language-emacs-lisp":
+	title: "language-emacs-lisp"
+	devMode: true
+	paths: [
+		"/Users/johngardner/Labs/language-emacs-lisp"
+		"/Users/johngardner/Documents/Code-related/emacs-lisp"
+	]
 "file-icons":
 	title: "file-icons"
 	paths: [
