@@ -42,7 +42,7 @@
   docblockr: {}
   editor:
     autoIndentOnPaste: false
-    fontFamily: "Menlo"
+    fontFamily: "Menlig"
     fontSize: 11
     invisibles: {}
     lineHeight: 1.3
