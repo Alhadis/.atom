@@ -50,7 +50,11 @@ atom-text-editor    .search-results .marker.current-result .region,
 .comment, .comment-ish      { color: #009a00;             }
 .regexp, .regexp *          { color: #009a00 !important;  }
 .entity.name.type           { color: #003a9e;             }
-.underline, .link           { text-decoration: underline; }
+
+.link, .underline{
+	text-decoration: underline;
+	font-variant-ligatures: no-contextual;
+}
 
 
 /** Generic function/keyword highlighting */
