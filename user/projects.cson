@@ -124,3 +124,9 @@ reStructuredText:
 	paths: [
 		"/Users/johngardner/.atom/packages/language-restructuredtext"
 	]
+"TMCG-Spec":
+	title: "TMCG-Spec"
+	devMode: true
+	paths: [
+		"/Users/johngardner/Labs/TMCG-Spec"
+	]
