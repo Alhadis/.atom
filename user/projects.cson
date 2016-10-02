@@ -16,7 +16,7 @@ Bowstring:
 		"/Users/johngardner/Labs/Bowstring"
 	]
 "phoenix-syntax":
-	title: "Atom Theme"
+	title: "@Atom Theme"
 	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/Atom-PhoenixTheme"
