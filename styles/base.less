@@ -53,7 +53,12 @@ atom-text-editor    .search-results .marker.current-result .region,
 
 .link, .underline{
 	text-decoration: underline;
-	font-variant-ligatures: no-contextual;
+}
+
+
+/** Bunch double-slashes using a discretionary ligature */
+.comment.line.double-slash > .punctuation.definition.comment{
+	font-variant-ligatures: discretionary-ligatures;
 }
 
 
