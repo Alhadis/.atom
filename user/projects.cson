@@ -24,16 +24,19 @@ Snippets:
 	]
 "language-maxscript":
 	title: "language-maxscript"
+	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/language-maxscript"
 	]
 Tables:
 	title: "Tables"
+	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/Tables"
 	]
 "language-apl":
 	title: "language-apl"
+	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/language-apl"
 	]
