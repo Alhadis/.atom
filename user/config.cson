@@ -39,8 +39,8 @@
   docblockr: {}
   editor:
     autoIndentOnPaste: false
-    fontFamily: "Menlig"
-    fontSize: 11
+    fontFamily: "Menlo"
+    fontSize: 24
     invisibles: {}
     lineHeight: 1.3
     softTabs: false
@@ -83,6 +83,9 @@
     showOnStartup: false
   whitespace:
     removeTrailingWhitespace: false
+".apl.source":
+  editor:
+    fontSize: 24
 ".atom-mocha":
   editor:
     fontSize: 13

@@ -29,7 +29,7 @@
 body:
 	"cmd-alt-w":      "window:toggle-invisibles"
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
-	"cmd-alt-0":      "user:reset-font-size"
+	"cmd-0":          "user:reset-font-size"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
@@ -50,7 +50,7 @@ body:
 	"cmd-]":          "git-diff:move-to-next-diff"
 
 ".platform-darwin":
-	"cmd-0":          "tree-view:toggle"
+	"cmd-alt-0":      "tree-view:toggle"
 	"cmd-|":          "minimap:toggle"
 	"shift-cmd-O":    "application:open-dev"
 	"shift-cmd-R":    "window:reload"
