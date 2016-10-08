@@ -81,8 +81,6 @@ body:
 	"alt-down":       "editor:move-line-down"
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"ctrl-w":         "whitespace:convert-spaces-to-tabs"
-	"cmd-p":          "user:temp-1" # For temporary commands
-	"alt-f":          "user:temp-2"
 
 
 # Character transformation
@@ -100,12 +98,10 @@ body:
 # Dev/Temp
 "atom-workspace":
 	"shift-cmd-C":    "file-icons:toggle-colours"
-	"shift-cmd-M":    "file-icons:toggle-changed-only"
-	"alt-shift-T":    "file-icons:toggle-tab-icons"
 	"alt-o":          "file-icons:debug-outlines"
-	"alt-c":          "file-icons:recompile-config"
 	"ctrl-f":         "file-icons:open-settings"
-
+	"cmd-p":          "user:temp-1" # For temporary commands
+	"alt-f":          "user:temp-2"
 
 # Language-specific
 "atom-text-editor[data-grammar^='source emacs lisp']":
