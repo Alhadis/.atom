@@ -4,32 +4,11 @@ Snippets:
 	paths: [
 		"/Users/johngardner/Labs/Snippets"
 	]
-"WP-Scratch":
-	title: "WP-Scratch"
-	paths: [
-		"/Users/johngardner/Labs/WP-Scratch/wp-content/themes/scratch"
-		"/Users/johngardner/Labs/WP-Scratch"
-	]
-Bowstring:
-	title: "Bowstring"
-	paths: [
-		"/Users/johngardner/Labs/Bowstring"
-	]
 "phoenix-syntax":
 	title: "@Atom Theme"
 	devMode: true
 	paths: [
 		"/Users/johngardner/Labs/Atom-PhoenixTheme"
-	]
-"MA-Scraper":
-	title: "MA-Scraper"
-	paths: [
-		"/Users/johngardner/Jobs/MA-Scraper"
-	]
-JSForm:
-	title: "JSForm"
-	paths: [
-		"/Users/johngardner/Labs/JSForm"
 	]
 ".files":
 	title: ".files"
@@ -37,51 +16,16 @@ JSForm:
 	paths: [
 		"/Users/johngardner/.files"
 	]
-IconForge:
-	title: "IconForge"
-	paths: [
-		"/Users/johngardner/Labs/IconForge"
-	]
-GetOptions:
-	title: "GetOptions"
-	paths: [
-		"/Users/johngardner/Labs/GetOptions"
-	]
-"MA-Mobile":
-	title: "MA-Mobile"
-	paths: [
-		"/Users/johngardner/Jobs/MA-Mobile"
-	]
-Accordion:
-	title: "Accordion"
-	paths: [
-		"/Users/johngardner/Labs/Accordion"
-	]
-Gestures:
-	title: "Gestures"
-	paths: [
-		"/Users/johngardner/Labs/Gestures"
-	]
 "G:":
 	title: "G:"
 	devMode: true
 	paths: [
 		"/Users/johngardner/VirtualBox/Shared"
 	]
-"GNU-APL":
-	title: "GNU-APL"
-	paths: [
-		"/Users/johngardner/Forks/GNU-APL"
-	]
 "language-maxscript":
 	title: "language-maxscript"
 	paths: [
 		"/Users/johngardner/Labs/language-maxscript"
-	]
-DOMTokenList:
-	title: "DOMTokenList"
-	paths: [
-		"/Users/johngardner/Labs/DOMTokenList"
 	]
 Tables:
 	title: "Tables"
