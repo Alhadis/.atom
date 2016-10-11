@@ -50,7 +50,6 @@ body:
 	"cmd-]":          "git-diff:move-to-next-diff"
 
 ".platform-darwin":
-	"cmd-alt-0":      "tree-view:toggle"
 	"cmd-|":          "minimap:toggle"
 	"shift-cmd-O":    "application:open-dev"
 	"shift-cmd-R":    "window:reload"

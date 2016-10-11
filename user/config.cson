@@ -39,8 +39,8 @@
   docblockr: {}
   editor:
     autoIndentOnPaste: false
-    fontFamily: "Menlo"
-    fontSize: 24
+    fontFamily: "Menlig"
+    fontSize: 11
     invisibles: {}
     lineHeight: 1.3
     softTabs: false

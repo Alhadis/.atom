@@ -1,4 +1,5 @@
 @import "./styles/base.less";
+@import "./styles/typography.less";
 
 /** Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
 :host(.is-focused) .cursors .cursor{
@@ -42,19 +43,4 @@
 .tmcg .regexp,
 .tmcg .regexp :not(.comment):not(.hyperlink){
 	color: #001eff !important;
-}
-
-
-
-/** XXX: Use a different version of editor's typeface */
-@font-face {
-	font-family: Menlig-Alt;
-	font-weight: normal;
-	font-style: normal;
-	src: url("atom://Phoenix-Syntax/fonts/Menlig-Regular.otf") format("opentype");
-} /**/
-
-.menlig-alt atom-text-editor,
-.menlig-alt :host{
-	font-family: Menlig-Alt;
 }
