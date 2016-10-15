@@ -53,6 +53,7 @@ body:
 	"cmd-|":          "minimap:toggle"
 	"shift-cmd-O":    "application:open-dev"
 	"shift-cmd-R":    "window:reload"
+	"alt-shift-W":    "window:close"
 	"ctrl-shift-R":   "window:run-package-specs"
 	"ctrl-alt-cmd-l": "unset!"
 	"cmd-p":          "unset!"
