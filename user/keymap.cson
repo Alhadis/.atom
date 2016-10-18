@@ -70,9 +70,6 @@ body:
 	"cmd-8":          "unset!"
 	"cmd-9":          "unset!"
 
-"atom-text-editor":
-	"cmd-l":          "grammar-selector:show"
-	"alt-f":          "unset!"
 
 # Editing
 "atom-text-editor:not([mini])":
@@ -83,8 +80,12 @@ body:
 	"ctrl-w":         "whitespace:convert-spaces-to-tabs"
 
 
-# Character transformation
 ".platform-darwin atom-text-editor":
+	"shift-cmd-e":    "user:specsaver"
+	"cmd-l":          "grammar-selector:show"
+	"alt-f":          "unset!"
+	
+	# Character transformation
 	"cmd-shift-U":    "editor:upper-case"
 	"cmd-u":          "editor:lower-case"
 	"cmd-r":          "unset!"
