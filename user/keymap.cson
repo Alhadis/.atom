@@ -103,7 +103,3 @@ body:
 	"ctrl-f":         "file-icons:open-settings"
 	"cmd-p":          "user:temp-1" # For temporary commands
 	"alt-f":          "user:temp-2"
-
-# Language-specific
-"atom-text-editor[data-grammar^='source emacs lisp']":
-	"cmd-p": "language-emacs-lisp:run-selection"
