@@ -3,6 +3,14 @@ atom-notification.remove{
 	-webkit-animation-duration: 0ms !important;
 }
 
+/** Disable blinking cursors for other themes */
+atom-text-editor::shadow, :host{
+	
+	& .is-focused .cursors .cursor{
+		opacity: 1 !important;
+	}
+}
+
 .perl-icon::before{
 	content: "\E669";
 	font-size: 15px;
