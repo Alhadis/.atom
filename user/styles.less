@@ -3,11 +3,16 @@ atom-notification.remove{
 	-webkit-animation-duration: 0ms !important;
 }
 
-/** Disable blinking cursors for other themes */
 atom-text-editor::shadow, :host{
 	
-	& .is-focused .cursors .cursor{
-		opacity: 1 !important;
+	& .is-focused{
+		
+		/** Disable blinking cursors for other themes */
+		.cursors .cursor{
+			opacity: 1 !important;
+		}
+		
+		/** Temporary syntax styling goes here */
 	}
 }
 

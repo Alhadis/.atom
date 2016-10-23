@@ -78,6 +78,7 @@ body:
 	"alt-down":       "editor:move-line-down"
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"ctrl-w":         "whitespace:convert-spaces-to-tabs"
+	"ctrl-u":         "lines:unique"
 
 
 ".platform-darwin atom-text-editor":
