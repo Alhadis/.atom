@@ -1,8 +1,4 @@
 "*":
-  "SFTP-deployment": {}
-  "asciidoc-preview": {}
-  "atom-beautify":
-    _analyticsUserId: "84a7da30-e058-42d8-9fd2-cc0519eb2781"
   "atom-material-ui":
     fonts: {}
     tabs: {}
@@ -13,9 +9,6 @@
   "autocomplete-plus": {}
   core:
     customFileTypes:
-      "nonexistent.language.kek": [
-        "kek"
-      ]
       "source.turing": [
         "t"
       ]
@@ -54,7 +47,6 @@
   "find-and-replace":
     showSearchWrapIcon: false
   "grammar-selector": {}
-  hex: {}
   "language-applescript":
     autoCompile: false
   "lisp-paredit": {}
@@ -65,8 +57,6 @@
   popupDismissDelay: false
   "recent-files":
     updated: false
-  "remote-edit": {}
-  "remote-sync": {}
   "seti-ui":
     compactView: true
     fileIcons: false
