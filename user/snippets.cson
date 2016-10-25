@@ -221,6 +221,33 @@
 		"""
 
 
+# ASCII mnemonics for Unicode symbols
+".text.plain, .string.quoted, .source.gfm, .comment":
+	€:
+		prefix: "C="
+		body: "€"
+	″:
+		prefix: ",,"
+		body: "″"
+	™:
+		prefix: "TM"
+		body: "™"
+	©:
+		prefix: "(C)"
+		body: "©"
+	©2:
+		prefix: "(c)"
+		body: "©"
+	®:
+		prefix: "(R)"
+		body: "®"
+	®2:
+		prefix: "(r)"
+		body: "®"
+	×:
+		prefix: "x"
+		body: "× "
+
 
 # Shell-scripts
 ".source.shell":
