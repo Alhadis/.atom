@@ -112,7 +112,10 @@
 		body: 'process.stdin.setEncoding("UTF8");\nprocess.stdin.on("readable", () => {\n\tlet chunk = process.stdin.read();\n\tif(null !== chunk){\n\t\t$1\n\t}\n})\n'
 	Print:
 		prefix: "print"
-		body: 'print.out($1);$2'
+		body: "print.out($1);$2"
+	Promise:
+		prefix: "prom"
+		body: "return new Promise(resolve => {\n\t$1\n});"
 	
 	# Module shortcuts for the impatient programmer
 	"Module - Filesystem":
