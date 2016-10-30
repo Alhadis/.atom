@@ -1,87 +1,103 @@
-Snippets:
-	title: "Snippets"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/Snippets"
-	]
-"phoenix-syntax":
-	title: "@Atom Theme"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/Atom-PhoenixTheme"
-	]
-".files":
-	title: ".files"
-	devMode: true
-	paths: [
-		"/Users/johngardner/.files"
-	]
-"G:":
-	title: "G:"
-	devMode: true
-	paths: [
-		"/Users/johngardner/VirtualBox/Shared"
-	]
-"language-maxscript":
-	title: "language-maxscript"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/language-maxscript"
-	]
-Tables:
-	title: "Tables"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/Tables"
-	]
-"language-apl":
-	title: "language-apl"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/language-apl"
-	]
-"language-roff":
-	title: "language-roff"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/language-roff"
-	]
-"language-emacs-lisp":
-	title: "language-emacs-lisp"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/language-emacs-lisp"
-		"/Users/johngardner/Documents/Code-related/emacs-lisp"
-	]
-"file-icons":
-	title: "file-icons"
-	paths: [
-		"/Users/johngardner/.atom/packages/file-icons"
-	]
-	devMode: true
-"language-viml":
-	title: "language-viml"
-	devMode: true
-	paths: [
-		"/Users/johngardner/.atom/packages/language-viml"
-	]
-reStructuredText:
-	title: "reStructuredText"
-	devMode: true
-	paths: [
-		"/Users/johngardner/.atom/packages/language-restructuredtext"
-	]
-"TMCG-Spec":
-	title: "TMCG-Spec"
-	devMode: true
-	paths: [
-		"/Users/johngardner/Labs/TMCG-Spec"
-	]
-"FI-V2":
-	title: "FI-V2"
-	paths: [
-		"/Users/johngardner/Labs/FI-V2"
-		"/Users/johngardner/Documents/config"
-		"/Users/johngardner/.atom/packages/file-icons"
-	]
-	devMode: true
+[
+	{
+		title: "Snippets"
+		paths: [
+			"/Users/johngardner/Labs/Snippets"
+		]
+		devMode: true
+	}
+	{
+		title: "@Atom Theme"
+		paths: [
+			"/Users/johngardner/Labs/Atom-PhoenixTheme"
+		]
+		devMode: true
+	}
+	{
+		title: ".files"
+		paths: [
+			"/Users/johngardner/.files"
+		]
+		devMode: true
+	}
+	{
+		title: "G:"
+		paths: [
+			"/Users/johngardner/VirtualBox/Shared"
+		]
+		devMode: true
+	}
+	{
+		title: "language-maxscript"
+		paths: [
+			"/Users/johngardner/Labs/language-maxscript"
+		]
+		devMode: true
+	}
+	{
+		title: "Tables"
+		paths: [
+			"/Users/johngardner/Labs/Tables"
+		]
+		devMode: true
+	}
+	{
+		title: "language-apl"
+		paths: [
+			"/Users/johngardner/Labs/language-apl"
+		]
+		devMode: true
+	}
+	{
+		title: "language-roff"
+		paths: [
+			"/Users/johngardner/Labs/language-roff"
+		]
+		devMode: true
+	}
+	{
+		title: "language-emacs-lisp"
+		paths: [
+			"/Users/johngardner/Labs/language-emacs-lisp"
+			"/Users/johngardner/Documents/Code-related/emacs-lisp"
+		]
+		devMode: true
+	}
+	{
+		title: "file-icons"
+		paths: [
+			"/Users/johngardner/.atom/packages/file-icons"
+		]
+		devMode: true
+	}
+	{
+		title: "language-viml"
+		paths: [
+			"/Users/johngardner/.atom/packages/language-viml"
+		]
+		devMode: true
+	}
+	{
+		title: "reStructuredText"
+		paths: [
+			"/Users/johngardner/.atom/packages/language-restructuredtext"
+		]
+		devMode: true
+	}
+	{
+		title: "TMCG-Spec"
+		paths: [
+			"/Users/johngardner/Labs/TMCG-Spec"
+		]
+		devMode: true
+	}
+	{
+		title: "FI-V2"
+		paths: [
+			"/Users/johngardner/Labs/FI-V2"
+			"/Users/johngardner/Documents/config"
+			"/Users/johngardner/.atom/packages/file-icons"
+		]
+		devMode: true
+	}
+]
