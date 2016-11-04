@@ -53,7 +53,7 @@
 		prefix: "placeholder"
 		body: "::-webkit-input-placeholder{    $1}\n::-ms-input-placeholder{        $1}\n:-ms-input-placeholder{         $1}\n::-moz-placeholder{opacity: 1;  $1}\n:-moz-placeholder{              $1}\n::placeholder{                  $1}\n:placeholder-shown{             $1}\n"
 
-	"Comment":
+	Comment:
 		prefix: "/"
 		body: "/** $1 */"
 	
@@ -140,7 +140,7 @@
 	"Patterns (Multiline)":
 		prefix: "Pat"
 		body: "patterns: [{\n\t$1\n}]"
-	"Include":
+	Include:
 		prefix: "inc"
 		body: "include: \"#$1\""
 	"Extended Expression":
@@ -182,20 +182,25 @@
 		body: "console.info $0"
 
 ".source.coffee .oniguruma":
-	"Include":
+	Include:
 		prefix: "inc"
 		body: "Include “#$1”"
 
 
 # Perl
 ".source.perl":
-	"Invocant":
+	Invocant:
 		prefix: "me"
 		body: "my \$self = shift;\n"
-	"Executable":
+	Executable:
 		prefix: "pl"
 		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
-
+	Dumper:
+		prefix: "dumper"
+		body: "use Data::Dumper;"
+	Dump:
+		prefix: "dump"
+		body: "print Dumper(${1:$data});"
 
 # Ruby
 ".source.ruby":
@@ -250,10 +255,16 @@
 	×:
 		prefix: "x"
 		body: "× "
+	→:
+		prefix: "->"
+		body: "→"
+	←:
+		prefix: "<-"
+		body: "←"
 
 
 # Shell-scripts
 ".source.shell":
-	"Getopts":
+	Getopts:
 		prefix: "opt"
 		body: "while getopts ${1:opt} ${2:option}; do\n\tcase $${2:option} in\n\t\t${3:o) SOME=THING;;}\n\tesac\ndone\nshift $((OPTIND - 1))"
