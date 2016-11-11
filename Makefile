@@ -117,3 +117,11 @@ could-you-not:
 
 .PHONY: could-you-not
 projects := user/projects.cson
+
+
+
+# Update list of installed packages
+package-list:
+	@packages=$$(apm list --bare --installed --no-dev --no-links | sed -r 's/@[^@]+$$//; /^\s*$$/d' | sort -df); \
+	perl -i -p0e '$$L="'"$$(echo $$packages)"'";$$L=~s/\s+/ \\\n\t/g;s|installed-packages\s*:=\s*\\\n\K(?:.+\\\n)+\s*\S+.*$$|\t$$L|m' \
+		$(abspath $(lastword $(MAKEFILE_LIST)))
