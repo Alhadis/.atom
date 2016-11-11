@@ -1,15 +1,15 @@
 [
 	{
-		title: "Snippets"
+		title: "@Atom Theme"
 		paths: [
-			"/Users/johngardner/Labs/Snippets"
+			"/Users/johngardner/Labs/Atom-PhoenixTheme"
 		]
 		devMode: true
 	}
 	{
-		title: "@Atom Theme"
+		title: "Snippets"
 		paths: [
-			"/Users/johngardner/Labs/Atom-PhoenixTheme"
+			"/Users/johngardner/Labs/Snippets"
 		]
 		devMode: true
 	}
