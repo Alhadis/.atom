@@ -113,7 +113,7 @@ $(addprefix $(package-dir)/,$(symlinked-projects)):
 
 # Undo Project-Manager's whitespace molestation
 could-you-not:
-	@$$(git diff --exit-code -w $(projects)) && git checkout -- $(projects)
+	@$$(git diff --exit-code --quiet -w $(projects)) && git checkout -- $(projects)
 
 .PHONY: could-you-not
 projects := user/projects.cson

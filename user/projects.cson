@@ -95,8 +95,6 @@
 		title: "FI-V2"
 		paths: [
 			"/Users/johngardner/Labs/FI-V2"
-			"/Users/johngardner/Documents/config"
-			"/Users/johngardner/.atom/packages/file-icons"
 		]
 		devMode: true
 	}
