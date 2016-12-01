@@ -5,10 +5,15 @@
     ui: {}
   "auto-detect-indentation":
     showSpacingInStatusBar: false
-  "autoclose-html": {}
   "autocomplete-plus": {}
   core:
     customFileTypes:
+      "source.python": [
+        "WATCHLISTS"
+        "DEPS"
+        "gclient"
+        "gclient_entries"
+      ]
       "source.turing": [
         "t"
       ]
@@ -23,13 +28,13 @@
       "language-java"
       "language-python"
       "autocomplete-plus"
+      "editorconfig"
     ]
     openEmptyEditorOnStart: false
     themes: [
       "atom-light-ui"
       "Phoenix-Syntax"
     ]
-  docblockr: {}
   editor:
     autoIndentOnPaste: false
     fontFamily: "Menlig"
@@ -42,7 +47,6 @@
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
   "file-icons":
     coloured: false
-    debugging: {}
     iconMatching: {}
   "find-and-replace":
     showSearchWrapIcon: false
@@ -54,19 +58,12 @@
     useGitHubStyle: true
   minimap:
     autoToggle: false
-  popupDismissDelay: false
-  "recent-files":
-    updated: false
   "seti-ui":
     compactView: true
     fileIcons: false
-  "spell-check": {}
   "status-bar":
     fullWidth: false
-  "symbols-tree-view":
-    scrollAnimation: false
   tabs: {}
-  "toggle-quotes": {}
   "tree-view":
     hideIgnoredNames: true
   welcome:
