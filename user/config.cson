@@ -47,7 +47,7 @@
     userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
   "file-icons":
     coloured: false
-    iconMatching: {}
+    strategies: {}
   "find-and-replace":
     showSearchWrapIcon: false
   "grammar-selector": {}
