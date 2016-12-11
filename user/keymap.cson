@@ -74,7 +74,7 @@ body:
 # Dev/Temp
 "atom-workspace":
 	"shift-cmd-C":    "file-icons:toggle-colours"
-	"alt-o":          "file-icons:debug-outlines"
+	"alt-o":          "file-icons:show-outlines"
 	"ctrl-f":         "file-icons:open-settings"
 	"cmd-p":          "user:temp-1" # For temporary commands
 	"alt-f":          "user:temp-2"
