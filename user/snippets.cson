@@ -90,13 +90,15 @@
 	"Read Stdin":
 		prefix: "stdin"
 		body: """
-			return new Promise(resolve => {
+			new Promise(resolve => {
 				let input = "";
 				process.stdin.setEncoding("UTF8");
 				process.stdin.on("readable", () => {
 					const chunk = process.stdin.read();
 					null !== chunk ? input += chunk : resolve(input);
 				})
+			}).then(data => {
+				$1
 			});
 		"""
 	Print:
