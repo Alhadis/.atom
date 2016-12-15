@@ -54,6 +54,9 @@
 
 # JavaScript
 ".source.js":
+	"Anonymous Arrow Function":
+		prefix: "a"
+		body: "() => $1"
 	Comment:
 		prefix: "/"
 		body: "// $1"
@@ -63,9 +66,15 @@
 	"Console - Dir":
 		prefix: "dir"
 		body: "console.dir($1);$0"
+	"Console - Error":
+		prefix: "err"
+		body: "console.error($1);$0"
 	"Console - Info":
 		prefix: "info"
 		body: "console.info($1);$0"
+	"Console - Log":
+		prefix: "log"
+		body: "console.log($1);$0"
 	"Console - Trace":
 		prefix: "trace"
 		body: "console.trace($1);$0"
@@ -121,6 +130,11 @@
 	"Module - Print":
 		prefix: "Print"
 		body: 'const print = require("print");$1'
+
+".source.js .punctuation.definition.arguments.end.bracket.round.js":
+	"Console - Log":
+		prefix: "log"
+		body: "console.log(\"$1\")$0"
 
 
 # CoffeeScript/CSON
