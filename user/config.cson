@@ -17,6 +17,9 @@
       "source.turing": [
         "t"
       ]
+      "text.generic-config": [
+        "mocha.opts"
+      ]
       "text.roff": [
         "mm"
       ]
