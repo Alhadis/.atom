@@ -8,6 +8,7 @@ atom-notification.remove{
 	display: none !important;
 }
 
+
 atom-text-editor::shadow, :host{
 	
 	& .is-focused{
@@ -32,4 +33,15 @@ atom-text-editor::shadow, :host{
 	font-size: 15px;
 	font-family: Devicons;
 	top: 2px;
+}
+
+// File Icons: Outlines for icon adjustment
+.file-icons-show-outlines{
+	.icon{
+		outline: 1px solid blue;
+		
+		&:before{
+			outline: 1px solid red;
+		}
+	}
 }
