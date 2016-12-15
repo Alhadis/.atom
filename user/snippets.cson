@@ -259,3 +259,18 @@
 	Getopts:
 		prefix: "opt"
 		body: "while getopts ${1:opt} ${2:option}; do\n\tcase $${2:option} in\n\t\t${3:o) SOME=THING;;}\n\tesac\ndone\nshift $((OPTIND - 1))"
+	For…in:
+		prefix: "for"
+		body: """
+			${1:ITEMS}=(${2:alpha beta});
+			for ${3:i} in "\${${1:ITEMS}[@]}"; do
+				echo "\$${3:i}";$4
+			done;
+		"""
+	Case:
+		prefix: "case"
+		body: """
+			case $name in
+				value) name=$OPTARG ;;
+			esac
+		"""
