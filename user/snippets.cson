@@ -68,6 +68,8 @@
 	DocBlock:
 		prefix: "/*"
 		body: "/**\n * $1\n */"
+	
+	# Logging
 	"Console - Dir":
 		prefix: "dir"
 		body: "console.dir($1);$0"
@@ -83,18 +85,34 @@
 	"Console - Trace":
 		prefix: "trace"
 		body: "console.trace($1);$0"
+	
+	# Specs
 	Spec:
 		prefix: "it"
 		body: 'it("$1", () => {\n\t$2\n});'
 	"Spec Description":
 		prefix: "ds"
 		body: 'describe("$1", () => {\n\t$2\n});'
+	"Spec Description II":
+		prefix: "when"
+		body: 'describe("When $1", () => {\n\t$2\n});'
+	Before:
+		prefix: "before"
+		body: "before(() => {\n\t$1\n});"
+	BeforeEach:
+		prefix: "each"
+		body: "beforeEach(() => {\n\t$1\n$1});"
+	After:
+		prefix: "after"
+		body: "after(() => {\n\t$1\n});"
+	AfterEach:
+		prefix: "afterEach"
+		body: "afterEach(() => {\n\t$1\n});"
+
+	# Other crap
 	Strict:
 		prefix: "js"
 		body: '"use strict";\n\n$1'
-	"Node-friendly log":
-		prefix: "nog"
-		body: 'console.log(JSON.stringify($1, null, "\\\\t"));'
 	Require:
 		prefix: "req"
 		body: 'const ${1:module} = require("${1:module}");'
