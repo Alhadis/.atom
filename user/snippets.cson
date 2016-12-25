@@ -304,6 +304,9 @@
 				echo "\$${3:i}";$4
 			done;
 		"""
+	"File Loop":
+		prefix: "eachfile"
+		body: "for i in $@; do $1; done;"
 	Case:
 		prefix: "case"
 		body: """
