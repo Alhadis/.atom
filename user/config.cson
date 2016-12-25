@@ -30,8 +30,8 @@
       "welcome"
       "language-java"
       "language-python"
-      "autocomplete-plus"
       "editorconfig"
+      "autocomplete-plus"
     ]
     openEmptyEditorOnStart: false
     themes: [

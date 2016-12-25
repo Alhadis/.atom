@@ -93,9 +93,23 @@
 	"Spec Description":
 		prefix: "ds"
 		body: 'describe("$1", () => {\n\t$2\n});'
-	"Spec Description II":
+	When:
 		prefix: "when"
-		body: 'describe("When $1", () => {\n\t$2\n});'
+		body: """
+			when("$1", () =>
+				it("$2", () => {
+					$3
+				}));
+		"""
+	"When - Braced closure":
+		prefix: "When"
+		body: """
+			when("$1", () => {
+				it("$2", () => {
+					$3
+				});
+			});
+		"""
 	Before:
 		prefix: "before"
 		body: "before(() => {\n\t$1\n});"
