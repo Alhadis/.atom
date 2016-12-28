@@ -92,4 +92,10 @@
 		]
 		devMode: true
 	}
+	{
+		title: "File"
+		paths: [
+			"/Users/johngardner/Mirrors/File"
+		]
+	}
 ]
