@@ -85,17 +85,10 @@
 		devMode: true
 	}
 	{
-		title: "FI-V2"
-		paths: [
-			"/Users/johngardner/Labs/FI-V2"
-			"/Users/johngardner/Labs/file-icons"
-		]
-		devMode: true
-	}
-	{
 		title: "File"
 		paths: [
 			"/Users/johngardner/Mirrors/File"
 		]
+		devMode: true
 	}
 ]
