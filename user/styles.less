@@ -1,31 +1,17 @@
-/** Get rid of that distracting... wobble-thing */
+// Get rid of that distracting... wobble-thing
 atom-notification.remove{
 	-webkit-animation-duration: 0ms !important;
 }
 
-/** Hide EditorConfig's status-bar tile */
+// Hide EditorConfig's status-bar tile
 .status-bar-right > div[class="inline-block"]{
 	display: none !important;
 }
 
 
-atom-text-editor::shadow, :host{
-	
-	& .is-focused{
-		
-		/** Disable blinking cursors for other themes */
-		.cursors .cursor{
-			opacity: 1 !important;
-		}
-		
-		/** Temporary syntax styling goes here * /
-		.nested.property-list { background-color: rgba(0,255,0,.15); }
-		.nested.selector.css  { background-color: rgba(255,0,0,.15); }
-		/*
-		.nested.selector.css{      outline: 1px solid #a00; }
-		.nested.property-list.css{ outline: 1px solid #0a0; }
-		/**/
-	}
+// Disable blinking cursors for other themes
+atom-text-editor.is-focused .cursors .cursor{
+	opacity: 1 !important;
 }
 
 .perl-icon::before{

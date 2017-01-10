@@ -1,24 +1,25 @@
 /* OpenType features */
 
+@import "syntax-variables";
 @dlig: discretionary-ligatures;
 @calt: contextual;
 
 
-atom-text-editor, :host{
+atom-text-editor{
 	font-variant-ligatures: contextual;
 }
 
 // Bunched double-slashes
-.comment.line.double-slash > .punctuation.definition.comment{
+.@{_}comment.@{_}line.@{_}double-slash > .@{_}punctuation.@{_}definition.@{_}comment{
 	font-variant-ligatures: @dlig;
 }
 
 // Haskell compound operators
-.haskell.keyword{
+.@{_}haskell.@{_}keyword{
 	font-variant-ligatures: @dlig;
 }
 
 // APL
-.apl.spaced.keyword{
+.@{_}apl.@{_}spaced.@{_}keyword{
 	font-feature-settings: "ss01";
 }

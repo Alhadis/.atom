@@ -30,7 +30,7 @@
       "welcome"
       "language-java"
       "language-python"
-      "editorconfig"
+      "nuclide"
       "autocomplete-plus"
     ]
     openEmptyEditorOnStart: false

@@ -1,6 +1,6 @@
 @import "syntax-variables";
 
-atom-text-editor, :host{
+atom-text-editor{
 	background-color:   @syntax-background-color;
 	color:              @syntax-text-color;
 
@@ -33,317 +33,335 @@ atom-text-editor, :host{
 }
 
 
-/** Search markers */
-atom-text-editor    .search-results .marker .region,
-:host               .search-results .marker .region{
-	background-color: transparent;
-	border: 1px solid #969896;
-}
+// Search markers
+atom-text-editor .search-results .@{_}marker{
+	.region{
+		background-color: transparent;
+		border: 1px solid #969896;
+	}
+	
+	&.current-result .region{
+		border: 1px solid #fff;
+	}
+} 
 
-atom-text-editor    .search-results .marker.current-result .region,
-:host               .search-results .marker.current-result .region{
-	border: 1px solid #fff;
-}
 
 
 /** Code highlighting */
-.comment, .comment-ish      { color: #009a00;             }
-.regexp, .regexp *          { color: #009a00 !important;  }
-.entity.name.type           { color: #003a9e;             }
+.@{_}comment,
+.@{_}comment-ish              { color: #009a00;             }
+.@{_}regexp, .@{_}regexp *    { color: #009a00 !important;  }
+.@{_}entity.@{_}name.@{_}type { color: #003a9e;             }
 
-.link, .underline{
+.@{_}link, .@{_}underline{
 	text-decoration: underline;
 }
 
 
 
 /** Generic function/keyword highlighting */
-.source{
-	&:not(.js):not(.apl):not(.c):not(.cpp):not(.turing){
+.@{_}source{
+	&:not(.@{_}js):not(.@{_}apl):not(.@{_}c):not(.@{_}cpp):not(.@{_}turing){
 		
-		.support{  color: #00a; }
-		.function{ color: #00c; }
-		.keyword{  color: #00c; }
+		.@{_}support{  color: #00a; }
+		.@{_}function{ color: #00c; }
+		.@{_}keyword{  color: #00c; }
 	}
 }
 
-.keyword{
-	&.other.special-method  { color: @blue;   }
-	&.other.important       { color: #ee000b; }
-	&.js,   .js  > &        { color: #00c;    }
-	&.php,  .php > &        { color: #009714; }
-	&.operator              { color: #0035ff; }
+.@{_}keyword{
+	&.@{_}other.@{_}special-method  { color: @blue;   }
+	&.@{_}other.@{_}important       { color: #ee000b; }
+	&.@{_}js,   .@{_}js  > &        { color: #00c;    }
+	&.@{_}php,  .@{_}php > &        { color: #009714; }
+	&.@{_}operator                  { color: #0035ff; }
 }
 
 
-.storage:not(.apl){
+.@{_}storage:not(.@{_}apl){
 	color: #00c;
 	
-	&.php, .php &{
+	&.@{_}php, .@{_}php &{
 		color: #009714;
 
-		&.function, &.type{
+		&.@{_}function,
+		&.@{_}type{
 			color: #24bf96;
 		}
 	}
 }
 
 
-.constant{
-	&.other.color   { color: #0035ff;   }
-	&.other.symbol  { color: @green;    }
-	&.null          { color: #00c;      }
-	&.boolean       { color: #00c;      }
-	&.js.other      { color: #00c;      }
-	.js > &.numeric { color: #369;      }
-	.php, &.php     { color: #009714;   }
+.@{_}constant{
+	&.@{_}other.@{_}color   { color: #0035ff;   }
+	&.@{_}other.@{_}symbol  { color: @green;    }
+	&.@{_}null              { color: #00c;      }
+	&.@{_}boolean           { color: #00c;      }
+	&.@{_}js.@{_}other      { color: #00c;      }
+	.@{_}js > &.@{_}numeric { color: #369;      }
+	.@{_}php, &.@{_}php     { color: #009714;   }
 	
-	&.lisp.other.symbol{
+	&.@{_}lisp.@{_}other.@{_}symbol{
 		color: #00c;
 	}
 }
 
 
-.variable,
-.constant{
+.@{_}variable,
+.@{_}constant{
 	color: #00c;
-	&.interpolation         { color: darken(@red, 10%);   }
-	&.parameter.function    { color: @syntax-text-color;  }
-	&.php                   { color: #000;                }
-	&.php.global,
-	&.php.global > *        { color: #0092f2 !important;  }
+	&.@{_}interpolation          { color: darken(@red, 10%);   }
+	&.@{_}parameter.@{_}function { color: @syntax-text-color;  }
+	&.@{_}php                    { color: #000;                }
+	&.@{_}php.@{_}global,
+	&.@{_}php.@{_}global > *     { color: #0092f2 !important;  }
 }
 
 
-.invalid{
+.@{_}invalid{
 	
-	&.illegal{
+	&.@{_}illegal{
 		background-color: @red;
 		color: @syntax-background-color !important;
 	}
 	
-	&.deprecated{
+	&.@{_}deprecated{
 		color: @red !important;
 	}
 	
-	&.yaml.whitespace{
+	&.@{_}yaml.@{_}whitespace{
 		background-color: inherit !important;
 	}
 }
 
 
-.string:not(.shell){
+.@{_}string:not(.@{_}shell){
 	color: #001eff;
 
-	&.js:not(.html), .js &:not(.html)   { color: #f39; }
-	&.other.link                        { color: @red; }
+	&.@{_}js:not(.@{_}html),
+	.@{_}js &:not(.@{_}html)   { color: #f39; }
+	&.@{_}other.@{_}link       { color: @red; }
 }
 
 
-.punctuation{
+.@{_}punctuation{
 
-	&.definition{
-		&.comment                           { color: #009a00;               }
-		&.variable, &.parameters, &.array   { color: @syntax-text-color;    }
-		&.heading,  &.identity              { color: @blue;                 }
-		&.bold{
+	&.@{_}definition{
+		&.@{_}comment                                 { color: #009a00;               }
+		&.@{_}variable, &.@{_}parameters, &.@{_}array { color: @syntax-text-color;    }
+		&.@{_}heading,  &.@{_}identity                { color: @blue;                 }
+		&.@{_}bold{
 			color: @light-orange;
 			font-weight: bold;
 		}
 
-		&.italic{
+		&.@{_}italic{
 			color: @purple;
 			font-style: italic;
 		}
 		
-		&.html.tag{
+		&.@{_}html.@{_}tag{
 			color: #00359e;
 		}
 	}
 
-	&.section.embedded{
+	&.@{_}section.@{_}embedded{
 		color: #f00 !important;
 		font-weight: bold;
 	}
 }
 
 
-.support{
-	&.class,
-	&.namespace{
+.@{_}support{
+	&.@{_}class,
+	&.@{_}namespace{
 		color: #00c;
 	}
 
-	&.css.function, .css &.function{
+	&.@{_}css.@{_}function,
+	.@{_}css &.@{_}function{
 		color: #da29ff;
 
-		&.any-method{
+		&.@{_}any-method{
 			color: @blue;
 		}
 	}
 
 
-	&.php.function, .php &.function{
+	&.@{_}php.@{_}function,
+	.@{_}php &.@{_}function{
 		color: #0035ff;
 
-		&.construct{
+		&.@{_}construct{
 			color: #009714;
 		}
 	}
 }
 
 
-.entity{
-	&.name.section                              { color: @blue;    }
-	&.name.tag,     &.other.attribute-name      { color: #00359e;  }
-	&.css.other,    &.css.other .attribute-name { color: #da29ff;  }
+.@{_}entity{
+	&.@{_}name.@{_}section{
+		color: @blue;
+	}
+	
+	&.@{_}name.@{_}tag,
+	&.@{_}other.@{_}attribute-name{
+		color: #00359e;
+	}
+	
+	&.@{_}css.@{_}other,
+	&.@{_}css.@{_}other .@{_}attribute-name{
+		color: #da29ff;
+	}
 }
 
 
-.meta{
-	&.class                             { color: #003a9e; }
-	&.link                              { color: @orange; }
-	&.require                           { color: @blue;   }
-	&.selector, &.selector > .entity    { color: #da29ff; }
-	&.tag .punctuation:not(.php)        { color: #00359e; }
+.@{_}meta{
+	&.@{_}class                              { color: #003a9e; }
+	&.@{_}link                               { color: @orange; }
+	&.@{_}require                            { color: @blue;   }
+	&.@{_}selector,
+	&.@{_}selector > .@{_}entity             { color: #da29ff; }
+	&.@{_}tag .@{_}punctuation:not(.@{_}php) { color: #00359e; }
 
-	&.separator{
+	&.@{_}separator{
 		color: @syntax-text-color;
 	}
 
-	&.css{
-		&.property-name         { color: #05208c; }
-		&.property-value        { color: #0035ff; }
-		&.property-list .end,
-		&.property-list .begin,
-		.function.section       { color: #da29ff; }
-		.string, .string > *    { color: #106800 !important; }
-		&.comment, & .comment   { color: #009a00 !important; }
+	&.@{_}css{
+		&.@{_}property-name             { color: #05208c; }
+		&.@{_}property-value            { color: #0035ff; }
+		&.@{_}property-list .@{_}end,
+		&.@{_}property-list .@{_}begin,
+		 .@{_}function.@{_}section      { color: #da29ff; }
+		 .@{_}string, .@{_}string > *   { color: #106800 !important; }
+		&.@{_}comment, & .@{_}comment   { color: #009a00 !important; }
 	}
 
 	/** Doctypes */
-	&.sgml,
-	&.sgml .punctuation{
+	&.@{_}sgml,
+	&.@{_}sgml .@{_}punctuation{
 		color: #c0c0c0 !important;
 	}
 
 	/** PHP string literals */
-	&.php .string:not(.function){
+	&.@{_}php .@{_}string:not(.@{_}function){
 		color: #e20000;
 	}
 }
 
 
 /** JavaScript */
-.js{
-	&.punctuation.definition.parameters{
-		&.begin, &.end{
+.@{_}js{
+	&.@{_}punctuation.@{_}definition.@{_}parameters{
+		&.@{_}begin,
+		&.@{_}end{
 			color: #00a;
 		}
 	}
 	
-	&.meta.function-call > .support.function.js{
+	&.@{_}meta.@{_}function-call > .@{_}support.@{_}function.@{_}js{
 		color: #00c;
 	}
 	
-	&.support.function,
-	&.entity.function.name{
+	&.@{_}support.@{_}function,
+	&.@{_}entity.@{_}function.@{_}name{
 		color: #00f;
 	}
 	
-	.source.js.embedded.source{
+	.@{_}source.@{_}js.@{_}embedded.@{_}source{
 		color: @syntax-text-color;
 	}
 }
 
 
 /** Ruby */
-.ruby{
-	&.punctuation.section,
-	&.punctuation.definition.variable,
-	.punctuation.separator{
+.@{_}ruby{
+	&.@{_}punctuation.@{_}section,
+	&.@{_}punctuation.@{_}definition.@{_}variable,
+	.@{_}punctuation.@{_}separator{
 		color: #00c;
 	}
 	
-	&.punctuation.definition.constant{
+	&.@{_}punctuation.@{_}definition.@{_}constant{
 		color: inherit !important;
 	}
 }
 
 /** CSS media queries */
-.media{
+.@{_}media{
 	color: #430303;
 
-	> .support.property-name { color: #05208c; }
-	> .numeric.constant      { color: #0035ff; }
+	> .@{_}support.@{_}property-name { color: #05208c; }
+	> .@{_}numeric.@{_}constant      { color: #0035ff; }
 }
 
-.none{
+.@{_}none{
 	color: @syntax-text-color;
 }
 
 
-.markup{
-	&.bold       { color: @orange;  font-weight: bold;   }
-	&.changed    { color: @purple;                       }
-	&.deleted    { color: @red;                          }
-	&.italic     { color: @purple;  font-style: italic;  }
+.@{_}markup{
+	&.@{_}bold       { color: @orange;  font-weight: bold;   }
+	&.@{_}changed    { color: @purple;                       }
+	&.@{_}deleted    { color: @red;                          }
+	&.@{_}italic     { color: @purple;  font-style: italic;  }
 
-	&.heading .punctuation.definition.heading{
+	&.@{_}heading .@{_}punctuation.@{_}definition.@{_}heading{
 		color: @blue;
 	}
 
-	&.inserted   { color: @green;   }
-	&.list       { color: @red;     }
-	&.quote      { color: @orange;  }
-	&.raw        { color: #aaa;     }
-	&.raw.inline { color: @green;   }
+	&.@{_}inserted       { color: @green;   }
+	&.@{_}list           { color: @red;     }
+	&.@{_}quote          { color: @orange;  }
+	&.@{_}raw            { color: #aaa;     }
+	&.@{_}raw.@{_}inline { color: @green;   }
 }
 
 
 /** Diffs/patches */
-.diff{
+.@{_}diff{
 	@deletion-bg: #ffecec;
 	@deletion-fg: #bd2c00;
 	@addition-bg: #eaffea;
 	@addition-fg: #55a532;
 	
-	.line > &.source{
+	.@{_}line > &.@{_}source{
 		color: #ccc;
 	}
 	
-	&.meta{
-		&.index,
-		&.header.git,
-		&.range.unified{
+	&.@{_}meta{
+		&.@{_}index,
+		&.@{_}header.@{_}git,
+		&.@{_}range.@{_}unified{
 			font-weight: bold;
 			color: #795da3;
 		}
 		
-		&.separator{
+		&.@{_}separator{
 			font-weight: bold;
 			color: #1d3e81;
 		}
 		
-		&.header.from-file{
+		&.@{_}header.@{_}from-file{
 			background: @deletion-bg !important;
 			color:      @deletion-fg !important;
 		}
-		&.header.to-file{
+		&.@{_}header.@{_}to-file{
 			background: @addition-bg !important;
 			color:      @addition-fg !important;
 		}
 	}
 	
-	&.markup{
-		&.deleted,
-		&.deleted > .deleted{
+	&.@{_}markup{
+		&.@{_}deleted,
+		&.@{_}deleted > .@{_}deleted{
 			background: @deletion-bg !important;
 			color:      @deletion-fg !important;
 		}
 		
-		&.inserted,
-		&.inserted > .inserted{
+		&.@{_}inserted,
+		&.@{_}inserted > .@{_}inserted{
 			background: @addition-bg !important;
 			color:      @addition-fg !important;
 		}
@@ -352,50 +370,49 @@ atom-text-editor    .search-results .marker.current-result .region,
 
 
 /** GitHub-flavoured Markdown */
-.source.gfm{
+.@{_}source.@{_}gfm{
 	-webkit-font-smoothing: auto;
 
-	.heading{
+	.@{_}heading{
 		color: #9ba257;
 		
-		> .marker{
+		> .@{_}marker{
 			color: #acb556;
 		}
 	}
 	
 
 	/** Hyperlinks */
-	.link{
+	.@{_}link{
 		color: #00a;
 		text-decoration: none;
 		
 		/** Displayed name */
-		& > .entity{
+		& > .@{_}entity{
 			color: #00f;
 		}
 		
-		& > .underline{
+		& > .@{_}underline{
 			text-decoration: underline;
-			& > .punctuation{
+			& > .@{_}punctuation{
 				text-decoration: none;
 			}
 		}
 	}
 	
 	/** Injected link */
-	.markup.underline.link{
+	.@{_}markup.@{_}underline.@{_}link{
 		text-decoration: underline;
 	}
 	
-	.markup.strike{
+	.@{_}markup.@{_}strike{
 		text-decoration: line-through;
 		opacity: .45;
 	}
 }
 
 
-atom-text-editor[mini] .scroll-view,
-:host([mini]) .scroll-view{
+atom-text-editor[mini] .scroll-view{
 	padding-left: 1px;
 }
 
@@ -407,280 +424,263 @@ atom-text-editor[mini] .scroll-view,
 
 
 /** SQL */
-.sql{
-	.keyword    { color: #00c;      }
-	.function   { color: #001eff;   }
-	.numeric    { color: #a00;      }
+.@{_}sql{
+	.@{_}keyword    { color: #00c;      }
+	.@{_}function   { color: #001eff;   }
+	.@{_}numeric    { color: #a00;      }
 }
 
 
 /** C/C++ */
-.c, .cpp{
-	.keyword, .any-method, .C99{
+.@{_}c, .@{_}cpp{
+	.@{_}keyword,
+	.@{_}any-method,
+	.@{_}C99{
 		color: #00c
 	}
 	
-	&.entity.name.function{
+	&.@{_}entity.@{_}name.@{_}function{
 		color: #00f;
 	}
 	
-	&.preprocessor{
+	&.@{_}preprocessor{
 		
-		&, .keyword{
+		&, .@{_}keyword{
 			color: #a00;
 		}
 	}
 	
-	&.punctuation.separator.pointer-access{
+	&.@{_}punctuation.@{_}separator.@{_}pointer-access{
 		color: #00f;
 	}
 }
 
 
 /** CoffeeScript */
-.coffee{
-	.keyword > &,
-	&.keyword,
-	&.meta.function,
-	&.entity.name,
-	&.support.function{
+.@{_}coffee{
+	.@{_}keyword > &,
+	&.@{_}keyword,
+	&.@{_}meta.@{_}function,
+	&.@{_}entity.@{_}name,
+	&.@{_}support.@{_}function{
 		color: #00c
 	}
 }
 
 
 /** Perl */
-.perl{
+.@{_}perl{
 
-	.keyword, .support, .constant{
+	.@{_}keyword,
+	.@{_}support,
+	.@{_}constant{
 		color: #00c;
 	}
 
-	.string,
-	.string > *{
+	.@{_}string,
+	.@{_}string > *{
 		color: #f39 !important;
 		
-		&.variable,
-		&.escape{
+		&.@{_}variable,
+		&.@{_}escape{
 			color: #00c !important;
 		}
 		
-		&.comment-ish{
+		&.@{_}comment-ish{
 			color: #090 !important;
 		}
 	}
 	
-	.string.q-ltgt{
-		> .string.begin,
-		> .string.end{
+	.@{_}string.@{_}q-ltgt{
+		> .@{_}string.@{_}begin,
+		> .@{_}string.@{_}end{
 			color: #00c !important;
 		}
 	}
 
-	&.variable{
+	&.@{_}variable{
 		color: #906 !important;
 	}
 
-	.punctuation.definition.variable{
+	.@{_}punctuation.@{_}definition.@{_}variable{
 		color: inherit;
 	}
 }
 
 
 /** Shell-scripts */
-.shell{
-	.function,
-	.builtin,
-	.control,
-	.keyword{
+.@{_}shell{
+	.@{_}function,
+	.@{_}builtin,
+	.@{_}control,
+	.@{_}keyword{
 		color: #00c;
 	}
 
-	.string:not(.dollar){
+	.@{_}string:not(.@{_}dollar){
 		&, & span{
 			color: #f39 !important;
 		}
 		
-		.variable.other,
-		.variable.other span{
+		.@{_}variable.@{_}other,
+		.@{_}variable.@{_}other span{
 			color: #00c !important;
 		}
 	}
 	
-	.string.dollar{
-		> .begin,
-		> .end{
+	.@{_}string.@{_}dollar{
+		> .@{_}begin,
+		> .@{_}end{
 			color: inherit !important;
 		}
 	}
 
-	.tilde,
-	.punctuation.definition.variable{
+	.@{_}tilde,
+	.@{_}punctuation.@{_}definition.@{_}variable{
 		color: inherit;
 	}
 }
 
 
 
-/** JSON */
-.json{
-	&.expected-dictionary-separator{
-		background-color: transparent;
-		color: inherit !important;
-	}
-}
-
-
-/** Sigil Maps */
-.sigil-map{
-	&.meta.mapping &.string.unquoted{
-		color: #f00;
-	}
-	
-	&.entity.name{
-		color: #001eff;
-	}
-}
-
-
 /** ApacheConf */
-.toc-list.directory{
+.@{_}toc-list.@{_}directory{
 	color: #001eff;
 }
 
 
 /** Python */
-.python{
-	&.numeric,
-	&.constant.numeric{
+.@{_}python{
+	&.@{_}numeric,
+	&.@{_}constant.@{_}numeric{
 		color: #906;
 	}
 
-	&.keyword,
-	&.function-call{
+	&.@{_}keyword,
+	&.@{_}function-call{
 		color: #00c;
 	}
 }
 
 
 /** reStructuredText */
-.restructuredtext{
-	&.punctuation{
-		&.directive{ color: #00f; }
-		&.separator{ color: #00a; }
-		&.table{  color: #81a2be; }
-		&.heading{ color: #009a00 !important; }
+.@{_}restructuredtext{
+	&.@{_}punctuation{
+		&.@{_}directive{ color: #00f; }
+		&.@{_}separator{ color: #00a; }
+		&.@{_}table{  color: #81a2be; }
+		&.@{_}heading{ color: #009a00 !important; }
 	}
 }
 
 
 /** APL */
-.apl{
-	&.keyword,
-	&.label{
+.@{_}apl{
+	&.@{_}keyword,
+	&.@{_}label{
 		color: #00c;
 	}
 	
-	&.string{
+	&.@{_}string{
 		color: #f39;
 	}
 	
-	&.command,
-	&.embedded{
+	&.@{_}command,
+	&.@{_}embedded{
 		
-		&.name{
+		&.@{_}name{
 			color: #f00;
 			font-weight: bold;
 		}
 		
-		.parameter{
+		.@{_}parameter{
 			color: #f00;
 		}
 	}
 	
-	&.function.definition{
+	&.@{_}function.@{_}definition{
 		color: #00f;
 		
-		.name{
+		.@{_}name{
 			font-weight: bold;
 		}
 	}
 	
-	&.invalid{
+	&.@{_}invalid{
 		background: #f00 !important;
 		color: #fff !important;
 	}
 }
 
 /** Turing */
-.turing{
-	.function.entity.name,
-	.support.class,
-	.support.function{
+.@{_}turing{
+	.@{_}function.@{_}entity.@{_}name,
+	.@{_}support.@{_}class,
+	.@{_}support.@{_}function{
 		color: #00f;
 	}
 	
-	.entity.field.name{
+	.@{_}entity.@{_}field.@{_}name{
 		color: #00c;
 	}
 	
-	.keyword{
+	.@{_}keyword{
 		color: #00f;
 	}
 	
-	.string{
+	.@{_}string{
 		color: #f00;
 	}
 }
 
 
 /** MAXScript: MXS_Scintilla clone */
-.maxscript{
+.@{_}maxscript{
 	
-	.comment{
+	.@{_}comment{
 		color: #007f00;
 	}
 	
-	.numeric{
+	.@{_}numeric{
 		color: #007f7f;
 	}
 	
-	.string{
+	.@{_}string{
 		color: #7f007f;
 		
-		&.verbatim{
+		&.@{_}verbatim{
 			color: #007f00;
 			background-color: #e0ffe0;
 		}
 		
-		&.invalid{
+		&.@{_}invalid{
 			color: #000;
 			background-color: #e0c0e0;
 		}
 	}
 	
-	.operator{
+	.@{_}operator{
 		color: #000;
 		font-weight: bold;
 	}
 	
-	.function{
+	.@{_}function{
 		color: #3060a0;
 	}
 	
-	.keyword,
-	.storage.type.function,
-	.storage.modifier.function{
+	.@{_}keyword,
+	.@{_}storage.@{_}type.@{_}function,
+	.@{_}storage.@{_}modifier.@{_}function{
 		color: #00007f;
 		font-weight: bold;
 	}
 	
-	.rollout-control{
+	.@{_}rollout-control{
 		color: #000;
 		font-weight: bold;
 	}
 	
-	.objectset{
+	.@{_}objectset{
 		color: #d0b080;
 		font-style: italic;
 	}
@@ -688,51 +688,51 @@ atom-text-editor[mini] .scroll-view,
 
 
 /** Roff and its preprocessors */
-.roff, .pic, .ideal{
-	&.function{
+.@{_}roff, .@{_}pic, .@{_}ideal{
+	&.@{_}function{
 		color: #00f;
 	}
 	
-	&.italic .backslash{
+	&.@{_}italic .@{_}backslash{
 		font-style: normal;
 	}
 	
-	&.markup.bold,
-	&.markup.italic{
-		.string{
+	&.@{_}markup.@{_}bold,
+	&.@{_}markup.@{_}italic{
+		.@{_}string{
 			color: inherit;
 		}
 	}
 	
-	.string{
+	.@{_}string{
 		color: #f39;
 	}
 	
-	.throughput{
+	.@{_}throughput{
 		color: #aaf;
 	}
 	
-	&.meta.definition{
+	&.@{_}meta.@{_}definition{
 		
-		> .name{
+		> .@{_}name{
 			font-weight: bold;
 		}
 	}
 	
-	&.punctuation.definition.concealed.escape.backslash{
+	&.@{_}punctuation.@{_}definition.@{_}concealed.@{_}escape.@{_}backslash{
 		opacity: .25;
 	}
 }
 
 
 /** RUNOFF */
-.runoff{
-	&.function,
-	&.keyword{
+.@{_}runoff{
+	&.@{_}function,
+	&.@{_}keyword{
 		color: #00f;
 	}
 	
-	&.storage{
+	&.@{_}storage{
 		color: #00a;
 	}
 }
