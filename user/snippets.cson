@@ -150,9 +150,12 @@
 	Print:
 		prefix: "print"
 		body: "print.out($1);$2"
-	Promise:
+	"Promise - Monadic executor":
 		prefix: "prom"
 		body: "return new Promise(resolve => {\n\t$1\n});"
+	"Promise - Dyadic executor":
+		prefix: "Prom"
+		body: "return new Promise((resolve, reject) => {\n\t$1\n});"
 	
 	# Module shortcuts for the impatient programmer
 	"Module - Filesystem":
