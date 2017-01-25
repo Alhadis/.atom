@@ -73,9 +73,6 @@
     showOnStartup: false
   whitespace:
     removeTrailingWhitespace: false
-".apl.source":
-  editor:
-    fontSize: 24
 ".atom-mocha":
   editor:
     fontSize: 13
