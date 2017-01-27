@@ -65,6 +65,9 @@ body:
 	"cmd-u":          "editor:lower-case"
 	"cmd-r":          "unset!"
 
+"atom-text-editor[data-grammar='source js']":
+	"{":              "user:js-template-wrap"
+
 
 # Find and replace
 ".platform-darwin .find-and-replace":
