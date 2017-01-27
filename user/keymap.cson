@@ -67,6 +67,7 @@ body:
 
 "atom-text-editor[data-grammar='source js']":
 	"{":              "user:js-template-wrap"
+	"enter":          "user:js-doc-newline"
 
 
 # Find and replace
