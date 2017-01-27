@@ -3,17 +3,20 @@ all: relink install
 
 # Community Atom packages
 installed-packages := \
+	advanced-open-file \
 	aesthetic-ui \
 	atom-material-syntax \
 	atom-material-syntax-dark \
 	atom-material-syntax-light \
 	atom-material-ui \
 	auto-detect-indentation \
+	behave-theme \
 	duotone-dark-syntax \
 	duotone-light-syntax \
 	editorconfig \
 	flatland-dark-ui \
 	git-blame \
+	language-68hc11-assembly \
 	language-antlr \
 	language-apache \
 	language-applescript \
@@ -36,6 +39,7 @@ installed-packages := \
 	language-lisp \
 	language-llvm \
 	language-lua \
+	language-ninja \
 	language-pascal \
 	language-postscript \
 	language-rust \
@@ -46,11 +50,13 @@ installed-packages := \
 	MagicPython \
 	make-executable \
 	minimap \
+	nucleus-dark-ui \
 	project-manager \
 	seti-syntax \
 	seti-ui \
 	sort-lines \
-	theme-reel
+	theme-reel \
+	yosemate-ui
 
 
 # Symlinked packages maintained locally
@@ -62,6 +68,7 @@ symlinks = \
 	$(symlinked-projects)
 
 symlinked-forks := \
+	language-gn \
 	language-restructuredtext \
 	language-viml
 
@@ -69,6 +76,7 @@ symlinked-projects := \
 	language-agc \
 	language-apl \
 	language-emacs-lisp \
+	language-file-magic \
 	language-fontforge \
 	language-maxscript \
 	language-regexp \
