@@ -574,6 +574,17 @@ atom-text-editor[mini] .scroll-view{
 }
 
 
+/** TextMate-compatible grammar */
+.@{_}tmcg{
+	&.@{_}variable.@{_}other,
+	&.@{_}variable.@{_}assignment{
+		&, & .@{_}punctuation{
+			color: #bf4040;
+		}
+	}
+}
+
+
 /** APL */
 .@{_}apl{
 	&.@{_}keyword,

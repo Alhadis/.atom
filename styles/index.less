@@ -42,5 +42,6 @@ atom-text-editor.is-focused .cursors .cursor{
 .@{_}tmcg .@{_}source.@{_}regexp,
 .@{_}tmcg .@{_}regexp,
 .@{_}tmcg .@{_}regexp :not(.@{_}comment):not(.@{_}hyperlink){
-	color: #001eff !important;
+	&:not(.@{_}variable) { color: #001eff !important; }
+	&.@{_}variable       { color: #bf4040 !important; }
 }
