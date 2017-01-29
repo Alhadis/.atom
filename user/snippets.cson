@@ -327,6 +327,9 @@
 	⇐:
 		prefix: "<="
 		body: "⇐"
+	│:
+		prefix: "|"
+		body: "│"
 
 
 # Shell-scripts
