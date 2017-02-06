@@ -21,27 +21,6 @@
 		devMode: true
 	}
 	{
-		title: "G:"
-		paths: [
-			"/Users/johngardner/VirtualBox/Shared"
-		]
-		devMode: true
-	}
-	{
-		title: "language-maxscript"
-		paths: [
-			"/Users/johngardner/Labs/language-maxscript"
-		]
-		devMode: true
-	}
-	{
-		title: "Tables"
-		paths: [
-			"/Users/johngardner/Labs/Tables"
-		]
-		devMode: true
-	}
-	{
 		title: "language-apl"
 		paths: [
 			"/Users/johngardner/Labs/language-apl"
@@ -88,6 +67,13 @@
 		title: "File"
 		paths: [
 			"/Users/johngardner/Mirrors/File"
+		]
+		devMode: true
+	}
+	{
+		title: "TMCG"
+		paths: [
+			"/Users/johngardner/Labs/TMCG"
 		]
 		devMode: true
 	}

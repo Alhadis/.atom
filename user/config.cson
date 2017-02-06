@@ -58,6 +58,15 @@
     autoCompile: false
   "lisp-paredit": {}
   "markdown-preview":
+    grammars: [
+      "text.xml"
+      "source.gfm"
+      "source.litcoffee"
+      "text.html.basic"
+      "text.md"
+      "text.plain"
+      "text.plain.null-grammar"
+    ]
     useGitHubStyle: true
   minimap:
     autoToggle: false
