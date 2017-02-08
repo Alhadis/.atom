@@ -82,3 +82,6 @@ body:
 	"ctrl-f":         "file-icons:open-settings"
 	"cmd-p":          "user:temp-1" # For temporary commands
 	"alt-f":          "user:temp-2"
+
+".platform-darwin atom-text-editor[data-grammar~=regexp]":
+	"cmd-shift-E":   "language-regexp:unescape"

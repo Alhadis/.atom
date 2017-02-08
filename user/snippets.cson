@@ -149,7 +149,7 @@
 		"""
 	Editor:
 		prefix: "ed"
-		body: "const editor = atom.workspace.getActiveTextEditor();"
+		body: "const editor = atom.workspace.getActiveTextEditor();\n"
 	Print:
 		prefix: "print"
 		body: "print.out($1);$2"
