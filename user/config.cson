@@ -23,6 +23,7 @@
       "text.roff": [
         "mm"
       ]
+    destroyEmptyPanes: false
     disabledPackages: [
       "spell-check"
       "autocomplete-css"
@@ -32,6 +33,7 @@
       "language-python"
       "nuclide"
       "autocomplete-plus"
+      "atom-hg"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -56,6 +58,7 @@
   "grammar-selector": {}
   "language-applescript":
     autoCompile: false
+  "language-regexp": {}
   "lisp-paredit": {}
   "markdown-preview":
     grammars: [

@@ -147,6 +147,9 @@
 				$1
 			});
 		"""
+	Editor:
+		prefix: "ed"
+		body: "const editor = atom.workspace.getActiveTextEditor();"
 	Print:
 		prefix: "print"
 		body: "print.out($1);$2"
