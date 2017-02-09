@@ -77,4 +77,12 @@
 		]
 		devMode: true
 	}
+	{
+		title: "LossLess"
+		paths: [
+			"/Users/johngardner/Labs/language-loss"
+			"/Users/johngardner/Forks/Atom/CSS"
+		]
+		devMode: true
+	}
 ]
