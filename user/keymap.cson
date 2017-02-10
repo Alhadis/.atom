@@ -15,6 +15,13 @@ body:
 	"ctrl-shift-tab": "pane:show-previous-item"
 	"ctrl-shift-tab ^ctrl": "unset!"
 
+"atom-workspace":
+	"shift-cmd-C":    "file-icons:toggle-colours"
+	"alt-o":          "file-icons:show-outlines"
+	"ctrl-f":         "file-icons:open-settings"
+	"cmd-p":          "user:temp-1" # For temporary commands
+	"alt-f":          "user:temp-2"
+	"alt-cmd-t":      "user:toggle-trendy"
 
 # Navigation
 "atom-workspace atom-text-editor:not(.mini)":
@@ -74,14 +81,6 @@ body:
 ".platform-darwin .find-and-replace":
 	"cmd-r":          "find-and-replace:toggle-regex-option"
 
-
-# Dev/Temp
-"atom-workspace":
-	"shift-cmd-C":    "file-icons:toggle-colours"
-	"alt-o":          "file-icons:show-outlines"
-	"ctrl-f":         "file-icons:open-settings"
-	"cmd-p":          "user:temp-1" # For temporary commands
-	"alt-f":          "user:temp-2"
 
 ".platform-darwin atom-text-editor[data-grammar~=regexp]":
 	"cmd-shift-E":   "language-regexp:unescape"
