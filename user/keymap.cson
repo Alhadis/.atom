@@ -1,13 +1,22 @@
-# Display
-body:
+"body, .platform-darwin":
+	"cmd-\\":         "user:toggle-sidebar"
+	"alt-cmd-\\":     "tree-view:toggle"
+	"shift-cmd-O":    "application:open-dev"
+	"shift-cmd-R":    "window:reload"
+	"alt-shift-W":    "window:close"
+	"ctrl-shift-R":   "window:run-package-specs"
+	"shift-cmd-B":    "user:toggle-bracket-matcher"
+	
 	"cmd-alt-w":      "window:toggle-invisibles"
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
-	"cmd-0":          "user:reset-font-size"
+	"cmd-0":          "user:zoom-text"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
 	"cmd-k down":     "unset!"
-	"cmd-m":          "user:make"
+	"cmd-p":          "unset!"
+	"cmd-m":          "unset!"
+	"ctrl-alt-cmd-l": "unset!"
 	
 	# Disable MRU-tab switching
 	"ctrl-tab":       "pane:show-next-item"
@@ -18,29 +27,39 @@ body:
 "atom-workspace":
 	"shift-cmd-C":    "file-icons:toggle-colours"
 	"alt-o":          "file-icons:show-outlines"
-	"ctrl-f":         "file-icons:open-settings"
-	"cmd-p":          "user:temp-1" # For temporary commands
-	"alt-f":          "user:temp-2"
-	"alt-cmd-t":      "user:toggle-trendy"
+	"cmd-p":          "user:temp-1"
 
-# Navigation
-"atom-workspace atom-text-editor:not(.mini)":
+"atom-text-editor":
+	"ctrl-u":         "lines:unique"
 	"cmd-g":          "go-to-line:toggle"
+	"cmd-l":          "grammar-selector:show"
 	"cmd-[":          "git-diff:move-to-previous-diff"
 	"cmd-]":          "git-diff:move-to-next-diff"
+	"cmd-shift-U":    "editor:upper-case"
+	"cmd-u":          "editor:lower-case"
+	"cmd-d":          "editor:delete-line"
+	"alt-up":         "editor:move-line-up"
+	"alt-down":       "editor:move-line-down"
+	"cmd-alt-up":     "editor:duplicate-lines"
+	"ctrl-w":         "user:unfuck-tabstops"
+	"shift-cmd-e":    "user:specsaver"
+	"cmd-r":          "unset!"
 
-".platform-darwin":
-	"cmd-\\":         "user:toggle-sidebar"
-	"alt-cmd-\\":     "tree-view:toggle"
-	"shift-cmd-O":    "application:open-dev"
-	"shift-cmd-R":    "window:reload"
-	"alt-shift-W":    "window:close"
-	"ctrl-shift-R":   "window:run-package-specs"
-	"ctrl-alt-cmd-l": "unset!"
-	"cmd-p":          "unset!"
-	"shift-cmd-B":    "user:toggle-bracket-matcher"
-	
-".platform-darwin .tree-view":
+"atom-text-editor[data-grammar='source js']":
+	"{":              "user:dollar-wrap"
+	"enter":          "user:jsdoc-newline"
+
+"atom-text-editor[data-grammar='source css']":
+	"cmd-p":          "user:eval-css"
+
+"atom-text-editor[data-grammar='source emacs lisp']":
+	"cmd-p":          "language-emacs-lisp:run-selection"
+
+".find-and-replace, .project-find":
+	"cmd-r":          "find-and-replace:toggle-regex-option"
+	"shift-cmd-c":    "find-and-replace:toggle-case-option"
+
+".tree-view":
 	"cmd-1":          "unset!"
 	"cmd-2":          "unset!"
 	"cmd-3":          "unset!"
@@ -50,37 +69,3 @@ body:
 	"cmd-7":          "unset!"
 	"cmd-8":          "unset!"
 	"cmd-9":          "unset!"
-
-
-# Editing
-"atom-text-editor:not([mini])":
-	"cmd-d":          "editor:delete-line"
-	"alt-up":         "editor:move-line-up"
-	"alt-down":       "editor:move-line-down"
-	"cmd-alt-up":     "editor:duplicate-lines"
-	"ctrl-w":         "user:unfuck-tabstops"
-	"ctrl-u":         "lines:unique"
-
-
-".platform-darwin atom-text-editor":
-	"shift-cmd-e":    "user:specsaver"
-	"cmd-l":          "grammar-selector:show"
-	"alt-f":          "unset!"
-	
-	# Character transformation
-	"cmd-shift-U":    "editor:upper-case"
-	"cmd-u":          "editor:lower-case"
-	"cmd-r":          "unset!"
-
-"atom-text-editor[data-grammar='source js']":
-	"{":              "user:js-template-wrap"
-	"enter":          "user:js-doc-newline"
-
-
-# Find and replace
-".platform-darwin .find-and-replace":
-	"cmd-r":          "find-and-replace:toggle-regex-option"
-
-
-".platform-darwin atom-text-editor[data-grammar~=regexp]":
-	"cmd-shift-E":   "language-regexp:unescape"
