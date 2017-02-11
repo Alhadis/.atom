@@ -8,7 +8,7 @@
 	"shift-cmd-B":    "user:toggle-bracket-matcher"
 	"cmd-alt-w":      "window:toggle-invisibles"
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
-	"cmd-0":          "user:zoom-text"
+	"cmd-0":          "unset!"
 	"cmd-k up":       "unset!"
 	"cmd-k right":    "unset!"
 	"cmd-k left":     "unset!"
@@ -42,6 +42,7 @@
 	"alt-down":       "editor:move-line-down"
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"ctrl-w":         "user:unfuck-tabstops"
+	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
 	"cmd-r":          "unset!"
 
