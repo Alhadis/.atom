@@ -6,7 +6,6 @@
 	"alt-shift-W":    "window:close"
 	"ctrl-shift-R":   "window:run-package-specs"
 	"shift-cmd-B":    "user:toggle-bracket-matcher"
-	
 	"cmd-alt-w":      "window:toggle-invisibles"
 	"shift-cmd-W":    "editor:toggle-soft-wrap"
 	"cmd-0":          "user:zoom-text"
@@ -25,8 +24,9 @@
 	"ctrl-shift-tab ^ctrl": "unset!"
 
 "atom-workspace":
-	"shift-cmd-C":    "file-icons:toggle-colours"
 	"alt-o":          "file-icons:show-outlines"
+	"shift-cmd-c":    "file-icons:toggle-colours"
+	"alt-cmd-t":      "user:toggle-trendy-faggot-mode"
 	"cmd-p":          "user:temp-1"
 
 "atom-text-editor":
