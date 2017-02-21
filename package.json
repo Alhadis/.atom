@@ -6,12 +6,6 @@
 	"description": "Personal Atom theme, not intended for anybody else to use/make sense of.",
 	"repository": "https://github.com/Alhadis/Atom-PhoenixTheme",
 	"license": "ISC",
-	"styleSheets": [
-		"index.less",
-		"base.less",
-		"typography.less",
-		"syntax-variables.less"
-	],
 	"engines": {
 		"atom": "*"
 	},

@@ -1,59 +1,61 @@
-@import "syntax-variables";
+@_: syntax--;
 
 atom-text-editor{
-	background-color:   @syntax-background-color;
-	color:              @syntax-text-color;
-
-	.wrap-guide             { background-color: @syntax-wrap-guide-color;           }
-	.indent-guide           { color:            @syntax-indent-guide-color;         }
-	.invisible-character    { color:            @syntax-invisible-character-color;  }
+	background-color: #fff;
+	color: #000;
+}
+	.indent-guide           { color: #eee; }
+	.invisible-character    { color: #ccc; }
 
 	.gutter{
-		background-color:   @syntax-gutter-background-color;
-		color:              @syntax-gutter-text-color;
-
-		.line-number{
-			&.cursor-line{
-				background-color:   @syntax-gutter-background-color-selected;
-				color:              @syntax-gutter-text-color-selected;
-			}
-
-			&.cursor-line-no-selection{
-				color: @syntax-gutter-text-color-selected;
-			}
-		}
+		background-color:   #fff;
+		color:              #c5c8c6;
 	}
+		.line-number.cursor-line,
+		.line-number.cursor-line-no-selection{
+			background-color:   #fff;
+			color:              #909090;
+		}
+		.line-number.folded,
+		.line-number:after,
+		.fold-marker::after {
+			color: #969896;
+		}
 
-	.gutter .line-number.folded,
-	.gutter .line-number:after,
-	.fold-marker:after  { color: @light-gray;                         }
-	.invisible          { color: @syntax-text-color;                  }
-	.cursor             { color: @syntax-cursor-color;                }
-	.selection .region  { background-color: @syntax-selection-color;  }
+	.invisible, .cursor { color: #000;    }
+	.selection .region  { background-color: #5ea0ff; }
+
+/** Hide wrapping guide */
+.wrap-guide{
+	display: none !important;
 }
 
 
-// Search markers
-atom-text-editor .search-results .@{_}marker{
-	.region{
-		background-color: transparent;
-		border: 1px solid #969896;
-	}
-	
-	&.current-result .region{
+/** Search markers */
+.search-results .@{_}marker .region{
+	background-color: transparent;
+	border: 1px solid #969896;
+}
+	.search-results .@{_}marker.current-result .region{
 		border: 1px solid #fff;
 	}
-} 
 
 
 
-/** Code highlighting */
+/** XXX: Code highlighting */
 .@{_}comment,
-.@{_}comment-ish              { color: #009a00;             }
-.@{_}regexp, .@{_}regexp *    { color: #009a00 !important;  }
-.@{_}entity.@{_}name.@{_}type { color: #003a9e;             }
+.@{_}comment-ish,
+.@{_}regexp,
+.@{_}regexp * {
+	color: #009a00 !important;
+}
 
-.@{_}link, .@{_}underline{
+.@{_}entity.@{_}name.@{_}type {
+	color: #003a9e;
+}
+
+.@{_}link,
+.@{_}underline{
 	text-decoration: underline;
 }
 
@@ -70,7 +72,7 @@ atom-text-editor .search-results .@{_}marker{
 }
 
 .@{_}keyword{
-	&.@{_}other.@{_}special-method  { color: @blue;   }
+	&.@{_}other.@{_}special-method  { color: #81a2be; }
 	&.@{_}other.@{_}important       { color: #ee000b; }
 	&.@{_}js,   .@{_}js  > &        { color: #00c;    }
 	&.@{_}php,  .@{_}php > &        { color: #009714; }
@@ -94,7 +96,7 @@ atom-text-editor .search-results .@{_}marker{
 
 .@{_}constant{
 	&.@{_}other.@{_}color   { color: #0035ff;   }
-	&.@{_}other.@{_}symbol  { color: @green;    }
+	&.@{_}other.@{_}symbol  { color: #b5bd68;   }
 	&.@{_}null              { color: #00c;      }
 	&.@{_}boolean           { color: #00c;      }
 	&.@{_}js.@{_}other      { color: #00c;      }
@@ -110,23 +112,24 @@ atom-text-editor .search-results .@{_}marker{
 .@{_}variable,
 .@{_}constant{
 	color: #00c;
-	&.@{_}interpolation          { color: darken(@red, 10%);   }
-	&.@{_}parameter.@{_}function { color: @syntax-text-color;  }
-	&.@{_}php                    { color: #000;                }
+
+	&.@{_}interpolation           { color: #bf4040; }
+	&.@{_}parameter.@{_}function  { color: #000; }
+	&.@{_}php                     { color: #000; }
 	&.@{_}php.@{_}global,
-	&.@{_}php.@{_}global > *     { color: #0092f2 !important;  }
+	&.@{_}php.@{_}global > *      { color: #0092f2 !important;  }
 }
 
 
 .@{_}invalid{
 	
 	&.@{_}illegal{
-		background-color: @red;
-		color: @syntax-background-color !important;
+		background-color: #c66;
+		color: #fff !important;
 	}
 	
 	&.@{_}deprecated{
-		color: @red !important;
+		color: #c66 !important;
 	}
 	
 	&.@{_}yaml.@{_}whitespace{
@@ -140,7 +143,7 @@ atom-text-editor .search-results .@{_}marker{
 
 	&.@{_}js:not(.@{_}html),
 	.@{_}js &:not(.@{_}html)   { color: #f39; }
-	&.@{_}other.@{_}link       { color: @red; }
+	&.@{_}other.@{_}link       { color: #c66; }
 }
 
 
@@ -157,16 +160,25 @@ atom-text-editor .search-results .@{_}marker{
 .@{_}punctuation{
 
 	&.@{_}definition{
-		&.@{_}comment                                 { color: #009a00;               }
-		&.@{_}variable, &.@{_}parameters, &.@{_}array { color: @syntax-text-color;    }
-		&.@{_}heading,  &.@{_}identity                { color: @blue;                 }
+		&.@{_}comment {
+			color: #009a00;
+		}
+		&.@{_}variable,
+		&.@{_}parameters,
+		&.@{_}array {
+			color: #000;
+		}
+		&.@{_}heading,
+		&.@{_}identity {
+			color: #81a2be;
+		}
 		&.@{_}bold{
-			color: @light-orange;
+			color: #f0c674;
 			font-weight: bold;
 		}
 
 		&.@{_}italic{
-			color: @purple;
+			color: #b294bb;
 			font-style: italic;
 		}
 		
@@ -193,7 +205,7 @@ atom-text-editor .search-results .@{_}marker{
 		color: #da29ff;
 
 		&.@{_}any-method{
-			color: @blue;
+			color: #81a2be;
 		}
 	}
 
@@ -211,7 +223,7 @@ atom-text-editor .search-results .@{_}marker{
 
 .@{_}entity{
 	&.@{_}name.@{_}section{
-		color: @blue;
+		color: #81a2be;
 	}
 	
 	&.@{_}name.@{_}tag,
@@ -227,15 +239,15 @@ atom-text-editor .search-results .@{_}marker{
 
 
 .@{_}meta{
-	&.@{_}class                              { color: #003a9e; }
-	&.@{_}link                               { color: @orange; }
-	&.@{_}require                            { color: @blue;   }
+	&.@{_}class   { color: #003a9e; }
+	&.@{_}link    { color: #de935f; }
+	&.@{_}require { color: #81a2be; }
 	&.@{_}selector,
-	&.@{_}selector > .@{_}entity             { color: #da29ff; }
+	&.@{_}selector > .@{_}entity { color: #da29ff; }
 	&.@{_}tag .@{_}punctuation:not(.@{_}php) { color: #00359e; }
 
 	&.@{_}separator{
-		color: @syntax-text-color;
+		color: #000;
 	}
 
 	&.@{_}css{
@@ -280,7 +292,7 @@ atom-text-editor .search-results .@{_}marker{
 	}
 	
 	.@{_}source.@{_}js.@{_}embedded.@{_}source{
-		color: @syntax-text-color;
+		color: #000;
 	}
 }
 
@@ -306,35 +318,27 @@ atom-text-editor .search-results .@{_}marker{
 	> .@{_}numeric.@{_}constant      { color: #0035ff; }
 }
 
-.@{_}none{
-	color: @syntax-text-color;
-}
-
 
 .@{_}markup{
-	&.@{_}bold       { color: @orange;  font-weight: bold;   }
-	&.@{_}changed    { color: @purple;                       }
-	&.@{_}deleted    { color: @red;                          }
-	&.@{_}italic     { color: @purple;  font-style: italic;  }
+	&.@{_}bold       { color: #de935f;  font-weight: bold;   }
+	&.@{_}changed    { color: #b294bb;                       }
+	&.@{_}deleted    { color: #c66;                          }
+	&.@{_}italic     { color: #b294bb;  font-style: italic;  }
 
 	&.@{_}heading .@{_}punctuation.@{_}definition.@{_}heading{
-		color: @blue;
+		color: #81a2be;
 	}
 
-	&.@{_}inserted       { color: @green;   }
-	&.@{_}list           { color: @red;     }
-	&.@{_}quote          { color: @orange;  }
-	&.@{_}raw            { color: #aaa;     }
-	&.@{_}raw.@{_}inline { color: @green;   }
+	&.@{_}inserted           { color: #b5bd68;  }
+	&.@{_}list               { color: #c66;     }
+	&.@{_}quote              { color: #de935f;  }
+	&.@{_}raw                { color: #aaa;     }
+	&.@{_}raw.@{_}inline { color: #b5bd68;  }
 }
 
 
 /** Diffs/patches */
 .@{_}diff{
-	@deletion-bg: #ffecec;
-	@deletion-fg: #bd2c00;
-	@addition-bg: #eaffea;
-	@addition-fg: #55a532;
 	
 	.@{_}line > &.@{_}source{
 		color: #ccc;
@@ -354,26 +358,26 @@ atom-text-editor .search-results .@{_}marker{
 		}
 		
 		&.@{_}header.@{_}from-file{
-			background: @deletion-bg !important;
-			color:      @deletion-fg !important;
+			background: #ffecec !important;
+			color:      #bd2c00 !important;
 		}
 		&.@{_}header.@{_}to-file{
-			background: @addition-bg !important;
-			color:      @addition-fg !important;
+			background: #eaffea !important;
+			color:      #55a532 !important;
 		}
 	}
 	
 	&.@{_}markup{
 		&.@{_}deleted,
 		&.@{_}deleted > .@{_}deleted{
-			background: @deletion-bg !important;
-			color:      @deletion-fg !important;
+			background: #ffecec !important;
+			color:      #bd2c00 !important;
 		}
 		
 		&.@{_}inserted,
 		&.@{_}inserted > .@{_}inserted{
-			background: @addition-bg !important;
-			color:      @addition-fg !important;
+			background: #eaffea !important;
+			color:      #55a532 !important;
 		}
 	}
 }
@@ -404,6 +408,7 @@ atom-text-editor .search-results .@{_}marker{
 		
 		& > .@{_}underline{
 			text-decoration: underline;
+			
 			& > .@{_}punctuation{
 				text-decoration: none;
 			}
@@ -427,10 +432,7 @@ atom-text-editor[mini] .scroll-view{
 }
 
 
-/** Hide wrapping guide */
-.wrap-guide{
-	display: none !important;
-}
+
 
 
 /** SQL */
@@ -578,8 +580,8 @@ atom-text-editor[mini] .scroll-view{
 	&.@{_}punctuation{
 		&.@{_}directive{ color: #00f; }
 		&.@{_}separator{ color: #00a; }
-		&.@{_}table{  color: #81a2be; }
-		&.@{_}heading{ color: #009a00 !important; }
+		&.@{_}table{     color: #81a2be; }
+		&.@{_}heading{   color: #009a00 !important; }
 	}
 }
 
