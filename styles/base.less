@@ -748,6 +748,28 @@ atom-text-editor[mini] .scroll-view{
 }
 
 
+.@{_}ditroff{
+	&.@{_}meta.@{_}device-control{
+		text-decoration: underline;
+		
+		.@{_}keyword.@{_}operator,
+		.@{_}keyword.@{_}control{
+			font-family: Menlo;
+			font-weight: bold;
+			-webkit-font-smoothing: antialiased;
+		}
+		
+		&, & *{
+			color: #f00 !important;
+		}
+	}
+	
+	&.@{_}punctuation.@{_}definition.@{_}entity{
+		opacity: .25;
+	}
+}
+
+
 /** RUNOFF */
 .@{_}runoff{
 	&.@{_}function,
