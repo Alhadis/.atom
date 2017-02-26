@@ -23,7 +23,6 @@
       "text.roff": [
         "mm"
       ]
-    destroyEmptyPanes: false
     disabledPackages: [
       "spell-check"
       "autocomplete-css"
