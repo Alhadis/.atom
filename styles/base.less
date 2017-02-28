@@ -468,7 +468,7 @@ atom-text-editor[mini] .scroll-view{
 }
 
 
-/** CoffeeScript */
+/** CSON */
 .@{_}coffee{
 	.@{_}keyword > &,
 	&.@{_}keyword,
@@ -476,6 +476,12 @@ atom-text-editor[mini] .scroll-view{
 	&.@{_}entity.@{_}name,
 	&.@{_}support.@{_}function{
 		color: #00c
+	}
+	
+	&.@{_}string{
+		.@{_}punctuation.@{_}definition.@{_}escape.@{_}backslash{
+			opacity: .2;
+		}
 	}
 }
 
