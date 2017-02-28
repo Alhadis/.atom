@@ -77,4 +77,13 @@
 		]
 		devMode: true
 	}
+	{
+		title: "MagicECMAScript"
+		paths: [
+			"/Users/johngardner/Labs/MagicECMAScript"
+			"/Users/johngardner/Forks/Atom/JS"
+		]
+		icon: "js-icon"
+		devMode: true
+	}
 ]

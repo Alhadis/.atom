@@ -1,4 +1,5 @@
 "body, .platform-darwin":
+	"cmd-i":          "window:toggle-dev-tools" # TODO: Wrap inside `user:cmd-i` command
 	"cmd-\\":         "user:toggle-sidebar"
 	"alt-cmd-\\":     "tree-view:toggle"
 	"shift-cmd-O":    "application:open-dev"
@@ -27,6 +28,7 @@
 	"alt-o":          "file-icons:show-outlines"
 	"shift-cmd-c":    "file-icons:toggle-colours"
 	"alt-cmd-t":      "user:toggle-trendy-faggot-mode"
+	"ctrl-o":         "link:open"
 	"cmd-p":          "user:temp-1"
 
 "atom-text-editor":
