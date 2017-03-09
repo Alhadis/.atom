@@ -81,7 +81,6 @@
 		title: "MagicECMAScript"
 		paths: [
 			"/Users/johngardner/Labs/MagicECMAScript"
-			"/Users/johngardner/Forks/Atom/JS"
 			"/Users/johngardner/Labs/file-icons"
 		]
 		icon: "js-icon"
