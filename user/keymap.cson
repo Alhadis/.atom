@@ -43,6 +43,7 @@
 	"alt-up":         "editor:move-line-up"
 	"alt-down":       "editor:move-line-down"
 	"cmd-alt-up":     "editor:duplicate-lines"
+	"ctrl-a":         "user:align-columns"
 	"ctrl-w":         "user:unfuck-tabstops"
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
