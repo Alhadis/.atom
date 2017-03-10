@@ -47,6 +47,10 @@
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
 	"cmd-r":          "unset!"
+	"cmd-=":          "user:increment"
+	"cmd-+":          "user:increment"
+	"cmd--":          "user:decrement"
+	"cmd-_":          "user:decrement"
 
 "atom-text-editor[data-grammar='source js']":
 	"{":              "user:dollar-wrap"
