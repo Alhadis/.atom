@@ -45,6 +45,8 @@
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"ctrl-a":         "user:align-columns"
 	"ctrl-w":         "user:unfuck-tabstops"
+	"cmd-;":          "user:swap-quotes"
+	"cmd-'":          "user:swap-quotes"
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
 	"cmd-r":          "unset!"
