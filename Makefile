@@ -1,10 +1,23 @@
 all: relink install
 
+theme-dir   := ~/Labs/Atom-PhoenixTheme
+user-dir    := ~/.atom
+package-dir := ~/.atom/packages
+
+linked-user-files := \
+	config.cson \
+	keymap.cson \
+	projects.cson \
+	snippets.cson \
+	styles.less \
+	init.js
+
 
 # Community Atom packages
 installed-packages := \
 	advanced-open-file \
 	aesthetic-ui \
+	atom-hg \
 	atom-material-syntax \
 	atom-material-syntax-dark \
 	atom-material-syntax-light \
@@ -26,7 +39,6 @@ installed-packages := \
 	language-batchfile \
 	language-bnf \
 	language-crystal-actual \
-	language-csound \
 	language-diff \
 	language-docker \
 	language-erlang \
@@ -56,6 +68,7 @@ installed-packages := \
 	seti-ui \
 	sort-lines \
 	theme-reel \
+	toggle-quotes \
 	yosemate-ui
 
 
@@ -85,15 +98,28 @@ symlinked-projects := \
 	language-wavefront
 
 
-# Package directory
-package-dir := ~/.atom/packages
+# Keep config files tracked by version control
+$(user-dir): $(addprefix ~/.atom/,$(linked-user-files))
 
+~/.atom/%: $(theme-dir)/src/configs/%
+	ln -s $^ $@
+
+~/.atom/styles.less: $(theme-dir)/styles/index.less
+	ln -s $^ $@
+
+~/.atom/config.cson: $(theme-dir)/src/configs/user-config.cson
+	ln -s $^ $@
+
+~/.atom/init.js: $(theme-dir)/src/index.js
+	ln -s $^ $@
+
+
+# Package directory
 $(package-dir):
 	mkdir $@
 
-
 # Install community packages
-install: $(package-dir) $(addprefix $(package-dir)/,$(installed-packages))
+install: $(user-dir) $(package-dir) $(addprefix $(package-dir)/,$(installed-packages))
 
 $(package-dir)/%:
 	apm install $*
@@ -103,10 +129,10 @@ $(package-dir)/%:
 relink: $(package-dir) $(addprefix $(package-dir)/,$(symlinks))
 
 $(package-dir)/file-icons:
-	ln -s ~/Labs/FI-V2 $@
+	ln -s ~/Labs/file-icons $@
 
 $(package-dir)/Phoenix-Syntax:
-	ln -s ~/Labs/Atom-PhoenixTheme $@
+	ln -s $(theme-dir) $@
 
 $(package-dir)/regex-comments:
 	ln -s ~/Labs/Regex-Comments $@
