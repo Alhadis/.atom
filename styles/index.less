@@ -1,2 +1,74 @@
-@import "./base.less";
-@import "../user/styles.less";
+@import "./syntax";
+@import "./typography";
+@_: syntax--;
+
+
+/* Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
+atom-text-editor.is-focused .cursors .cursor{
+	opacity: 1;
+}
+
+/* Bracket-matcher highlights */
+.bracket-matcher .region{
+	background: lime;
+	outline: 1px solid #0a0;
+	
+	/* Hide bracket-matching pairs unless requested */
+	.scroll-view:not(.show-bracket-matcher) &{
+		visibility: hidden;
+	}
+}
+
+
+/* Debugging highlights for language-grammar development */
+.@{_}test-1, .@{_}test1{ background: #f00 !important; &.@{_}faded{ background: rgba(255, 0, 0, .25)     !important; }}
+.@{_}test-2, .@{_}test2{ background: #0e0 !important; &.@{_}faded{ background: rgba(0, 238, 0, .25)     !important; }}
+.@{_}test-3, .@{_}test3{ background: #6cf !important; &.@{_}faded{ background: rgba(102, 204, 255, .25) !important; }}
+
+.@{_}box:not(.@{_}roff):not(.@{_}request){
+	outline: 1px solid #ccc;
+	
+	&.@{_}test-1, .@{_}test1,
+	&.@{_}test-2, .@{_}test2,
+	&.@{_}test-3, .@{_}test3{
+		outline-color: #000;
+	}
+	
+	&.@{_}faded{
+		opacity: .25;
+	}
+}
+
+
+/* Get rid of that distracting... wobble-thing */
+atom-notification.remove{
+	-webkit-animation-duration: 0ms !important;
+}
+
+/* Hide EditorConfig's status-bar tile */
+#aec-status-bar-container{
+	display: none !important;
+}
+
+
+.theme-seti-syntax atom-text-editor .syntax--comment-ish{
+	color: #4d5a5e;
+}
+
+.perl-icon::before{
+	content: "\E669";
+	font-size: 15px;
+	font-family: Devicons;
+	top: 2px;
+}
+
+/* File Icons: Outlines for icon adjustment */
+.file-icons-show-outlines{
+	.icon{
+		outline: 1px solid blue;
+		
+		&:before{
+			outline: 1px solid red;
+		}
+	}
+}

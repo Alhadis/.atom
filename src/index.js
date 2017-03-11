@@ -1,8 +1,18 @@
 "use strict";
+const {shell:$} =
 
-require("./utils.js");
-require("./cmd.js");
-require("../tmp.js");
+// Helper functions
+require("./utils/other.js");
+require("./utils/global.js");
+require("./utils/buffer.js");
+
+// Custom commands
+require("./commands/display.js");
+require("./commands/editor.js");
+require("./commands/other.js");
+require("./commands/quotes.js");
+require("./commands/text-alignment.js");
+require("./commands/pull-requests.js");
 
 
 // Disable pending items
@@ -10,8 +20,7 @@ atom.workspace.onDidAddPaneItem(({pane}) => pane.setPendingItem(null));
 
 
 // Undo whitespace molestation applied by Project-Manager
-const {exec} = require("child_process");
-exec(`cd ${__dirname}/.. && make could-you-not`);
+$ `make could-you-not`;
 
 
 atom.workspace.observeTextEditors(editor => {
@@ -27,7 +36,7 @@ atom.workspace.observeTextEditors(editor => {
 	});
 	
 	// Clear .DS_Store junk from desktop when saving files
-	editor.onDidSave(function(){
-		setTimeout(() => exec("~/.files/bin/dsclean ~/Desktop"), 50);
+	editor.onDidSave(() => {
+		setTimeout(() => $ `~/.files/bin/dsclean ~/Desktop`, 50);
 	});
 });

@@ -1,5 +1,49 @@
 "use strict";
-module.exports =
+
+const {mergeContiguousCursors, selectEntireLines} = require("../utils/buffer.js");
+
+/**
+ * @function user:align-columns
+ * @summary Pad text to produce vertically-aligned columns.
+ * @see {@link user:unalign-columns}
+ */
+atom.commands.add("atom-text-editor", "user:align-columns", event => {
+	const editor = atom.workspace.getActiveTextEditor();
+	mergeContiguousCursors(editor);
+	editor.mutateSelectedText(selection => {
+		selectEntireLines(selection);
+		const text = selection.getText();
+		const aligned = alignText(text);
+		(aligned !== text)
+			? selection.insertText(aligned, {select: false})
+			: atom.commands.dispatch(event.target, "user:unalign-columns");
+	});
+});
+
+
+/**
+ * @function user:unalign-columns
+ * @summary Inverse of {@link user:align-columns}. Strips column padding.
+ * @desc Called when executing `align-columns` on already-aligned source.
+ */
+atom.commands.add("atom-text-editor", "user:unalign-columns", event => {
+	const editor = atom.workspace.getActiveTextEditor();
+	mergeContiguousCursors(editor);
+	editor.mutateSelectedText(selection => {
+		selectEntireLines(selection);
+		const text = selection.getText();
+		const table = alignText(text, null, {as: "table"});
+		if("object" === typeof table){
+			const {regexp, string} = table.delimiter;
+			const result = table.map(row => row
+				.map(cell => cell.replace(regexp, ` ${string} `))
+				.join("")).join("\n");
+			if(result !== text)
+				selection.insertText(result, {select: false});
+		}
+	});
+});
+
 
 /**
  * Pad columns with spaces to align visible character data.
