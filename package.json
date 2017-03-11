@@ -9,7 +9,13 @@
 	"engines": {
 		"atom": "*"
 	},
+	"atomTestRunner": "atom-mocha",
 	"dependencies": {
 		"print": "*"
+	},
+	"devDependencies": {
+		"atom-mocha": "*",
+		"mocha": "*",
+		"chai":  "*"
 	}
 }

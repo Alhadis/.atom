@@ -1,7 +1,6 @@
 .DS_Store
 npm-debug.log
 node_modules
-sftp-config.json
-.project
 /tmp.js
-/fonts
+/test/fixtures/*
+!/test/fixtures/.keep
