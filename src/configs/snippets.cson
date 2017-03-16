@@ -362,3 +362,10 @@
 				value) name=$OPTARG ;;
 			esac
 		"""
+
+
+# HTML
+".text.html.basic":
+	Script:
+		prefix: "script"
+		body: '<script>\n\t"use strict";\n\t$0\n</script>'

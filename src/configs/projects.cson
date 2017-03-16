@@ -7,13 +7,6 @@
 		devMode: true
 	}
 	{
-		title: "Snippets"
-		paths: [
-			"/Users/johngardner/Labs/Snippets"
-		]
-		devMode: true
-	}
-	{
 		title: ".files"
 		paths: [
 			"/Users/johngardner/.files"
@@ -46,6 +39,7 @@
 		title: "file-icons"
 		paths: [
 			"/Users/johngardner/Labs/file-icons"
+			"/Users/johngardner/Labs/Atom-FS"
 		]
 		devMode: true
 	}
@@ -64,26 +58,10 @@
 		devMode: true
 	}
 	{
-		title: "File"
-		paths: [
-			"/Users/johngardner/Mirrors/File"
-		]
-		devMode: true
-	}
-	{
 		title: "TMCG"
 		paths: [
 			"/Users/johngardner/Labs/TMCG"
 		]
-		devMode: true
-	}
-	{
-		title: "MagicECMAScript"
-		paths: [
-			"/Users/johngardner/Labs/MagicECMAScript"
-			"/Users/johngardner/Labs/file-icons"
-		]
-		icon: "js-icon"
 		devMode: true
 	}
 ]
