@@ -268,6 +268,16 @@
 	Dump:
 		prefix: "dump"
 		body: "print Dumper(${1:$data});"
+	"Say: Import":
+		prefix: "say"
+		body: 'use feature "say";'
+	"Getopt: Import":
+		prefix: "opt"
+		body: "use Getopt::Long qw(:config auto_abbrev);"
+	"Getopt: Usage":
+		prefix: "getopt"
+		body: 'GetOptions(${1:"number=i" => $number, "string=s" => $string, "boolean"  => $bool});'
+
 
 # Ruby
 ".source.ruby":
