@@ -36,14 +36,6 @@
 		devMode: true
 	}
 	{
-		title: "file-icons"
-		paths: [
-			"/Users/johngardner/Labs/file-icons"
-			"/Users/johngardner/Labs/Atom-FS"
-		]
-		devMode: true
-	}
-	{
 		title: "language-viml"
 		paths: [
 			"/Users/johngardner/.atom/packages/language-viml"
@@ -58,9 +50,11 @@
 		devMode: true
 	}
 	{
-		title: "TMCG"
+		title: "Atom-FS"
 		paths: [
-			"/Users/johngardner/Labs/TMCG"
+			"/Users/johngardner/Labs/file-icons"
+			"/Users/johngardner/Labs/Atom-FS"
+			"/Users/johngardner/Labs/Utils"
 		]
 		devMode: true
 	}
