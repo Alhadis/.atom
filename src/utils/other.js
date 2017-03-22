@@ -7,7 +7,8 @@ module.exports = {
 	getPrecision,
 	wait,
 	setTheme,
-	shell
+	shell,
+	tsvTable
 };
 
 
@@ -84,4 +85,45 @@ function setTheme(...names){
  */
 function shell(command){
 	return exec(command);
+}
+
+
+/**
+ * Construct an HTML table from TSV data.
+ *
+ * @param {String} tsv - Block of text holding tab-delimited data.
+ * @return {String} HTML source for a <table> element
+ */
+function tsvTable(tsv){
+	let rows = tsv
+		.replace(/^\s+|\s+$/g, "")
+		.replace(/\n{2,}/g, "\n\n")
+		.split(/\n/);
+
+	const join = (row, tag) => "\t\t<tr>\n"
+		+ row.split(/\t/)
+			.map(cell => `<${tag}>${cell}</${tag}>`)
+			.join("\n")
+			.replace(/^/gm, "\t".repeat(3))
+		+ "\n\t\t</tr>\n";
+
+	let html = "<table>\n";
+
+	// Split leading rows into a <thead> if a blank row is present.
+	const index = rows.indexOf("");
+	if(-1 !== index)
+		html += `\t<thead>\n`
+			+ rows.slice(0, index)
+			. map(tr => join(tr, "th"))
+			. join("")
+			+ `\t</thead>\n`;
+
+	// Construct the table's body
+	rows = rows.slice(index + 1);
+	html += "\t<tbody>\n"
+		+ rows.map(tr => join(tr, "td")).join("")
+		+ "\t</tbody>\n"
+	+ "</html>\n";
+
+	return html;
 }

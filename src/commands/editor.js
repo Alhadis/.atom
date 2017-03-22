@@ -1,6 +1,6 @@
 "use strict";
 
-const {round, getPrecision} = require("../utils/other.js");
+const {round, getPrecision, tsvTable} = require("../utils/other.js");
 
 
 // Fix for failed indent-detection
@@ -80,7 +80,15 @@ atom.commands.add("atom-text-editor", "user:decrement", event => {
 	hasSelectedText(editor)
 		? bumpSelectedNumbers(event.originalEvent.shiftKey ? -10 : -1, editor)
 		: atom.commands.dispatch(event.target, "window:decrease-font-size");
-	
+});
+
+
+// Convert TSV data to an HTML <table>
+atom.commands.add("atom-text-editor", "user:tsv-to-html", event => {
+	const editor = atom.workspace.getActiveTextEditor();
+	hasSelectedText(editor)
+		? editor.mutateSelectedText(selection => selection.insertText(tsvTable(selection.getText())))
+		: editor.setText(tsvTable(editor.getText()));
 });
 
 
