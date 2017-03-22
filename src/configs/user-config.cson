@@ -24,7 +24,6 @@
         "mm"
       ]
     disabledPackages: [
-      "spell-check"
       "autocomplete-css"
       "background-tips"
       "welcome"
@@ -75,6 +74,16 @@
   "seti-ui":
     compactView: true
     fileIcons: false
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "text.roff"
+      "source.js"
+    ]
   "status-bar":
     fullWidth: false
   tabs: {}

@@ -1,6 +1,7 @@
 "body, .platform-darwin":
 	"cmd-i":          "window:toggle-dev-tools" # TODO: Wrap inside `user:cmd-i` command
 	"cmd-\\":         "user:toggle-sidebar"
+	"alt-s":          "user:toggle-spellcheck"
 	"alt-cmd-\\":     "tree-view:toggle"
 	"shift-cmd-O":    "application:open-dev"
 	"shift-cmd-R":    "window:reload"

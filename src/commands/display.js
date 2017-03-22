@@ -13,6 +13,17 @@ atom.commands.add("body", "user:toggle-bracket-matcher", () => {
 
 
 /**
+ * @function user:toggle-spellcheck
+ * @summary Toggle spell-checker highlights
+ */
+atom.commands.add("body", "user:toggle-spellcheck", () => {
+	const editor = atom.workspace.getActiveTextEditor();
+	const el = editor.element.querySelector(".scroll-view");
+	el && el.classList.toggle("show-spellcheck");
+});
+
+
+/**
  * @function user:toggle-sidebar
  * @summary Toggle tree-view or Minimap, depending on whether an editor's open.
  */

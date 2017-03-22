@@ -18,6 +18,17 @@ atom-text-editor.is-focused .cursors .cursor{
 	}
 }
 
+/* Hide spell-checker until requested */
+.spell-check-misspelling .region{
+	background: rgba(255, 0, 0, .25);
+	outline: 1px solid red;
+	border: none;
+	
+	.scroll-view:not(.show-spellcheck) &{
+		display: none;
+	}
+}
+
 
 /* Debugging highlights for language-grammar development */
 .@{_}test-1, .@{_}test1{ background: #f00 !important; &.@{_}faded{ background: rgba(255, 0, 0, .25)     !important; }}
@@ -39,7 +50,7 @@ atom-text-editor.is-focused .cursors .cursor{
 }
 
 
-/* Get rid of that distracting... wobble-thing */
+/* Disable transitions when dismissing popups */
 atom-notification.remove{
 	-webkit-animation-duration: 0ms !important;
 }
