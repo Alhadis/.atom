@@ -150,7 +150,7 @@ could-you-not:
 	@$$(git diff --exit-code --quiet -w $(projects)) && git checkout -- $(projects)
 
 .PHONY: could-you-not
-projects := user/projects.cson
+projects := src/configs/projects.cson
 
 
 
