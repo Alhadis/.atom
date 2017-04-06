@@ -184,14 +184,17 @@
 		prefix: "fs"
 		body: 'const fs = require("fs");$1'
 	"Module - Path":
-		prefix: "pat"
-		body: 'const path = require("path");$1'
+		prefix: "P"
+		body: 'const path = require("path");\n$1'
 	"Module - Child Process":
 		prefix: "cp"
 		body: 'const childProcess = require("child_process");$1'
 	"Module - Print":
 		prefix: "Print"
 		body: 'const print = require("print");$1'
+	"path.join":
+		prefix: "join"
+		body: 'const {join$1} = require("path");\n$2'
 
 ".source.js .punctuation.definition.arguments.end.bracket.round.js":
 	"Console - Log":
