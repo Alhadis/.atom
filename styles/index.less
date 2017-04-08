@@ -61,8 +61,14 @@ atom-notification.remove{
 }
 
 
-.theme-seti-syntax atom-text-editor .syntax--comment-ish{
-	color: #4d5a5e;
+/* Seti Syntax: Tweak some colour choices */
+.theme-seti-syntax atom-text-editor{
+	.@{_}comment-ish{
+		color: #4d5a5e;
+	}
+	.@{_}markup.@{_}heading .@{_}punctuation.@{_}definition.@{_}heading{
+		color: #2d3e3a;
+	}
 }
 
 .perl-icon::before{
