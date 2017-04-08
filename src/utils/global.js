@@ -3,9 +3,18 @@
 Object.defineProperties(global, {
 	ed:   {get: () => atom.workspace.getActiveTextEditor()},
 	pane: {get: () => atom.workspace.getActivePane()},
+	cur:  {get: () => global.ed.getLastCursor()},
 	text: {
 		get: () => global.ed.buffer.getText(),
 		set: to => global.ed.buffer.setText(to)
+	},
+	row: {
+		get: () => global.cur.getBufferRow(),
+		set: to => global.cur.setBufferPosition([to, global.col])
+	},
+	col: {
+		get: () => global.cur.getBufferColumn(),
+		set: to => global.cur.setBufferPosition([global.row, to])
 	},
 });
 
