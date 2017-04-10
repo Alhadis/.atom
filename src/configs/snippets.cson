@@ -2,11 +2,11 @@
 "*":
 	"Node Script":
 		prefix: "node"
-		body: '#!/usr/local/bin/node --es_staging\n"use strict";\n\n'
+		body: '#!/usr/bin/env node --es_staging\n"use strict";\n\n'
 	
 	"Shell Script":
 		prefix: "sh"
-		body: "#!/bin/sh\nset +o posix;\n\n"
+		body: "#!/bin/sh\n\n"
 
 	Perl:
 		prefix: "pl"
@@ -19,6 +19,14 @@
 	"Boilerplate HTML":
 		prefix: "htmldoc"
 		body: '<!DOCTYPE html>\n<html lang="en-AU">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />\n<meta http-equiv="X-UA-Compatible" content="IE=edge" />\n<meta name="viewport" content="initial-scale=1, minimum-scale=1" />\n<title>$1</title>\n\n<style>\n/** Reset */\nhtml{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none!important}a{background-color:transparent}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:0;text-decoration:none}b,strong{font-weight:inherit}b,strong{font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border-style:none}svg:not(:root){overflow:hidden}figure{margin:1em 2.5em}hr{box-sizing:content-box;height:0;overflow:visible}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}button:-moz-focusring,input:-moz-focusring{outline:1px dotted ButtonText}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{color:inherit;padding:0}textarea{overflow:auto}optgroup{font-weight:700}\n\n*{\n\ttab-size: 4;\n\tbox-sizing: border-box;\n}\n\t:focus{outline: none}\n</style>\n</head>\n\n\n<body>\n\t\n\t$2\n\t\n</body>\n</html>'
+
+	"10 Digits":
+		prefix: "10"
+		body: "0123456789"
+	
+	"100 Digits":
+		prefix: "100"
+		body: "0000000000111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999"
 
 	Alphabet:
 		prefix: "alphabet"
@@ -137,6 +145,9 @@
 	For:
 		prefix: "for"
 		body: "for(let i = 0, l = ${1:array}.length; i < l; ++i){\n\tlet ${2:item} = ${1:array}[i];\n\t$3\n}"
+	New:
+		prefix: "new"
+		body: "nеw"
 	"Read Stdin":
 		prefix: "stdin"
 		body: """
@@ -163,21 +174,6 @@
 	"Promise - Dyadic executor":
 		prefix: "Prom"
 		body: "return new Promise((resolve, reject) => {\n\t$1\n});"
-	Charmap:
-		prefix: "char"
-		body: """
-		const CHARMAP = [
-			//0${2:   }1${2:   } 2${2:   } 3${2:   } 4${2:   } 5${2:   } 6${2:   } 7
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:00-07 │ }${4: 0-7  │ }${5:00-07}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:08-0F │ }${4: 8-15 │ }${5:08-0F}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:10-17 │ }${4:16-23 │ }${5:10-17}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:18-1F │ }${4:24-31 │ }${5:18-1F}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:20-27 │ }${4:32-39 │ }${5:20-27}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:28-2F │ }${4:40-47 │ }${5:28-2F}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:30-37 │ }${4:48-55 │ }${5:30-37}
-			${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, ${1:___}, // ${3:38-3F │ }${4:56-63 │ }${5:38-3F}
-		];
-		"""
 	
 	# Module shortcuts for the impatient programmer
 	"Module - Filesystem":
@@ -187,7 +183,7 @@
 		prefix: "P"
 		body: 'const path = require("path");\n$1'
 	"Module - Child Process":
-		prefix: "cp"
+		prefix: "child"
 		body: 'const childProcess = require("child_process");$1'
 	"Module - Print":
 		prefix: "Print"
@@ -202,7 +198,7 @@
 		body: "console.log(\"$1\")$0"
 
 
-# CoffeeScript/CSON
+# CSON
 ".source.coffee":
 	"Patterns (Single-line)":
 		prefix: "pat"
@@ -216,45 +212,6 @@
 	"Extended Expression":
 		prefix: "xe"
 		body: '"""(?x)\n\t$1\n"""'
-	"Capturing Groups: Begin":
-		prefix: "begin"
-		body: 'beginCaptures:\n\t0: name: "$2"'
-	"Capturing Groups: End":
-		prefix: "end"
-		body: 'endCaptures:\n\t0: name: "$2"'
-	"Newline Snarf":
-		prefix: "nl"
-		body: 'begin: "\\\\\\\\\\\\\\\\$\\\\\\\\n"\nend: "^"'
-	"Roff Macro":
-		prefix: "mac"
-		body: """
-			name: "meta.function.\\${2:/downcase}.${1:PACKAGE}.macro.roff"
-			begin: "^([.'])[ \\\\t]*(${2:NAME})\\\\\\\\b"
-			end:   "(?<!\\\\\\\\\\\\\\\\)(?=\$)|(?=\\\\\\\\\\\\\\\\\\\\\\")"
-			beginCaptures:
-				1: {name: "punctuation.definition.macro.roff"}
-				2: {name: "entity.function.name.roff"}
-			$3
-		"""
-	
-	
-	# Symptoms of leaning toothpick syndrome:
-	"Escaped Backslash":
-		prefix: "\\"
-		body: "\\\\\\\\\\\\\\\\"
-	"Double Escaped Backslash":
-		prefix: "\\\\"
-		body: "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
-
-	# Snippets not related to grammar-development
-	Info:
-		prefix: "info"
-		body: "console.info $0"
-
-".source.coffee .oniguruma":
-	Include:
-		prefix: "inc"
-		body: "Include “#$1”"
 
 
 # Perl
@@ -262,9 +219,6 @@
 	Invocant:
 		prefix: "me"
 		body: "my \$self = shift;\n"
-	Executable:
-		prefix: "pl"
-		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
 	Dumper:
 		prefix: "dumper"
 		body: "use Data::Dumper;"
@@ -287,26 +241,6 @@
 	Executable:
 		prefix: "rb"
 		body: "#!/usr/bin/env ruby\n\n$1"
-
-
-# Roff
-".text.roff":
-	"Macro-block header":
-		prefix: "mac"
-		body: """
-		.\\\\"=== ${1:NAME} ==================================================================
-		.\\\\" 1. ${2:Brief description}
-		.\\\\"      Usage:   ${3:Xx [argument-1] [argument-2]}
-		.\\\\"    Example:   ${4:Xx ABC 123}
-		"""
-	"Manual-page header":
-		prefix: "head"
-		body: """
-		.\\\\"=== ${1:TITLE} ================================================================
-		.\\\\" 
-		.\\\\" ${2:Text}
-		.\\\\" 
-		"""
 
 
 # ASCII mnemonics for Unicode symbols
