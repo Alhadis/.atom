@@ -14,13 +14,6 @@
 		devMode: true
 	}
 	{
-		title: "language-apl"
-		paths: [
-			"/Users/johngardner/Labs/language-apl"
-		]
-		devMode: true
-	}
-	{
 		title: "language-roff"
 		paths: [
 			"/Users/johngardner/Labs/language-roff"
@@ -28,32 +21,22 @@
 		devMode: true
 	}
 	{
-		title: "language-emacs-lisp"
+		title: "file-icons"
 		paths: [
-			"/Users/johngardner/Labs/language-emacs-lisp"
-			"/Users/johngardner/Documents/Code-related/emacs-lisp"
-		]
-		devMode: true
-	}
-	{
-		title: "language-viml"
-		paths: [
-			"/Users/johngardner/.atom/packages/language-viml"
-		]
-		devMode: true
-	}
-	{
-		title: "reStructuredText"
-		paths: [
-			"/Users/johngardner/.atom/packages/language-restructuredtext"
+			"/Users/johngardner/Labs/file-icons"
 		]
 		devMode: true
 	}
 	{
 		title: "Atom-FS"
 		paths: [
-			"/Users/johngardner/Labs/file-icons"
 			"/Users/johngardner/Labs/Atom-FS"
+		]
+		devMode: true
+	}
+	{
+		title: "Utils"
+		paths: [
 			"/Users/johngardner/Labs/Utils"
 		]
 		devMode: true
