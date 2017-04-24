@@ -3,10 +3,6 @@
 	"Node Script":
 		prefix: "node"
 		body: '#!/usr/bin/env node --es_staging\n"use strict";\n\n'
-	
-	"Shell Script":
-		prefix: "sh"
-		body: "#!/bin/sh\n\n"
 
 	Perl:
 		prefix: "pl"
@@ -180,7 +176,7 @@
 		prefix: "fs"
 		body: 'const fs = require("fs");$1'
 	"Module - Path":
-		prefix: "P"
+		prefix: "Path"
 		body: 'const path = require("path");\n$1'
 	"Module - Child Process":
 		prefix: "child"
@@ -281,6 +277,12 @@
 	⇐:
 		prefix: "<="
 		body: "⇐"
+	↑:
+		prefix: "^|"
+		body: "↑"
+	↓:
+		prefix: "v|"
+		body: "↓"
 	│:
 		prefix: "|"
 		body: "│"
