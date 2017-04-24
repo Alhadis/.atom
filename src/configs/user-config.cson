@@ -96,3 +96,6 @@
 ".atom-mocha":
   editor:
     fontSize: 13
+".rust.source":
+  editor:
+    softTabs: false
