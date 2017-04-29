@@ -7,6 +7,8 @@ Object.defineProperties(global, {
 	pane: {get: () => atom.workspace.getActivePane()},
 	sel:  {get: () => global.ed.getLastSelection()},
 	cur:  {get: () => global.ed.getLastCursor()},
+	tb:   {get: () => global.ed.tokenizedBuffer},
+	buf:  {get: () => global.ed.buffer},
 	text: {
 		get: () => global.ed.buffer.getText(),
 		set: to => global.ed.buffer.setText(to)
