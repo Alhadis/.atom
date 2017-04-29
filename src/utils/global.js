@@ -1,5 +1,7 @@
 "use strict";
 
+const {getProperties} = require("alhadis.utils");
+
 Object.defineProperties(global, {
 	ed:   {get: () => atom.workspace.getActiveTextEditor()},
 	pane: {get: () => atom.workspace.getActivePane()},
@@ -55,8 +57,10 @@ Object.assign(global, {
 			: pattern;
 		
 		const output = {};
-		for(const key of Object.keys(subject).filter(k => pattern.test(k)))
-			output[key] = subject[key];
+		const props = getProperties(subject);
+		for(const key of props.keys())
+			if(pattern.test(key))
+				output[key] = subject[key];
 		return output;
 	},
 	
