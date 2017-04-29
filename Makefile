@@ -17,7 +17,6 @@ linked-user-files := \
 installed-packages := \
 	advanced-open-file \
 	aesthetic-ui \
-	atom-hg \
 	atom-material-syntax \
 	atom-material-syntax-dark \
 	atom-material-syntax-light \
@@ -33,7 +32,6 @@ installed-packages := \
 	language-antlr \
 	language-apache \
 	language-applescript \
-	language-arm \
 	language-asciidoc \
 	language-awk \
 	language-batchfile \
@@ -55,18 +53,15 @@ installed-packages := \
 	language-pascal \
 	language-postscript \
 	language-rust \
-	language-x86 \
+	language-shadercode-shaderlab \
 	language-x86-64-assembly \
-	lines \
 	lisp-paredit \
 	MagicPython \
 	make-executable \
 	minimap \
-	nucleus-dark-ui \
 	project-manager \
 	seti-syntax \
 	seti-ui \
-	sort-lines \
 	theme-reel \
 	toggle-quotes \
 	yosemate-ui
@@ -126,7 +121,7 @@ $(package-dir)/%:
 
 
 # Symlink locally-managed packages
-relink: $(package-dir) $(addprefix $(package-dir)/,$(symlinks))
+relink: $(package-dir) $(addprefix $(package-dir)/,$(symlinks)) node_modules
 
 $(package-dir)/file-icons:
 	ln -s ~/Labs/file-icons $@
@@ -143,6 +138,9 @@ $(addprefix $(package-dir)/,$(symlinked-forks)):
 $(addprefix $(package-dir)/,$(symlinked-projects)):
 	ln -s ~/Labs/$(@F) $@
 
+node_modules: $(package-dir)/file-icons
+	ln -s $^/node_modules $@
+	cd $^; symlink-npm.sh
 
 
 # Undo Project-Manager's whitespace molestation

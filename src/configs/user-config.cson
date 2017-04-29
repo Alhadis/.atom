@@ -29,9 +29,7 @@
       "welcome"
       "language-java"
       "language-python"
-      "nuclide"
       "autocomplete-plus"
-      "atom-hg"
     ]
     openEmptyEditorOnStart: false
     themes: [
