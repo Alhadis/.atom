@@ -232,11 +232,21 @@
 		body: 'GetOptions(${1:"number=i" => $number, "string=s" => $string, "boolean"  => $bool});'
 
 
+# Roff
+".text.roff":
+	＝:
+		prefix: "="
+		body: '.\\\\" ============================================================================\n'
+
+
 # Ruby
 ".source.ruby":
 	Executable:
 		prefix: "rb"
 		body: "#!/usr/bin/env ruby\n\n$1"
+	Read:
+		prefix: "read"
+		body: 'data = File.read("${1:file.name}")'
 
 
 # ASCII mnemonics for Unicode symbols

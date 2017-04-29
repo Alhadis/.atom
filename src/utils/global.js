@@ -5,6 +5,7 @@ const {getProperties} = require("alhadis.utils");
 Object.defineProperties(global, {
 	ed:   {get: () => atom.workspace.getActiveTextEditor()},
 	pane: {get: () => atom.workspace.getActivePane()},
+	sel:  {get: () => global.ed.getLastSelection()},
 	cur:  {get: () => global.ed.getLastCursor()},
 	text: {
 		get: () => global.ed.buffer.getText(),
