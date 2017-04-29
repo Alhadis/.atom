@@ -133,6 +133,14 @@ atom.commands.add("atom-text-editor", "lines:duplicate", () => {
 });
 
 
+// Reverse row-order
+atom.commands.add("atom-text-editor", "lines:reverse", () => {
+	const editor = atom.workspace.getActiveTextEditor();
+	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
+	mutate(editor, text => text.split(/\r?\n/).reverse().join(EOL));
+});
+
+
 // Shuffle lines with pseudo-random ordering
 atom.commands.add("atom-text-editor", "lines:shuffle", () => {
 	const editor = atom.workspace.getActiveTextEditor();
