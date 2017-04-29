@@ -33,6 +33,7 @@
 	"cmd-p":          "user:temp-1"
 
 "atom-text-editor":
+	"f5":             "lines:sort-basic"
 	"ctrl-u":         "lines:unique"
 	"cmd-g":          "go-to-line:toggle"
 	"cmd-l":          "grammar-selector:show"

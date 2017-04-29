@@ -1,6 +1,7 @@
 "use strict";
 
 const {round, getPrecision, tsvTable} = require("../utils/other.js");
+const {hasSelectedText, mutate} = require("../utils/buffer.js");
 
 
 // Fix for failed indent-detection
@@ -84,11 +85,69 @@ atom.commands.add("atom-text-editor", "user:decrement", event => {
 
 
 // Convert TSV data to an HTML <table>
-atom.commands.add("atom-text-editor", "user:tsv-to-html", event => {
+atom.commands.add("atom-text-editor", "user:tsv-to-html", () => {
 	const editor = atom.workspace.getActiveTextEditor();
-	hasSelectedText(editor)
-		? editor.mutateSelectedText(selection => selection.insertText(tsvTable(selection.getText())))
-		: editor.setText(tsvTable(editor.getText()));
+	mutate(editor, tsvTable);
+	if(atom.grammars.nullGrammar === editor.getGrammar())
+		editor.setGrammar(atom.grammars.grammarsByScopeName["text.html.basic"]);
+});
+
+
+// Line-sorting commands
+atom.commands.add("atom-text-editor", {
+	"lines:sort-basic":   () => sortLines(false, atom.config.get("lines:ignore-case")),
+	"lines:sort-natural": () => sortLines(true,  atom.config.get("lines:ignore-case")),
+});
+
+
+// Show unique lines
+atom.commands.add("atom-text-editor", "lines:unique", () => {
+	const editor = atom.workspace.getActiveTextEditor();
+	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
+	mutate(editor, text => {
+		const uniques = new Set();
+		let output = "";
+		for(const line of text.split(/\r?\n/)){
+			if(uniques.has(line)) continue;
+			uniques.add(line);
+			output += line + EOL;
+		}
+		return output;
+	});
+});
+
+
+// Show duplicate lines
+atom.commands.add("atom-text-editor", "lines:duplicate", () => {
+	const editor = atom.workspace.getActiveTextEditor();
+	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
+	mutate(editor, text => {
+		const uniques = new Set();
+		let output = "";
+		for(const line of text.split(/\r?\n/))
+			uniques.has(line)
+				? output += line + EOL
+				: uniques.add(line);
+		return output;
+	});
+});
+
+
+// Shuffle lines with pseudo-random ordering
+atom.commands.add("atom-text-editor", "lines:shuffle", () => {
+	const editor = atom.workspace.getActiveTextEditor();
+	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
+	mutate(editor, text => {
+		const lines = text.split(/\r?\n/);
+		for(let i = lines.length - 1; i >= 0; --i){
+			const r  = Math.floor(Math.random() * (i + 1));
+			const A  = lines[i];
+			const B  = lines[r];
+			lines[i] = B;
+			lines[r] = A;
+		}
+		return lines.join(EOL);
+	});
 });
 
 
@@ -104,6 +163,21 @@ function bumpSelectedNumbers(by = 1, editor = null){
 	}, 150);
 }
 
-function hasSelectedText(editor){
-	return !!(editor && editor.getSelections().map(s => s.getText()).join("").length);
+
+function sortLines(natural = false, ignoreCase = null){
+	ignoreCase = !!(null === ignoreCase ? natural : ignoreCase);
+	const editor = atom.workspace.getActiveTextEditor();
+	const sortFn = natural
+		? new Intl.Collator("en-AU", {
+			usage: "sort",
+			numeric: true,
+			ignorePunctuation: true,
+			sensitivity: ignoreCase ? "base" : "variant"
+		}).compare
+		: ignoreCase
+			? (A, B) => A.toLowerCase().localeCompare(B.toLowerCase())
+			: (A, B) => A.localeCompare(B);
+	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
+	mutate(editor, text =>
+		text.split(/\r?\n/).sort(sortFn).join(EOL));
 }

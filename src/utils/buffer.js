@@ -1,7 +1,68 @@
 "use strict";
 
+const {hasSelectedText} =
+
 module.exports = {
-	
+
+	/**
+	 * Execute a filter to transform selected text.
+	 *
+	 * If nothing's selected, the filter targets the entire buffer.
+	 *
+	 * @param {TextEditor} editor
+	 * @param {Mutator} fn
+	 */
+	mutate(editor, fn){
+		/**
+		 * @callback Mutator
+		 *    A function returning a string to replace the affected text region.
+		 *    Any other type of value causes the current iteration to be skipped.
+		 *    Authors can use this to indicate when no changes should be made.
+		 *
+		 * @param {String} input
+		 *    Contents of the buffer or current selection.
+		 *
+		 * @param {Selection} selection
+		 *    Reference to the current {@link Selection} being iterated over.
+		 *    Passed `null` when targeting the entire buffer.
+		 *
+		 * @param {TextEditor} editor
+		 *    Reference to the affected editor.
+		 *
+		 * @example
+		 *     <caption>Replica of <code>editor:upper-case</code>:</caption>
+		 *     mutate(editor, text => text.toUpperCase());
+		 */
+		
+		return editor.transact(100, () => {
+			if(hasSelectedText(editor))
+				editor.mutateSelectedText(selection => {
+					const input = selection.getText();
+					const output = fn(input, selection, editor);
+					if("string" === typeof output)
+						selection.insertText(output, {select: true});
+				});
+			else{
+				const input = editor.getText();
+				const output = fn(input, null, editor);
+				if("string" === typeof output)
+					editor.setText(output);
+			}
+		});
+	},
+
+
+	/**
+	 * Report whether a {@link TextEditor} contains selected text.
+	 *
+	 * @param {TextEditor} editor
+	 * @return {Boolean}
+	 */
+	hasSelectedText(editor){
+		return !!(editor && editor.getSelections().map(s => s.getText()).join("").length);
+	},
+
+
 	/**
 	 * Merge multiple contiguous line selections.
 	 *
