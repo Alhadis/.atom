@@ -37,20 +37,45 @@
 ".source.makefile":
 	"Windows check":
 		prefix: "iswin"
-		body: '# Windows: CMD.exe\nifdef SystemRoot\n\tIS_WINDOWS = 1\nendif\n\n# Windows: MinGW / COMMAND.COM\nifdef SYSTEMROOT\n\tIS_WINDOWS = 1\nendif\n\n'
+		body: """
+			# Windows: CMD.exe
+			ifdef SystemRoot
+				IS_WINDOWS = 1
+			endif
+			
+			# Windows: MinGW / COMMAND.COM
+			ifdef SYSTEMROOT
+				IS_WINDOWS = 1
+			endif
+			"""
+
+	Watchman:
+		prefix: "watch"
+		body: """
+			watch:;   @watchman -- trigger . _ '${1:fixtures/*}' -- make all >/dev/null
+			unwatch:; @watchman -- watch-del . >/dev/null
+			"""
 
 
 # Cascading Style Sheets
 ".source.css":
-	"Input Placeholder":
+	Placeholder:
 		prefix: "placeholder"
-		body: "::-webkit-input-placeholder{    $1}\n::-ms-input-placeholder{        $1}\n:-ms-input-placeholder{         $1}\n::-moz-placeholder{opacity: 1;  $1}\n:-moz-placeholder{              $1}\n::placeholder{                  $1}\n:placeholder-shown{             $1}\n"
+		body: """
+			::-webkit-input-placeholder{    $1}
+			::-ms-input-placeholder{        $1}
+			:-ms-input-placeholder{         $1}
+			::-moz-placeholder{opacity: 1;  $1}
+			:-moz-placeholder{              $1}
+			::placeholder{                  $1}
+			:placeholder-shown{             $1}
+			"""
 
 	Comment:
 		prefix: "/"
 		body: "/** $1 */"
 	
-	"Font-face":
+	Font:
 		prefix: "font"
 		body: """
 			@font-face {
