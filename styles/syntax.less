@@ -762,7 +762,10 @@ atom-text-editor[mini] .scroll-view{
 		outline: 1px solid #0a0;
 	}
 	
-	&.@{_}punctuation.@{_}definition.@{_}entity{
+	&.@{_}punctuation.@{_}definition.@{_}entity,
+	&.@{_}meta.@{_}end-of-line,
+	&.@{_}meta.@{_}colour-mode.@{_}default.@{_}gnu,
+	&.@{_}entity.@{_}name.@{_}function.@{_}word-space{
 		opacity: .25;
 	}
 }
