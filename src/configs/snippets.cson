@@ -28,6 +28,10 @@
 		prefix: "alphabet"
 		body: "${1:ABCDEFGHIJKLMNOPQRSTUVWXYZ} ${2:0123456789}"
 
+	°:
+		prefix: "deg"
+		body: "°"
+
 	θ:
 		prefix: "theta"
 		body: "θ"
