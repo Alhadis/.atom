@@ -38,9 +38,4 @@ atom.workspace.observeTextEditors(editor => {
 			setTabLength.call(editor, +tabStop[1]);
 		}
 	});
-	
-	// Clear .DS_Store junk from desktop when saving files
-	editor.onDidSave(() => {
-		setTimeout(() => $ `~/.files/bin/dsclean ~/Desktop`, 50);
-	});
 });
