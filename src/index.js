@@ -19,6 +19,10 @@ require("./commands/pull-requests.js");
 atom.workspace.onDidAddPaneItem(({pane}) => pane.setPendingItem(null));
 
 
+// Increase token limit
+loadGrammar("source.js").then(js => js.maxTokensPerLine = 500);
+
+
 // Undo whitespace molestation applied by Project-Manager
 $ `make could-you-not`;
 

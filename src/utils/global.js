@@ -66,6 +66,19 @@ Object.assign(global, {
 				output[key] = subject[key];
 		return output;
 	},
+
+	loadGrammar(scope){
+		return new Promise(resolve => {
+			const result = atom.grammars.grammarsByScopeName[scope];
+			if(result) return resolve(result);
+			const disposable = atom.grammars.onDidAddGrammar(grammar => {
+				if(scope === grammar.scopeName){
+					disposable.dispose();
+					resolve(grammar);
+				}
+			});
+		});
+	},
 	
 	globaliseAtomClasses(){
 		if(global.CompositeDisposable) return;
