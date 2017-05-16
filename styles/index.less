@@ -96,3 +96,21 @@ atom-notification.remove{
 	white-space: pre-line;
 	line-height: 1.7;
 }
+
+/* Panels */
+atom-panel-container:first-child{
+	box-shadow: 1px 0 0 #9f9f9f;
+	z-index: 2;
+	
+	.atom-dock-toggle-button{
+		display: none !important;
+	}
+}
+
+atom-text-editor .gutter .line-number{
+	&.git-line-added,
+	&.git-line-modified,
+	&.git-line-removed{
+		border-left-width: 3px;
+	}
+}
