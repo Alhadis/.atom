@@ -15,8 +15,12 @@ require("./commands/text-alignment.js");
 require("./commands/pull-requests.js");
 
 
-// Disable pending items
-atom.workspace.onDidAddPaneItem(({pane}) => pane.setPendingItem(null));
+// Disable pending items / Fix focus for docked tree-view
+atom.workspace.onDidAddPaneItem(event => {
+	const {pane} = event;
+	pane.setPendingItem(null);
+	pane.focus();
+});
 
 
 // Increase token limit
