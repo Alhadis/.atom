@@ -41,4 +41,11 @@
 		]
 		devMode: true
 	}
+	{
+		title: "GNU Groff"
+		paths: [
+			"/Users/johngardner/Mirrors/GNU-Groff"
+		]
+		devMode: true
+	}
 ]
