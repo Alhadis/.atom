@@ -21,6 +21,15 @@ atom.commands.add("atom-workspace", "user:unfuck-tabstops", () => {
 });
 
 
+// Commands to force tabstop lengths between 1-10 columns
+for(let i = 1; i <= 10; ++i)
+	atom.commands.add("atom-text-editor", `user:${i}-column-tabstops`, event => {
+		const editor = atom.workspace.getActiveTextEditor();
+		const width = +event.type.match(/\d+/)[0];
+		editor.setTabLength(width);
+	});
+
+
 // Prepend `* ` to new JSDoc lines
 atom.commands.add("atom-text-editor", "user:jsdoc-newline", event => {
 	const editor = atom.workspace.getActiveTextEditor();

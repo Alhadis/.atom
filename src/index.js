@@ -32,14 +32,22 @@ $ `make could-you-not`;
 
 
 atom.workspace.observeTextEditors(editor => {
+	const {setTabLength} = editor.constructor.prototype;
 	
-	// Set tab-width to that specified by file's modeline
-	editor.emitter.on("did-change-indentation", () => {
-		let text = editor.getText();
-		let tabStop = text.match(/(?:^|\s)vi(?:m[<=>]?\d+|m?):.*?[: ](?:ts|tabstop)\s*=(\d+)/i);
-		if(tabStop){
-			const {setTabLength} = editor.constructor.prototype;
+	// Ad-hoc tabstop overrides
+	const fixTabs = () => {
+		const text = editor.getText();
+		
+		// Vim modelines: Honour authored tab-width setting
+		const tabStop = text.match(/(?:^|\s)vi(?:m[<=>]?\d+|m?):.*?[: ](?:ts|tabstop)\s*=(\d+)/i);
+		if(tabStop)
 			setTabLength.call(editor, +tabStop[1]);
-		}
-	});
+		
+		// Force 8-column tabstops in files that mix 4-space soft-tabs and real tabs.
+		// Commonly seen in GNU projects; likely the fault of poor Emacs configuration
+		else if(/^ {2,4}\S/m.test(text) && /^\t/m.test(text))
+			setTabLength.call(editor, 8);
+	};
+	fixTabs();
+	editor.emitter.on("did-change-indentation", fixTabs);
 });
