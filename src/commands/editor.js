@@ -168,6 +168,14 @@ atom.commands.add("atom-text-editor", "lines:shuffle", () => {
 });
 
 
+// Close editor without being nagged over unsaved changes
+atom.commands.add("atom-text-editor", "editor:close-unprompted", event => {
+	const editor = atom.workspace.getActiveTextEditor();
+	editor.shouldPromptToSave = () => false;
+	atom.commands.dispatch(event.target, "core:close");
+});
+
+
 function bumpSelectedNumbers(by = 1, editor = null){
 	const regexp = /-?(?:\d+(?:\.\d*)?|\.\d+)/g;
 	editor = editor || atom.workspace.getActiveTextEditor();

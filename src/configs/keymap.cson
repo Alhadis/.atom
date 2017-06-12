@@ -45,6 +45,7 @@
 	"alt-up":         "editor:move-line-up"
 	"alt-down":       "editor:move-line-down"
 	"cmd-alt-up":     "editor:duplicate-lines"
+	"cmd-w":          "editor:close-unprompted"
 	"ctrl-a":         "user:align-columns"
 	"ctrl-w":         "user:unfuck-tabstops"
 	"ctrl-1":         "user:1-column-tabstops"
