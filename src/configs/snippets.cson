@@ -263,7 +263,16 @@
 	"Getopt: Usage":
 		prefix: "getopt"
 		body: 'GetOptions(${1:"number=i" => $number, "string=s" => $string, "boolean"  => $bool});'
-
+	Slurp:
+		prefix: "slurp"
+		body: """
+		sub slurp {
+			my $data = "";
+			local $/ = undef;
+			local @ARGV = shift;
+			while(<>){ return $_; }
+		}
+		"""
 
 # Roff
 ".text.roff":
