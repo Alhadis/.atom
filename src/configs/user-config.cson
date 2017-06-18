@@ -19,6 +19,8 @@
       ]
       "text.generic-config": [
         "mocha.opts"
+        "gitignore-global"
+        "gitattributes-global"
       ]
       "text.roff": [
         "mm"
@@ -27,6 +29,7 @@
       "autocomplete-css"
       "background-tips"
       "welcome"
+      "language-clojure"
       "language-java"
       "language-python"
       "autocomplete-plus"
