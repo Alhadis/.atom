@@ -245,6 +245,36 @@
 
 # Perl
 ".source.perl":
+	Hashbang:
+		prefix: "pl"
+		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
+	"Project Boilerplate":
+		prefix: "perl"
+		body: """
+			\\#!/usr/bin/env perl
+			use strict;
+			use warnings;
+			use autodie;
+			use v5.14;
+			use utf8;
+			$| = 1;
+
+			use warnings  qw< FATAL utf8 >;
+			use open      qw< :std :utf8 >;
+			use charnames qw< :full >;
+			use feature   qw< say unicode_strings >;
+			use Carp      qw< confess >;
+
+			use File::Basename qw< basename >;
+			use File::Spec::Functions;
+			use HTML::Entities;
+			use Getopt::Long;
+
+			END { close STDOUT }
+			local $SIG{__DIE__} = sub {
+				confess "Uncaught exception: @_" unless $^S;
+			};
+		"""
 	Invocant:
 		prefix: "me"
 		body: "my \$self = shift;\n"
@@ -266,12 +296,11 @@
 	Slurp:
 		prefix: "slurp"
 		body: """
-		sub slurp {
-			my $data = "";
-			local $/ = undef;
-			local @ARGV = shift;
-			while(<>){ return $_; }
-		}
+			sub slurp {
+				local $/=undef;
+				open(my $fh, shift);
+				while(<>){ return $_; }
+			}
 		"""
 
 # Roff

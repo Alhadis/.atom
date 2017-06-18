@@ -30,6 +30,7 @@
       "language-java"
       "language-python"
       "autocomplete-plus"
+      "github"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -60,7 +61,6 @@
     grammars: [
       "text.xml"
       "source.gfm"
-      "source.litcoffee"
       "text.html.basic"
       "text.md"
       "text.plain"
@@ -77,10 +77,16 @@
       "source.asciidoc"
       "source.gfm"
       "text.git-commit"
+      "text.html.basic"
       "text.plain"
       "text.plain.null-grammar"
+      "text.restructuredtext"
       "text.roff"
+      "text.xml"
       "source.js"
+      "source.perl"
+      "source.shell"
+      "source.makefile"
     ]
   "status-bar":
     fullWidth: false
