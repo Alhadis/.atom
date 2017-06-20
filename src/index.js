@@ -45,7 +45,7 @@ atom.workspace.observeTextEditors(editor => {
 		
 		// Force 8-column tabstops in files that mix 4-space soft-tabs and real tabs.
 		// Commonly seen in GNU projects; likely the fault of poor Emacs configuration
-		else if(/^ {2,4}\S/m.test(text) && /^\t/m.test(text))
+		else if("source.js" !== editor.getGrammar().scopeName && /^ {2,4}\S/m.test(text) && /^\t/m.test(text))
 			setTabLength.call(editor, 8);
 	};
 	fixTabs();
