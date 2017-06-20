@@ -2,6 +2,7 @@
 
 const {round, getPrecision, tsvTable} = require("../utils/other.js");
 const {hasSelectedText, mutate} = require("../utils/buffer.js");
+const EDITOR_PANES = "atom-text-editor:not([mini])";
 
 
 // Fix for failed indent-detection
@@ -23,7 +24,7 @@ atom.commands.add("atom-workspace", "user:unfuck-tabstops", () => {
 
 // Commands to force tabstop lengths between 1-10 columns
 for(let i = 1; i <= 10; ++i)
-	atom.commands.add("atom-text-editor", `user:${i}-column-tabstops`, event => {
+	atom.commands.add(EDITOR_PANES, `user:${i}-column-tabstops`, event => {
 		const editor = atom.workspace.getActiveTextEditor();
 		const width = +event.type.match(/\d+/)[0];
 		editor.setTabLength(width);
@@ -31,7 +32,7 @@ for(let i = 1; i <= 10; ++i)
 
 
 // Prepend `* ` to new JSDoc lines
-atom.commands.add("atom-text-editor", "user:jsdoc-newline", event => {
+atom.commands.add(EDITOR_PANES, "user:jsdoc-newline", event => {
 	const editor = atom.workspace.getActiveTextEditor();
 	const selection = editor.getLastSelection();
 	const {cursor} = selection;
@@ -54,7 +55,7 @@ atom.commands.add("atom-text-editor", "user:jsdoc-newline", event => {
 
 
 // Prepend $ when entering {} in JS templates
-atom.commands.add("atom-text-editor", "user:dollar-wrap", () => {
+atom.commands.add(EDITOR_PANES, "user:dollar-wrap", () => {
 	const editor = atom.workspace.getActiveTextEditor();
 	editor.mutateSelectedText(selection => {
 		const {scopes} = selection.cursor.getScopeDescriptor();
@@ -76,7 +77,7 @@ atom.commands.add("atom-text-editor", "user:dollar-wrap", () => {
 
 
 // Increment each number inside currently-selected ranges.
-atom.commands.add("atom-text-editor", "user:increment", event => {
+atom.commands.add(EDITOR_PANES, "user:increment", event => {
 	const editor = atom.workspace.getActiveTextEditor();
 	hasSelectedText(editor)
 		? bumpSelectedNumbers(event.originalEvent.shiftKey ? 10 : 1, editor)
@@ -85,7 +86,7 @@ atom.commands.add("atom-text-editor", "user:increment", event => {
 
 
 // Decrement each number inside currently-selected ranges
-atom.commands.add("atom-text-editor", "user:decrement", event => {
+atom.commands.add(EDITOR_PANES, "user:decrement", event => {
 	const editor = atom.workspace.getActiveTextEditor();
 	hasSelectedText(editor)
 		? bumpSelectedNumbers(event.originalEvent.shiftKey ? -10 : -1, editor)
@@ -94,7 +95,7 @@ atom.commands.add("atom-text-editor", "user:decrement", event => {
 
 
 // Convert TSV data to an HTML <table>
-atom.commands.add("atom-text-editor", "user:tsv-to-html", () => {
+atom.commands.add(EDITOR_PANES, "user:tsv-to-html", () => {
 	const editor = atom.workspace.getActiveTextEditor();
 	mutate(editor, tsvTable);
 	if(atom.grammars.nullGrammar === editor.getGrammar())
@@ -103,14 +104,14 @@ atom.commands.add("atom-text-editor", "user:tsv-to-html", () => {
 
 
 // Line-sorting commands
-atom.commands.add("atom-text-editor", {
+atom.commands.add(EDITOR_PANES, {
 	"lines:sort-basic":   () => sortLines(false, atom.config.get("lines:ignore-case")),
 	"lines:sort-natural": () => sortLines(true,  atom.config.get("lines:ignore-case")),
 });
 
 
 // Show unique lines
-atom.commands.add("atom-text-editor", "lines:unique", () => {
+atom.commands.add(EDITOR_PANES, "lines:unique", () => {
 	const editor = atom.workspace.getActiveTextEditor();
 	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
 	mutate(editor, text => {
@@ -127,7 +128,7 @@ atom.commands.add("atom-text-editor", "lines:unique", () => {
 
 
 // Show duplicate lines
-atom.commands.add("atom-text-editor", "lines:duplicate", () => {
+atom.commands.add(EDITOR_PANES, "lines:duplicate", () => {
 	const editor = atom.workspace.getActiveTextEditor();
 	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
 	mutate(editor, text => {
@@ -143,7 +144,7 @@ atom.commands.add("atom-text-editor", "lines:duplicate", () => {
 
 
 // Reverse row-order
-atom.commands.add("atom-text-editor", "lines:reverse", () => {
+atom.commands.add(EDITOR_PANES, "lines:reverse", () => {
 	const editor = atom.workspace.getActiveTextEditor();
 	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
 	mutate(editor, text => text.split(/\r?\n/).reverse().join(EOL));
@@ -151,7 +152,7 @@ atom.commands.add("atom-text-editor", "lines:reverse", () => {
 
 
 // Shuffle lines with pseudo-random ordering
-atom.commands.add("atom-text-editor", "lines:shuffle", () => {
+atom.commands.add(EDITOR_PANES, "lines:shuffle", () => {
 	const editor = atom.workspace.getActiveTextEditor();
 	const EOL = editor.buffer.getPreferredLineEnding() || "\n";
 	mutate(editor, text => {
@@ -169,7 +170,7 @@ atom.commands.add("atom-text-editor", "lines:shuffle", () => {
 
 
 // Close editor without being nagged over unsaved changes
-atom.commands.add("atom-text-editor", "editor:close-unprompted", event => {
+atom.commands.add(EDITOR_PANES, "editor:close-unprompted", event => {
 	const editor = atom.workspace.getActiveTextEditor();
 	editor.shouldPromptToSave = () => false;
 	atom.commands.dispatch(event.target, "core:close");
