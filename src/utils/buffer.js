@@ -7,12 +7,15 @@ module.exports = {
 	/**
 	 * Execute a filter to transform selected text.
 	 *
-	 * If nothing's selected, the filter targets the entire buffer.
+	 * If nothing's selected, the filter targets either the entire buffer,
+	 * or the text surrounding each cursor. The exact method of fallback
+	 * is governed by the `retarget` parameter.
 	 *
 	 * @param {TextEditor} editor
 	 * @param {Mutator} fn
+	 * @param {String} [retarget="buffer"] - One of "buffer", "cursor-words" or "cursor-lines".
 	 */
-	mutate(editor, fn){
+	mutate(editor, fn, retarget = "buffer"){
 		/**
 		 * @callback Mutator
 		 *    A function returning a string to replace the affected text region.
@@ -42,11 +45,27 @@ module.exports = {
 					if("string" === typeof output)
 						selection.insertText(output, {select: true});
 				});
-			else{
-				const input = editor.getText();
-				const output = fn(input, null, editor);
-				if("string" === typeof output)
-					editor.setText(output);
+			else switch(retarget){
+				case "cursor-words":
+				case "cursor-lines":
+					for(const cursor of editor.cursors){
+						const range = "cursor-words" === retarget
+							? cursor.getCurrentWordBufferRange()
+							: cursor.getCurrentLineBufferRange();
+						const input  = editor.buffer.getTextInRange(range);
+						const output = fn(input, cursor.selection, editor);
+						if("string" === typeof output){
+							const position = cursor.getBufferPosition();
+							editor.setTextInBufferRange(range, output);
+							cursor.setBufferPosition(position);
+						}
+					}
+					break;
+				default:
+					const input = editor.getText();
+					const output = fn(input, null, editor);
+					if("string" === typeof output)
+						editor.setText(output);
 			}
 		});
 	},

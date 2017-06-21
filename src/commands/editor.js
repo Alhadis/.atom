@@ -177,6 +177,23 @@ atom.commands.add(EDITOR_PANES, "editor:close-unprompted", event => {
 });
 
 
+// Replace Atom's built-in uppercase/lowercase commands with ones that won't auto-select
+for(const commandName of ["editor:upper-case", "editor:lower-case"]){
+	const handler = /upper/.test(commandName)
+		? text => text.toUpperCase()
+		: text => text.toLowerCase();
+	
+	// Play it safe: don't remove default handlers, just make them match nothing.
+	let listeners = atom.commands.selectorBasedListenersByCommandName;
+	(listeners = listeners[commandName] || []).map(listener => {
+		listener.sequenceNumber = Number.MAX_VALUE;
+		listener.selector = "lol-nah:root";
+	});
+	atom.commands.add("atom-text-editor", commandName, event =>
+		mutate(event.currentTarget.getModel(), handler, "cursor-words"));
+}
+
+
 function bumpSelectedNumbers(by = 1, editor = null){
 	const regexp = /-?(?:\d+(?:\.\d*)?|\.\d+)/g;
 	editor = editor || atom.workspace.getActiveTextEditor();
