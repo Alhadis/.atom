@@ -38,3 +38,9 @@ atom.commands.add("atom-text-editor", "user:eval-css", () => {
  */
 atom.commands.add("atom-workspace", "user:open-box-drawing-cheatsheet", () =>
 	atom.workspace.open(`${process.env.HOME}/Documents/Box-Drawing.txt`));
+
+
+atom.commands.add("atom-workspace", "user:temp-1", () => {
+	if(null !== document.querySelector("atom-dock:hover"))
+		document.body.classList.toggle("show-toggle-buttons");
+});
