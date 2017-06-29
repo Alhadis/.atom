@@ -16,7 +16,6 @@
 	"cmd-k left":     "unset!"
 	"cmd-k down":     "unset!"
 	"cmd-p":          "unset!"
-	"cmd-m":          "unset!"
 	"ctrl-alt-cmd-l": "unset!"
 	
 	# Disable MRU-tab switching
