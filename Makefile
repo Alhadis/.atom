@@ -28,7 +28,6 @@ installed-packages := \
 	editorconfig \
 	flatland-dark-ui \
 	git-blame \
-	language-68hc11-assembly \
 	language-antlr \
 	language-apache \
 	language-applescript \
@@ -36,29 +35,30 @@ installed-packages := \
 	language-awk \
 	language-batchfile \
 	language-bnf \
+	language-common-lisp \
 	language-crystal-actual \
 	language-diff \
 	language-docker \
 	language-erlang \
 	language-fortran \
 	language-generic-config \
+	language-glsl \
 	language-haskell \
 	language-idl \
 	language-ini \
 	language-latex \
-	language-lisp \
 	language-llvm \
 	language-lua \
 	language-ninja \
 	language-pascal \
 	language-postscript \
 	language-rust \
-	language-shadercode-shaderlab \
 	language-x86-64-assembly \
 	lisp-paredit \
 	MagicPython \
 	make-executable \
 	minimap \
+	pdf-view \
 	project-manager \
 	seti-syntax \
 	seti-ui \
