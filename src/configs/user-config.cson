@@ -106,6 +106,10 @@
 ".atom-mocha":
   editor:
     fontSize: 13
+".lisp.source":
+  editor:
+    softTabs: true
+    tabLength: 2
 ".rust.source":
   editor:
     softTabs: false
