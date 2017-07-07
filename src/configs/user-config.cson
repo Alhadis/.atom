@@ -11,6 +11,9 @@
       "source.gfm": [
         "README"
       ]
+      "source.postscript": [
+        "pdf"
+      ]
       "source.python": [
         "WATCHLISTS"
         "DEPS"

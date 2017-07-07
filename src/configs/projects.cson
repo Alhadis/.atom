@@ -45,6 +45,7 @@
 		title: "GNU Groff"
 		paths: [
 			"/Users/johngardner/Mirrors/GNU-Groff"
+			"/usr/local/share/groff/current/font"
 		]
 		devMode: true
 	}
