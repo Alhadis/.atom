@@ -11,6 +11,9 @@
       "source.gfm": [
         "README"
       ]
+      "source.perl": [
+        "t"
+      ]
       "source.postscript": [
         "pdf"
       ]

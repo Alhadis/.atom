@@ -345,7 +345,7 @@
 		body: "®"
 	×:
 		prefix: "x"
-		body: "× "
+		body: "×"
 	→:
 		prefix: "->"
 		body: "→"
@@ -367,6 +367,31 @@
 	│:
 		prefix: "|"
 		body: "│"
+
+	✓:
+		prefix: "tick"
+		body: "✓"
+
+	✔:
+		prefix: "✓"
+		body: "✔"
+
+	✓2:
+		prefix: "✔"
+		body: "✓"
+
+	✗:
+		prefix: "X"
+		body: "✗"
+	
+	✘:
+		prefix: "✗"
+		body: "✘"
+	
+	✗2:
+		prefix: "✘"
+		body: "✗"
+
 
 
 # Shell-scripts
