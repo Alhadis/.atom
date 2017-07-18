@@ -43,4 +43,12 @@ atom.commands.add("atom-workspace", "user:open-box-drawing-cheatsheet", () =>
 atom.commands.add("atom-workspace", "user:temp-1", () => {
 	if(null !== document.querySelector("atom-dock:hover"))
 		document.body.classList.toggle("show-toggle-buttons");
+	else{
+		const editor = atom.workspace.getActiveTextEditor();
+		if("source.json" === editor.getGrammar().scopeName){
+			const parsed = JSON.parse(editor.getText());
+			editor.setText(JSON.stringify(parsed, null, "\t"));
+		}
+	}
+	
 });
