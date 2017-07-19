@@ -38,6 +38,7 @@
 	"cmd-l":          "grammar-selector:show"
 	"cmd-[":          "git-diff:move-to-previous-diff"
 	"cmd-]":          "git-diff:move-to-next-diff"
+	"cmd-e":          "editor:expand-escapes"
 	"cmd-shift-U":    "editor:upper-case"
 	"cmd-u":          "editor:lower-case"
 	"cmd-d":          "editor:delete-line"
