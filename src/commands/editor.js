@@ -185,7 +185,7 @@ atom.commands.add(EDITOR_PANES, "editor:expand-escapes", event => {
 	const octChr = code => String.fromCharCode(parseInt(code, 8));
 	mutate(editor, text => text
 		.replace(/\\x[A-F0-9]{2}/ig, str => hexChr(str.substr(2)))
-		.replace(/\\u[A-F0-9]{4}/ig, str => hexChr(str.substr(4)))
+		.replace(/\\u[A-F0-9]{4}/ig, str => hexChr(str.substr(2)))
 		.replace(/\\u{([A-F0-9]+)}/ig, s => hexChr(RegExp.$1))
 		.replace(/\\(0[0-7]{2,})/g, code => octChr(RegExp.$1))
 		.replace(/\\[tnrfvb0]/g, escaped => expand(escaped))
