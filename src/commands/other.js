@@ -43,6 +43,10 @@ atom.commands.add("atom-workspace", "user:open-box-drawing-cheatsheet", () =>
 atom.commands.add("atom-workspace", "user:temp-1", () => {
 	if(null !== document.querySelector("atom-dock:hover"))
 		document.body.classList.toggle("show-toggle-buttons");
+	else if(null !== document.querySelector("li[is=tabs-tab].tab:hover")){
+		const name = "user:enable-pending-items";
+		atom.config.set(name, !atom.config.get(name));
+	}
 	else{
 		const editor = atom.workspace.getActiveTextEditor();
 		if("source.json" === editor.getGrammar().scopeName){

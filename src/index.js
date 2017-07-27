@@ -18,7 +18,8 @@ require("./commands/pull-requests.js");
 // Disable pending items / Fix focus for docked tree-view
 atom.workspace.onDidAddPaneItem(event => {
 	const {pane} = event;
-	pane.setPendingItem(null);
+	if(!atom.config.get("user:enable-pending-items"))
+		pane.setPendingItem(null);
 	pane.focus();
 });
 
