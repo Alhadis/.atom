@@ -81,7 +81,7 @@
 
 	Comment:
 		prefix: "/"
-		body: "/** $1 */"
+		body: "/* $1 */"
 	
 	Font:
 		prefix: "font"

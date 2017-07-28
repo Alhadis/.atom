@@ -8,6 +8,10 @@
   "autocomplete-plus": {}
   core:
     customFileTypes:
+      "source.ditroff.desc": [
+        "/dev[-a-z0-9]+/[A-Z]+$"
+        "/dev\\w+/(?!DESC|NOTES)[A-Z]+$"
+      ]
       "source.gfm": [
         "README"
       ]
@@ -112,6 +116,9 @@
 ".atom-mocha":
   editor:
     fontSize: 13
+".desc.ditroff.source":
+  editor:
+    tabLength: 16
 ".lisp.source":
   editor:
     softTabs: true
