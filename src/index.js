@@ -55,3 +55,21 @@ atom.workspace.observeTextEditors(editor => {
 	fixTabs();
 	editor.emitter.on("did-change-indentation", fixTabs);
 });
+
+
+// Remove annoying tooltip from status-bar's path-copying tile
+const statusBar = atom.packages.loadedPackages["status-bar"];
+statusBar.activationPromise.then(() => {
+	const {fileInfo} = statusBar.mainModule;
+	fileInfo.tooltip.dispose();
+	fileInfo.registerTooltip = () => {};
+	
+	// Use a more subtle acknowledgement when copying to clipboard
+	const {element} = fileInfo;
+	const {style} = element;
+	fileInfo.showCopiedTooltip = () => style.opacity = 0.3;
+	element.addEventListener("transitionend", event => {
+		if("opacity" === event.propertyName && style.opacity < 1)
+			style.opacity = 1;
+	});
+});
