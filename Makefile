@@ -39,6 +39,7 @@ installed-packages := \
 	language-crystal-actual \
 	language-diff \
 	language-docker \
+	language-ebnf \
 	language-erlang \
 	language-fortran \
 	language-generic-config \
@@ -49,10 +50,15 @@ installed-packages := \
 	language-latex \
 	language-llvm \
 	language-lua \
+	language-mathematica \
 	language-ninja \
 	language-pascal \
 	language-postscript \
+	language-rpm-spec \
 	language-rust \
+	language-scheme \
+	language-svg \
+	language-tmux \
 	language-x86-64-assembly \
 	lisp-paredit \
 	MagicPython \
@@ -86,11 +92,14 @@ symlinked-projects := \
 	language-emacs-lisp \
 	language-file-magic \
 	language-fontforge \
+	language-m4 \
 	language-maxscript \
+	language-pcb \
 	language-regexp \
 	language-roff \
 	language-turing \
-	language-wavefront
+	language-wavefront \
+	language-webassembly
 
 
 # Keep config files tracked by version control
