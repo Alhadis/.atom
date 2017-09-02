@@ -10,7 +10,6 @@ require("./utils/buffer.js");
 require("./commands/display.js");
 require("./commands/editor.js");
 require("./commands/other.js");
-require("./commands/quotes.js");
 require("./commands/text-alignment.js");
 require("./commands/pull-requests.js");
 

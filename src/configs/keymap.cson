@@ -58,8 +58,8 @@
 	"ctrl-8":         "user:8-column-tabstops"
 	"ctrl-9":         "user:9-column-tabstops"
 	"ctrl-0":         "user:10-column-tabstops"
-	"cmd-;":          "user:swap-quotes"
-	"cmd-'":          "user:swap-quotes"
+	# "cmd-;":        null # Marked vacant to remind
+	# "cmd-'":        null # self they're available.
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
 	"cmd-r":          "unset!"
