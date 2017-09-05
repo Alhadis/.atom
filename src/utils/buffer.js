@@ -72,6 +72,28 @@ module.exports = {
 
 
 	/**
+	 * Enclose a text selection with two strings.
+	 *
+	 * @param {String} before
+	 * @param {String} after
+	 * @param {Selection} [target=null]
+	 */
+	surround(before, after, target = null){
+		before = String(before);
+		after  = String(after);
+		target = target || atom.workspace.getActiveTextEditor().getLastSelection();
+		const {editor} = target;
+		return editor.transact(100, () => {
+			const range = target.getBufferRange();
+			const start = range.start.translate([0, before.length]);
+			const end   = range.toDelta().row ? range.end : range.end.translate([0, before.length]);
+			target.insertText(before + target.getText() + after, {normalizeLineEndings: false});
+			target.setBufferRange([start, end]);
+		});
+	},
+	
+
+	/**
 	 * Report whether a {@link TextEditor} contains selected text.
 	 *
 	 * @param {TextEditor} editor

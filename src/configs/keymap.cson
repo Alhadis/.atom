@@ -62,6 +62,7 @@
 	# "cmd-'":        null # self they're available.
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
+	"[":              "user:square-bracket"
 	"cmd-r":          "unset!"
 	"cmd-=":          "user:increment"
 	"cmd-+":          "user:increment"

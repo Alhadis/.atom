@@ -1,7 +1,7 @@
 "use strict";
 
 const {round, getPrecision, tsvTable} = require("../utils/other.js");
-const {hasSelectedText, mutate} = require("../utils/buffer.js");
+const {hasSelectedText, mutate, surround} = require("../utils/buffer.js");
 const EDITOR_PANES = "atom-text-editor:not([mini])";
 
 
@@ -193,6 +193,26 @@ atom.commands.add(EDITOR_PANES, "editor:expand-escapes", event => {
 });
 
 
+// Suppress auto-insertion of closing bracket when necessary
+atom.commands.add(EDITOR_PANES, "user:square-bracket", event => {
+	const editor = atom.workspace.getActiveTextEditor();
+	const {buffer} = editor;
+	for(const selection of editor.getSelectionsOrderedByBufferPosition()){
+		if(selection.isEmpty()){
+			const range = selection.getBufferRange();
+			const {start} = range;
+			const {row}   = start;
+			const before  = buffer.getTextInRange([[row, 0], start]);
+			const after   = buffer.getTextInRange([start, buffer.rangeForRow(row).end]);
+			editor.buffer.insert(start, shouldBalance("[", before, after) ? "[]" : "[");
+			const point = start.translate([0, 1]);
+			selection.setBufferRange([point, point]);
+		}
+		else surround("[", "]", selection);
+	}
+});
+
+
 // Replace Atom's built-in uppercase/lowercase commands with ones that won't auto-select
 for(const commandName of ["editor:upper-case", "editor:lower-case"]){
 	const handler = /upper/.test(commandName)
@@ -220,6 +240,17 @@ function bumpSelectedNumbers(by = 1, editor = null){
 		});
 		selection.insertText(text, {select: true});
 	}, 150);
+}
+
+
+function shouldBalance(char, textBefore, textAfter){
+	switch(char){
+		case "[":
+			if(/(?:\\x1B|\\033|\x1B)$/.test(textBefore))
+				return false;
+		default:
+			return true;
+	}
 }
 
 
