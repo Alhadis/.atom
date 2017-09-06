@@ -204,9 +204,13 @@ atom.commands.add(EDITOR_PANES, "user:square-bracket", event => {
 			const {row}   = start;
 			const before  = buffer.getTextInRange([[row, 0], start]);
 			const after   = buffer.getTextInRange([start, buffer.rangeForRow(row).end]);
-			editor.buffer.insert(start, shouldBalance("[", before, after) ? "[]" : "[");
-			const point = start.translate([0, 1]);
-			selection.setBufferRange([point, point]);
+			if(shouldBalance("[", before, after))
+				editor.insertText("[");
+			else{
+				editor.buffer.insert(start, "[");
+				const point = start.translate([0, 1]);
+				selection.setBufferRange([point, point]);
+			}
 		}
 		else surround("[", "]", selection);
 	}
