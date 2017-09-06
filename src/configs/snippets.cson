@@ -302,6 +302,9 @@
 				while(<>){ return $_; }
 			}
 		"""
+	Open:
+		prefix: "open"
+		body: 'open(my $fh, ${2:"< :encoding(UTF-8)"}, ${1:"filename"});$3'
 
 # Roff
 ".text.roff":
