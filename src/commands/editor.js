@@ -194,8 +194,10 @@ atom.commands.add(EDITOR_PANES, "editor:expand-escapes", event => {
 
 
 // Suppress auto-insertion of closing bracket when necessary
-atom.commands.add(EDITOR_PANES, "user:square-bracket", event => {
-	const editor = atom.workspace.getActiveTextEditor();
+atom.commands.add("atom-text-editor", "user:square-bracket", event => {
+	const editor = event.currentTarget
+		? event.currentTarget.getModel()
+		: atom.workspace.getActiveTextEditor();
 	const {buffer} = editor;
 	for(const selection of editor.getSelectionsOrderedByBufferPosition()){
 		if(selection.isEmpty()){
