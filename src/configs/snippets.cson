@@ -24,9 +24,17 @@
 		prefix: "100"
 		body: "0000000000111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999"
 
-	Alphabet:
-		prefix: "alphabet"
+	Latin:
+		prefix: "latin"
 		body: "${1:ABCDEFGHIJKLMNOPQRSTUVWXYZ} ${2:0123456789}"
+
+	Greek:
+		prefix: "greek"
+		body: "${1:ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ} ${2:αβγδεζηθικλμνξοπρστυφχψω}"
+
+	§:
+		prefix: "section"
+		body: "§"
 
 	°:
 		prefix: "deg"
