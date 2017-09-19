@@ -23,6 +23,10 @@ atom.workspace.onDidAddPaneItem(event => {
 });
 
 
+// Fit window in case Dock was resized
+atom.maximize();
+
+
 // Increase token limit
 loadGrammar("source.js").then(js => js.maxTokensPerLine = 500);
 
