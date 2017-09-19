@@ -9,6 +9,7 @@
       ]
       "source.gfm": [
         "README"
+        "TODO"
       ]
       "source.perl": [
         "t"
@@ -43,6 +44,9 @@
       "atom-light-ui"
       "Phoenix-Syntax"
     ]
+  "dash-ui":
+    iconsEnabled: false
+    themeColor: "Indigo"
   editor:
     autoIndentOnPaste: false
     fontFamily: "Menlig"

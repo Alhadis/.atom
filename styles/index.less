@@ -57,6 +57,18 @@ atom-text-editor.is-focused .cursors .cursor{
 	top: 3px;
 }
 
+/* HACK: Force checklist icon for TODO files, which use MD highlighting */
+.icon[data-name="TODO"]::before{
+	font: 17px "Octicons Regular";
+	content: "\f076";
+	left: 1px;
+	top:  1px;
+	
+	body:not(.file-icons-colourless) & {
+		color: #90a959;
+	}
+}
+
 
 /* Disable transitions when dismissing popups */
 atom-notification.remove{
