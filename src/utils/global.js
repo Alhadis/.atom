@@ -54,6 +54,12 @@ Object.assign(global, {
 		return require(path);
 	},
 	
+	fitWindow(){
+		const width  = screen.availWidth;
+		const height = 797;
+		return atom.setWindowDimensions({x: 0, y: 22, width, height, maximized: true});
+	},
+	
 	keyGrep(subject, pattern){
 		pattern = "string" === typeof pattern
 			? new RegExp(pattern)

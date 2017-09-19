@@ -24,7 +24,7 @@ atom.workspace.onDidAddPaneItem(event => {
 
 
 // Fit window in case Dock was resized
-atom.maximize();
+fitWindow();
 
 
 // Increase token limit
