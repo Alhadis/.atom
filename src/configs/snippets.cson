@@ -296,11 +296,11 @@
 		prefix: "say"
 		body: 'use feature "say";'
 	"Getopt: Import":
-		prefix: "opt"
+		prefix: "getopt"
 		body: "use Getopt::Long qw(:config auto_abbrev);"
 	"Getopt: Usage":
-		prefix: "getopt"
-		body: 'GetOptions(${1:"number=i" => $number, "string=s" => $string, "boolean"  => $bool});'
+		prefix: "getopts"
+		body: 'GetOptions(${1:"number=i" => \\$number, "string=s" => \\$string, "boolean" => \\$bool});'
 	Slurp:
 		prefix: "slurp"
 		body: """
