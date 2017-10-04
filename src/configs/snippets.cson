@@ -428,6 +428,9 @@
 				value) name=$OPTARG ;;
 			esac
 		"""
+	printf:
+		prefix: "p"
+		body: "printf '%s\\\\n' "
 
 
 # HTML
