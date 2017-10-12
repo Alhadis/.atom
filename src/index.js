@@ -1,5 +1,5 @@
 "use strict";
-const {shell:$} =
+const {$} =
 
 // Helper functions
 require("./utils/other.js");
@@ -32,7 +32,7 @@ loadGrammar("source.js").then(js => js.maxTokensPerLine = 500);
 
 
 // Undo whitespace molestation applied by Project-Manager
-$ `make could-you-not`;
+$ `make -C'${__dirname}/..' could-you-not`;
 
 
 atom.workspace.observeTextEditors(editor => {

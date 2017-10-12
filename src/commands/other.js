@@ -1,6 +1,6 @@
 "use strict";
 
-const {shell:$} = require("../utils/other.js");
+const {$} = require("../utils/other.js");
 
 
 /**

@@ -1,8 +1,7 @@
 "use strict";
 
-const {exec} = require("child_process");
-
 module.exports = {
+	$: async (...$) => (await shell(...$)).stdout,
 	round,
 	getPrecision,
 	wait,
@@ -80,11 +79,19 @@ function setTheme(...names){
  * Execute a shell-command in a child process.
  *
  * @param {String} command
- * @return {ChildProcess}
- * @see {@link https://nodejs.org/api/child_process.html}
+ * @return {Promise}
  */
-function shell(command){
-	return exec(command);
+async function shell({raw}, ...values){
+	const {exec} = require("child_process");
+	const source = raw.map((s,i) => s + (values[i] || "")).join("");
+	return await new Promise((resolve, reject) => {
+		const process = exec(source, (error, stdout, stderr) => {
+			const {exitCode, pid} = process;
+			return error
+				? reject(error)
+				: resolve({exitCode, pid, stdout, stderr})
+		});
+	});
 }
 
 
