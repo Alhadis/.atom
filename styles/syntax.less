@@ -44,7 +44,6 @@ atom-text-editor{
 
 /** XXX: Code highlighting */
 .@{_}comment,
-.@{_}comment-ish,
 .@{_}regexp,
 .@{_}regexp * {
 	color: #009a00 !important;
@@ -315,10 +314,10 @@ atom-text-editor{
 
 
 .@{_}markup{
-	&.@{_}bold       { color: #de935f;  font-weight: bold;   }
 	&.@{_}changed    { color: #b294bb;                       }
 	&.@{_}deleted    { color: #c66;                          }
 	&.@{_}italic     { color: #b294bb;  font-style: italic;  }
+	&.@{_}bold       { color: #de935f;  font-weight: bold;   }
 
 	&.@{_}heading .@{_}punctuation.@{_}definition.@{_}heading{
 		color: #81a2be;
@@ -505,10 +504,6 @@ atom-text-editor[mini] .scroll-view{
 		&.@{_}variable,
 		&.@{_}escape{
 			color: #00c !important;
-		}
-		
-		&.@{_}comment-ish{
-			color: #090 !important;
 		}
 	}
 	
@@ -735,6 +730,10 @@ atom-text-editor[mini] .scroll-view{
 		.@{_}string{
 			color: inherit;
 		}
+	}
+	
+	.@{_}markup.@{_}heading.@{_}paragraph{
+		color: #9ba257;
 	}
 	
 	.@{_}string{
