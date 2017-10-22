@@ -154,7 +154,7 @@ node_modules: $(package-dir)/file-icons
 
 # Undo Project-Manager's whitespace molestation
 could-you-not:
-	@$$(git diff --exit-code --quiet -w $(projects)) && git checkout -- $(projects)
+	@edit -e 's/  /\t/g' $(projects)
 
 .PHONY: could-you-not
 projects := src/configs/projects.cson
