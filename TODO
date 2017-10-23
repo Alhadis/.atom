@@ -3,7 +3,6 @@
 * TODO
 - [ ] Way to compile ~.scopes~ file into ~keymap.cson~ or whatver
 - [ ] Commands to make HTML editing less painful (bold/unbold, ~<dl>~ lists, etc)
-- [ ] Ability to stop next bracket/quote insertion from self-closing by hitting escape directly prior
 - [ ] Command to run spellchecker on buffer and display the results
 - [ ] Auto-shift focus to active editor when running certain commands (like ~go-to-line~, etc)
 - [ ] Fix increment/decrement commands to operate without selection ranges

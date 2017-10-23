@@ -1,8 +1,25 @@
 "use strict";
 
-const {surround} = require("./buffer.js");
+const {hasSelectedText, surround, mutate} = require("./buffer.js");
+const {pipe} = require("./other.js");
+const {getEditor} =
+
 
 module.exports = {
+	
+	/**
+	 * Resolve the {@link TextEditor} associated with an event.
+	 * 
+	 * @param {CustomEvent} event
+	 * @return {TextEditor}
+	 * @internal
+	 */
+	getEditor(event){
+		return event && event.currentTarget
+			? event.currentTarget.getModel()
+			: atom.workspace.getActiveTextEditor();
+	},
+	
 	
 	/**
 	 * Generate a handler for inserting a character.
@@ -15,9 +32,7 @@ module.exports = {
 	 */
 	key(char, handler){
 		return function(event){
-			const editor = event.currentTarget
-				? event.currentTarget.getModel()
-				: atom.workspace.getActiveTextEditor();
+			const editor = getEditor(event);
 			if(!editor) return;
 			let nativeInsert = false;
 			const selections = editor.getSelectionsOrderedByBufferPosition();
@@ -42,5 +57,32 @@ module.exports = {
 				}
 			}
 		};
+	},
+	
+	
+	/**
+	 * Modify buffer contents using standard input/output.
+	 *
+	 * @param {String} command
+	 * @const {Array}  [args=[]]
+	 * @param {Object} [options={}]
+	 * @return {Promise}
+	 */
+	async pipeFilter(command, args = [], options = {}){
+		const editor = options.editor || atom.workspace.getActiveTextEditor();
+		if(editor.hasMultipleCursors())
+			editor.mergeSelections(() => true);
+		if(options.requireSelection && hasSelectedText(editor))
+			return;
+		const selection = editor.getLastSelection();
+		const input = selection.getText() || editor.getText();
+		return await pipe(input, command, args).then(({stdout}) => {
+			if(!stdout) return;
+			if(!/\n$/.test(input))
+				stdout = stdout.replace(/\n$/, "");
+			selection.isEmpty()
+				? editor.setText(stdout)
+				: selection.insertText(stdout, {select: true});
+		});
 	},
 };

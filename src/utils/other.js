@@ -6,6 +6,7 @@ module.exports = {
 	getPrecision,
 	wait,
 	setTheme,
+	pipe,
 	shell,
 	tsvTable
 };
@@ -72,6 +73,49 @@ function setTheme(...names){
 		atom.themes.loadBaseStylesheets();
 		atom.themes.emitter.emit("did-change-active-themes");
 	}).then(() => wait(500));
+}
+
+
+/**
+ * Pipe data through a child process.
+ *
+ * @param {String} input
+ * @param {String} command
+ * @param {Array} [argv=[]]
+ * @param {Boolean} [silent=false]
+ * @return {Promise}
+ */
+async function pipe(input, cmd, argv = [], silent = false){
+	return await new Promise(done => {
+		const {spawn} = require("child_process");
+		const process = spawn(cmd, argv);
+		let stdout = "";
+		let stderr = "";
+		process.stdin.write(input);
+		process.stdin.end();
+		process.stdout.on("data", chunk => stdout += chunk);
+		process.stderr.on("data", chunk => stderr += chunk);
+		process.on("close", (code, signal) => {
+			done({stdout, stderr, code, signal});
+			if(silent) return;
+			if(code || signal){
+				const message = signal
+					? `\`${cmd}\` was killed by signal ${signal}`
+					: `\`${cmd}\` exited with ${code}`;
+				atom.notifications.addError(message, {
+					detail: stderr || null,
+					dismissable: true
+				});
+			}
+			else if(stderr){
+				const message = `\`${cmd}\` wrote to standard error:`;
+				atom.notifications.addWarning(message, {
+					detail: stderr || null,
+					dismissable: true
+				});
+			}
+		});
+	});
 }
 
 
