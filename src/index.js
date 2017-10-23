@@ -35,6 +35,18 @@ loadGrammar("source.js").then(js => js.maxTokensPerLine = 500);
 $ `make -C'${__dirname}/..' could-you-not`;
 
 
+// Force Atom to use tabs when saving CSON files
+try{
+	const {dirname, resolve} = require("path");
+	const atomModules = resolve(dirname(require.resolve("atom")), "../node_modules");
+	const CSON = require(`${atomModules}/season`);
+	const {stringify} = CSON;
+	CSON.stringify = function(object, visitor){
+		return stringify.call(this, object, visitor, "\t");
+	};
+} catch(e){ console.error(e); }
+
+
 atom.workspace.observeTextEditors(editor => {
 	const {setTabLength} = editor.constructor.prototype;
 	

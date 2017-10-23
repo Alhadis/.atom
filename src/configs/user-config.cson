@@ -1,120 +1,120 @@
 "*":
-  "auto-detect-indentation":
-    showSpacingInStatusBar: false
-  core:
-    customFileTypes:
-      "source.ditroff.desc": [
-        "/dev[-a-z0-9]+/[A-Z]+$"
-        "/dev\\w+/(?!DESC|NOTES)[A-Z]+$"
-      ]
-      "source.gfm": [
-        "README"
-        "TODO"
-      ]
-      "source.perl": [
-        "t"
-      ]
-      "source.postscript": [
-        "pdf"
-      ]
-      "source.python": [
-        "WATCHLISTS"
-        "DEPS"
-        "gclient"
-        "gclient_entries"
-      ]
-      "source.shell": [
-        "profile"
-      ]
-      "text.roff": [
-        "mm"
-      ]
-    disabledPackages: [
-      "autocomplete-css"
-      "background-tips"
-      "welcome"
-      "language-clojure"
-      "language-java"
-      "language-python"
-      "autocomplete-plus"
-      "github"
-    ]
-    openEmptyEditorOnStart: false
-    themes: [
-      "atom-light-ui"
-      "Phoenix-Syntax"
-    ]
-  "dash-ui":
-    iconsEnabled: false
-    themeColor: "Indigo"
-  editor:
-    autoIndentOnPaste: false
-    fontFamily: "Menlig"
-    fontSize: 11
-    lineHeight: 1.3
-    softTabs: false
-    tabLength: 4
-  "exception-reporting":
-    userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
-  "file-icons":
-    coloured: false
-    strategies: {}
-  "find-and-replace":
-    showSearchWrapIcon: false
-  "language-applescript":
-    autoCompile: false
-  "markdown-preview":
-    grammars: [
-      "text.xml"
-      "source.gfm"
-      "text.html.basic"
-      "text.md"
-      "text.plain"
-      "text.plain.null-grammar"
-    ]
-    useGitHubStyle: true
-  minimap:
-    autoToggle: false
-  "seti-ui":
-    compactView: true
-    fileIcons: false
-  "spell-check":
-    grammars: [
-      "source.asciidoc"
-      "source.gfm"
-      "text.git-commit"
-      "text.html.basic"
-      "text.plain"
-      "text.plain.null-grammar"
-      "text.restructuredtext"
-      "text.roff"
-      "text.xml"
-      "source.js"
-      "source.perl"
-      "source.shell"
-      "source.makefile"
-    ]
-  "status-bar":
-    fullWidth: false
-  "tree-view":
-    hideIgnoredNames: true
-  welcome:
-    showOnStartup: false
-  whitespace:
-    removeTrailingWhitespace: false
+	"auto-detect-indentation":
+		showSpacingInStatusBar: false
+	core:
+		customFileTypes:
+			"source.ditroff.desc": [
+				"/dev[-a-z0-9]+/[A-Z]+$"
+				"/dev\\w+/(?!DESC|NOTES)[A-Z]+$"
+			]
+			"source.gfm": [
+				"README"
+				"TODO"
+			]
+			"source.perl": [
+				"t"
+			]
+			"source.postscript": [
+				"pdf"
+			]
+			"source.python": [
+				"WATCHLISTS"
+				"DEPS"
+				"gclient"
+				"gclient_entries"
+			]
+			"source.shell": [
+				"profile"
+			]
+			"text.roff": [
+				"mm"
+			]
+		disabledPackages: [
+			"autocomplete-css"
+			"background-tips"
+			"welcome"
+			"language-clojure"
+			"language-java"
+			"language-python"
+			"autocomplete-plus"
+			"github"
+		]
+		openEmptyEditorOnStart: false
+		themes: [
+			"atom-light-ui"
+			"Phoenix-Syntax"
+		]
+	"dash-ui":
+		iconsEnabled: false
+		themeColor: "Indigo"
+	editor:
+		autoIndentOnPaste: false
+		fontFamily: "Menlig"
+		fontSize: 11
+		lineHeight: 1.3
+		softTabs: false
+		tabLength: 4
+	"exception-reporting":
+		userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
+	"file-icons":
+		coloured: false
+		strategies: {}
+	"find-and-replace":
+		showSearchWrapIcon: false
+	"language-applescript":
+		autoCompile: false
+	"markdown-preview":
+		grammars: [
+			"text.xml"
+			"source.gfm"
+			"text.html.basic"
+			"text.md"
+			"text.plain"
+			"text.plain.null-grammar"
+		]
+		useGitHubStyle: true
+	minimap:
+		autoToggle: false
+	"seti-ui":
+		compactView: true
+		fileIcons: false
+	"spell-check":
+		grammars: [
+			"source.asciidoc"
+			"source.gfm"
+			"text.git-commit"
+			"text.html.basic"
+			"text.plain"
+			"text.plain.null-grammar"
+			"text.restructuredtext"
+			"text.roff"
+			"text.xml"
+			"source.js"
+			"source.perl"
+			"source.shell"
+			"source.makefile"
+		]
+	"status-bar":
+		fullWidth: false
+	"tree-view":
+		hideIgnoredNames: true
+	welcome:
+		showOnStartup: false
+	whitespace:
+		removeTrailingWhitespace: false
 ".atom-mocha":
-  editor:
-    fontSize: 13
+	editor:
+		fontSize: 13
 ".coffee.source":
-  editor:
-    atomicSoftTabs: false
+	editor:
+		atomicSoftTabs: false
 ".desc.ditroff.source":
-  editor:
-    tabLength: 16
+	editor:
+		tabLength: 16
 ".lisp.source":
-  editor:
-    softTabs: true
-    tabLength: 2
+	editor:
+		softTabs: true
+		tabLength: 2
 ".rust.source":
-  editor:
-    softTabs: false
+	editor:
+		softTabs: false
