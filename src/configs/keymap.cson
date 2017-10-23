@@ -63,6 +63,11 @@
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
 	"[":              "user:square-bracket"
+	"(":              "user:round-bracket"
+	"{":              "user:curly-bracket"
+	"`":              "user:backtick"
+	"'":              "user:single-quote"
+	'"':              "user:double-quote"
 	"cmd-r":          "unset!"
 	"cmd-=":          "user:increment"
 	"cmd-+":          "user:increment"
@@ -70,7 +75,6 @@
 	"cmd-_":          "user:decrement"
 
 "atom-text-editor[data-grammar='source js']":
-	"{":              "user:dollar-wrap"
 	"enter":          "user:jsdoc-newline"
 
 "atom-text-editor[data-grammar='source css']":

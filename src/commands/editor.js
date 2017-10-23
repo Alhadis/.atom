@@ -1,7 +1,8 @@
 "use strict";
 
 const {round, getPrecision, tsvTable} = require("../utils/other.js");
-const {hasSelectedText, mutate, surround} = require("../utils/buffer.js");
+const {hasSelectedText, mutate} = require("../utils/buffer.js");
+const {key} = require("../utils/commands.js");
 const EDITOR_PANES = "atom-text-editor:not([mini])";
 
 
@@ -51,28 +52,6 @@ atom.commands.add(EDITOR_PANES, "user:jsdoc-newline", event => {
 		});
 	}
 	else atom.commands.dispatch(event.target, "editor:newline");
-});
-
-
-// Prepend $ when entering {} in JS templates
-atom.commands.add(EDITOR_PANES, "user:dollar-wrap", () => {
-	const editor = atom.workspace.getActiveTextEditor();
-	editor.mutateSelectedText(selection => {
-		const {scopes} = selection.cursor.getScopeDescriptor();
-		const {row, column} = selection.getHeadBufferPosition();
-		const prevCharacter = editor.getTextInBufferRange([[row, 0], [row, column]]);
-		
-		// Fired inside a template literal: prepend dollar sign
-		if(!/\$$/.test(prevCharacter)
-		&& -1 !== scopes.indexOf("string.quoted.template.js")
-		&& -1 === scopes.indexOf("source.js.embedded.source")){
-			const range = selection.getBufferRange();
-			selection.insertText("${" + selection.getText() + "}");
-			selection.setBufferRange(range.translate([0, 2], [0, 2]));
-		}
-		
-		else editor.insertText("{");
-	});
 });
 
 
@@ -193,29 +172,36 @@ atom.commands.add(EDITOR_PANES, "editor:expand-escapes", event => {
 });
 
 
+// GNU readline simulation
+let escaped = false;
+atom.commands.onDidDispatch(event => {
+	const {originalEvent, type} = event;
+	if("editor:consolidate-selections" === type && 27 === event.originalEvent.keyCode)
+		escaped = !escaped;
+});
+
+
 // Suppress auto-insertion of closing bracket when necessary
-atom.commands.add("atom-text-editor", "user:square-bracket", event => {
-	const editor = event.currentTarget
-		? event.currentTarget.getModel()
-		: atom.workspace.getActiveTextEditor();
-	const {buffer} = editor;
-	for(const selection of editor.getSelectionsOrderedByBufferPosition()){
-		if(selection.isEmpty()){
-			const range = selection.getBufferRange();
-			const {start} = range;
-			const {row}   = start;
-			const before  = buffer.getTextInRange([[row, 0], start]);
-			const after   = buffer.getTextInRange([start, buffer.rangeForRow(row).end]);
-			if(shouldBalance("[", before, after))
-				editor.insertText("[");
-			else{
-				editor.buffer.insert(start, "[");
-				const point = start.translate([0, 1]);
-				selection.setBufferRange([point, point]);
-			}
-		}
-		else surround("[", "]", selection);
-	}
+atom.commands.add("atom-text-editor", {
+	"user:backtick":       key("`", () => escaped ? (escaped = false, "`") : null),
+	"user:single-quote":   key("'", () => escaped ? (escaped = false, "'") : null),
+	"user:double-quote":   key('"', () => escaped ? (escaped = false, '"') : null),
+	"user:round-bracket":  key("(", () => escaped ? (escaped = false, "(") : null),
+	"user:square-bracket": key("[",  $ => {
+		const {textBefore, textAfter} = $;
+		if(/(?:\\x1B|\\033|\x1B)$/.test(textBefore))
+			return "[";
+	}),
+	"user:curly-bracket": key("{", state => {
+		const {selection, editor, textBefore} = state;
+		const {scopes} = selection.cursor.getScopeDescriptor();
+		
+		// Prepend dollar signs in JS template literals
+		if(!/\$$/.test(textBefore)
+		&& -1 !== scopes.indexOf("string.quoted.template.js")
+		&& -1 === scopes.indexOf("source.js.embedded.source"))
+			return ["${", "}"];
+	}),
 });
 
 
@@ -246,17 +232,6 @@ function bumpSelectedNumbers(by = 1, editor = null){
 		});
 		selection.insertText(text, {select: true});
 	}, 150);
-}
-
-
-function shouldBalance(char, textBefore, textAfter){
-	switch(char){
-		case "[":
-			if(/(?:\\x1B|\\033|\x1B)$/.test(textBefore))
-				return false;
-		default:
-			return true;
-	}
 }
 
 

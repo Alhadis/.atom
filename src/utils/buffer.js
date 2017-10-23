@@ -182,6 +182,47 @@ module.exports = {
 	
 	
 	/**
+	 * Check if a character auto-inserts another character when entered.
+	 *
+	 * @param {String} input
+	 * @return {Boolean}
+	 */
+	isAutoClosing(input){
+		switch(input){
+			case "[": case "{": case "(": case "‘": case "«":
+			case "'": case '"': case "`": case "“": case "‹":
+				return true;
+			default:
+				return false;
+		}
+	},
+	
+	
+	/**
+	 * Return the mirrored counterpart of a character, if any.
+	 *
+	 * If no counterpart exists, the input itself is returned.
+	 *
+	 * @example getMirrorChar("[") == "]";
+	 * @param {String} input
+	 * @return {String}
+	 */
+	getMirrorChar(input){
+		switch(input){
+			case "[": return "]";
+			case "{": return "}";
+			case "(": return ")";
+			case "<": return ">";
+			case "“": return "”";
+			case "‘": return "’";
+			case "«": return "»";
+			case "‹": return "›";
+			default:  return input;
+		}
+	},
+	
+	
+	/**
 	 * Return the character before the designated cursor.
 	 *
 	 * @param {Cursor} cursor
