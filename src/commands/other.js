@@ -1,5 +1,6 @@
 "use strict";
 
+const {pipeFilter, run} = require("../utils/commands.js");
 const {$} = require("../utils/other.js");
 
 
@@ -49,10 +50,18 @@ atom.commands.add("atom-workspace", "user:temp-1", () => {
 	}
 	else{
 		const editor = atom.workspace.getActiveTextEditor();
-		if("source.json" === editor.getGrammar().scopeName){
-			const parsed = JSON.parse(editor.getText());
-			editor.setText(JSON.stringify(parsed, null, "\t"));
+		switch(editor.getGrammar().scopeName){
+			case "source.json":
+				const parsed = JSON.parse(editor.getText());
+				editor.setText(JSON.stringify(parsed, null, "\t"));
+				break;
+			case "source.perl":
+			case "source.perl.5":
+				run("perl");
+				break;
+			case "text.roff":
+				pipeFilter("pic");
+				break;
 		}
 	}
-	
 });

@@ -71,9 +71,43 @@ atom-text-editor.is-focused .cursors .cursor{
 }
 
 
-/* Disable transitions when dismissing popups */
-atom-notification.remove{
-	-webkit-animation-duration: 0ms !important;
+atom-notification{
+	.fd.detail{
+		@gutter: 30px;
+		margin-left: -@gutter;
+		padding-left: @gutter;
+		
+		// File descriptor indicators
+		&::before{
+			content: attr(data-fd)">";
+			position: absolute;
+			left: 0;
+			width: @gutter;
+			height: 36px;
+			text-align: center;
+			font: 1.5em/1 Menlig, Menloco, monospace;
+			color: rgba(255, 255, 255, .75);
+			display: block;
+			margin-top: -11px;
+			box-sizing: border-box;
+			padding: 9px 0 0;
+		}
+		&[data-fd="1"]::before{
+			border-top: 0;
+			margin-top: -10px;
+			height: 35px;
+		}
+		
+		.detail-content{
+			tab-size: 4;
+			margin-left: 1em;
+		}
+	}
+	
+	/* Disable transitions when dismissing popups */
+	&.remove{
+		-webkit-animation-duration: 0ms !important;
+	}
 }
 
 /* Hide EditorConfig's status-bar tile */

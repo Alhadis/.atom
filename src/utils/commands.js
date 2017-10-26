@@ -2,7 +2,7 @@
 
 const {hasSelectedText, surround, mutate} = require("./buffer.js");
 const {pipe} = require("./other.js");
-const {getEditor} =
+const {getEditor, summarise} =
 
 
 module.exports = {
@@ -61,6 +61,25 @@ module.exports = {
 	
 	
 	/**
+	 * Execute buffer contents using another language's interpreter.
+	 *
+	 * @param {String} command
+	 * @param {Array} [args=["--"]]
+	 * @return {Promise}
+	 */
+	async run(command, args = ["--"]){
+		const editor = atom.workspace.getActiveTextEditor();
+		if(editor.hasMultipleCursors())
+			editor.mergeSelections(() => true);
+		if(!Array.isArray(args))
+			args = String(args).trim().split(/\s+/);
+		const selection = editor.getLastSelection();
+		const input = selection.getText() || editor.getText();
+		return await pipe(input, command, args).then(result => summarise(result));
+	},
+	
+	
+	/**
 	 * Modify buffer contents using standard input/output.
 	 *
 	 * @param {String} command
@@ -84,5 +103,54 @@ module.exports = {
 				? editor.setText(stdout)
 				: selection.insertText(stdout, {select: true});
 		});
+	},
+	
+	
+	/**
+	 * Display the results of running an external command.
+	 *
+	 * @param {Object} results
+	 * @return {Notification}
+	 * @internal
+	 */
+	summarise(results){
+		const {signal, code, stdout, stderr} = results;
+		const message = signal
+			? `Killed by signal \`${signal}\``
+			: `Exited with status \`${code}\``;
+		const opt = {dismissable: true};
+		if(stdout || stderr)
+			opt.detail = "{}";
+		const note = code || signal
+			? atom.notifications.addError(message, opt)
+			: atom.notifications.addInfo(message, opt);
+		if(stdout || stderr){
+			const {element} = atom.views.getView(note);
+			const detail = element.querySelector(".detail.item");
+			const targets = [];
+			if(stdout && stderr) targets.push(
+				["stdout", detail],
+				["stderr", detail.parentNode.appendChild(detail.cloneNode(true))
+			]);
+			else if(stdout) targets.push(["stdout", detail]);
+			else if(stderr) targets.push(["stderr", detail]);
+			for(const [name, node] of targets){
+				const html = results[name].split(/\n/).map(line => {
+					line = line.replace(/<|>|&/g, c => `&#${c.charCodeAt(0)};`);
+					return `<div class="line">${line}</div>`
+				}).join("");
+				node.classList.add("fd");
+				if(name === "stdout"){
+					node.dataset.fd = 1;
+					node.title = "Standard output";
+				}
+				else{
+					node.dataset.fd = 2;
+					node.title = "Standard error";
+				}
+				node.querySelector(".detail-content").innerHTML = html;
+			}
+		}
+		return note;
 	},
 };
