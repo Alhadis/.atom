@@ -50,6 +50,7 @@ atom.commands.add("atom-workspace", "user:temp-1", () => {
 	}
 	else{
 		const editor = atom.workspace.getActiveTextEditor();
+		if(!editor) return;
 		switch(editor.getGrammar().scopeName){
 			case "source.json":
 				const parsed = JSON.parse(editor.getText());
@@ -61,6 +62,16 @@ atom.commands.add("atom-workspace", "user:temp-1", () => {
 				break;
 			case "text.roff":
 				pipeFilter("pic");
+				break;
+			case "source.coffee":
+				pipeFilter("decaffeinate").then(() => {
+					editor.setGrammar(atom.grammars.grammarForScopeName("source.js"));
+					const filePath = editor.getPath();
+					if(/\.coffee$/i.test(filePath)){
+						const newPath = filePath.replace(/\.coffee$/i, ".js");
+						require("fs").renameSync(filePath, newPath);
+					}
+				});
 				break;
 		}
 	}
