@@ -65,16 +65,19 @@ module.exports = {
 	 *
 	 * @param {String} command
 	 * @param {Array} [args=["--"]]
+	 * @param {String} [input=""]
 	 * @return {Promise}
 	 */
-	async run(command, args = ["--"]){
+	async run(command, args = ["--"], input = ""){
 		const editor = atom.workspace.getActiveTextEditor();
-		if(editor.hasMultipleCursors())
-			editor.mergeSelections(() => true);
 		if(!Array.isArray(args))
 			args = String(args).trim().split(/\s+/);
-		const selection = editor.getLastSelection();
-		const input = selection.getText() || editor.getText();
+		if(!input){
+			if(editor.hasMultipleCursors())
+				editor.mergeSelections(() => true);
+			const selection = editor.getLastSelection();
+			input = selection.getText() || editor.getText();
+		}
 		return await pipe(input, command, args).then(result => summarise(result));
 	},
 	

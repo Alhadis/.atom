@@ -57,9 +57,11 @@ atom.commands.add("atom-workspace", "user:temp-1", () => {
 				editor.setText(JSON.stringify(parsed, null, "\t"));
 				break;
 			case "source.perl":
-			case "source.perl.5":
-				run("perl");
+			case "source.perl.5":{
+				const text = editor.getLastSelection().getText() || editor.getText();
+				run("perl", ["-M5.14.0", "--"], text);
 				break;
+			}
 			case "text.roff":
 				pipeFilter("pic");
 				break;
