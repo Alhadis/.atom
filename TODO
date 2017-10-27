@@ -2,6 +2,7 @@
 
 * TODO
 - [ ] Way to compile ~.scopes~ file into ~keymap.cson~ or whatver
+- [ ] Way to compile unprefixed Less files into `.@{_}` line-noise
 - [ ] Commands to make HTML editing less painful (bold/unbold, ~<dl>~ lists, etc)
 - [ ] Command to run spellchecker on buffer and display the results
 - [ ] Auto-shift focus to active editor when running certain commands (like ~go-to-line~, etc)

@@ -48,6 +48,9 @@
 		prefix: "l\\"
 		body: "λ"
 
+	〃:
+		prefix: "ditto"
+		body: "〃"
 
 # Makefile
 ".source.makefile":
