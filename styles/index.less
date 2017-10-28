@@ -1,6 +1,5 @@
 @import "./typography";
 @import (optional) "../tmp.less";
-@_: syntax--;
 
 
 /* Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
@@ -32,20 +31,20 @@ atom-text-editor.is-focused .cursors .cursor{
 
 
 /* Debugging highlights for language-grammar development */
-.@{_}test-1, .@{_}test1{ background: #f00 !important; &.@{_}faded{ background: rgba(255, 0, 0, .25)     !important; }}
-.@{_}test-2, .@{_}test2{ background: #0e0 !important; &.@{_}faded{ background: rgba(0, 238, 0, .25)     !important; }}
-.@{_}test-3, .@{_}test3{ background: #6cf !important; &.@{_}faded{ background: rgba(102, 204, 255, .25) !important; }}
+.syntax--test-1, .syntax--test1{ background: #f00 !important; &.syntax--faded{ background: rgba(255, 0, 0, .25)     !important; }}
+.syntax--test-2, .syntax--test2{ background: #0e0 !important; &.syntax--faded{ background: rgba(0, 238, 0, .25)     !important; }}
+.syntax--test-3, .syntax--test3{ background: #6cf !important; &.syntax--faded{ background: rgba(102, 204, 255, .25) !important; }}
 
-.@{_}box:not(.@{_}roff):not(.@{_}request){
+.syntax--box:not(.syntax--roff):not(.syntax--request){
 	outline: 1px solid #ccc;
 	
-	&.@{_}test-1, .@{_}test1,
-	&.@{_}test-2, .@{_}test2,
-	&.@{_}test-3, .@{_}test3{
+	&.syntax--test-1, .syntax--test1,
+	&.syntax--test-2, .syntax--test2,
+	&.syntax--test-3, .syntax--test3{
 		outline-color: #000;
 	}
 	
-	&.@{_}faded{
+	&.syntax--faded{
 		opacity: .25;
 	}
 }
@@ -118,8 +117,10 @@ atom-notification{
 
 /* Seti Syntax: Tweak some colour choices */
 .theme-seti-syntax atom-text-editor{
-	.@{_}markup.@{_}heading .@{_}punctuation.@{_}definition.@{_}heading{
-		color: #2d3e3a;
+	.syntax--markup.syntax--heading{
+		& .syntax--punctuation.syntax--definition.syntax--heading{
+			color: #2d3e3a;
+		}
 	}
 }
 

@@ -1,26 +1,25 @@
-@_: syntax--;
-
 /* OpenType features */
 atom-text-editor{
 	font-variant-ligatures: contextual;
 }
 
 /* Bunched double-slashes */
-.@{_}comment.@{_}line.@{_}double-slash > .@{_}punctuation.@{_}definition.@{_}comment{
+.syntax--comment.syntax--line.syntax--double-slash >
+.syntax--punctuation.syntax--definition.syntax--comment{
 	font-variant-ligatures: discretionary-ligatures;
 }
 
 /* Haskell compound operators */
-.@{_}haskell.@{_}keyword{
+.syntax--haskell.syntax--keyword{
 	font-variant-ligatures: discretionary-ligatures;
 }
 
 /* APL */
-.@{_}apl.@{_}spaced.@{_}keyword{
+.syntax--apl.syntax--spaced.syntax--keyword{
 	font-feature-settings: "ss01";
 }
 
 /* Disable ligatures */
-.@{_}string.@{_}double.@{_}quoted.@{_}coffee{
+.syntax--string.syntax--double.syntax--quoted.syntax--coffee{
 	font-variant-ligatures: none;
 }

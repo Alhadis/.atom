@@ -109,6 +109,13 @@
 					url("${2:fonts/font-name}.svg#FontName") format("svg");
 			}$3"""
 
+# Less
+".source.css.less":
+	".syntax--":
+		prefix: "."
+		body: ".syntax--"
+
+
 # JavaScript
 ".source.js":
 	"Anonymous Arrow Function":
