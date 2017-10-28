@@ -31,13 +31,13 @@
 			]
 		disabledPackages: [
 			"autocomplete-css"
+			"autocomplete-plus"
 			"background-tips"
-			"welcome"
+			"github"
 			"language-clojure"
 			"language-java"
 			"language-python"
-			"autocomplete-plus"
-			"github"
+			"welcome"
 		]
 		openEmptyEditorOnStart: false
 		themes: [
@@ -65,12 +65,12 @@
 		autoCompile: false
 	"markdown-preview":
 		grammars: [
-			"text.xml"
 			"source.gfm"
 			"text.html.basic"
 			"text.md"
-			"text.plain"
 			"text.plain.null-grammar"
+			"text.plain"
+			"text.xml"
 		]
 		useGitHubStyle: true
 	minimap:
@@ -82,17 +82,17 @@
 		grammars: [
 			"source.asciidoc"
 			"source.gfm"
+			"source.js"
+			"source.makefile"
+			"source.perl"
+			"source.shell"
 			"text.git-commit"
 			"text.html.basic"
-			"text.plain"
 			"text.plain.null-grammar"
+			"text.plain"
 			"text.restructuredtext"
 			"text.roff"
 			"text.xml"
-			"source.js"
-			"source.perl"
-			"source.shell"
-			"source.makefile"
 		]
 	"status-bar":
 		fullWidth: false

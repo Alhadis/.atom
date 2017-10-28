@@ -45,7 +45,7 @@ atom.commands.add("atom-workspace", "user:temp-1", () => {
 	if(null !== document.querySelector("atom-dock:hover"))
 		document.body.classList.toggle("show-toggle-buttons");
 	else if(null !== document.querySelector("li[is=tabs-tab].tab:hover")){
-		const name = "user:enable-pending-items";
+		const name = "user.enable-pending-items";
 		atom.config.set(name, !atom.config.get(name));
 	}
 	else{

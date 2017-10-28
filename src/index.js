@@ -88,3 +88,7 @@ statusBar.activationPromise.then(() => {
 			style.opacity = 1;
 	});
 });
+
+
+// Tidy `config.cson` to cut down on diff-noise
+tidyUserConfig();
