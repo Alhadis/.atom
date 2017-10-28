@@ -117,3 +117,29 @@ Object.assign(global, {
 		global.Range = Range;
 	}
 });
+
+
+// If we're accessing these on the window global,
+// it means we missed something when refactoring…
+["name", "path"].map(name => {
+	let value = window[name];
+	const zap = (action) => {
+		if(window.disarmElectricShock)
+			return;
+		// Don't obstruct program flow. Just raise noise so I notice
+		// immediately, instead of relying on other users to do so
+		// for me. See file-icons/atom#469
+		Promise.resolve().then(() => {
+			const details =
+				`If you're serious about ${action} window.${name},
+				 set \`window.disarmElectricShock = true\`;
+				`.replace(/\t|\n/g, "");
+			setTimeout(() => console.error(details), 10);
+			throw new ReferenceError("\n\tFIX YOUR DAMN BINDINGS");
+		});
+	};
+	Object.defineProperty(window, name, {
+		get: () => { zap("reading from"); return value; },
+		set: to => { zap("writing to");   value = to; },
+	});
+});
