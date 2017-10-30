@@ -90,5 +90,22 @@ statusBar.activationPromise.then(() => {
 });
 
 
-// Tidy `config.cson` to cut down on diff-noise
-tidyUserConfig();
+// Tidy config to reduce diff-noise
+const stringLists = [
+	"core.disabledPackages",
+	"markdown-preview.grammars",
+	"spell-check.grammars",
+];
+for(const key of stringLists){
+	const currentValue = atom.config.get(key);
+	const sortedValue = [...new Set(currentValue)].sort();
+	if(currentValue.join("\n") !== sortedValue.join("\n"))
+		atom.config.set(key, sortedValue);
+}
+
+// Delete settings which aren't meant to linger around
+const ephemeralKeys = ["user:enable-pending-items"];
+for(const keyPath of ephemeralKeys){
+	if(undefined !== atom.config.getRawValue(keyPath))
+		atom.config.unset(keyPath);
+}

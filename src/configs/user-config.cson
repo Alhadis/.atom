@@ -68,8 +68,8 @@
 			"source.gfm"
 			"text.html.basic"
 			"text.md"
-			"text.plain.null-grammar"
 			"text.plain"
+			"text.plain.null-grammar"
 			"text.xml"
 		]
 		useGitHubStyle: true
@@ -88,8 +88,8 @@
 			"source.shell"
 			"text.git-commit"
 			"text.html.basic"
-			"text.plain.null-grammar"
 			"text.plain"
+			"text.plain.null-grammar"
 			"text.restructuredtext"
 			"text.roff"
 			"text.xml"

@@ -30,27 +30,6 @@ Object.assign(global, {
 	Path:     require("path"),
 	fs:       require("fs"),
 	
-	tidyUserConfig(){
-		const stringLists = [
-			"core.disabledPackages",
-			"markdown-preview.grammars",
-			"spell-check.grammars",
-		];
-		for(const key of stringLists){
-			const currentValue = atom.config.get(key);
-			const sortedValue = currentValue.sort();
-			if(currentValue.join() !== sortedValue.join())
-				atom.config.set(key, sortedValue);
-		}
-		
-		// Delete settings which aren't meant to linger around
-		const ephemeralKeys = ["user:enable-pending-items"];
-		for(const keyPath of ephemeralKeys){
-			if(undefined !== atom.config.getRawValue(keyPath))
-				atom.config.unset(keyPath);
-		}
-	},
-	
 	traceEmissions: (function(){
 		const prot = atom.emitter.constructor.prototype;
 		const emit = prot.emit;
