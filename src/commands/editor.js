@@ -2,7 +2,7 @@
 
 const {round, getPrecision, tsvTable} = require("../utils/other.js");
 const {hasSelectedText, mutate} = require("../utils/buffer.js");
-const {key} = require("../utils/commands.js");
+const {filter, key} = require("../utils/commands.js");
 const EDITOR_PANES = "atom-text-editor:not([mini])";
 
 
@@ -79,6 +79,20 @@ atom.commands.add(EDITOR_PANES, "user:tsv-to-html", () => {
 	mutate(editor, tsvTable);
 	if(atom.grammars.nullGrammar === editor.getGrammar())
 		editor.setGrammar(atom.grammars.grammarsByScopeName["text.html.basic"]);
+});
+
+
+// Convert CoffeeScript to JavaScript and update file extension
+atom.commands.add(EDITOR_PANES, "user:decaf", () => {
+	filter("decaffeinate").then(() => {
+		const editor = atom.workspace.getActiveTextEditor();
+		editor.setGrammar(atom.grammars.grammarForScopeName("source.js"));
+		const filePath = editor.getPath();
+		if(/\.coffee$/i.test(filePath)){
+			const newPath = filePath.replace(/\.coffee$/i, ".js");
+			require("fs").renameSync(filePath, newPath);
+		}
+	});
 });
 
 

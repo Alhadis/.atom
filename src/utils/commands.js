@@ -90,7 +90,7 @@ module.exports = {
 	 * @param {Object} [options={}]
 	 * @return {Promise}
 	 */
-	async pipeFilter(command, args = [], options = {}){
+	async filter(command, args = [], options = {}){
 		const editor = options.editor || atom.workspace.getActiveTextEditor();
 		if(editor.hasMultipleCursors())
 			editor.mergeSelections(() => true);
@@ -98,6 +98,8 @@ module.exports = {
 			return;
 		const selection = editor.getLastSelection();
 		const input = selection.getText() || editor.getText();
+		if(!args.length)
+			[command, ...args] = command.trim().split(/\s+/);
 		return await pipe(input, command, args).then(({stdout}) => {
 			if(!stdout) return;
 			if(!/\n$/.test(input))

@@ -1,6 +1,6 @@
 "use strict";
 
-const {pipeFilter, run} = require("../utils/commands.js");
+const {filter, run} = require("../utils/commands.js");
 const {$} = require("../utils/other.js");
 
 
@@ -62,19 +62,6 @@ atom.commands.add("atom-workspace", "user:temp-1", () => {
 				run("perl", ["-M5.14.0", "--"], text);
 				break;
 			}
-			case "text.roff":
-				pipeFilter("pic");
-				break;
-			case "source.coffee":
-				pipeFilter("decaffeinate").then(() => {
-					editor.setGrammar(atom.grammars.grammarForScopeName("source.js"));
-					const filePath = editor.getPath();
-					if(/\.coffee$/i.test(filePath)){
-						const newPath = filePath.replace(/\.coffee$/i, ".js");
-						require("fs").renameSync(filePath, newPath);
-					}
-				});
-				break;
 		}
 	}
 });
