@@ -1,16 +1,27 @@
 # Universal
 "*":
-	"Node Script":
+	Node:
 		prefix: "node"
-		body: '#!/usr/bin/env node --es_staging\n"use strict";\n\n'
+		body: """
+			\\#!/usr/bin/env node --es_staging
+			"use strict";
+			\n\n"""
 
 	Perl:
 		prefix: "pl"
-		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
+		body: """
+			\\#!/usr/bin/env perl
+			use strict;
+			use warnings;
+			use autodie;
+			use v5.14;
+			\n"""
 
 	Ruby:
 		prefix: "rb"
-		body: "#!/usr/bin/env ruby\n\n$1"
+		body: """(?x)
+			\\#!/usr/bin/env ruby
+			\n\n"""
 
 	"Boilerplate HTML":
 		prefix: "htmldoc"
@@ -263,9 +274,6 @@
 
 # Perl
 ".source.perl":
-	Hashbang:
-		prefix: "pl"
-		body: "#!/usr/bin/env perl\nuse strict;\nuse warnings;\nuse autodie;\n\n$1"
 	"Project Boilerplate":
 		prefix: "perl"
 		body: """
@@ -333,9 +341,6 @@
 
 # Ruby
 ".source.ruby":
-	Executable:
-		prefix: "rb"
-		body: "#!/usr/bin/env ruby\n\n$1"
 	Read:
 		prefix: "read"
 		body: 'data = File.read("${1:file.name}")'
