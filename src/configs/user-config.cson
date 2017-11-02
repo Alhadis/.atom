@@ -48,6 +48,7 @@
 		iconsEnabled: false
 		themeColor: "Indigo"
 	editor:
+		atomicSoftTabs: false
 		autoIndentOnPaste: false
 		fontFamily: "Menlig"
 		fontSize: 11
@@ -96,6 +97,7 @@
 		]
 	"status-bar":
 		fullWidth: false
+	tabs: {}
 	"tree-view":
 		hideIgnoredNames: true
 	welcome:

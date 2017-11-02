@@ -1,5 +1,6 @@
 "use strict";
 
+const {CompositeDisposable, Disposable} = require("atom");
 const {getProperties} = require("alhadis.utils");
 
 Object.defineProperties(global, {
@@ -25,6 +26,7 @@ Object.defineProperties(global, {
 
 
 Object.assign(global, {
+	CompositeDisposable, Disposable,
 	Electron: require("electron"),
 	print:    require("print"),
 	Path:     require("path"),
@@ -85,16 +87,6 @@ Object.assign(global, {
 			});
 		});
 	},
-	
-	globaliseAtomClasses(){
-		if(global.CompositeDisposable) return;
-		const {CompositeDisposable, Disposable, Emitter, Point, Range} = require("atom");
-		global.CompositeDisposable = CompositeDisposable;
-		global.Disposable = Disposable;
-		global.Emitter = Emitter;
-		global.Point = Point;
-		global.Range = Range;
-	}
 });
 
 
