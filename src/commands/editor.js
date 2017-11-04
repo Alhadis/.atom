@@ -186,21 +186,9 @@ atom.commands.add(EDITOR_PANES, "editor:expand-escapes", event => {
 });
 
 
-// GNU readline simulation
-let escaped = false;
-atom.commands.onDidDispatch(event => {
-	const {originalEvent, type} = event;
-	if("editor:consolidate-selections" === type && 27 === event.originalEvent.keyCode)
-		escaped = !escaped;
-});
-
 
 // Suppress auto-insertion of closing bracket when necessary
 atom.commands.add("atom-text-editor", {
-	"user:backtick":       key("`", () => escaped ? (escaped = false, "`") : null),
-	"user:single-quote":   key("'", () => escaped ? (escaped = false, "'") : null),
-	"user:double-quote":   key('"', () => escaped ? (escaped = false, '"') : null),
-	"user:round-bracket":  key("(", () => escaped ? (escaped = false, "(") : null),
 	"user:square-bracket": key("[",  $ => {
 		const {textBefore, textAfter} = $;
 		if(/(?:\\x1B|\\033|\x1B)$/.test(textBefore))
