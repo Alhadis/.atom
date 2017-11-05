@@ -191,7 +191,7 @@ atom.commands.add(EDITOR_PANES, "editor:expand-escapes", event => {
 atom.commands.add("atom-text-editor", {
 	"user:square-bracket": key("[",  $ => {
 		const {textBefore, textAfter} = $;
-		if(/(?:\\x1B|\\033|\x1B)$/.test(textBefore))
+		if(/(?:\\x1B|\\033|\\e|\x1B)$/.test(textBefore))
 			return "[";
 	}),
 	"user:curly-bracket": key("{", state => {
