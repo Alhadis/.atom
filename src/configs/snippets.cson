@@ -125,6 +125,10 @@
 	".syntax--":
 		prefix: "."
 		body: ".syntax--"
+	
+	"&.syntax--":
+		prefix: "&."
+		body: "&.syntax--"
 
 
 # JavaScript
@@ -159,7 +163,7 @@
 	# Specs
 	Spec:
 		prefix: "it"
-		body: 'it("$1", () => {\n\t$2\n});'
+		body: 'it("$1", ${3:async }() => {\n\t$2\n});'
 	"Spec Description":
 		prefix: "ds"
 		body: 'describe("$1", () => {\n\t$2\n});'
@@ -167,7 +171,7 @@
 		prefix: "when"
 		body: """
 			when("$1", () =>
-				it("$2", () => {
+				it("$2", ${4:async }() => {
 					$3
 				}));
 		"""
@@ -175,23 +179,23 @@
 		prefix: "When"
 		body: """
 			when("$1", () => {
-				it("$2", () => {
+				it("$2", ${4:async }() => {
 					$3
 				});
 			});
 		"""
 	Before:
 		prefix: "before"
-		body: "before(() => {\n\t$1\n});"
+		body: "before(${2:async }() => {\n\t$1\n});"
 	BeforeEach:
 		prefix: "each"
-		body: "beforeEach(() => {\n\t$1\n$1});"
+		body: "beforeEach(${2:async }() => {\n\t$1\n});"
 	After:
 		prefix: "after"
-		body: "after(() => {\n\t$1\n});"
+		body: "after(${2:async }() => {\n\t$1\n});"
 	AfterEach:
 		prefix: "afterEach"
-		body: "afterEach(() => {\n\t$1\n});"
+		body: "afterEach(${2:async }() => {\n\t$1\n});"
 
 	# Other crap
 	Strict:
