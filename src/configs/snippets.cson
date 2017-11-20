@@ -163,7 +163,7 @@
 	# Specs
 	Spec:
 		prefix: "it"
-		body: 'it("$1", ${3:async }() => {\n\t$2\n});'
+		body: 'it("$1", ${2:async }() => {\n\t$3\n});'
 	"Spec Description":
 		prefix: "ds"
 		body: 'describe("$1", () => {\n\t$2\n});'
@@ -179,23 +179,23 @@
 		prefix: "When"
 		body: """
 			when("$1", () => {
-				it("$2", ${4:async }() => {
-					$3
+				it("$2", ${3:async }() => {
+					$4
 				});
 			});
 		"""
 	Before:
 		prefix: "before"
-		body: "before(${2:async }() => {\n\t$1\n});"
+		body: "before(${1:async }() => {\n\t$2\n});"
 	BeforeEach:
 		prefix: "each"
-		body: "beforeEach(${2:async }() => {\n\t$1\n});"
+		body: "beforeEach(${1:async }() => {\n\t$2\n});"
 	After:
 		prefix: "after"
-		body: "after(${2:async }() => {\n\t$1\n});"
+		body: "after(${1:async }() => {\n\t$2\n});"
 	AfterEach:
 		prefix: "afterEach"
-		body: "afterEach(${2:async }() => {\n\t$1\n});"
+		body: "afterEach(${1:async }() => {\n\t$2\n});"
 
 	# Other crap
 	Strict:
