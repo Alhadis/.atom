@@ -29,7 +29,7 @@ Object.assign(global, {
 	CompositeDisposable, Disposable,
 	Electron: require("electron"),
 	print:    require("print"),
-	Path:     require("path"),
+	pat:      require("path"),
 	fs:       require("fs"),
 	
 	traceEmissions: (function(){
