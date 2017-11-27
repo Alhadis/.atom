@@ -11,7 +11,7 @@
 				"README"
 				"TODO"
 			]
-			"source.perl": [
+			"source.perl.5": [
 				"t"
 			]
 			"source.postscript": [
@@ -82,6 +82,7 @@
 	"spell-check":
 		grammars: [
 			"source.asciidoc"
+			"source.coffee"
 			"source.gfm"
 			"source.js"
 			"source.makefile"
