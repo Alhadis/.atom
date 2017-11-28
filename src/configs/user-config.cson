@@ -111,6 +111,9 @@
 ".coffee.source":
 	editor:
 		atomicSoftTabs: false
+".css.source":
+	editor:
+		nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-…"
 ".desc.ditroff.source":
 	editor:
 		tabLength: 16
