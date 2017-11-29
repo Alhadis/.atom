@@ -121,6 +121,33 @@
 					url("${2:fonts/font-name}.svg#FontName") format("svg");
 			}$3"""
 
+	Clearfix:
+		prefix: "clear"
+		body: """
+			content: "";
+			display: block;
+			clear: both;
+		"""
+	
+	Pinch:
+		prefix: "pinch"
+		body: """
+			display: inline-block;
+			vertical-align: top;
+			white-space: normal;
+		"""
+	
+	Fit:
+		prefix: "fit"
+		body: """
+			top:     0;
+			left:    0;
+			right:   0;
+			bottom:  0;
+			$1
+		"""
+
+
 # Less
 ".source.css.less":
 	".syntax--":
@@ -497,6 +524,10 @@
 	Link:
 		prefix: "link"
 		body: '<link rel="stylesheet" type="text/css" href="${1:main}.css" />$2'
+
+	InlineDiv:
+		prefix: "divi"
+		body: '<div class="$1">$2</div>'
 
 	Skeleton:
 		prefix: "html"
