@@ -1,0 +1,12 @@
+{
+	"name": "Biro-Syntax",
+	"theme": "syntax",
+	"private": true,
+	"version": "0.0.1",
+	"description": "Colours you'll probably hate.",
+	"repository": "https://github.com/Alhadis/.atom",
+	"license": "ISC",
+	"engines": {
+		"atom": "*"
+	}
+}

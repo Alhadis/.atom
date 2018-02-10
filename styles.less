@@ -1,5 +1,30 @@
-@import "./typography";
-@import (optional) "../tmp.less";
+@import (optional) "./tmp.less";
+
+/* OpenType features */
+atom-text-editor{
+	font-variant-ligatures: contextual;
+
+	// Bunched double-slashes
+	.syntax--comment.syntax--line.syntax--double-slash >
+	.syntax--punctuation.syntax--definition.syntax--comment{
+		font-variant-ligatures: discretionary-ligatures;
+	}
+
+	// Haskell compound operators
+	.syntax--haskell.syntax--keyword{
+		font-variant-ligatures: discretionary-ligatures;
+	}
+
+	// APL
+	.syntax--apl.syntax--spaced.syntax--keyword{
+		font-feature-settings: "ss01";
+	}
+
+	// Disable ligatures
+	.syntax--string.syntax--double.syntax--quoted.syntax--coffee{
+		font-variant-ligatures: none;
+	}
+}
 
 
 /* Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */

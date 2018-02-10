@@ -1,7 +1,22 @@
-.DS_Store
-npm-debug.log
-node_modules
-/tmp.js
-/tmp.less
-/test/fixtures/*
-!/test/fixtures/.keep
+/*
+
+# Whitelist
+!/lib/**
+!/styles/**
+!/test/**
+!/LICENSE.md
+!/README.md
+!/TODO
+!/Makefile
+!/config.cson
+!/keymap.cson
+!/projects.cson
+!/snippets.cson
+!/styles.less
+!/init.js
+
+# Ignore every package directory EXCEPT for our custom syntax-theme
+!/packages/
+/packages/*
+!/packages/Makefile
+!/packages/biro-syntax
