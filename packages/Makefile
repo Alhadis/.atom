@@ -1,5 +1,4 @@
 all: \
-	MagicPython \
 	advanced-open-file \
 	aesthetic-ui \
 	atom-material-syntax \
@@ -62,6 +61,7 @@ all: \
 	language-webassembly \
 	language-x86-64-assembly \
 	lisp-paredit \
+	MagicPython \
 	make-executable \
 	minimap \
 	pdf-view \
@@ -76,22 +76,6 @@ all: \
 
 file-icons:
 	git clone 'git@github.com:file-icons/atom.git' $@
-	cd $@ && apm install .
-
-language-gn:
-	git clone 'git@github.com:Alhadis/language-gn.git' $@
-	cd $@ && apm install .
-
-regex-comments:
-	git clone 'git@github.com:Alhadis/Regex-Comments.git' $@
-	cd $@ && apm install .
-
-language-restructuredtext:
-	git clone 'git@github.com:Lukasa/language-restructuredtext.git' $@
-	cd $@ && apm install .
-
-language-viml:
-	git clone 'git@github.com:Alhadis/language-viml.git' $@
 	cd $@ && apm install .
 
 language-agc:
@@ -114,6 +98,10 @@ language-fontforge:
 	git clone 'git@github.com:Alhadis/language-fontforge.git' $@
 	cd $@ && apm install .
 
+language-gn:
+	git clone 'git@github.com:Alhadis/language-gn.git' $@
+	cd $@ && apm install .
+
 language-maxscript:
 	git clone 'git@github.com:Alhadis/language-maxscript.git' $@
 	cd $@ && apm install .
@@ -126,6 +114,10 @@ language-regexp:
 	git clone 'git@github.com:Alhadis/language-regexp.git' $@
 	cd $@ && apm install .
 
+language-restructuredtext:
+	git clone 'git@github.com:Lukasa/language-restructuredtext.git' $@
+	cd $@ && apm install .
+
 language-roff:
 	git clone 'git@github.com:Alhadis/language-roff.git' $@
 	cd $@ && apm install .
@@ -134,12 +126,20 @@ language-turing:
 	git clone 'git@github.com:Alhadis/language-turing.git' $@
 	cd $@ && apm install .
 
+language-viml:
+	git clone 'git@github.com:Alhadis/language-viml.git' $@
+	cd $@ && apm install .
+
 language-wavefront:
 	git clone 'git@github.com:Alhadis/language-wavefront.git' $@
 	cd $@ && apm install .
 
 language-webassembly:
 	git clone 'git@github.com:Alhadis/language-webassembly.git' $@
+	cd $@ && apm install .
+
+regex-comments:
+	git clone 'git@github.com:Alhadis/Regex-Comments.git' $@
 	cd $@ && apm install .
 
 %:; apm install $*

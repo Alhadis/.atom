@@ -2,16 +2,16 @@
 const {$} =
 
 // Helper functions
-require("./utils/other.js");
-require("./utils/global.js");
-require("./utils/buffer.js");
+require("./lib/utils/other.js");
+require("./lib/utils/global.js");
+require("./lib/utils/buffer.js");
 
 // Custom commands
-require("./commands/display.js");
-require("./commands/editor.js");
-require("./commands/other.js");
-require("./commands/text-alignment.js");
-require("./commands/pull-requests.js");
+require("./lib/commands/display.js");
+require("./lib/commands/editor.js");
+require("./lib/commands/other.js");
+require("./lib/commands/text-alignment.js");
+require("./lib/commands/pull-requests.js");
 
 
 // Disable pending items / Fix focus for docked tree-view
@@ -21,10 +21,6 @@ atom.workspace.onDidAddPaneItem(event => {
 		pane.setPendingItem(null);
 	pane.focus();
 });
-
-
-// Fit window in case Dock was resized
-fitWindow();
 
 
 // Increase token limit

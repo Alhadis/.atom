@@ -42,7 +42,7 @@
 		openEmptyEditorOnStart: false
 		themes: [
 			"atom-light-ui"
-			"Phoenix-Syntax"
+			"biro-syntax"
 		]
 	"dash-ui":
 		iconsEnabled: false
