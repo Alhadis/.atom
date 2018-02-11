@@ -1,8 +1,12 @@
 /*
 
+# These are only necessary to stop Atom greying out the folders
+# in the tree-view. Normally, using `!/foo/**` should be enough.
+!/lib
+!/test
+
 # Whitelist
 !/lib/**
-!/styles/**
 !/test/**
 !/LICENSE.md
 !/README.md

@@ -1,12 +1,19 @@
-all: install
+all: install tidy
 
 install: node_modules/alhadis.utils
-	rm -f init.coffee
-	rm -f package-lock.json
 	cd packages && $(MAKE)
 
 
-# Dependencies
+# Delete useless crap
+tidy:
+	rm -f init.coffee
+	rm -f npm-debug.log
+	rm -f package-lock.json
+	rm -f nohup.out
+.PHONY: tidy
+
+
+# Install/link dependencies
 node_modules:
 	[ -d "$@" ] || mkdir "$@";
 
