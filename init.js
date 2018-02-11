@@ -27,10 +27,6 @@ atom.workspace.onDidAddPaneItem(event => {
 loadGrammar("source.js").then(js => js.maxTokensPerLine = 500);
 
 
-// Undo whitespace molestation applied by Project-Manager
-$ `make -C'${__dirname}/..' could-you-not`;
-
-
 // Force Atom to use tabs when saving CSON files
 try{
 	const {dirname, resolve} = require("path");

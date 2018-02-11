@@ -48,10 +48,3 @@ packages/Makefile:
 		printf '%%:; apm install $$*\n.PHONY: all\n'; \
 	) > $@;
 .PHONY: packages/Makefile
-
-
-# Undo Project-Manager's whitespace molestation
-projects = src/configs/projects.cson
-could-you-not:
-	@~/.files/bin/edit -e 's/  /\t/g' $(projects)
-.PHONY: could-you-not
