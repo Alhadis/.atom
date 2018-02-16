@@ -15,11 +15,8 @@
 
 "atom-text-editor":
 	"f5":             "lines:sort-basic"
-	"ctrl-u":         "lines:unique"
 	"alt-up":         "editor:move-line-up"
 	"alt-down":       "editor:move-line-down"
-	"ctrl-a":         "user:align-columns"
-	"ctrl-w":         "user:unfuck-tabstops"
 	"[":              "user:square-bracket"
 	"{":              "user:curly-bracket"
 
@@ -82,6 +79,9 @@
 	"ctrl-d":         "editor:delete-line"
 	"ctrl-alt-up":    "editor:duplicate-lines"
 	"ctrl-w":         "editor:close-unprompted"
+	"alt-u":          "lines:unique"
+	"alt-a":          "user:align-columns"
+	"alt-w":          "user:unfuck-tabstops"
 	"ctrl-0":         "user:zoom-text"
 	"shift-ctrl-e":   "user:specsaver"
 	"ctrl-r":         "unset!"
@@ -136,6 +136,9 @@
 	"cmd-d":          "editor:delete-line"
 	"cmd-alt-up":     "editor:duplicate-lines"
 	"cmd-w":          "editor:close-unprompted"
+	"ctrl-u":         "lines:unique"
+	"ctrl-a":         "user:align-columns"
+	"ctrl-w":         "user:unfuck-tabstops"
 	"cmd-0":          "user:zoom-text"
 	"shift-cmd-e":    "user:specsaver"
 	"cmd-r":          "unset!"
