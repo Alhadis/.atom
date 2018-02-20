@@ -1,51 +1,51 @@
 [
 	{
-		title: "@Atom Theme"
+		title: ".atom"
 		paths: [
-			"/Users/johngardner/Labs/Atom-PhoenixTheme"
+			"~/.atom"
 		]
 		devMode: true
 	}
 	{
 		title: ".files"
 		paths: [
-			"/Users/johngardner/.files"
+			"~/.files"
 		]
 		devMode: true
 	}
 	{
 		title: "language-roff"
 		paths: [
-			"/Users/johngardner/Labs/language-roff"
+			"~/Labs/language-roff"
 		]
 		devMode: true
 	}
 	{
 		title: "file-icons"
 		paths: [
-			"/Users/johngardner/Labs/file-icons"
+			"~/Labs/file-icons"
 		]
 		devMode: true
 	}
 	{
 		title: "Atom-FS"
 		paths: [
-			"/Users/johngardner/Labs/Atom-FS"
-			"/Users/johngardner/Labs/Utils"
+			"~/Labs/Atom-FS"
+			"~/Labs/Utils"
 		]
 		devMode: true
 	}
 	{
 		title: "Utils"
 		paths: [
-			"/Users/johngardner/Labs/Utils"
+			"~/Labs/Utils"
 		]
 		devMode: true
 	}
 	{
 		title: "GNU Groff"
 		paths: [
-			"/Users/johngardner/Mirrors/GNU-Groff"
+			"~/Mirrors/GNU-Groff"
 			"/usr/local/share/groff/current/font"
 		]
 		devMode: true
