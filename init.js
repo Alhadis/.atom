@@ -30,12 +30,17 @@ loadGrammar("source.js").then(js => js.maxTokensPerLine = 500);
 // Force Atom to use tabs when saving CSON files
 try{
 	const {dirname, resolve} = require("path");
-	const atomModules = resolve(dirname(require.resolve("atom")), "../node_modules");
-	const CSON = require(`${atomModules}/season`);
-	const {stringify} = CSON;
-	CSON.stringify = function(object, visitor){
-		return stringify.call(this, object, visitor, "\t");
-	};
+	const modulePaths = [resolve(dirname(require.resolve("atom")), "../node_modules")];
+	for(const {bundledPackage, metadata, path} of atom.packages.getLoadedPackages())
+		if(!bundledPackage && "season" in (metadata.dependencies || {}))
+			modulePaths.push(resolve(path, "node_modules"));
+	for(const path of modulePaths){
+		const CSON = require(`${path}/season`);
+		const {stringify} = CSON;
+		CSON.stringify = function(object, visitor){
+			return stringify.call(this, object, visitor, "\t");
+		};
+	}
 } catch(e){ console.error(e); }
 
 
