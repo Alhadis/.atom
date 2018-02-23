@@ -76,6 +76,8 @@
 		useGitHubStyle: true
 	minimap:
 		autoToggle: false
+	"project-manager":
+		savePathsRelativeToHome: true
 	"seti-ui":
 		compactView: true
 		fileIcons: false

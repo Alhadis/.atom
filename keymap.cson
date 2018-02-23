@@ -33,6 +33,7 @@
 	"shift-ctrl-w":   "editor:toggle-soft-wrap"
 	"alt-ctrl-r":     "window:run-package-specs"
 	"ctrl-alt-w":     "window:toggle-invisibles"
+	"ctrl-alt-p":     "project-manager:list-projects"
 	"ctrl-0":         "unset!"
 	"ctrl-k up":      "unset!"
 	"ctrl-k right":   "unset!"
