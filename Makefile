@@ -1,6 +1,7 @@
 all: install tidy
 
 install: node_modules/alhadis.utils
+	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
 
 
@@ -11,6 +12,23 @@ tidy:
 	rm -f package-lock.json
 	rm -f nohup.out
 .PHONY: tidy
+
+
+# Force Atom v1.25+ to use tabs when updating config.cson
+cson-fix:
+	@cd `which atom | xargs realpath | xargs dirname` && cd ..; \
+	echo 'Unpacking app.asar'; \
+	asar extract app.asar app-patch; \
+	cd ./app-patch/node_modules/season/lib; \
+	echo 'Patching'; \
+	sed -i.ugh \
+		-e 's|\(CSON\.stringify(object, visitor\), space|\1, "\\t"|g' \
+		-e 's|\(JSON\.stringify(object, [^,]*\), [^)]*|\1, "\\t"|g' \
+		cson.js && rm -f cson.js.ugh && cd $$OLDPWD; \
+	echo 'Packing updated files'; \
+	mv app.asar app-unpatched.asar && \
+	asar pack app-patch app.asar && \
+	rm -f app-unpatched.asar;
 
 
 # Install/link dependencies
