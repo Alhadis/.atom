@@ -16,19 +16,24 @@ tidy:
 
 # Force Atom v1.25+ to use tabs when updating config.cson
 cson-fix:
-	@cd `which atom | xargs realpath | xargs dirname` && cd ..; \
+	@set -o errexit; \
+	case `uname -s` in \
+		Linux)  cd /usr/share/atom/resources;; \
+		Darwin) cd "`which atom | xargs realpath | xargs dirname`/.." ;; \
+		*)  printf 'No idea where Atom is on %s. Bailing\n' "`uname -s`"; exit 2;; \
+	esac; \
 	echo 'Unpacking app.asar'; \
-	asar extract app.asar app-patch; \
+	sudo asar extract app.asar app-patch; \
 	cd ./app-patch/node_modules/season/lib; \
 	echo 'Patching'; \
-	sed -i.ugh \
+	sudo sed -i.ugh \
 		-e 's|\(CSON\.stringify(object, visitor\), space|\1, "\\t"|g' \
 		-e 's|\(JSON\.stringify(object, [^,]*\), [^)]*|\1, "\\t"|g' \
-		cson.js && rm -f cson.js.ugh && cd $$OLDPWD; \
+		cson.js && sudo rm -f cson.js.ugh && cd $$OLDPWD; \
 	echo 'Packing updated files'; \
-	mv app.asar app-unpatched.asar && \
-	asar pack app-patch app.asar && \
-	rm -f app-unpatched.asar;
+	sudo mv app.asar app-unpatched.asar && \
+	sudo asar pack app-patch app.asar && \
+	sudo rm -f app-unpatched.asar;
 
 
 # Install/link dependencies
