@@ -42,12 +42,4 @@
 		]
 		devMode: true
 	}
-	{
-		title: "GNU Groff"
-		paths: [
-			"~/Mirrors/GNU-Groff"
-			"/usr/local/share/groff/current/font"
-		]
-		devMode: true
-	}
 ]
