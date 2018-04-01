@@ -8,7 +8,7 @@ const getWS   = () => workspace = atom.views.getView(atom.workspace);
 
 const themes = [
 	"atom-light-ui",
-	"Phoenix-Syntax",
+	"biro-syntax",
 ];
 const pkgList = [
 	"status-bar",
@@ -25,7 +25,7 @@ describe("Commands", () => {
 		return Promise.all([
 			...pkgList.map(pkg => atom.packages.activatePackage(pkg)),
 			atom.workspace.open("file.js"),
-			setTheme("atom-light-ui", "Phoenix-Syntax"),
+			setTheme("atom-light-ui", "biro-syntax"),
 		]).then(([...values]) => {
 			editor = atom.workspace.getActiveTextEditor();
 			editor.shouldPromptToSave = () => false;
