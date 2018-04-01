@@ -68,6 +68,7 @@
 	"shift-ctrl-c":   "file-icons:toggle-colours"
 	"alt-ctrl-t":     "user:toggle-trendy-faggot-mode"
 	"ctrl-p":         "user:temp-1"
+	"alt-p":          "editor:log-cursor-scope"
 
 "body:not(.platform-darwin) atom-text-editor":
 	"ctrl-g":         "go-to-line:toggle"
