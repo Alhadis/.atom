@@ -2,8 +2,6 @@ all: \
 	advanced-open-file \
 	aesthetic-ui \
 	atom-material-syntax \
-	atom-material-syntax-dark \
-	atom-material-syntax-light \
 	atom-material-ui \
 	auto-detect-indentation \
 	behave-theme \
@@ -13,6 +11,7 @@ all: \
 	file-icons \
 	flatland-dark-ui \
 	git-blame \
+	github-atom-light-syntax \
 	language-agc \
 	language-antlr \
 	language-apache \
@@ -42,6 +41,7 @@ all: \
 	language-llvm \
 	language-lua \
 	language-mathematica \
+	language-matlab-octave \
 	language-maxscript \
 	language-ninja \
 	language-pascal \
@@ -53,8 +53,7 @@ all: \
 	language-rpm-spec \
 	language-rust \
 	language-scheme \
-	language-svg \
-	language-tmux \
+	language-sed \
 	language-turing \
 	language-viml \
 	language-wavefront \
@@ -71,7 +70,6 @@ all: \
 	seti-ui \
 	theme-reel \
 	toggle-quotes \
-	yosemate-ui \
 
 
 file-icons:
@@ -120,6 +118,10 @@ language-restructuredtext:
 
 language-roff:
 	git clone 'git@github.com:Alhadis/language-roff.git' $@
+	cd $@ && apm install .
+
+language-sed:
+	git clone 'git@github.com:Alhadis/language-sed.git' $@
 	cd $@ && apm install .
 
 language-turing:

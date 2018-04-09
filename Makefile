@@ -73,7 +73,8 @@ packages/Makefile:
 	done; \
 	cd $$cwd; (\
 		printf 'all: \\\n'; \
-		printf '%s\n' "$$all" | sed -e 's/^\(.\)/\t\1/; s/\([^[:blank:]]\)$$/\1 \\/'; \
+		printf '%s\n' "$$all" | sed -e 's/^\(.\)/\
+		\1/; s/\([^[:blank:]]\)$$/\1 \\/'; \
 		printf '\n%s' "$$git"; \
 		printf '%%:; apm install $$*\n.PHONY: all\n'; \
 	) > $@;
