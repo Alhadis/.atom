@@ -123,6 +123,9 @@
 	editor:
 		softTabs: true
 		tabLength: 2
+".ruby.source":
+	editor:
+		tabLength: 2
 ".rust.source":
 	editor:
 		softTabs: false
