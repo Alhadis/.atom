@@ -39,6 +39,10 @@
 		prefix: "greek"
 		body: "${1:ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ} ${2:αβγδεζηθικλμνξοπρστυφχψω}"
 
+	…:
+		prefix: "hellip"
+		body: "…"
+
 	§:
 		prefix: "section"
 		body: "§"
