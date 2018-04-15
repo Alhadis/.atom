@@ -3,7 +3,7 @@
 	Node:
 		prefix: "node"
 		body: """
-			\\#!/usr/bin/env node --es_staging
+			\\#!/usr/bin/env node
 			"use strict";
 			\n\n"""
 
