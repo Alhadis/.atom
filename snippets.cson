@@ -529,6 +529,18 @@
 		prefix: "link"
 		body: '<link rel="stylesheet" type="text/css" href="${1:main}.css" />$2'
 
+	Manpage:
+		prefix: "man"
+		body: '<a href="man://${1:name}/${2:1}">${1:name}(${2:1})</a>$3'
+
+	kbd:
+		prefix: "k"
+		body: "<kbd>$1</kbd>$2"
+
+	var:
+		prefix: "v"
+		body: "<var>$1</var>$2"
+
 	InlineDiv:
 		prefix: "divi"
 		body: '<div class="$1">$2</div>'
