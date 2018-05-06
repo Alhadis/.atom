@@ -98,6 +98,9 @@
 "body:not(.platform-darwin) atom-text-editor[data-grammar='source emacs lisp']":
 	"ctrl-p":         "language-emacs-lisp:run-selection"
 
+"body:not(.platform-darwin) .pdf-view":
+	"ctrl-b":         "pdf-view:toggle-binary-view"
+
 "body:not(.platform-darwin) .find-and-replace,
  body:not(.platform-darwin) .project-find":
 	"ctrl-r":         "find-and-replace:toggle-regex-option"
@@ -156,6 +159,9 @@
 
 "body.platform-darwin atom-text-editor[data-grammar='source emacs lisp']":
 	"cmd-p":          "language-emacs-lisp:run-selection"
+
+"body.platform-darwin .pdf-view":
+	"cmd-b":          "pdf-view:toggle-binary-view"
 
 "body.platform-darwin .find-and-replace,
  body.platform-darwin .project-find":
