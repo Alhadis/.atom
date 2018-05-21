@@ -125,13 +125,49 @@
 					url("${2:fonts/font-name}.svg#FontName") format("svg");
 			}$3"""
 
+	Heading1:
+		prefix: "=="
+		body: """
+			/*=============================================================================*
+				${1:TITLE}
+			===============================================================================*/
+			$2"""
+
+	Heading2:
+		prefix: "--"
+		body: """
+			/*---------------------------------------------------------------------------*
+				${1:TITLE}
+			-----------------------------------------------------------------------------*/
+			$2"""
+
+	# Media queries for common device-widths
+	Smartphones:
+		prefix: "mobile"
+		body:   "@media not all and (min-width: ${1:37.5}em){\n\t$2\n}"
+
+	TraditionalDesktop:
+		prefix: "desktop"
+		body:   "@media (min-width: ${1:64}em){\n\t$2\n}"
+
+	HighResolution:
+		prefix: "hires"
+		body: """
+			@media print,
+			(-webkit-min-device-pixel-ratio: 1.2),
+			(-o-min-device-pixel-ratio: 5/4),
+			(min-resolution: 120dpi){
+				$2
+			}"""
+
+	# Recurring utility classes
 	Clearfix:
 		prefix: "clear"
 		body: """
 			content: "";
 			display: block;
 			clear: both;
-		"""
+			"""
 	
 	Pinch:
 		prefix: "pinch"
@@ -139,7 +175,7 @@
 			display: inline-block;
 			vertical-align: top;
 			white-space: normal;
-		"""
+			"""
 	
 	Fit:
 		prefix: "fit"
@@ -149,7 +185,7 @@
 			right:   0;
 			bottom:  0;
 			$1
-		"""
+			"""
 
 
 # Less
