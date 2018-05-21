@@ -14,9 +14,6 @@
 			"source.perl.5": [
 				"t"
 			]
-			"source.postscript": [
-				"pdf"
-			]
 			"source.python": [
 				"WATCHLISTS"
 				"DEPS"
