@@ -37,6 +37,7 @@
 			"welcome"
 		]
 		openEmptyEditorOnStart: false
+		telemetryConsent: "no"
 		themes: [
 			"atom-light-ui"
 			"biro-syntax"
