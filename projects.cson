@@ -31,7 +31,6 @@
 		title: "Atom-FS"
 		paths: [
 			"~/Labs/Atom-FS"
-			"~/Labs/Utils"
 		]
 		devMode: true
 	}
