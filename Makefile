@@ -1,6 +1,6 @@
 all: install tidy
 
-install: node_modules/alhadis.utils
+install: node_modules/alhadis.utils node_modules/prompt-view
 	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
 
