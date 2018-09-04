@@ -1,4 +1,4 @@
-all: install tidy
+all: install snippets tidy
 
 install: node_modules/alhadis.utils node_modules/prompt-view
 	command -v asar >/dev/null || npm -g i asar
@@ -49,6 +49,18 @@ node_modules/alhadis.utils: node_modules
 
 node_modules/%: node_modules
 	(npm install $* 2>&1) >/dev/null; true
+
+
+# Convert YASnippets into something Atom understands
+snippets:
+	@cwd=$(PWD); \
+	{ [ -d ~/Labs/YASR/.git ] && cd ~/Labs/YASR; } || \
+	{ [ -d ~/.atom/snippets ] && cd ~/.atom/snippets; } || { \
+		git clone 'git@github.com:Alhadis/YASR.git' snippets; \
+		cd snippets || exit $?; \
+	}; \
+	$(MAKE) cson && mv snippets.cson "$$cwd/";
+.PHONY: snippets
 
 
 # Regenerate list of installed packages
