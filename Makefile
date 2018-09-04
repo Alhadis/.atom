@@ -16,12 +16,12 @@ tidy:
 
 # Force Atom v1.25+ to use tabs when updating config.cson
 cson-fix:
-	@set -o errexit; \
+	@ set -o errexit; \
 	case `uname -s` in \
 		Linux)  cd /usr/share/atom/resources;; \
 		Darwin) cd "`which atom | xargs realpath | xargs dirname`/.." ;; \
-		*)  printf 'No idea where Atom is on %s. Bailing\n' "`uname -s`"; exit 2;; \
-	esac; \
+		*)  printf 'No idea where Atom is on %s. Bailing\n' "`uname -s`"; exit 2\
+	;; esac; \
 	echo 'Unpacking app.asar'; \
 	sudo asar extract app.asar app-patch; \
 	cd ./app-patch/node_modules/season/lib; \
