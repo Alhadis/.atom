@@ -41,4 +41,11 @@
 		]
 		devMode: true
 	}
+	{
+		title: "YASR"
+		paths: [
+			"~/Labs/YASR"
+		]
+		devMode: true
+	}
 ]
