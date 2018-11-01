@@ -1,6 +1,7 @@
 [
 	{
 		title: ".atom"
+		icon: "atom-icon"
 		paths: [
 			"~/.atom"
 		]
@@ -8,6 +9,7 @@
 	}
 	{
 		title: ".files"
+		icon: "terminal-icon"
 		paths: [
 			"~/.files"
 		]
@@ -15,6 +17,7 @@
 	}
 	{
 		title: "language-roff"
+		icon: "manpage-icon"
 		paths: [
 			"~/Labs/language-roff"
 		]
@@ -22,20 +25,15 @@
 	}
 	{
 		title: "file-icons"
+		icon: "atom-icon"
 		paths: [
 			"~/Labs/file-icons"
 		]
 		devMode: true
 	}
 	{
-		title: "Atom-FS"
-		paths: [
-			"~/Labs/Atom-FS"
-		]
-		devMode: true
-	}
-	{
 		title: "Utils"
+		icon: "icon-tools"
 		paths: [
 			"~/Labs/Utils"
 		]
@@ -43,6 +41,7 @@
 	}
 	{
 		title: "YASR"
+		icon: "emacs-icon"
 		paths: [
 			"~/Labs/YASR"
 		]
