@@ -10,6 +10,7 @@ all: \
 	editorconfig \
 	file-icons \
 	flatland-dark-ui \
+	form-feeds \
 	git-blame \
 	github-atom-light-syntax \
 	language-agc \
@@ -20,20 +21,20 @@ all: \
 	language-asciidoc \
 	language-awk \
 	language-batchfile \
-	language-bnf \
 	language-common-lisp \
 	language-crystal-actual \
 	language-diff \
 	language-docker \
-	language-ebnf \
 	language-emacs-lisp \
 	language-erlang \
+	language-etc \
 	language-file-magic \
 	language-fontforge \
 	language-fortran \
 	language-generic-config \
 	language-glsl \
 	language-gn \
+	language-grammars \
 	language-haskell \
 	language-idl \
 	language-ini \
@@ -76,6 +77,10 @@ file-icons:
 	git clone 'git@github.com:file-icons/atom.git' $@
 	cd $@ && apm install .
 
+form-feeds:
+	git clone 'git@github.com:Alhadis/Atom-FormFeeds.git' $@
+	cd $@ && apm install .
+
 language-agc:
 	git clone 'git@github.com:Alhadis/language-agc.git' $@
 	cd $@ && apm install .
@@ -88,6 +93,10 @@ language-emacs-lisp:
 	git clone 'git@github.com:Alhadis/language-emacs-lisp.git' $@
 	cd $@ && apm install .
 
+language-etc:
+	git clone 'git@github.com:Alhadis/language-etc.git' $@
+	cd $@ && apm install .
+
 language-file-magic:
 	git clone 'git@github.com:Alhadis/language-file-magic.git' $@
 	cd $@ && apm install .
@@ -98,6 +107,10 @@ language-fontforge:
 
 language-gn:
 	git clone 'git@github.com:Alhadis/language-gn.git' $@
+	cd $@ && apm install .
+
+language-grammars:
+	git clone 'git@github.com:Alhadis/language-grammars.git' $@
 	cd $@ && apm install .
 
 language-maxscript:
