@@ -13,6 +13,7 @@ all: \
 	form-feeds \
 	git-blame \
 	github-atom-light-syntax \
+	language-ada \
 	language-agc \
 	language-antlr \
 	language-apache \
