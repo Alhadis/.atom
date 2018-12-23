@@ -9,6 +9,7 @@ require("./lib/utils/buffer.js");
 // Custom commands
 require("./lib/commands/display.js");
 require("./lib/commands/editor.js");
+require("./lib/commands/eval.js");
 require("./lib/commands/other.js");
 require("./lib/commands/text-alignment.js");
 require("./lib/commands/pull-requests.js");
