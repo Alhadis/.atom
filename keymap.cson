@@ -25,6 +25,7 @@
 # Linux/Windows
 "body:not(.platform-darwin)":
 	"ctrl-i":         "window:toggle-dev-tools"
+	"ctrl-y":         "user:toggle-github-syntax"
 	"ctrl-\\":        "user:toggle-sidebar"
 	"alt-ctrl-\\":    "tree-view:toggle"
 	"shift-ctrl-o":   "application:open-dev"
@@ -110,6 +111,7 @@
 # macOS
 "body.platform-darwin":
 	"cmd-i":          "window:toggle-dev-tools"
+	"cmd-y":          "user:toggle-github-syntax"
 	"cmd-\\":         "user:toggle-sidebar"
 	"alt-cmd-\\":     "tree-view:toggle"
 	"shift-cmd-o":    "application:open-dev"
