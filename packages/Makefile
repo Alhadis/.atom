@@ -72,6 +72,7 @@ all: \
 	seti-ui \
 	theme-reel \
 	toggle-quotes \
+	xterm-quotes \
 
 
 file-icons:
@@ -156,6 +157,10 @@ language-webassembly:
 
 regex-comments:
 	git clone 'git@github.com:Alhadis/Regex-Comments.git' $@
+	cd $@ && apm install .
+
+xterm-quotes:
+	git clone 'git@github.com:Alhadis/Atom-XTermQuotes.git' $@
 	cd $@ && apm install .
 
 %:; apm install $*
