@@ -3,10 +3,6 @@
 		showSpacingInStatusBar: false
 	core:
 		customFileTypes:
-			"source.ditroff.desc": [
-				"/dev[-a-z0-9]+/[A-Z]+$"
-				"/dev\\w+/(?!DESC|NOTES)[A-Z]+$"
-			]
 			"source.gfm": [
 				"README"
 				"TODO"
@@ -22,6 +18,9 @@
 			]
 			"source.shell": [
 				"profile"
+			]
+			"text.plain": [
+				"install"
 			]
 			"text.roff": [
 				"mm"
