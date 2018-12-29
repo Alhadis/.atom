@@ -88,6 +88,19 @@ statusBar.activationPromise.then(() => {
 });
 
 
+// Fix idiotic filetype associations
+const fixGrammars = {
+	"source.shell": ["install"],
+	"text.html.php": ["install", "profile", "module", "inc"],
+};
+for(const scope in fixGrammars)
+	loadGrammar(scope).then(grammar => {
+		grammar.fileTypes = grammar.fileTypes.filter(type => {
+			return !fixGrammars[scope].includes(type);
+		});
+	});
+
+
 // Tidy config to reduce diff-noise
 const stringLists = [
 	"core.disabledPackages",
