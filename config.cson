@@ -117,6 +117,9 @@
 	editor:
 		softTabs: true
 		tabLength: 2
+".python.source":
+	editor:
+		softTabs: false
 ".ruby.source":
 	editor:
 		tabLength: 2
