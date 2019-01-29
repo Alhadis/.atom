@@ -120,9 +120,6 @@
 ".python.source":
 	editor:
 		softTabs: false
-".ruby.source":
-	editor:
-		tabLength: 2
 ".rust.source":
 	editor:
 		softTabs: false
