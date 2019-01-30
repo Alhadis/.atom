@@ -48,4 +48,15 @@
 		icon: "emacs-icon"
 		devMode: true
 	}
+	{
+		title: "Homebrew Troff"
+		paths: [
+			"~/Labs/homebrew-troff"
+			"~/Forks/heirloom-doctools"
+			"/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"
+		]
+		icon: "icon-ruby"
+		color: "#ff0000"
+		devMode: true
+	}
 ]
