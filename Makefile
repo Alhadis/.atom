@@ -1,8 +1,14 @@
-all: install snippets clean
+all: init.js install snippets clean
 
 install: node_modules/alhadis.utils node_modules/prompt-view
 	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
+
+
+# Initialisation file, untracked alias for lib/index.js
+init.js:
+	printf >  $@ '"use strict";\n'
+	printf >> $@ 'require("./lib/index.js");\n'
 
 
 # Delete useless crap

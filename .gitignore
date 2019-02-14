@@ -16,7 +16,6 @@
 !/keymap.cson
 !/projects.cson
 !/styles.less
-!/init.js
 
 # Ignore every package directory EXCEPT for our custom syntax-theme
 !/packages/
