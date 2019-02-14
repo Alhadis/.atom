@@ -14,6 +14,9 @@ require("./lib/commands/other.js");
 require("./lib/commands/text-alignment.js");
 require("./lib/commands/pull-requests.js");
 
+// Various project-specific hooks
+require("./lib/hooks/file-icons.js");
+
 
 // Disable pending items / Fix focus for docked tree-view
 atom.workspace.onDidAddPaneItem(event => {
