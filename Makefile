@@ -1,4 +1,4 @@
-all: install snippets tidy
+all: install snippets clean
 
 install: node_modules/alhadis.utils node_modules/prompt-view
 	command -v asar >/dev/null || npm -g i asar
@@ -6,12 +6,15 @@ install: node_modules/alhadis.utils node_modules/prompt-view
 
 
 # Delete useless crap
-tidy:
+clean:
 	rm -f init.coffee
 	rm -f npm-debug.log
 	rm -f package-lock.json
 	rm -f nohup.out
-.PHONY: tidy
+	rm -rf git-time-machine
+	rm -rf split-diff
+	(rmdir * 2>&1) >/dev/null || true
+.PHONY: clean
 
 
 # Force Atom v1.25+ to use tabs when updating config.cson
