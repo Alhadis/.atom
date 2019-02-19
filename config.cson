@@ -113,6 +113,12 @@
 ".desc.ditroff.source":
 	editor:
 		tabLength: 16
+".gfm.source":
+	editor:
+		softWrap: false
+".gfm.source:not(.markup.code)":
+	editor:
+		softWrap: false
 ".lisp.source":
 	editor:
 		softTabs: true
