@@ -19,6 +19,7 @@
 		title: "language-roff"
 		paths: [
 			"~/Labs/language-roff"
+			"~/Labs/Roff.js"
 		]
 		icon: "manpage-icon"
 		devMode: true
