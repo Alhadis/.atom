@@ -37,6 +37,7 @@
 		title: "Utils"
 		paths: [
 			"~/Labs/Utils"
+			"~/Labs/JG"
 		]
 		icon: "icon-tools"
 		devMode: true
