@@ -61,4 +61,13 @@
 		color: "#ff0000"
 		devMode: true
 	}
+	{
+		title: "atom-live-view"
+		paths: [
+			"~/Labs/Atom-LiveView"
+			"~/Labs/Atom-PostScriptPreview"
+		]
+		icon: "icon-atom"
+		devMode: true
+	}
 ]
