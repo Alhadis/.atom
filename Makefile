@@ -62,7 +62,7 @@ node_modules/%: node_modules
 
 # Convert YASnippets into something Atom understands
 snippets:
-	@cwd=$(PWD); \
+	@cwd=`pwd`; \
 	{ [ -d ~/Labs/YASR/.git ] && cd ~/Labs/YASR; } || \
 	{ [ -d ~/.atom/snippets ] && cd ~/.atom/snippets; } || { \
 		git clone 'git@github.com:Alhadis/YASR.git' snippets; \
