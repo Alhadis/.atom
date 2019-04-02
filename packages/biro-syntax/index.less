@@ -62,7 +62,7 @@ atom-text-editor{
 
 /* Generic function/keyword highlighting */
 .syntax--source{
-	&:not(.syntax--js):not(.syntax--apl):not(.syntax--c):not(.syntax--cpp):not(.syntax--turing){
+	&:not(.syntax--js):not(.syntax--ts):not(.syntax--tsx):not(.syntax--apl):not(.syntax--c):not(.syntax--cpp):not(.syntax--turing){
 		.syntax--support{  color: #00a; }
 		.syntax--function{ color: #00c; }
 		.syntax--keyword{  color: #00c; }
@@ -70,9 +70,11 @@ atom-text-editor{
 }
 
 .syntax--keyword{
+	&.syntax--js,   .syntax--js  > &,
+	&.syntax--ts,   .syntax--ts  > &,
+	&.syntax--tsx,  .syntax--tsx > &        { color: #00c;    }
 	&.syntax--other.syntax--special-method  { color: #81a2be; }
 	&.syntax--other.syntax--important       { color: #ee000b; }
-	&.syntax--js,   .syntax--js  > &        { color: #00c;    }
 	&.syntax--php,  .syntax--php > &        { color: #009714; }
 	&.syntax--operator                      { color: #0035ff; }
 }
@@ -97,9 +99,19 @@ atom-text-editor{
 	&.syntax--other.syntax--symbol  { color: #b5bd68;   }
 	&.syntax--null                  { color: #00c;      }
 	&.syntax--boolean               { color: #00c;      }
-	&.syntax--js.syntax--other      { color: #00c;      }
-	.syntax--js > &.syntax--numeric { color: #369;      }
 	.syntax--php, &.syntax--php     { color: #009714;   }
+	
+	&.syntax--js.syntax--other,
+	&.syntax--ts.syntax--other,
+	&.syntax--tsx.syntax--other{
+		color: #00c;
+	}
+	
+	.syntax--js  > &.syntax--numeric,
+	.syntax--ts  > &.syntax--numeric,
+	.syntax--tsx > &.syntax--numeric{
+		color: #369;
+	}
 	
 	&.syntax--lisp.syntax--other.syntax--symbol{
 		color: #00c;
@@ -139,14 +151,20 @@ atom-text-editor{
 .syntax--string:not(.syntax--shell){
 	color: #001eff;
 
-	&.syntax--js:not(.syntax--html),
-	.syntax--js &:not(.syntax--html)   { color: #f39; }
-	&.syntax--other.syntax--link       { color: #c66; }
+	&.syntax--js:not(.syntax--html),  .syntax--js  &:not(.syntax--html),
+	&.syntax--ts:not(.syntax--html),  .syntax--ts  &:not(.syntax--html),
+	&.syntax--tsx:not(.syntax--html), .syntax--tsx &:not(.syntax--html){
+		color: #f39;
+	}
+	
+	&.syntax--other.syntax--link{
+		color: #c66;
+	}
 }
 
 
-.syntax--source.syntax--regexp:not(.syntax--js),
-.syntax--source.syntax--regexp:not(.syntax--js) :not(.syntax--comment),
+.syntax--source.syntax--regexp:not(.syntax--js):not(.syntax--ts):not(.syntax--tsx),
+.syntax--source.syntax--regexp:not(.syntax--js):not(.syntax--ts):not(.syntax--tsx) :not(.syntax--comment),
 
 
 .syntax--punctuation{
@@ -265,8 +283,10 @@ atom-text-editor{
 }
 
 
-/** JavaScript */
-.syntax--js{
+/** JavaScript/TypeScript */
+.syntax--js,
+.syntax--ts,
+.syntax--tsx{
 	&.syntax--punctuation.syntax--definition.syntax--parameters{
 		&.syntax--begin,
 		&.syntax--end{
@@ -274,7 +294,9 @@ atom-text-editor{
 		}
 	}
 	
-	&.syntax--meta.syntax--function-call > .syntax--support.syntax--function.syntax--js{
+	&.syntax--meta.syntax--function-call > .syntax--support.syntax--function.syntax--js,
+	&.syntax--meta.syntax--function-call > .syntax--support.syntax--function.syntax--ts,
+	&.syntax--meta.syntax--function-call > .syntax--support.syntax--function.syntax--tsx{
 		color: #00c;
 	}
 	
@@ -284,8 +306,32 @@ atom-text-editor{
 		color: #00f;
 	}
 	
-	.syntax--source.syntax--js.syntax--embedded.syntax--source{
-		color: #000;
+	.syntax--embedded.syntax--source{
+		&.syntax--js,
+		&.syntax--ts,
+		&.syntax--tsx{
+			color: #000;
+		}
+	}
+}
+
+/** TypeScript */
+.syntax--ts,
+.syntax--tsx{
+	
+	// Type annotations
+	&.syntax--type.syntax--annotation{
+		&.syntax--meta{
+			color: #00f;
+		}
+		
+		/**
+		 * NB: This targets the colon that prefixes annotation names. Atom's TypeScript
+		 * grammar should be using `.punctuation.delimiter` as scopes instead of `.keyword`…
+		 */
+		&.syntax--keyword.syntax--operator{
+			color: #000;
+		}
 	}
 }
 

@@ -18,7 +18,9 @@
 	"[":              "user:square-bracket"
 	"{":              "user:curly-bracket"
 
-"atom-text-editor[data-grammar='source js']":
+"atom-text-editor[data-grammar='source js'],
+ atom-text-editor[data-grammar='source ts'],
+ atom-text-editor[data-grammar='source tsx']":
 	"enter":          "user:jsdoc-newline"
 
 

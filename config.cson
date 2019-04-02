@@ -85,6 +85,8 @@
 			"source.makefile"
 			"source.perl"
 			"source.shell"
+			"source.ts"
+			"source.tsx"
 			"text.git-commit"
 			"text.html.basic"
 			"text.plain"
