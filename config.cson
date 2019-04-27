@@ -3,10 +3,6 @@
 		showSpacingInStatusBar: false
 	core:
 		customFileTypes:
-			"source.gfm": [
-				"README"
-				"TODO"
-			]
 			"source.perl.5": [
 				"t"
 			]
@@ -19,6 +15,10 @@
 			"source.shell": [
 				"profile"
 			]
+			"text.md": [
+				"README"
+				"TODO"
+			]
 			"text.roff": [
 				"mm"
 			]
@@ -29,6 +29,7 @@
 			"exception-reporting"
 			"github"
 			"language-clojure"
+			"language-gfm"
 			"language-java"
 			"language-python"
 			"welcome"
@@ -59,6 +60,8 @@
 		showSearchWrapIcon: false
 	"language-applescript":
 		autoCompile: false
+	"language-markdown":
+		indentListItems: false
 	"markdown-preview":
 		grammars: [
 			"source.gfm"
@@ -89,6 +92,7 @@
 			"source.tsx"
 			"text.git-commit"
 			"text.html.basic"
+			"text.md"
 			"text.plain"
 			"text.plain.null-grammar"
 			"text.restructuredtext"
@@ -126,6 +130,12 @@
 	editor:
 		softTabs: true
 		tabLength: 2
+".md.text":
+	editor:
+		softWrap: false
+".md.text:not(.fenced.code)":
+	editor:
+		softWrap: false
 ".python.source":
 	editor:
 		softTabs: false

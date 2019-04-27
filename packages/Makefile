@@ -1,6 +1,7 @@
 all: \
 	advanced-open-file \
 	aesthetic-ui \
+	atom-html-preview \
 	atom-material-syntax \
 	atom-material-ui \
 	auto-detect-indentation \
@@ -42,13 +43,16 @@ all: \
 	language-latex \
 	language-llvm \
 	language-lua \
+	language-markdown \
 	language-mathematica \
 	language-matlab-octave \
 	language-maxscript \
+	language-mediawiki \
 	language-ninja \
 	language-pascal \
 	language-pcb \
 	language-postscript \
+	language-powershell \
 	language-regexp \
 	language-restructuredtext \
 	language-roff \
@@ -70,6 +74,7 @@ all: \
 	regex-comments \
 	seti-syntax \
 	seti-ui \
+	split-diff \
 	theme-reel \
 	toggle-quotes \
 	xterm-quotes \
