@@ -35,6 +35,9 @@
 			"welcome"
 		]
 		openEmptyEditorOnStart: false
+		packagesWithKeymapsDisabled: [
+			"language-markdown"
+		]
 		telemetryConsent: "no"
 		themes: [
 			"atom-light-ui"
@@ -61,7 +64,12 @@
 	"language-applescript":
 		autoCompile: false
 	"language-markdown":
+		addListItems: false
+		autoIncrementListItems: false
+		emphasisShortcuts: false
 		indentListItems: false
+		linkShortcuts: false
+		removeEmptyListItems: false
 	"markdown-preview":
 		grammars: [
 			"source.gfm"
