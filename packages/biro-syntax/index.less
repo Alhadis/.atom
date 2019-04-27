@@ -368,11 +368,11 @@ atom-text-editor{
 		color: #81a2be;
 	}
 
-	&.syntax--inserted           { color: #b5bd68;  }
-	&.syntax--list               { color: #c66;     }
-	&.syntax--quote              { color: #de935f;  }
-	&.syntax--raw                { color: #aaa;     }
-	&.syntax--raw.syntax--inline { color: #b5bd68;  }
+	&.syntax--inserted              { color: #b5bd68;  }
+	&.syntax--list:not(.syntax--md) { color: #c66;     }
+	&.syntax--quote                 { color: #de935f;  }
+	&.syntax--raw                   { color: #aaa;     }
+	&.syntax--raw.syntax--inline    { color: #b5bd68;  }
 }
 
 
