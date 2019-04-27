@@ -16,6 +16,7 @@
 !/keymap.cson
 !/projects.cson
 !/styles.less
+!/.gitignore
 
 # Ignore every package directory EXCEPT for our custom syntax-theme
 !/packages/
