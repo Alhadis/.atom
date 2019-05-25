@@ -28,8 +28,7 @@
 		title: "file-icons"
 		paths: [
 			"~/Labs/file-icons/atom"
-			"~/Labs/file-icons/fs"
-			"~/Labs/file-icons/source"
+			"~/Labs/file-icons/icons"
 		]
 		icon: "atom-icon"
 		devMode: true
