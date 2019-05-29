@@ -152,6 +152,12 @@ atom-notification{
 }
 
 
+/* Docks: Hide toggle-buttons */
+body:not(.show-toggle-buttons) .atom-dock-toggle-button{
+	display: none !important;
+}
+
+
 /* Seti Syntax: Tweak some colour choices */
 .theme-seti-syntax atom-text-editor{
 	.syntax--markup.syntax--heading{
@@ -189,10 +195,6 @@ atom-notification{
 	atom-panel-container:first-child{
 		box-shadow: 1px 0 0 #9f9f9f;
 		z-index: 2;
-		
-		body:not(.show-toggle-buttons) & .atom-dock-toggle-button{
-			display: none !important;
-		}
 	}
 
 	atom-text-editor .gutter .line-number{
