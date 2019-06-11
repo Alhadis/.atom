@@ -98,6 +98,7 @@
 			"source.shell"
 			"source.ts"
 			"source.tsx"
+			"source.vtt"
 			"text.git-commit"
 			"text.html.basic"
 			"text.md"
@@ -105,6 +106,7 @@
 			"text.plain.null-grammar"
 			"text.restructuredtext"
 			"text.roff"
+			"text.srt"
 			"text.xml"
 		]
 	"status-bar":
