@@ -61,6 +61,9 @@
 		strategies: {}
 	"find-and-replace":
 		showSearchWrapIcon: false
+	"fuzzy-finder":
+		scoringSystem: "fast"
+		useRipGrep: true
 	"language-applescript":
 		autoCompile: false
 	"language-markdown":
