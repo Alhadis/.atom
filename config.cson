@@ -3,6 +3,9 @@
 		showSpacingInStatusBar: false
 	core:
 		customFileTypes:
+			"source.js": [
+				"jsx"
+			]
 			"source.perl.5": [
 				"t"
 			]
