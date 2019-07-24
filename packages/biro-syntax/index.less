@@ -49,7 +49,7 @@ atom-text-editor{
 	color: #009a00 !important;
 }
 
-.syntax--entity.syntax--name.syntax--type {
+.syntax--entity.syntax--name{
 	color: #003a9e;
 }
 
@@ -384,11 +384,18 @@ atom-text-editor{
 	}
 	
 	&.syntax--meta{
+		&.syntax--header{
+			color: #795da3;
+		}
+		
 		&.syntax--index,
 		&.syntax--header.syntax--git,
-		&.syntax--range.syntax--unified{
-			font-weight: bold;
-			color: #795da3;
+		&.syntax--range{
+			&.syntax--unified,
+			&.syntax--smpl{
+				font-weight: bold;
+				color: #795da3;
+			}
 		}
 		
 		&.syntax--separator{
@@ -815,6 +822,12 @@ atom-text-editor[mini] .scroll-view{
 	&.syntax--punctuation.syntax--definition.syntax--concealed.syntax--escape.syntax--backslash{
 		opacity: .25;
 	}
+	
+	&.syntax--eqn{
+		.syntax--keyword.syntax--language{
+			color: #00c;
+		}
+	}
 }
 
 
@@ -875,6 +888,21 @@ atom-text-editor[mini] .scroll-view{
 }
 
 
+/** Gremlin images */
+.syntax--gremlin{
+	&.syntax--keyword.syntax--control{
+		color: #00f !important;
+	}
+	.syntax--comment.syntax--line.syntax--ignored{
+		color: #00a !important;
+		opacity: 0.30;
+	}
+	.syntax--string.syntax--unquoted{
+		color: #a98e3b !important;
+	}
+}
+
+
 /** LTspice schematics */
 .syntax--ltspice{
 	&.syntax--storage.syntax--type{
@@ -882,5 +910,26 @@ atom-text-editor[mini] .scroll-view{
 	}
 	&.syntax--entity.syntax--attribute{
 		color: #00a;
+	}
+}
+
+
+/** Synapse Object Notation */
+.syntax--son{
+	&.syntax--variable{
+		color: #00c;
+	}
+	
+	&.syntax--date{
+		color: #080;
+	}
+	
+	&.syntax--bytestream{
+		&.syntax--punctuation{
+			color: #00a;
+		}
+		.syntax--constant.syntax--numeric{
+			color: #00f;
+		}
 	}
 }

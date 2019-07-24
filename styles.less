@@ -8,9 +8,12 @@
 atom-text-editor{
 	font-variant-ligatures: contextual;
 
-	// Bunched double-slashes
-	.syntax--comment.syntax--line.syntax--double-slash >
-	.syntax--punctuation.syntax--definition.syntax--comment{
+	// Bunched double/triple-slashes
+	.syntax--comment.syntax--line.syntax--double-slash > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--line.syntax--triple-slash > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--string.syntax--regexp.syntax--multiline.syntax--coffee > .syntax--punctuation.syntax--definition.syntax--begin,
+	.syntax--string.syntax--regexp.syntax--multiline.syntax--coffee > .syntax--punctuation.syntax--definition.syntax--end,
+	.syntax--string.syntax--regexp.syntax--multiline.syntax--son    > .syntax--punctuation.syntax--definition.syntax--triple-slash{
 		font-variant-ligatures: discretionary-ligatures;
 	}
 
@@ -171,6 +174,18 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 			color: #2d3e3a;
 		}
 	}
+	
+	&[mini][data-grammar$="regexp"]{
+		.highlights .highlight.selection .region{
+			background: rgba(81, 154, 186, 0.2) !important;
+		}
+	}
+}
+
+
+/* GitHub Syntax: Prepend ^M to scoped carriage-returns */
+.theme-github-atom-light-syntax .syntax--carriage-return::before{
+	content: "^M"
 }
 
 
