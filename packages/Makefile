@@ -1,16 +1,9 @@
 all: \
 	advanced-open-file \
-	aesthetic-ui \
 	atom-html-preview \
-	atom-material-syntax \
-	atom-material-ui \
 	auto-detect-indentation \
-	behave-theme \
-	duotone-dark-syntax \
-	duotone-light-syntax \
 	editorconfig \
 	file-icons \
-	flatland-dark-ui \
 	form-feeds \
 	git-blame \
 	github-atom-light-syntax \
@@ -49,6 +42,7 @@ all: \
 	language-maxscript \
 	language-mediawiki \
 	language-ninja \
+	language-ocaml \
 	language-pascal \
 	language-pcb \
 	language-postscript \
@@ -60,8 +54,10 @@ all: \
 	language-rust \
 	language-scheme \
 	language-sed \
+	language-srt \
 	language-turing \
 	language-viml \
+	language-vtt \
 	language-wavefront \
 	language-webassembly \
 	language-x86-64-assembly \
