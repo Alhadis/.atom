@@ -153,6 +153,17 @@ atom-notification{
 	&.remove{
 		-webkit-animation-duration: 0ms !important;
 	}
+	
+	/* Scope-logging polishes */
+	&.info.has-close > .content > .message > ul{
+		padding-left: 1.2em;
+		margin-right: -25px;
+		cursor: text;
+		
+		& > li{
+			user-select: all;
+		}
+	}
 }
 
 /* Hide EditorConfig's status-bar tile */
@@ -172,6 +183,16 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 	.syntax--markup.syntax--heading{
 		& .syntax--punctuation.syntax--definition.syntax--heading{
 			color: #2d3e3a;
+		}
+	}
+	
+	.syntax--source.syntax--yacc{
+		color: inherit;
+		
+		.syntax--variable.syntax--language{
+			& .syntax--punctuation.syntax--definition.syntax--variable{
+				color: #4d5a5e;
+			}
 		}
 	}
 	
