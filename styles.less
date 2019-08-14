@@ -253,3 +253,14 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 status-bar-file{
 	transition: .15s ease-in-out opacity;
 }
+
+
+/* Undo distractions added by atom/atom#18738 */
+.grammar-selector .pull-right > .badge{
+	all: unset;
+	opacity: .4;
+	
+	&:first-child:nth-last-child(2){
+		display: none;
+	}
+}
