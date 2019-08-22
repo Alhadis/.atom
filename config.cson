@@ -3,6 +3,9 @@
 		showSpacingInStatusBar: false
 	core:
 		customFileTypes:
+			"source.ini": [
+				"flake8"
+			]
 			"source.js": [
 				"jsx"
 			]
