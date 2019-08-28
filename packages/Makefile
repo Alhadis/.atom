@@ -55,7 +55,9 @@ all: \
 	language-scheme \
 	language-sed \
 	language-srt \
+	language-texinfo \
 	language-turing \
+	language-v \
 	language-viml \
 	language-vtt \
 	language-wavefront \
@@ -140,6 +142,10 @@ language-sed:
 	git clone 'git@github.com:Alhadis/language-sed.git' $@
 	cd $@ && apm install .
 
+language-texinfo:
+	git clone 'git@github.com:Alhadis/language-texinfo.git' $@
+	cd $@ && apm install .
+
 language-turing:
 	git clone 'git@github.com:Alhadis/language-turing.git' $@
 	cd $@ && apm install .
@@ -164,5 +170,7 @@ xterm-quotes:
 	git clone 'git@github.com:Alhadis/Atom-XTermQuotes.git' $@
 	cd $@ && apm install .
 
-%:; apm install $*
 .PHONY: all
+%:
+	apm install $@
+	if [ -f "patches/$@.patch" ]; then patch -d "$@" -p1 < "patches/$@.patch"; fi

@@ -1,0 +1,856 @@
+diff --git a/grammars/fixtures/fenced-code.cson b/grammars/fixtures/fenced-code.cson
+index 734111d..682ac4b 100644
+--- a/grammars/fixtures/fenced-code.cson
++++ b/grammars/fixtures/fenced-code.cson
+@@ -83,6 +83,24 @@ list: [
+   { pattern:'ts|typescript', include:'source.ts', contentName:'source.embedded.ts' }
+   { pattern:'xml', include:'text.xml', contentName:'text.embedded.xml' }
+   { pattern:'yaml' }
++  { pattern:'apl',                  include:'source.apl',           contentName:'source.embedded.apl' }
++  { pattern:'batch|bat',            include:'source.batchfile',     contentName:'source.embedded.batchfile' }
++  { pattern:'editorconfig',         include:'source.editorconfig',  contentName:'source.embedded.editorconfig' }
++  { pattern:'emacs-?lisp|elisp',    include:'source.emacs.lisp',    contentName:'source.embedded.emacs.lisp' }
++  { pattern:'postscript|eps|ps',    include:'source.postscript',    contentName:'source.embedded.postscript' }
++  { pattern:'regexp|regex|syon|sy', include:'source.regexp',        contentName:'source.embedded.regexp' }
++  { pattern:'sed',                  include:'source.sed',           contentName:'source.embedded.sed' }
++  { pattern:'abnf',                 include:'source.abnf',          contentName:'source.embedded.abnf' }
++  { pattern:'bnf',                  include:'source.bnf',           contentName:'source.embedded.bnf' }
++  { pattern:'ebnf',                 include:'source.ebnf',          contentName:'source.embedded.ebnf' }
++  { pattern:'ini',                  include:'source.ini',           contentName:'source.embedded.ini' }
++  { pattern:'vimscript|viml|vim',   include:'source.viml',          contentName:'source.embedded.viml' }
++  { pattern:'gitattributes',        include:'source.gitattributes', contentName:'source.embedded.gitattributes' }
++  { pattern:'gitconfig',            include:'source.git-config',    contentName:'source.embedded.git-config' }
++  { pattern:'gitignore',            include:'source.gitignore',     contentName:'source.embedded.gitignore' }
++  { pattern:'ssh[-\\w]*',           include:'source.ssh-config',    contentName:'source.embedded.ssh-config' }
++  { pattern:'roff|man|nroff|troff', include:'text.roff',            contentName:'text.embedded.roff' }
++  { pattern:'svg',                  include:'text.xml.svg',         contentName:'text.embedded.xml.svg' }
+ 
+   # NOTE: temporarily disabled, see issue #77 for details
+   # { pattern:'yaml|yml', include:'source.yaml' }
+diff --git a/grammars/language-markdown.json b/grammars/language-markdown.json
+index 71060c2..93556a5 100644
+--- a/grammars/language-markdown.json
++++ b/grammars/language-markdown.json
+@@ -2027,34 +2027,36 @@
+           }
+         },
+         {
+-          "name": "reference.link.markup.md",
+-          "match": "(?x) ((?:\\[)(?:[^\\[\\]]*)(?:\\])) (:) (?:\\s) ([^ [:cntrl:]]+) (?:(?:\\s)((?:\")(?:.*?)(?:\")))? (?:(?:\\s)(\\{[[:ascii:]]*\\}))?",
++          "match": "(?x) ^ \\s* ( ((?:\\[)(?:[^\\[\\]]*)(?:\\])) (:) (?:\\s*) ([^ [:cntrl:]]+) (?:(?:\\s)((?:\")(?:.*?)(?:\")))? (?:(?:\\s)(\\{[[:ascii:]]*\\}))? )",
+           "captures": {
+             "1": {
++              "name": "reference.link.markup.md"
++            },
++            "2": {
+               "patterns": [
+                 {
+                   "include": "#link-label"
+                 }
+               ]
+             },
+-            "2": {
++            "3": {
+               "name": "punctuation.md"
+             },
+-            "3": {
++            "4": {
+               "patterns": [
+                 {
+                   "include": "#link-destination"
+                 }
+               ]
+             },
+-            "4": {
++            "5": {
+               "patterns": [
+                 {
+                   "include": "#link-title"
+                 }
+               ]
+             },
+-            "5": {
++            "6": {
+               "patterns": [
+                 {
+                   "include": "#special-attributes"
+@@ -4148,7 +4150,247 @@
+           ]
+         },
+         {
+-          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:[a-zA-Z0-9-_]+))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:apl))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.apl",
++          "patterns": [
++            {
++              "include": "source.apl"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:batch|bat))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.batchfile",
++          "patterns": [
++            {
++              "include": "source.batchfile"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:editorconfig))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.editorconfig",
++          "patterns": [
++            {
++              "include": "source.editorconfig"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:emacs-?lisp|elisp))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.emacs.lisp",
++          "patterns": [
++            {
++              "include": "source.emacs.lisp"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:postscript|eps|ps))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.postscript",
++          "patterns": [
++            {
++              "include": "source.postscript"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:regexp|regex|syon|sy))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.regexp",
++          "patterns": [
++            {
++              "include": "source.regexp"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:sed))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
+           "beginCaptures": {
+             "1": {
+               "name": "punctuation.md"
+@@ -4180,12 +4422,487 @@
+             }
+           },
+           "name": "fenced.code.md",
+-          "contentName": "source.embedded",
++          "contentName": "source.embedded.sed",
+           "patterns": [
+             {
+-              "include": "source"
++              "include": "source.sed"
+             }
+           ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:abnf))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.abnf",
++          "patterns": [
++            {
++              "include": "source.abnf"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:bnf))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.bnf",
++          "patterns": [
++            {
++              "include": "source.bnf"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:ebnf))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.ebnf",
++          "patterns": [
++            {
++              "include": "source.ebnf"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:ini))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.ini",
++          "patterns": [
++            {
++              "include": "source.ini"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:vimscript|viml|vim))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.viml",
++          "patterns": [
++            {
++              "include": "source.viml"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:gitattributes))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.gitattributes",
++          "patterns": [
++            {
++              "include": "source.gitattributes"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:gitconfig))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.git-config",
++          "patterns": [
++            {
++              "include": "source.git-config"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:gitignore))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.gitignore",
++          "patterns": [
++            {
++              "include": "source.gitignore"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:ssh[-\\w]*))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.ssh-config",
++          "patterns": [
++            {
++              "include": "source.ssh-config"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:roff|man|nroff|troff))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "text.embedded.roff",
++          "patterns": [
++            {
++              "include": "text.roff"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:svg))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "text.embedded.xml.svg",
++          "patterns": [
++            {
++              "include": "text.xml.svg"
++            }
++          ]
++        },
++        {
++          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)([-a-zA-Z0-9-_]+))(?=(}| |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
++          "beginCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            },
++            "2": {
++              "name": "punctuation.md"
++            },
++            "3": {
++              "name": "language.constant.md"
++            },
++            "5": {
++              "name": "punctuation.md"
++            },
++            "6": {
++              "patterns": [
++                {
++                  "include": "#special-attribute-elements"
++                }
++              ]
++            },
++            "7": {
++              "name": "punctuation.md"
++            }
++          },
++          "end": "^\\s*(\\1)$",
++          "endCaptures": {
++            "1": {
++              "name": "punctuation.md"
++            }
++          },
++          "name": "fenced.code.md",
++          "contentName": "source.embedded.${4:/downcase}"
+         }
+       ]
+     }
+diff --git a/grammars/repositories/inlines/links.cson b/grammars/repositories/inlines/links.cson
+index b5cbf33..a094a34 100644
+--- a/grammars/repositories/inlines/links.cson
++++ b/grammars/repositories/inlines/links.cson
+@@ -227,21 +227,24 @@ patterns: [
+   # [ref]: /uri
+   # [ref]: /uri "title"
+   {
+-    name: 'reference.link.markup.md'
+     match: '(?x)
+-      ((?:\\[)(?:[^\\[\\]]*)(?:\\]))
+-      (:)
+-      (?:\\s)
+-      ([^ [:cntrl:]]+)
+-      (?:(?:\\s)((?:")(?:.*?)(?:")))?
+-      (?:(?:\\s)(\\{[[:ascii:]]*\\}))?
++      ^ \\s*
++      (
++        ((?:\\[)(?:[^\\[\\]]*)(?:\\]))
++        (:)
++        (?:\\s*)
++        ([^ [:cntrl:]]+)
++        (?:(?:\\s)((?:")(?:.*?)(?:")))?
++        (?:(?:\\s)(\\{[[:ascii:]]*\\}))?
++      )
+     '
+     captures:
+-      1: patterns: [{ include: '#link-label' }]
+-      2: name: 'punctuation.md'
+-      3: patterns: [{ include: '#link-destination' }]
+-      4: patterns: [{ include: '#link-title' }]
+-      5: patterns: [{ include: '#special-attributes' }]
++      1: name: 'reference.link.markup.md'
++      2: patterns: [{ include: '#link-label' }]
++      3: name: 'punctuation.md'
++      4: patterns: [{ include: '#link-destination' }]
++      5: patterns: [{ include: '#link-title' }]
++      6: patterns: [{ include: '#special-attributes' }]
+   }
+ 
+   # [[interlink]]

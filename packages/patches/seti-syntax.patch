@@ -1,0 +1,22 @@
+diff --git a/lib/main.coffee b/lib/main.coffee
+index ad1d0a8..f6fa1ff 100644
+--- a/lib/main.coffee
++++ b/lib/main.coffee
+@@ -1,3 +1,3 @@
+-module.exports =
++false && module.exports =
+   activate: (state) ->
+     require( atom.packages.getLoadedPackage('seti-syntax').path + '/lib/settings').init(state)
+diff --git a/styles/languages/markdown.less b/styles/languages/markdown.less
+index ff1923f..dde387e 100644
+--- a/styles/languages/markdown.less
++++ b/styles/languages/markdown.less
+@@ -1,6 +1,7 @@
+ @import "colors";
+ 
+-.syntax--source.syntax--md {
++.syntax--source.syntax--md,
++.syntax--text.syntax--md {
+   color: @code-font-color;
+ 
+   .syntax--heading-1 {

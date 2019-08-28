@@ -76,10 +76,12 @@ snippets:
 packages/Makefile:
 	@pkglist=`apm list -bi --no-dev \
 	| sed 's/@[^@]*$$//' \
-	| grep -v 'biro-syntax' \
+	| grep -v '^biro-syntax$$' \
+	| grep -v '^patches$$' \
 	| grep -v '^[[:blank:]]*$$' \
 	| sort -df`; all=""; git=""; \
 	cwd=$(PWD); \
+	end=`sed -ne '/^\.PHONY:/,//p' "$@"`; \
 	for i in $$pkglist; do \
 		dir=~/.atom/packages/$$i/.git; \
 		[ -d "$$dir" ] && { \
@@ -96,7 +98,6 @@ packages/Makefile:
 		printf 'all: \\\n'; \
 		printf '%s\n' "$$all" | sed -e 's/^\(.\)/\
 		\1/; s/\([^[:blank:]]\)$$/\1 \\/'; \
-		printf '\n%s' "$$git"; \
-		printf '%%:; apm install $$*\n.PHONY: all\n'; \
+		printf '\n%s%s\n' "$$git" "$$end"; \
 	) > $@;
 .PHONY: packages/Makefile
