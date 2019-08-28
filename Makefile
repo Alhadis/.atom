@@ -88,7 +88,8 @@ packages/Makefile:
 			cd "$$dir/.."; \
 			url=`git remote get-url origin`; \
 			git=`printf "%s%s:\n\tgit clone '%s' \\$$@\nZ" "$$git" "$$i" "$$url"`; \
-			git=`printf '%s\tcd $$@ && apm install .\n\nZ' "$${git%Z}"`; \
+			git=`printf '%s\tcd $$@ && apm install .Z' "$${git%Z}"`; \
+			git=`printf '%s && npm run-script --if-present post-install\n\nZ' "$${git%Z}"`; \
 			git="$${git%Z}"; \
 		}; \
 		all=`printf '%s%s\nZ' "$$all" "$$i"`; \
