@@ -97,8 +97,9 @@ packages/Makefile:
 	done; \
 	cd $$cwd; (\
 		printf 'all: \\\n'; \
-		printf '%s\n' "$$all" | sed -e 's/^\(.\)/\
-		\1/; s/\([^[:blank:]]\)$$/\1 \\/'; \
+		printf '%s\n' "$$all" \
+		| sed -e 's/^\(.\)/'"`printf '\t'`"'\1/' \
+		| sed -e 's/\([^[:blank:]]\)$$/\1 \\/'; \
 		printf '\n%s%s\n' "$$git" "$$end"; \
 	) > $@;
 .PHONY: packages/Makefile
