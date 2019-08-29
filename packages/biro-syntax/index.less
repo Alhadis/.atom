@@ -321,17 +321,27 @@ atom-text-editor{
 	
 	// Type annotations
 	&.syntax--type.syntax--annotation{
-		&.syntax--meta{
+		&.syntax--meta,
+		.syntax--entity.syntax--name,
+		.syntax--storage.syntax--type{
 			color: #00f;
 		}
 		
-		/**
-		 * NB: This targets the colon that prefixes annotation names. Atom's TypeScript
-		 * grammar should be using `.punctuation.delimiter` as scopes instead of `.keyword`…
-		 */
-		&.syntax--keyword.syntax--operator{
+		// Punctuation
+		&.syntax--keyword.syntax--operator,
+		.syntax--meta.syntax--brace{
 			color: #000;
 		}
+	}
+	
+	&.syntax--punctuation{
+		color: #000;
+	}
+	
+	&.syntax--meta.syntax--function-call > &.syntax--function,
+	&.syntax--meta.syntax--method        > &.syntax--storage,
+	&.syntax--entity.syntax--name.syntax--function{
+		color: #00f !important;
 	}
 }
 
