@@ -36,6 +36,16 @@ atom-text-editor{
 	}
 }
 
+/* Disable ligatures temporarily */
+body.disable-ligatures{
+	--editor-font-family: Menlo;
+	
+	atom-text-editor,
+	atom-text-editor *{
+		font-variant-ligatures: none !important;
+	}
+}
+
 
 /* Stop cursor from blinking. S/O to https://discuss.atom.io/t/blinking-cursor/1544/22 */
 atom-text-editor.is-focused .cursors .cursor{
