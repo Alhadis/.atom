@@ -104,9 +104,6 @@
 "body:not(.platform-darwin) atom-text-editor[data-grammar='source css']":
 	"ctrl-p":         "user:eval-css"
 
-"body:not(.platform-darwin) atom-text-editor[data-grammar='source js']":
-	"ctrl-p":         "user:eval-js"
-
 "body:not(.platform-darwin) atom-text-editor[data-grammar='source emacs lisp']":
 	"ctrl-p":         "language-emacs-lisp:run-selection"
 
@@ -170,9 +167,6 @@
 
 "body.platform-darwin atom-text-editor[data-grammar='source css']":
 	"cmd-p":          "user:eval-css"
-
-"body.platform-darwin atom-text-editor[data-grammar='source js']":
-	"cmd-p":          "user:eval-js"
 
 "body.platform-darwin atom-text-editor[data-grammar='source emacs lisp']":
 	"cmd-p":          "language-emacs-lisp:run-selection"
