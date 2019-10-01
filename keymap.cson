@@ -25,6 +25,9 @@
  atom-text-editor[data-grammar='source tsx']":
 	"enter":          "user:jsdoc-newline"
 
+".tree-view":
+	"i":              "tree-view:toggle-ignored-files"
+
 
 # Linux/Windows
 "body:not(.platform-darwin)":
