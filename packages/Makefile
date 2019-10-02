@@ -7,6 +7,7 @@ all: \
 	form-feeds \
 	git-blame \
 	github-atom-light-syntax \
+	language-65asm \
 	language-ada \
 	language-agc \
 	language-antlr \
@@ -33,6 +34,7 @@ all: \
 	language-haskell \
 	language-idl \
 	language-ini \
+	language-jflex \
 	language-latex \
 	language-llvm \
 	language-lua \

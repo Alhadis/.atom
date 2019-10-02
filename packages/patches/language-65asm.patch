@@ -1,0 +1,136 @@
+diff --git a/grammars/acme.cson b/grammars/acme.cson
+index 8415575..3667281 100644
+--- a/grammars/acme.cson
++++ b/grammars/acme.cson
+@@ -2,10 +2,7 @@
+ 
+ scopeName: 'source.assembly.6502.acme'
+ name: 'ACME Crossassembler'
+-filetypes: [
+-  'a'
+-  'asm'
+-]
++filetypes: []
+ 
+ patterns: [
+   { include:  'source.6502-opcodes' }
+diff --git a/grammars/asar.cson b/grammars/asar.cson
+index 7fb5547..965d39c 100644
+--- a/grammars/asar.cson
++++ b/grammars/asar.cson
+@@ -1,9 +1,7 @@
+ # Adds Syntax highlighting for the Asar SNES Assembler
+ 
+ scopeName: 'source.assembly.65816.asar'
+-fileTypes: [
+-  'asm'
+-]
++fileTypes: []
+ name: 'Asar SNES Assembler'
+ patterns: [
+   { include: 'source.65816-opcodes' }
+diff --git a/grammars/asm6.cson b/grammars/asm6.cson
+index ad52492..435e515 100644
+--- a/grammars/asm6.cson
++++ b/grammars/asm6.cson
+@@ -3,10 +3,7 @@
+ scopeName: 'source.asm6'
+ name: 'ASM6f (6502)'      # Name shown in Atom Editor grammar selection
+ # File extensions associated with this grammar
+-fileTypes: [
+-  's'
+-  'asm'
+-]
++fileTypes: []
+ patterns: [
+   { include: 'source.65c02-opcodes' }   # extend with 6502X opcodes
+   { include: 'source.6502x-opcodes' }   # extend with 6502X opcodes
+diff --git a/grammars/cc65-816-toolchain.cson b/grammars/cc65-816-toolchain.cson
+index 484972a..6ba26dd 100644
+--- a/grammars/cc65-816-toolchain.cson
++++ b/grammars/cc65-816-toolchain.cson
+@@ -3,9 +3,7 @@
+ scopeName: 'source.assembly.65816.cc65-816-toolchain'
+ name: '65816 Assembly (cc65)'      # Name shown in Atom Editor grammar selection
+ # File extensions associated with this grammar
+-fileTypes: [
+-  's'
+-]
++fileTypes: []
+ # include all opcodes and directives the toolchain supports
+ patterns: [
+   { include: 'source.65816-opcodes' }   # add basic 65816 instruction set, includes 6502 and 65c02 opcodes
+diff --git a/grammars/cc65-linker-config.cson b/grammars/cc65-linker-config.cson
+index e9cd2ed..52065ec 100644
+--- a/grammars/cc65-linker-config.cson
++++ b/grammars/cc65-linker-config.cson
+@@ -3,10 +3,7 @@
+ scopeName: 'source.assembly.cc65-linker-config'
+ name: 'Linker Config File (cc65)'      # Name shown in Atom Editor grammar selection
+ # File extensions associated with this grammar
+-fileTypes: [
+-  'cfg'
+-  'txt'
+-]
++fileTypes: []
+ # include all directives and commands the toolchain supports
+ patterns: [
+   { include: '#comments' }
+diff --git a/grammars/cc65-toolchain.cson b/grammars/cc65-toolchain.cson
+index 0146c3d..3cc4cc7 100644
+--- a/grammars/cc65-toolchain.cson
++++ b/grammars/cc65-toolchain.cson
+@@ -3,9 +3,7 @@
+ scopeName: 'source.assembly.6502.cc65-toolchain'
+ name: '6502 Assembly (cc65)'      # Name shown in Atom Editor grammar selection
+ # File extensions associated with this grammar
+-fileTypes: [
+-  's'
+-]
++fileTypes: []
+ # include all opcodes and directives the toolchain supports
+ patterns: [
+   { include: 'source.65c02-opcodes' }   # the 65c02 opcodes, includes the basic 6502 instruction set
+diff --git a/grammars/orca-m.cson b/grammars/orca-m.cson
+index b937503..9303814 100644
+--- a/grammars/orca-m.cson
++++ b/grammars/orca-m.cson
+@@ -1,7 +1,4 @@
+-'fileTypes': [
+-  'src'
+-  's'
+-]
++'fileTypes': []
+ 'name': 'ORCA/M'
+ 'patterns': [
+   {
+diff --git a/grammars/wdc-816-toolchain.cson b/grammars/wdc-816-toolchain.cson
+index 85d049e..21f75dd 100644
+--- a/grammars/wdc-816-toolchain.cson
++++ b/grammars/wdc-816-toolchain.cson
+@@ -3,9 +3,7 @@
+ scopeName: 'source.assembly.65816.wdc-816-toolchain'
+ name: '65816 Assembly (WDCTools)'      # Name shown in Atom Editor grammar selection
+ # File extensions associated with this grammar
+-fileTypes: [
+-  's'
+-]
++fileTypes: []
+ # include all opcodes and directives the toolchain supports
+ patterns: [
+   { include: 'source.65816-opcodes' }   # the 65c02 opcodes, includes the basic 65c02 instruction set
+diff --git a/grammars/wdc-toolchain.cson b/grammars/wdc-toolchain.cson
+index 9979bff..6d36383 100644
+--- a/grammars/wdc-toolchain.cson
++++ b/grammars/wdc-toolchain.cson
+@@ -4,9 +4,7 @@
+ scopeName: 'source.assembly.6502.wdc-toolchain'
+ name: '6502 Assembly (WDCTools)'      # Name shown in Atom Editor grammar selection
+ # File extensions associated with this grammar
+-fileTypes: [
+-  's'
+-]
++fileTypes: []
+ # include all opcodes and directives the toolchain supports
+ patterns: [
+   { include: 'source.65c02-opcodes' }   # the 65c02 opcodes, includes the basic 6502 instruction set
