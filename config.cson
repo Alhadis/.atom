@@ -5,6 +5,7 @@
 		customFileTypes:
 			"source.ini": [
 				"flake8"
+				"npmrc"
 			]
 			"source.js": [
 				"cjs"
