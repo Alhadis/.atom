@@ -952,3 +952,29 @@ atom-text-editor[mini] .scroll-view{
 		}
 	}
 }
+
+
+/** curl(1) config */
+.syntax--curlrc{
+	.syntax--separator.syntax--semicolon,
+	.syntax--separator.syntax--protocol,
+	.syntax--colon.syntax--key-value,
+	&.syntax--source-modifier,
+	&.syntax--encoding-modifier{
+		color: #f00 !important;
+	}
+	
+	.syntax--entity.syntax--other.syntax--protocol{
+		color: #003a9e;
+	}
+	
+	.syntax--equals-sign{
+		opacity: 0.4;
+	}
+	
+	.syntax--punctuation.syntax--definition.syntax--string.syntax--begin,
+	.syntax--punctuation.syntax--definition.syntax--string.syntax--end{
+		opacity: 0.4;
+		color: #000;
+	}
+}
