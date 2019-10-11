@@ -38,6 +38,7 @@ all: \
 	language-latex \
 	language-llvm \
 	language-lua \
+	language-m68k \
 	language-markdown \
 	language-mathematica \
 	language-matlab-octave \
