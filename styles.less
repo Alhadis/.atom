@@ -240,9 +240,18 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 }
 
 
-/* GitHub Syntax: Prepend ^M to scoped carriage-returns */
-.theme-github-atom-light-syntax .syntax--carriage-return::before{
-	content: "^M"
+/* GitHub Syntax */
+.theme-github-atom-light-syntax{
+	
+	/* Show highlighted brackets on current line */
+	.cursor-line{
+		background: none !important;
+	}
+	
+	/* Prepend ^M to scoped carriage-returns */
+	.syntax--carriage-return::before{
+		content: "^M";
+	}
 }
 
 
