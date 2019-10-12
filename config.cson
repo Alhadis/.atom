@@ -134,6 +134,7 @@
 ".coffee.source":
 	editor:
 		atomicSoftTabs: false
+		decreaseIndentPattern: "^\\s*(\\}\\]?|\\]|\\b(else|catch|finally)\\b)$"
 ".css.source":
 	editor:
 		nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-…"
