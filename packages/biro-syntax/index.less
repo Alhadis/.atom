@@ -49,10 +49,12 @@ atom-text-editor{
 	color: #009a00 !important;
 }
 
+.syntax--entity,
 .syntax--entity.syntax--name{
 	color: #003a9e;
 }
 
+.syntax--constant.syntax--other.syntax--reference.syntax--link,
 .syntax--markup.syntax--link,
 .syntax--underline{
 	text-decoration: underline;
@@ -280,6 +282,11 @@ atom-text-editor{
 	&.syntax--php .syntax--string:not(.syntax--function){
 		color: #e20000;
 	}
+	
+	/** GitHub parity */
+	&[class^="syntax--meta syntax--output"]{
+		color: #aad;
+	}
 }
 
 
@@ -378,8 +385,14 @@ atom-text-editor{
 	&.syntax--italic     { color: #b294bb;  font-style: italic;  }
 	&.syntax--bold       { color: #de935f;  font-weight: bold;   }
 
-	&.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading{
-		color: #81a2be;
+	&.syntax--heading{
+		font-weight: bold;
+		color: #005cc5;
+		
+		&.syntax--punctuation.syntax--definition.syntax--heading{
+			font-weight: inherit;
+			color: #81a2be;
+		}
 	}
 
 	&.syntax--inserted              { color: #b5bd68;  }
@@ -637,6 +650,12 @@ atom-text-editor[mini] .scroll-view{
 	.syntax--tilde,
 	.syntax--punctuation.syntax--definition.syntax--variable{
 		color: inherit;
+	}
+}
+
+.syntax--shell-session{
+	&.syntax--punctuation.syntax--separator.syntax--prompt{
+		color: #00f;
 	}
 }
 
