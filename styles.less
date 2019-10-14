@@ -81,11 +81,25 @@ atom-text-editor.is-focused .cursors .cursor{
 
 
 /* Debugging highlights for language-grammar development */
-.syntax--test-1, .syntax--test1{ background: #f00 !important; &.syntax--faded{ background: rgba(255, 0, 0, .25)     !important; }}
-.syntax--test-2, .syntax--test2{ background: #0e0 !important; &.syntax--faded{ background: rgba(0, 238, 0, .25)     !important; }}
-.syntax--test-3, .syntax--test3{ background: #6cf !important; &.syntax--faded{ background: rgba(102, 204, 255, .25) !important; }}
-
-.syntax--box:not(.syntax--roff):not(.syntax--request){
+.test1(){
+	background: #f00 !important;
+	&.syntax--faded{
+		background: rgba(255, 0, 0, .25) !important;
+	}
+}
+.test2(){
+	background: #0e0 !important;
+	&.syntax--faded{
+		background: rgba(0, 238, 0, .25) !important;
+	}
+}
+.test3(){
+	background: #6cf !important;
+	&.syntax--faded{
+		background: rgba(102, 204, 255, .25) !important;
+	}
+}
+.box(){
 	outline: 1px solid #ccc;
 	
 	&.syntax--test-1, .syntax--test1,
@@ -98,6 +112,11 @@ atom-text-editor.is-focused .cursors .cursor{
 		opacity: .25;
 	}
 }
+
+.syntax--test-1, .syntax--test1{ .test1(); }
+.syntax--test-2, .syntax--test2{ .test2(); }
+.syntax--test-3, .syntax--test3{ .test3(); }
+.syntax--box:not(.syntax--roff):not(.syntax--request){ .box(); }
 
 
 /* HACK: Remove once we do something about pointless icon overrides in File-Icons */
