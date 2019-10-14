@@ -79,7 +79,6 @@
  body:not(.platform-darwin) atom-text-editor:not([mini])":
 	"shift-ctrl-c":   "file-icons:toggle-colours"
 	"alt-ctrl-t":     "user:toggle-night-mode"
-	"ctrl-p":         "user:temp-1"
 	"alt-p":          "editor:log-cursor-scope"
 
 "body:not(.platform-darwin) atom-text-editor":
@@ -109,6 +108,9 @@
 
 "body:not(.platform-darwin) atom-text-editor[data-grammar='source emacs lisp']":
 	"ctrl-p":         "language-emacs-lisp:run-selection"
+
+"body:not(.platform-darwin) atom-text-editor[data-grammar='source json']":
+	"ctrl-p":         "user:format-json"
 
 "body:not(.platform-darwin) .pdf-view":
 	"ctrl-b":         "pdf-view:toggle-binary-view"
@@ -144,7 +146,6 @@
 "body.platform-darwin atom-workspace":
 	"shift-cmd-c":    "file-icons:toggle-colours"
 	"alt-cmd-t":      "user:toggle-night-mode"
-	"cmd-p":          "user:temp-1"
 
 "body.platform-darwin atom-text-editor":
 	"cmd-g":          "go-to-line:toggle"
@@ -173,6 +174,9 @@
 
 "body.platform-darwin atom-text-editor[data-grammar='source emacs lisp']":
 	"cmd-p":          "language-emacs-lisp:run-selection"
+
+"body.platform-darwin atom-text-editor[data-grammar='source json']":
+	"cmd-p":          "user:format-json"
 
 "body.platform-darwin .pdf-view":
 	"cmd-b":          "pdf-view:toggle-binary-view"
