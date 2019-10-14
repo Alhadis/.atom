@@ -76,6 +76,7 @@
 	"language-markdown":
 		addListItems: false
 		autoIncrementListItems: false
+		disableLanguageGfm: false
 		emphasisShortcuts: false
 		indentListItems: false
 		linkShortcuts: false
