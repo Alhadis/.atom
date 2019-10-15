@@ -9,4 +9,4 @@
 - [ ] Fix increment/decrement commands to operate without selection ranges
 - [ ] Ability to insert ascending list of numbers with aforementioned command
 - [ ] Smart switching of lines containing ternery operators (~move-up:~ -> swaps ~:~ for ~?~, and vice versa)
-- [ ] Kill off selection-less line-copy command before it wipes something important
+- [x] Kill off selection-less line-copy command before it wipes something important
