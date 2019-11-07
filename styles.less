@@ -334,3 +334,13 @@ status-bar-git .commits-ahead-label:before{
 		display: none;
 	}
 }
+
+/* Compensate for missing padding when hiding gutter */
+.gutter-container[hidden]{
+	display: block !important;
+	padding-left: 1em;
+	
+	> *{
+		display: none !important;
+	}
+}
