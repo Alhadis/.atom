@@ -1,6 +1,6 @@
 all: init.js install snippets clean
 
-install: node_modules/alhadis.utils node_modules/prompt-view
+install: node_modules/roff node_modules/prompt-view
 	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
 
@@ -49,10 +49,10 @@ cson-fix:
 node_modules:
 	[ -d "$@" ] || mkdir "$@";
 
-node_modules/alhadis.utils: node_modules
+node_modules/roff: node_modules
 	[ -e "$@" ] || { \
-		[ -d ~/Labs/Utils/.git ] && ln -s ~/Labs/Utils $@ || \
-		git clone 'git@github.com:Alhadis/Utils.git' $@; \
+		[ -d ~/Labs/Roff.js/.git ] && ln -s ~/Labs/Roff.js $@ || \
+		git clone 'git@github.com:Alhadis/Roff.js.git' $@; \
 		cd $@ && $(MAKE); \
 	};
 
