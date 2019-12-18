@@ -126,6 +126,16 @@ atom-text-editor.is-focused .cursors .cursor{
 	top: 3px;
 }
 
+.icon[data-name=".mocharc.cjs"]::before{
+	font: 17px "File-Icons";
+	content: "\26fe";
+	top: 2px;
+	
+	body:not(.file-icons-colourless) & {
+		color: #8f5536;
+	}
+}
+
 .icon[data-path$="npmrc"]::before{
 	font: 17px "File-Icons";
 	content: "\e91c";
