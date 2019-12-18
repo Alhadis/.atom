@@ -38,6 +38,7 @@
 		paths: [
 			"~/Labs/Utils"
 			"~/Labs/JG"
+			"~/Labs/EAL"
 		]
 		icon: "icon-tools"
 		devMode: true
