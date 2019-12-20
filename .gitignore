@@ -19,4 +19,5 @@
 /packages/*
 !/packages/Makefile
 !/packages/biro-syntax
+!/packages/language-not-mine
 !/packages/patches
