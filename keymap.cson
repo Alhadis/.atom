@@ -31,6 +31,10 @@
 ".tree-view":
 	"i":              "tree-view:toggle-ignored-files"
 
+"body.yn-mode atom-text-editor:not([mini])":
+	"y":              "yn-mode:yeah"
+	"n":              "yn-mode:nah"
+
 
 # Linux/Windows
 "body:not(.platform-darwin)":
