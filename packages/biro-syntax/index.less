@@ -324,6 +324,13 @@ atom-text-editor{
 	&.syntax--comment &.syntax--bigint{
 		color: inherit;
 	}
+	
+	// HACK: Hide glaring BigInt highlighting for /^\w+\(\d+n/
+	&.syntax--meta.syntax--brace +
+	&.syntax--invalid.syntax--illegal.syntax--identifier{
+		background: inherit;
+		color: #369 !important;
+	}
 }
 
 /** TypeScript */
