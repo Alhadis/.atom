@@ -3,6 +3,9 @@ injectionSelector: "source.js"
 patterns: [{
 	# HACK: Shove BigInt support down Atom's constantly-lagging-behind-everything's throat
 	match: """(?x) \\s*
+		(?: \\b (if|else|while|for|do|switch)
+		|   \\b ((?!\\d)[$\\w]+)
+		)?
 		([\\[\\(]*)
 		([-+]?)
 		(?: (0[Bb][01]+n)
@@ -11,12 +14,14 @@ patterns: [{
 		|   (\\d+n))
 	"""
 	captures:
-		2: name: "keyword.operator.js"
-		3: name: "constant.numeric.bigint.binary.js"
-		4: name: "constant.numeric.bigint.octal.js"
-		5: name: "constant.numeric.bigint.hex.js"
-		6: name: "constant.numeric.bigint.js"
-		1: patterns: [
+		1: name: "keyword.control.js"
+		2: name: "entity.name.function.js"
+		4: name: "keyword.operator.js"
+		5: name: "constant.numeric.bigint.binary.js"
+		6: name: "constant.numeric.bigint.octal.js"
+		7: name: "constant.numeric.bigint.hex.js"
+		8: name: "constant.numeric.bigint.js"
+		3: patterns: [
 			{match: "\\(", name: "meta.brace.round.js"}
 			{match: "\\[", name: "meta.brace.square.js"}
 		]
