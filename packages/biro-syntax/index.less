@@ -321,7 +321,8 @@ atom-text-editor{
 		}
 	}
 	
-	&.syntax--comment &.syntax--bigint{
+	&.syntax--comment > &.syntax--bigint,
+	&.syntax--comment.syntax--block.syntax--documentation > :not(.syntax--jsdoc) > &.syntax--bigint{
 		color: inherit;
 	}
 	
