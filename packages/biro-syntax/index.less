@@ -327,10 +327,12 @@ atom-text-editor{
 	}
 	
 	// HACK: Hide glaring BigInt highlighting for /^\w+\(\d+n/
-	&.syntax--meta.syntax--brace +
 	&.syntax--invalid.syntax--illegal.syntax--identifier{
-		background: inherit;
-		color: #369 !important;
+		.syntax--meta.syntax--brace + &,
+		.syntax--meta.syntax--example.syntax--jsdoc &{
+			background: inherit;
+			color: #369 !important;
+		}
 	}
 }
 
