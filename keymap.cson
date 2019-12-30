@@ -18,6 +18,9 @@
 	"`":              "user:backtick"
 	'"':              "user:double-quote"
 
+"atom-text-editor:not([mini])":
+	"tab":            "user:codepoint-to-char"
+
 "atom-text-editor:not([data-grammar='text roff'])":
 	"'":              "user:single-quote"
 	"[":              "user:square-bracket"
