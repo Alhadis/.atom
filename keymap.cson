@@ -16,10 +16,10 @@
 	"alt-up":         "editor:move-line-up"
 	"alt-down":       "editor:move-line-down"
 	"`":              "user:backtick"
-	"'":              "user:single-quote"
 	'"':              "user:double-quote"
 
 "atom-text-editor:not([data-grammar='text roff'])":
+	"'":              "user:single-quote"
 	"[":              "user:square-bracket"
 	"{":              "user:curly-bracket"
 
