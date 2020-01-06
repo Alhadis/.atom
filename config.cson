@@ -7,9 +7,6 @@
 				"flake8"
 				"npmrc"
 			]
-			"source.js": [
-				"cjs"
-			]
 			"source.perl.5": [
 				"t"
 			]
