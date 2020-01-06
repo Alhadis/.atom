@@ -73,6 +73,9 @@
 	"alt-7":          "unset!"
 	"alt-8":          "unset!"
 	"alt-9":          "unset!"
+	"ctrl-c":         "unset!"
+	"ctrl-x":         "unset!"
+	"ctrl-v":         "unset!"
 	"ctrl-1":         "pane:show-item-1"
 	"ctrl-2":         "pane:show-item-2"
 	"ctrl-3":         "pane:show-item-3"
@@ -180,6 +183,9 @@
 	"shift-cmd-c":    "find-and-replace:toggle-case-option"
 
 "body.platform-darwin .tree-view":
+	"cmd-c":          "unset!"
+	"cmd-x":          "unset!"
+	"cmd-v":          "unset!"
 	"cmd-1":          "pane:show-item-1"
 	"cmd-2":          "pane:show-item-2"
 	"cmd-3":          "pane:show-item-3"
