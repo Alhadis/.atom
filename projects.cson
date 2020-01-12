@@ -13,7 +13,6 @@
 			"~/.files"
 		]
 		icon: "terminal-icon"
-		devMode: true
 	}
 	{
 		title: "language-roff"
@@ -22,7 +21,6 @@
 			"~/Labs/Roff.js"
 		]
 		icon: "manpage-icon"
-		devMode: true
 	}
 	{
 		title: "file-icons"
@@ -41,7 +39,6 @@
 			"~/Labs/EAL"
 		]
 		icon: "icon-tools"
-		devMode: true
 	}
 	{
 		title: "YASR"
@@ -49,7 +46,6 @@
 			"~/Labs/YASR"
 		]
 		icon: "emacs-icon"
-		devMode: true
 	}
 	{
 		title: "Homebrew Troff"
@@ -60,7 +56,6 @@
 		]
 		icon: "icon-ruby"
 		color: "#ff0000"
-		devMode: true
 	}
 	{
 		title: "atom-live-view"
@@ -69,6 +64,5 @@
 			"~/Labs/Atom-PostScriptPreview"
 		]
 		icon: "icon-atom"
-		devMode: true
 	}
 ]
