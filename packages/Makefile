@@ -77,7 +77,6 @@ all: \
 	seti-ui \
 	split-diff \
 	theme-reel \
-	toggle-quotes \
 	xterm-quotes \
 
 
