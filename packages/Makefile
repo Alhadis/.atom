@@ -7,7 +7,6 @@ all: \
 	form-feeds \
 	git-blame \
 	github-atom-light-syntax \
-	language-65asm \
 	language-ada \
 	language-agc \
 	language-antlr \
@@ -20,6 +19,7 @@ all: \
 	language-common-lisp \
 	language-crystal-actual \
 	language-diff \
+	language-dircolors \
 	language-docker \
 	language-emacs-lisp \
 	language-erlang \
@@ -44,6 +44,7 @@ all: \
 	language-matlab-octave \
 	language-maxscript \
 	language-mediawiki \
+	language-modula-2 \
 	language-ninja \
 	language-ocaml \
 	language-pascal \
@@ -58,6 +59,7 @@ all: \
 	language-scheme \
 	language-sed \
 	language-srt \
+	language-tcltk \
 	language-texinfo \
 	language-turing \
 	language-v \

@@ -78,6 +78,8 @@ packages/Makefile:
 	| sed 's/@[^@]*$$//' \
 	| grep -v '^biro-syntax$$' \
 	| grep -v '^patches$$' \
+	| grep -v '^injections$$' \
+	| grep -v '^language-not-mine$$' \
 	| grep -v '^[[:blank:]]*$$' \
 	| sort -df`; all=""; git=""; \
 	cwd=$(PWD); \
