@@ -125,12 +125,8 @@
 		showOnStartup: false
 	whitespace:
 		removeTrailingWhitespace: false
-".atom-mocha":
-	editor:
-		fontSize: 13
 ".coffee.source":
 	editor:
-		atomicSoftTabs: false
 		decreaseIndentPattern: "^\\s*(\\}\\]?|\\]|\\b(else|catch|finally)\\b)$"
 ".css.source":
 	editor:
@@ -138,22 +134,10 @@
 ".desc.ditroff.source":
 	editor:
 		tabLength: 16
-".gfm.source":
-	editor:
-		softWrap: false
-".gfm.source:not(.markup.code)":
-	editor:
-		softWrap: false
 ".lisp.source":
 	editor:
 		softTabs: true
 		tabLength: 2
-".md.text":
-	editor:
-		softWrap: false
-".md.text:not(.fenced.code)":
-	editor:
-		softWrap: false
 ".python.source":
 	editor:
 		softTabs: false
