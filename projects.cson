@@ -27,6 +27,7 @@
 		paths: [
 			"~/Labs/file-icons/atom"
 			"~/Labs/file-icons/icons"
+			"~/Labs/file-icons/vscode"
 		]
 		icon: "atom-icon"
 		devMode: true
