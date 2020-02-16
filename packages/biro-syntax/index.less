@@ -321,9 +321,11 @@ atom-text-editor{
 		}
 	}
 	
-	&.syntax--comment > &.syntax--constant.syntax--numeric,
-	&.syntax--comment.syntax--block.syntax--documentation > :not(.syntax--jsdoc) > &.syntax--constant.syntax--numeric{
-		color: inherit;
+	&.syntax--comment > .syntax--stupid-hack-1,
+	&.syntax--comment.syntax--block.syntax--documentation > :not(.syntax--jsdoc) > .syntax--stupid-hack-1{
+		&, & *{
+			color: inherit !important;
+		}
 	}
 	
 	// HACK: Hide glaring BigInt highlighting for /^\w+\(\d+n/
