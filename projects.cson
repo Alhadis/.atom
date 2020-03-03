@@ -42,6 +42,14 @@
 		icon: "icon-tools"
 	}
 	{
+		title: "Mono"
+		paths: [
+			"~/Labs/Mono"
+			"~/Labs/V8.man"
+		]
+		icon: "manpage-icon"
+	}
+	{
 		title: "YASR"
 		paths: [
 			"~/Labs/YASR"
