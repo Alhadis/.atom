@@ -1,0 +1,10 @@
+scopeName: "fuck-atom.2"
+injectionSelector: "source, text"
+patterns: [
+	{match: "\\0",   name: "punctuation.ctrl-char.null-byte"}
+	{match: "\\a",   name: "punctuation.ctrl-char.alarm"}
+	{match: "[\\b]", name: "punctuation.ctrl-char.backspace"}
+	{match: "\\x0B", name: "punctuation.whitespace.vertical-tab"}
+	{match: "\\r",   name: "punctuation.whitespace.carriage-return"}
+	{match: "\\x1B", name: "punctuation.ctrl-char.escape"}
+]

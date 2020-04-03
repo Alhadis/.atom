@@ -1,0 +1,20 @@
+.syntax--punctuation.syntax--ctrl-char,
+.syntax--punctuation.syntax--whitespace.syntax--vertical-tab,
+.syntax--punctuation.syntax--whitespace.syntax--carriage-return{
+	opacity: 0.5;
+	width: 2ch;
+	display: inline-block;
+	position: relative;
+	color: #00c;
+	
+	&::after{
+		position: absolute;
+		left: 0;
+	}
+	&.syntax--null-byte::after       { content: "\\0"; }
+	&.syntax--alarm::after           { content: "\\a"; }
+	&.syntax--backspace::after       { content: "\\b"; }
+	&.syntax--vertical-tab::after    { content: "\\v"; }
+	&.syntax--carriage-return::after { content: "\\r"; }
+	&.syntax--escape::after          { content: "\\e"; }
+}
