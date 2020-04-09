@@ -251,9 +251,22 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 		}
 	}
 	
-	&[mini][data-grammar$="regexp"]{
-		.highlights .highlight.selection .region{
-			background: rgba(81, 154, 186, 0.2) !important;
+	&[mini]{
+		&[data-grammar$="regexp"],
+		&[data-grammar$="regexp replacement"]{
+			.highlights .highlight.selection .region{
+				background: rgba(81, 154, 186, 0.2) !important;
+			}
+		}
+		
+		&[data-grammar$="null-grammar"]{
+			.highlights .highlight.selection .region{
+				background: rgba(154, 154, 154, 0.35) !important;
+			}
+		}
+		
+		.cursor{
+			border-left-width: 1px;
 		}
 	}
 	
@@ -261,6 +274,12 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 	.syntax--underline{
 		text-decoration: underline;
 	}
+}
+
+.theme-seti-syntax .find-and-replace atom-text-editor[mini]{
+	font-family: var(--editor-font-family);
+	font-size:   var(--editor-font-size);
+	letter-spacing: 0;
 }
 
 
