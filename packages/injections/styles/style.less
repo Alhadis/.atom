@@ -1,20 +1,158 @@
 .syntax--punctuation.syntax--ctrl-char,
+.syntax--punctuation.syntax--whitespace.syntax--form-feed.syntax--inline,
 .syntax--punctuation.syntax--whitespace.syntax--vertical-tab,
 .syntax--punctuation.syntax--whitespace.syntax--carriage-return{
 	opacity: 0.5;
 	width: 2ch;
 	display: inline-block;
 	position: relative;
-	color: #00c;
+	color: transparent;
+	
+	&.syntax--c1{
+		width: 4ch;
+	}
 	
 	&::after{
+		color: #00c;
 		position: absolute;
 		left: 0;
+		width: 100%;
+		text-align: center;
 	}
-	&.syntax--null-byte::after       { content: "\\0"; }
-	&.syntax--alarm::after           { content: "\\a"; }
-	&.syntax--backspace::after       { content: "\\b"; }
-	&.syntax--vertical-tab::after    { content: "\\v"; }
-	&.syntax--carriage-return::after { content: "\\r"; }
-	&.syntax--escape::after          { content: "\\e"; }
+	
+	// C0 control codes
+	&.syntax--null-byte                 { &::after{ content: "\\0"; }}
+	&.syntax--alarm                     { &::after{ content: "\\a"; }}
+	&.syntax--backspace                 { &::after{ content: "\\b"; }}
+	&.syntax--vertical-tab              { &::after{ content: "\\v"; }}
+	&.syntax--form-feed                 { &::after{ content: "\\f"; }}
+	&.syntax--carriage-return           { &::after{ content: "\\r"; }}
+	&.syntax--escape                    { &::after{ content: "\\e"; }}
+	&.syntax--start-of-heading          { &::after{ content: "^A";  }}
+	&.syntax--start-of-text             { &::after{ content: "^B";  }}
+	&.syntax--end-of-text               { &::after{ content: "^C";  }}
+	&.syntax--end-of-transmission       { &::after{ content: "^D";  }}
+	&.syntax--enquiry                   { &::after{ content: "^E";  }}
+	&.syntax--acknowledge               { &::after{ content: "^F";  }}
+	&.syntax--shift-out                 { &::after{ content: "^N";  }}
+	&.syntax--shift-in                  { &::after{ content: "^O";  }}
+	&.syntax--data-link-escape          { &::after{ content: "^P";  }}
+	&.syntax--device-control-1          { &::after{ content: "^Q";  }}
+	&.syntax--device-control-2          { &::after{ content: "^R";  }}
+	&.syntax--device-control-3          { &::after{ content: "^S";  }}
+	&.syntax--device-control-4          { &::after{ content: "^T";  }}
+	&.syntax--negative-acknowledge      { &::after{ content: "^U";  }}
+	&.syntax--synchronous-idle          { &::after{ content: "^V";  }}
+	&.syntax--end-of-transmission-block { &::after{ content: "^W";  }}
+	&.syntax--cancel                    { &::after{ content: "^X";  }}
+	&.syntax--end-of-medium             { &::after{ content: "^Y";  }}
+	&.syntax--substitute                { &::after{ content: "^Z";  }}
+	&.syntax--file-separator            { &::after{ content: "^\\"; }}
+	&.syntax--group-separator           { &::after{ content: "^]";  }}
+	&.syntax--record-separator          { &::after{ content: "^^";  }}
+	&.syntax--unit-separator            { &::after{ content: "^_";  }}
+	&.syntax--delete                    { &::after{ content: "^?";  }}
+	
+	// C1 control codes
+	&.syntax--padding-character         { &::after { content: "<80>"; }}
+	&.syntax--high-octet-preset         { &::after { content: "<81>"; }}
+	&.syntax--break-permitted-here      { &::after { content: "<82>"; }}
+	&.syntax--no-break-here             { &::after { content: "<83>"; }}
+	&.syntax--index                     { &::after { content: "<84>"; }}
+	&.syntax--next-line                 { &::after { content: "<85>"; }}
+	&.syntax--start-of-selected-area    { &::after { content: "<86>"; }}
+	&.syntax--end-of-selected-area      { &::after { content: "<87>"; }}
+	&.syntax--character-tabulation-set  { &::after { content: "<88>"; }}
+	&.syntax--htj                       { &::after { content: "<89>"; }}
+	&.syntax--line-tabulation-set       { &::after { content: "<8A>"; }}
+	&.syntax--partial-line-down         { &::after { content: "<8B>"; }}
+	&.syntax--partial-line-up           { &::after { content: "<8C>"; }}
+	&.syntax--line-starve               { &::after { content: "<8D>"; }}
+	&.syntax--single-shift-2            { &::after { content: "<8E>"; }}
+	&.syntax--single-shift-3            { &::after { content: "<8F>"; }}
+	&.syntax--device-control-string     { &::after { content: "<90>"; }}
+	&.syntax--private-use-1             { &::after { content: "<91>"; }}
+	&.syntax--private-use-2             { &::after { content: "<92>"; }}
+	&.syntax--set-transmit-state        { &::after { content: "<93>"; }}
+	&.syntax--cancel-character          { &::after { content: "<94>"; }}
+	&.syntax--message-waiting           { &::after { content: "<95>"; }}
+	&.syntax--start-of-protected-area   { &::after { content: "<96>"; }}
+	&.syntax--end-of-protected-area     { &::after { content: "<97>"; }}
+	&.syntax--start-of-string           { &::after { content: "<98>"; }}
+	&.syntax--sgci                      { &::after { content: "<99>"; }}
+	&.syntax--sci                       { &::after { content: "<9A>"; }}
+	&.syntax--csi                       { &::after { content: "<9B>"; }}
+	&.syntax--string-terminator         { &::after { content: "<9C>"; }}
+	&.syntax--osc                       { &::after { content: "<9D>"; }}
+	&.syntax--privacy-message           { &::after { content: "<9E>"; }}
+	&.syntax--apc                       { &::after { content: "<9F>"; }}
+	
+	body.long-ctrl-chars:not(.except-c-escapes) &{
+		&.syntax--null-byte                 { width: 3.5ch; &::after{ content: "NUL"; }}
+		&.syntax--alarm                     { width: 3.5ch; &::after{ content: "BEL"; }}
+		&.syntax--backspace                 { width: 2.5ch; &::after{ content: "BS";  }}
+		&.syntax--vertical-tab              { width: 2.5ch; &::after{ content: "VT";  }}
+		&.syntax--form-feed                 { width: 2.5ch; &::after{ content: "FF";  }}
+		&.syntax--carriage-return           { width: 2.5ch; &::after{ content: "CR";  }}
+		&.syntax--escape                    { width: 3.5ch; &::after{ content: "ESC"; }}
+	}
+	body.long-ctrl-chars &{
+		&.syntax--start-of-heading          { width: 3.5ch; &::after{ content: "SOH"; }}
+		&.syntax--start-of-text             { width: 3.5ch; &::after{ content: "STX"; }}
+		&.syntax--end-of-text               { width: 3.5ch; &::after{ content: "ETX"; }}
+		&.syntax--end-of-transmission       { width: 3.5ch; &::after{ content: "EOT"; }}
+		&.syntax--enquiry                   { width: 3.5ch; &::after{ content: "ENQ"; }}
+		&.syntax--acknowledge               { width: 3.5ch; &::after{ content: "ACK"; }}
+		&.syntax--shift-out                 { width: 2.5ch; &::after{ content: "SO";  }}
+		&.syntax--shift-in                  { width: 2.5ch; &::after{ content: "SI";  }}
+		&.syntax--data-link-escape          { width: 3.5ch; &::after{ content: "DLE"; }}
+		&.syntax--device-control-1          { width: 3.5ch; &::after{ content: "DC1"; }}
+		&.syntax--device-control-2          { width: 3.5ch; &::after{ content: "DC2"; }}
+		&.syntax--device-control-3          { width: 3.5ch; &::after{ content: "DC3"; }}
+		&.syntax--device-control-4          { width: 3.5ch; &::after{ content: "DC4"; }}
+		&.syntax--negative-acknowledge      { width: 3.5ch; &::after{ content: "NAK"; }}
+		&.syntax--synchronous-idle          { width: 3.5ch; &::after{ content: "SYN"; }}
+		&.syntax--end-of-transmission-block { width: 3.5ch; &::after{ content: "ETB"; }}
+		&.syntax--cancel                    { width: 3.5ch; &::after{ content: "CAN"; }}
+		&.syntax--end-of-medium             { width: 2.5ch; &::after{ content: "EM";  }}
+		&.syntax--substitute                { width: 3.5ch; &::after{ content: "SUB"; }}
+		&.syntax--file-separator            { width: 2.5ch; &::after{ content: "FS";  }}
+		&.syntax--group-separator           { width: 2.5ch; &::after{ content: "GS";  }}
+		&.syntax--record-separator          { width: 2.5ch; &::after{ content: "RS";  }}
+		&.syntax--unit-separator            { width: 2.5ch; &::after{ content: "US";  }}
+		&.syntax--delete                    { width: 3.5ch; &::after{ content: "DEL"; }}
+		
+		&.syntax--padding-character         { width: 3.5ch; &::after{ content: "PAD"; }}
+		&.syntax--high-octet-preset         { width: 3.5ch; &::after{ content: "HOP"; }}
+		&.syntax--break-permitted-here      { width: 3.5ch; &::after{ content: "BPH"; }}
+		&.syntax--no-break-here             { width: 3.5ch; &::after{ content: "NBH"; }}
+		&.syntax--index                     { width: 3.5ch; &::after{ content: "IND"; }}
+		&.syntax--next-line                 { width: 3.5ch; &::after{ content: "NEL"; }}
+		&.syntax--start-of-selected-area    { width: 3.5ch; &::after{ content: "SSA"; }}
+		&.syntax--end-of-selected-area      { width: 3.5ch; &::after{ content: "ESA"; }}
+		&.syntax--character-tabulation-set  { width: 3.5ch; &::after{ content: "HTS"; }}
+		&.syntax--htj                       { width: 3.5ch; &::after{ content: "HTJ"; }}
+		&.syntax--line-tabulation-set       { width: 3.5ch; &::after{ content: "VTS"; }}
+		&.syntax--partial-line-down         { width: 3.5ch; &::after{ content: "PLD"; }}
+		&.syntax--partial-line-up           { width: 3.5ch; &::after{ content: "PLU"; }}
+		&.syntax--line-starve               { width: 2.5ch; &::after{ content: "RI";  }}
+		&.syntax--single-shift-2            { width: 3.5ch; &::after{ content: "SS2"; }}
+		&.syntax--single-shift-3            { width: 3.5ch; &::after{ content: "SS3"; }}
+		&.syntax--device-control-string     { width: 3.5ch; &::after{ content: "DCS"; }}
+		&.syntax--private-use-1             { width: 3.5ch; &::after{ content: "PU1"; }}
+		&.syntax--private-use-2             { width: 3.5ch; &::after{ content: "PU2"; }}
+		&.syntax--set-transmit-state        { width: 3.5ch; &::after{ content: "STS"; }}
+		&.syntax--cancel-character          { width: 3.5ch; &::after{ content: "CCH"; }}
+		&.syntax--message-waiting           { width: 2.5ch; &::after{ content: "MW";  }}
+		&.syntax--start-of-protected-area   { width: 3.5ch; &::after{ content: "SPA"; }}
+		&.syntax--end-of-protected-area     { width: 3.5ch; &::after{ content: "EPA"; }}
+		&.syntax--start-of-string           { width: 3.5ch; &::after{ content: "SOS"; }}
+		&.syntax--sgci                      { width: 4.5ch; &::after{ content: "SGCI";}}
+		&.syntax--sci                       { width: 3.5ch; &::after{ content: "SCI"; }}
+		&.syntax--csi                       { width: 3.5ch; &::after{ content: "CSI"; }}
+		&.syntax--string-terminator         { width: 2.5ch; &::after{ content: "ST";  }}
+		&.syntax--osc                       { width: 3.5ch; &::after{ content: "OSC"; }}
+		&.syntax--privacy-message           { width: 2.5ch; &::after{ content: "PM";  }}
+		&.syntax--apc                       { width: 3.5ch; &::after{ content: "APC"; }}
+	}
 }

@@ -1,0 +1,258 @@
+[
+	{
+		"Seq": "@",
+		"Dec": "128",
+		"Hex": "80",
+		"Acronym": "PAD",
+		"Name": "Padding Character",
+		"Description": "Not part of ISO/IEC 6429 (ECMA-48). In early drafts of ISO 10646, was used as part of a proposed mechanism to encode non-ASCII characters. This use was removed in later drafts. Is nonetheless used by the internal-use two-byte fixed-length form of the ISO-2022-based Extended Unix Code (EUC) for left-padding single byte characters in code sets 1 and 3, whereas NUL serves the same function for code sets 0 and 2. This is not done in the usual \"packed\" EUC format."
+	},
+	{
+		"Seq": "A",
+		"Dec": "129",
+		"Hex": "81",
+		"Acronym": "HOP",
+		"Name": "High Octet Preset",
+		"Description": "Not part of ISO/IEC 6429 (ECMA-48). In early drafts of ISO 10646, was intended as a means of introducing a sequence of ISO 2022 compliant multiple byte characters with the same first byte without repeating said first byte, thus reducing length; this behaviour was never part of a standard or published implementation. Its name was nonetheless retained as a RFC 1345 standard code-point name."
+	},
+	{
+		"Seq": "B",
+		"Dec": "130",
+		"Hex": "82",
+		"Acronym": "BPH",
+		"Name": "Break Permitted Here",
+		"Description": "Follows a graphic character where a line break is permitted. Roughly equivalent to a soft hyphen except that the means for indicating a line break is not necessarily a hyphen.  Not part of the first edition of ISO/IEC 6429. See also zero-width space."
+	},
+	{
+		"Seq": "C",
+		"Dec": "131",
+		"Hex": "83",
+		"Acronym": "NBH",
+		"Name": "No Break Here",
+		"Description": "Follows the graphic character that is not to be broken.  Not part of the first edition of ISO/IEC 6429. See also word joiner."
+	},
+	{
+		"Seq": "D",
+		"Dec": "132",
+		"Hex": "84",
+		"Acronym": "IND",
+		"Name": "Index",
+		"Description": "Move the active position one line down, to eliminate ambiguity about the meaning of LF.  Deprecated in 1988 and withdrawn in 1992 from ISO/IEC 6429 (1986 and 1991 respectively for ECMA-48)."
+	},
+	{
+		"Seq": "E",
+		"Dec": "133",
+		"Hex": "85",
+		"Acronym": "NEL",
+		"Name": "Next Line",
+		"Description": "Equivalent to CR+LF.  Used to mark end-of-line on some IBM mainframes."
+	},
+	{
+		"Seq": "F",
+		"Dec": "134",
+		"Hex": "86",
+		"Acronym": "SSA",
+		"Name": "Start of Selected Area",
+		"Description": "Used by block-oriented terminals."
+	},
+	{
+		"Seq": "G",
+		"Dec": "135",
+		"Hex": "87",
+		"Acronym": "ESA",
+		"Name": "End of Selected Area",
+		"Description": "〃"
+	},
+	{
+		"Seq": "H",
+		"Dec": "136",
+		"Hex": "88",
+		"Acronym": "HTS",
+		"Name": ["Character Tabulation Set", "Horizontal Tabulation Set"],
+		"Description": "Causes a character tabulation stop to be set at the active position."
+	},
+	{
+		"Seq": "I",
+		"Dec": "137",
+		"Hex": "89",
+		"Acronym": "HTJ",
+		"Name": ["Character Tabulation With Justification", "Horizontal Tabulation With Justification"],
+		"Description": "Similar to Character Tabulation, except that instead of spaces or lines being placed after the preceding characters until the next tab stop is reached, the spaces or lines are placed preceding the active field so that preceding graphic character is placed just before the next tab stop."
+	},
+	{
+		"Seq": "J",
+		"Dec": "138",
+		"Hex": "8A",
+		"Acronym": "VTS",
+		"Name": ["Line Tabulation Set", "Vertical Tabulation Set"],
+		"Description": "Causes a line tabulation stop to be set at the active position."
+	},
+	{
+		"Seq": "K",
+		"Dec": "139",
+		"Hex": "8B",
+		"Acronym": "PLD",
+		"Name": ["Partial Line Forward", "Partial Line Down"],
+		"Description": "Used to produce subscripts and superscripts in ISO/IEC 6429, e.g., in a printer. Subscripts use PLD text PLU while superscripts use PLU text PLD."
+	},
+	{
+		"Seq": "L",
+		"Dec": "140",
+		"Hex": "8C",
+		"Acronym": "PLU",
+		"Name": ["Partial Line Backward", "Partial Line Up"],
+		"Description": "〃"
+	},
+	{
+		"Seq": "M",
+		"Dec": "141",
+		"Hex": "8D",
+		"Acronym": "RI",
+		"Name": ["Reverse Line Feed", "Reverse Index", "Line Starve"],
+		"Description": ""
+	},
+	{
+		"Seq": "N",
+		"Dec": "142",
+		"Hex": "8E",
+		"Acronym": "SS2",
+		"Name": "Single-Shift 2",
+		"Description": "Next character invokes a graphic character from the G2 or G3 graphic sets respectively.  In systems that conform to ISO/IEC 4873 (ECMA-43), even if a C1 set other than the default is used, these two octets may only be used for this purpose."
+	},
+	{
+		"Seq": "O",
+		"Dec": "143",
+		"Hex": "8F",
+		"Acronym": "SS3",
+		"Name": "Single-Shift 3",
+		"Description": "〃"
+	},
+	{
+		"Seq": "P",
+		"Dec": "144",
+		"Hex": "90",
+		"Acronym": "DCS",
+		"Name": "Device Control String",
+		"Description": "Followed by a string of printable characters (0x20 through 0x7E) and format effectors (0x08 through 0x0D), terminated by ST (0x9C). This may be used by variable-length control sequences for text terminals and terminal emulators, such as terminfo queries."
+	},
+	{
+		"Seq": "Q",
+		"Dec": "145",
+		"Hex": "91",
+		"Acronym": "PU1",
+		"Name": "Private Use 1",
+		"Description": "Reserved for a function without standardized meaning for private use as required, subject to the prior agreement of the sender and the recipient of the data."
+	},
+	{
+		"Seq": "R",
+		"Dec": "146",
+		"Hex": "92",
+		"Acronym": "PU2",
+		"Name": "Private Use 2",
+		"Description": "〃"
+	},
+	{
+		"Seq": "S",
+		"Dec": "147",
+		"Hex": "93",
+		"Acronym": "STS",
+		"Name": "Set Transmit State",
+		"Description": ""
+	},
+	{
+		"Seq": "T",
+		"Dec": "148",
+		"Hex": "94",
+		"Acronym": "CCH",
+		"Name": "Cancel character",
+		"Description": "Destructive backspace, intended to eliminate ambiguity about meaning of BS."
+	},
+	{
+		"Seq": "U",
+		"Dec": "149",
+		"Hex": "95",
+		"Acronym": "MW",
+		"Name": "Message Waiting",
+		"Description": ""
+	},
+	{
+		"Seq": "V",
+		"Dec": "150",
+		"Hex": "96",
+		"Acronym": "SPA",
+		"Name": "Start of Protected Area",
+		"Description": "Used by block-oriented terminals."
+	},
+	{
+		"Seq": "W",
+		"Dec": "151",
+		"Hex": "97",
+		"Acronym": "EPA",
+		"Name": "End of Protected Area",
+		"Description": "〃"
+	},
+	{
+		"Seq": "X",
+		"Dec": "152",
+		"Hex": "98",
+		"Acronym": "SOS",
+		"Name": "Start of String",
+		"Description": "Followed by a control string terminated by ST (0x9C) that may contain any character except SOS or ST.  Not part of the first edition of ISO/IEC 6429."
+	},
+	{
+		"Seq": "Y",
+		"Dec": "153",
+		"Hex": "99",
+		"Acronym": "SGCI",
+		"Name": "Single Graphic Character Introducer",
+		"Description": "Not part of ISO/IEC 6429. In early drafts of ISO 10646, was used to encode a single multiple-byte character without switching out of a HOP mode. In later drafts, this facility was removed, the name was nonetheless retained as a RFC 1345 standard code-point name."
+	},
+	{
+		"Seq": "Z",
+		"Dec": "154",
+		"Hex": "9A",
+		"Acronym": "SCI",
+		"Name": "Single Character Introducer",
+		"Description": "To be followed by a single printable character (0x20 through 0x7E) or format effector (0x08 through 0x0D).  The intent was to provide a means by which a control function or a graphic character that would be available regardless of which graphic or control sets were in use could be defined.  Definitions of what the following byte would invoke was never implemented in an international standard.  Not part of the first edition of ISO/IEC 6429."
+	},
+	{
+		"Seq": "[",
+		"Dec": "155",
+		"Hex": "9B",
+		"Acronym": "CSI",
+		"Name": "Control Sequence Introducer",
+		"Description": "Used to introduce control sequences that take parameters."
+	},
+	{
+		"Seq": "\\",
+		"Dec": "156",
+		"Hex": "9C",
+		"Acronym": "ST",
+		"Name": "String Terminator",
+		"Description": "Terminates a variable-length control string initiated by DCS, SOS, OSC, PM or APC."
+	},
+	{
+		"Seq": "]",
+		"Dec": "157",
+		"Hex": "9D",
+		"Acronym": "OSC",
+		"Name": "Operating System Command",
+		"Description": "Followed by a string of printable characters (0x20 through 0x7E) and format effectors (0x08 through 0x0D), terminated by ST (0x9C). These three control codes were intended for use to allow in-band signaling of protocol information, but are rarely used for that purpose.\nSome terminal emulators, including xterm, support OSC sequences for setting the window title and reconfiguring the available colour palette. They may also support terminating an OSC sequence with BEL as a non-standard alternative to the standard ST."
+	},
+	{
+		"Seq": "^",
+		"Dec": "158",
+		"Hex": "9E",
+		"Acronym": "PM",
+		"Name": "Privacy Message",
+		"Description": "〃"
+	},
+	{
+		"Seq": "_",
+		"Dec": "159",
+		"Hex": "9F",
+		"Acronym": "APC",
+		"Name": "Application Program Command",
+		"Description": "〃"
+	}
+]

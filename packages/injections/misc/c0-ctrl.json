@@ -1,0 +1,336 @@
+[
+	{
+		"Seq": "^@",
+		"Dec": "00",
+		"Hex": "00",
+		"Acronym": "NUL",
+		"Symbol": "␀",
+		"Name": "Null",
+		"C": "\\0",
+		"Description": "Originally used to allow gaps to be left on paper tape for edits. Later used for padding after a code that might take a terminal some time to process (e.g. a carriage return or line feed on a printing terminal). Now often used as a string terminator, especially in the programming language C."
+	},
+	{
+		"Seq": "^A",
+		"Dec": "01",
+		"Hex": "01",
+		"Acronym": "SOH",
+		"Symbol": "␁",
+		"Name": "Start of Heading",
+		"C": "",
+		"Description": "In message transmission, delimits the start of a message header. The format of this header may be defined by an applicable protocol, such as IPTC 7901 for journalistic text transmission, and it is usually terminated by STX. In Hadoop, it is often used as a field separator."
+	},
+	{
+		"Seq": "^B",
+		"Dec": "02",
+		"Hex": "02",
+		"Acronym": "STX",
+		"Symbol": "␂",
+		"Name": "Start of Text",
+		"C": "",
+		"Description": "First character of message text, and may be used to terminate the message heading."
+	},
+	{
+		"Seq": "^C",
+		"Dec": "03",
+		"Hex": "03",
+		"Acronym": "ETX",
+		"Symbol": "␃",
+		"Name": "End of Text",
+		"C": "",
+		"Description": "In message transmission, delimits the end of the main text of a message. Might be followed by \"post-text information\" (i.e. a structured footer) defined by an applicable protocol or by any additional texts, followed by EOT. In keyboard input, often used as a \"break\" character (Ctrl-C) to interrupt or terminate a program or process."
+	},
+	{
+		"Seq": "^D",
+		"Dec": "04",
+		"Hex": "04",
+		"Acronym": "EOT",
+		"Symbol": "␄",
+		"Name": "End of Transmission",
+		"C": "",
+		"Description": "Delimits the end of a transmitted message, which may include a header, message text and post-text footer, or even multiple texts and associated headings. May also be used to place terminals on standby. Often used on Unix to indicate end-of-file on a terminal."
+	},
+	{
+		"Seq": "^E",
+		"Dec": "05",
+		"Hex": "05",
+		"Acronym": "ENQ",
+		"Symbol": "␅",
+		"Name": "Enquiry",
+		"C": "",
+		"Description": "Signal intended to trigger a response at the receiving end, to see if it is still present."
+	},
+	{
+		"Seq": "^F",
+		"Dec": "06",
+		"Hex": "06",
+		"Acronym": "ACK",
+		"Symbol": "␆",
+		"Name": "Acknowledge",
+		"C": "",
+		"Description": "Response to an ENQ, or an indication of successful receipt of a message."
+	},
+	{
+		"Seq": "^G",
+		"Dec": "07",
+		"Hex": "07",
+		"Acronym": "BEL",
+		"Symbol": "␇",
+		"Name": ["Bell", "Alert"],
+		"C": "\\a",
+		"Description": "Originally used to sound a bell on the terminal. Later used for a beep on systems that didn't have a physical bell. May also quickly turn on and off inverse video (a visual bell)."
+	},
+	{
+		"Seq": "^H",
+		"Dec": "08",
+		"Hex": "08",
+		"Acronym": "BS",
+		"Symbol": "␈",
+		"Name": "Backspace",
+		"C": "\\b",
+		"Description": "Move the cursor one position leftwards. On input, this may delete the character to the left of the cursor.  On output, where in early computer technology a character once printed could not be erased, the backspace was sometimes used to generate accented characters in ASCII.  For example, à could be produced using the three character sequence a BS ` (or, using the characters’ hex values, 0x61 0x08 0x60).  This usage is now generally not supported (it is prohibited in, for instance, ISO/IEC 8859). To provide disambiguation between the two potential uses of backspace, the cancel character control code was made part of the standard C1 control set."
+	},
+	{
+		"Seq": "^I",
+		"Dec": "09",
+		"Hex": "09",
+		"Acronym": "HT",
+		"Symbol": "␉",
+		"Name": ["Character Tabulation", "Horizontal Tabulation"],
+		"C": "\\t",
+		"Description": "Position to the next character tab stop."
+	},
+	{
+		"Seq": "^J",
+		"Dec": "10",
+		"Hex": "0A",
+		"Acronym": "LF",
+		"Symbol": "␊",
+		"Name": "Line Feed",
+		"C": "\\n",
+		"Description": "On typewriters, printers, and some terminal emulators, moves the cursor down one row without affecting its column position. On Unix, used to mark end-of-line.  In DOS, Windows, and various network standards, LF is used following CR as part of the end-of-line mark."
+	},
+	{
+		"Seq": "^K",
+		"Dec": "11",
+		"Hex": "0B",
+		"Acronym": "VT",
+		"Symbol": "␋",
+		"Name": ["Line Tabulation", "Vertical Tabulation"],
+		"C": "\\v",
+		"Description": "Position the form at the next line tab stop."
+	},
+	{
+		"Seq": "^L",
+		"Dec": "12",
+		"Hex": "0C",
+		"Acronym": "FF",
+		"Symbol": "␌",
+		"Name": "Form Feed",
+		"C": "\\f",
+		"Description": "On printers, load the next page. Treated as whitespace in many programming languages, and may be used to separate logical divisions in code.  In some terminal emulators, it clears the screen. It still appears in some common plain text files as a page break character, such as the RFCs published by IETF."
+	},
+	{
+		"Seq": "^M",
+		"Dec": "13",
+		"Hex": "0D",
+		"Acronym": "CR",
+		"Symbol": "␍",
+		"Name": "Carriage Return",
+		"C": "\\r",
+		"Description": "Originally used to move the cursor to column zero while staying on the same line. On classic Mac OS (pre-Mac OS X), as well as in earlier systems such as the Apple II and Commodore 64, used to mark end-of-line.  In DOS, Windows, and various network standards, it is used preceding LF as part of the end-of-line mark. The Enter or Return key on a keyboard will send this character, but it may be converted to a different end-of-line sequence by a terminal program."
+	},
+	{
+		"Seq": "^N",
+		"Dec": "14",
+		"Hex": "0E",
+		"Acronym": "SO",
+		"Symbol": "␎",
+		"Name": "Shift Out",
+		"C": "",
+		"Description": "Switch to an alternative character set."
+	},
+	{
+		"Seq": "^O",
+		"Dec": "15",
+		"Hex": "0F",
+		"Acronym": "SI",
+		"Symbol": "␏",
+		"Name": "Shift In",
+		"C": "",
+		"Description": "Return to regular character set after Shift Out."
+	},
+	{
+		"Seq": "^P",
+		"Dec": "16",
+		"Hex": "10",
+		"Acronym": "DLE",
+		"Symbol": "␐",
+		"Name": "Data Link Escape",
+		"C": "",
+		"Description": "Cause the following octets to be interpreted as raw data, not as control codes or graphic characters.  Returning to normal usage would be implementation dependent."
+	},
+	{
+		"Seq": "^Q",
+		"Dec": "17",
+		"Hex": "11",
+		"Acronym": "DC1",
+		"Symbol": "␑",
+		"Name": "Device Control One (XON)",
+		"C": "",
+		"Description": "These four control codes are reserved for device control, with the interpretation dependent upon the device to which they were connected.  DC1 and DC2 were intended primarily to indicate activating a device while DC3 and DC4 were intended primarily to indicate pausing or turning off a device.  DC1 and DC3 (known also as XON and XOFF respectively in this usage) originated as the \"start and stop remote paper-tape-reader\" functions in ASCII Telex networks. This teleprinter usage became the de facto standard for software flow control."
+	},
+	{
+		"Seq": "^R",
+		"Dec": "18",
+		"Hex": "12",
+		"Acronym": "DC2",
+		"Symbol": "␒",
+		"Name": "Device Control Two",
+		"C": ""
+	},
+	{
+		"Seq": "^S",
+		"Dec": "19",
+		"Hex": "13",
+		"Acronym": "DC3",
+		"Symbol": "␓",
+		"Name": "Device Control Three (XOFF)",
+		"C": ""
+	},
+	{
+		"Seq": "^T",
+		"Dec": "20",
+		"Hex": "14",
+		"Acronym": "DC4",
+		"Symbol": "␔",
+		"Name": "Device Control Four",
+		"C": ""
+	},
+	{
+		"Seq": "^U",
+		"Dec": "21",
+		"Hex": "15",
+		"Acronym": "NAK",
+		"Symbol": "␕",
+		"Name": "Negative Acknowledge",
+		"C": "",
+		"Description": "Sent by a station as a negative response to the station with which the connection has been set up.  In binary synchronous communication protocol, the NAK is used to indicate that an error was detected in the previously received block and that the receiver is ready to accept retransmission of that block.  In multipoint systems, the NAK is used as the not-ready reply to a poll."
+	},
+	{
+		"Seq": "^V",
+		"Dec": "22",
+		"Hex": "16",
+		"Acronym": "SYN",
+		"Symbol": "␖",
+		"Name": "Synchronous Idle",
+		"C": "",
+		"Description": "Used in synchronous transmission systems to provide a signal from which synchronous correction may be achieved between data terminal equipment, particularly when no other character is being transmitted."
+	},
+	{
+		"Seq": "^W",
+		"Dec": "23",
+		"Hex": "17",
+		"Acronym": "ETB",
+		"Symbol": "␗",
+		"Name": "End of Transmission Block",
+		"C": "",
+		"Description": "Indicates the end of a transmission block of data when data are divided into such blocks for transmission purposes.\nIf it is not in use for another purpose, IPTC 7901 recommends interpreting ETB as an end of paragraph character."
+	},
+	{
+		"Seq": "^X",
+		"Dec": "24",
+		"Hex": "18",
+		"Acronym": "CAN",
+		"Symbol": "␘",
+		"Name": "Cancel",
+		"C": "",
+		"Description": "Indicates that the data preceding it are in error or are to be disregarded."
+	},
+	{
+		"Seq": "^Y",
+		"Dec": "25",
+		"Hex": "19",
+		"Acronym": "EM",
+		"Symbol": "␙",
+		"Name": "End of medium",
+		"C": "",
+		"Description": "Intended as means of indicating on paper or magnetic tapes that the end of the usable portion of the tape had been reached. It might also mark the end of the used portion of the medium, and does not necessarily correspond to the physical end of medium.\nIf it is not in use for another purpose, IPTC 7901 recommends repurposing EM as an em space for indenting the first line of a paragraph (see also .mw-parser-output .control-code-link-internal{border-bottom:1px dashed #86a1ff}.mw-parser-output .control-code-link-internal a{color:inherit}EMSP)."
+	},
+	{
+		"Seq": "^Z",
+		"Dec": "26",
+		"Hex": "1A",
+		"Acronym": "SUB",
+		"Symbol": "␚",
+		"Name": "Substitute",
+		"C": "",
+		"Description": "Originally intended for use as a transmission control character to indicate that garbled or invalid characters had been received.  It has often been put to use for other purposes when the in-band signaling of errors it provides is unneeded, especially where robust methods of error detection and correction are used, or where errors are expected to be rare enough to make using the character for other purposes advisable. In DOS, Windows and other CP/M derivatives, it is used to indicate the end of file, both when typing on the terminal, and sometimes in text files stored on disk."
+	},
+	{
+		"Seq": "^[",
+		"Dec": "27",
+		"Hex": "1B",
+		"Acronym": "ESC",
+		"Symbol": "␛",
+		"Name": "Escape",
+		"C": "\\e",
+		"Description": "The Esc key on the keyboard will cause this character to be sent on most systems. It can be used in software user interfaces to exit from a screen, menu, or mode, or in device-control protocols (e.g., printers and terminals) to signal that what follows is a special command sequence rather than normal text. In systems based on ISO/IEC 2022, even if another set of C0 control codes are used, this octet is required to always represent the escape character."
+	},
+	{
+		"Seq": "^\\",
+		"Dec": "28",
+		"Hex": "1C",
+		"Acronym": "FS",
+		"Symbol": "␜",
+		"Name": "File Separator",
+		"C": "",
+		"Description": "Can be used as delimiters to mark fields of data structures.  If used for hierarchical levels, US is the lowest level (dividing plain-text data items), while RS, GS, and FS are of increasing level to divide groups made up of items of the level beneath it.\nThe Unix info format uses US, followed by an optional form-feed and a line break, to mark the beginning of a node.\nIn the current edition of IPTC 7901, if they are not used for other purposes, US is recommended for use as a column separator in tables, FS as a \"Central Field Separator\" in tables, and GS and RS respectively for marking a following space or hyphen-minus as non-breaking or soft respectively (in character sets not supplying explicit NBSP and SHY characters)."
+	},
+	{
+		"Seq": "^]",
+		"Dec": "29",
+		"Hex": "1D",
+		"Acronym": "GS",
+		"Symbol": "␝",
+		"Name": "Group Separator",
+		"C": ""
+	},
+	{
+		"Seq": "^^",
+		"Dec": "30",
+		"Hex": "1E",
+		"Acronym": "RS",
+		"Symbol": "␞",
+		"Name": "Record Separator",
+		"C": ""
+	},
+	{
+		"Seq": "^_",
+		"Dec": "31",
+		"Hex": "1F",
+		"Acronym": "US",
+		"Symbol": "␟",
+		"Name": "Unit Separator",
+		"C": ""
+	},
+	{
+		"Seq": "",
+		"Dec": "32",
+		"Hex": "20",
+		"Acronym": "SP",
+		"Symbol": "␠",
+		"Name": "Space",
+		"C": "",
+		"Description": "Space is a graphic character. It has a visual representation consisting of the absence of a graphic symbol. It causes the active position to be advanced by one character position. In some applications, Space can be considered a lowest-level \"word separator\" to be used with the adjacent separator characters."
+	},
+	{
+		"Seq": "^?",
+		"Dec": "127",
+		"Hex": "7F",
+		"Acronym": "DEL",
+		"Symbol": "␡",
+		"Name": "Delete",
+		"C": "",
+		"Description": "Not technically part of the C0 control character range, this was originally used to mark deleted characters on paper tape, since any character could be changed to all ones by punching holes everywhere. On VT100 compatible terminals, this is the character generated by the key labelled ⌫, usually called backspace on modern machines, and does not correspond to the PC delete key."
+	}
+]

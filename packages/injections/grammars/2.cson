@@ -1,10 +1,82 @@
+# Show non-printing control characters
 scopeName: "fuck-atom.2"
 injectionSelector: "source, text"
 patterns: [
-	{match: "\\0",   name: "punctuation.ctrl-char.null-byte"}
-	{match: "\\a",   name: "punctuation.ctrl-char.alarm"}
-	{match: "[\\b]", name: "punctuation.ctrl-char.backspace"}
-	{match: "\\x0B", name: "punctuation.whitespace.vertical-tab"}
-	{match: "\\r",   name: "punctuation.whitespace.carriage-return"}
-	{match: "\\x1B", name: "punctuation.ctrl-char.escape"}
+	{include: "#c0"}
+	{include: "#c1"}
 ]
+
+repository:
+	# ASCII control characters
+	c0: patterns: [
+		{match: "\\0",   name: "punctuation.c0.ctrl-char.null-byte"}
+		{match: "\\x01", name: "punctuation.c0.ctrl-char.start-of-heading"}
+		{match: "\\x02", name: "punctuation.c0.ctrl-char.start-of-text"}
+		{match: "\\x03", name: "punctuation.c0.ctrl-char.end-of-text"}
+		{match: "\\x04", name: "punctuation.c0.ctrl-char.end-of-transmission"}
+		{match: "\\x05", name: "punctuation.c0.ctrl-char.enquiry"}
+		{match: "\\x06", name: "punctuation.c0.ctrl-char.acknowledge"}
+		{match: "\\a",   name: "punctuation.c0.ctrl-char.alarm.bell"}
+		{match: "[\\b]", name: "punctuation.c0.ctrl-char.backspace"}
+		{match: "\\t",   name: "punctuation.whitespace.horizontal-tab", disabled: yes}
+		{match: "\\n",   name: "punctuation.whitespace.line-feed", disabled: yes}
+		{match: "\\x0B", name: "punctuation.whitespace.vertical-tab"}
+		{match: "\\f",   name: "punctuation.whitespace.form-feed", disabled: yes}
+		{match: "\\r",   name: "punctuation.whitespace.carriage-return"}
+		{match: "\\x0E", name: "punctuation.c0.ctrl-char.shift-out"}
+		{match: "\\x0F", name: "punctuation.c0.ctrl-char.shift-in"}
+		{match: "\\x10", name: "punctuation.c0.ctrl-char.data-link-escape"}
+		{match: "\\x11", name: "punctuation.c0.ctrl-char.device-control-1.xon"}
+		{match: "\\x12", name: "punctuation.c0.ctrl-char.device-control-2"}
+		{match: "\\x13", name: "punctuation.c0.ctrl-char.device-control-3.xoff"}
+		{match: "\\x14", name: "punctuation.c0.ctrl-char.device-control-4"}
+		{match: "\\x15", name: "punctuation.c0.ctrl-char.negative-acknowledge"}
+		{match: "\\x16", name: "punctuation.c0.ctrl-char.synchronous-idle"}
+		{match: "\\x17", name: "punctuation.c0.ctrl-char.end-of-transmission-block"}
+		{match: "\\x18", name: "punctuation.c0.ctrl-char.cancel"}
+		{match: "\\x19", name: "punctuation.c0.ctrl-char.end-of-medium"}
+		{match: "\\x1A", name: "punctuation.c0.ctrl-char.substitute"}
+		{match: "\\x1B", name: "punctuation.c0.ctrl-char.escape"}
+		{match: "\\x1C", name: "punctuation.c0.ctrl-char.file-separator"}
+		{match: "\\x1D", name: "punctuation.c0.ctrl-char.group-separator"}
+		{match: "\\x1E", name: "punctuation.c0.ctrl-char.record-separator"}
+		{match: "\\x1F", name: "punctuation.c0.ctrl-char.unit-separator"}
+		{match: "\\x20", name: "punctuation.whitespace.space", disabled: yes}
+		{match: "\\x7F", name: "punctuation.c0.ctrl-char.delete"}
+	]
+
+	# Latin-1 supplement (C1 control codes)
+	c1: patterns: [
+		{match: "\x80", name: "punctuation.c1.ctrl-char.pad.padding-character"}
+		{match: "\x81", name: "punctuation.c1.ctrl-char.hop.high-octet-preset"}
+		{match: "\x82", name: "punctuation.c1.ctrl-char.bph.break-permitted-here"}
+		{match: "\x83", name: "punctuation.c1.ctrl-char.nbh.no-break-here"}
+		{match: "\x84", name: "punctuation.c1.ctrl-char.ind.index"}
+		{match: "\x85", name: "punctuation.c1.ctrl-char.nel.next-line"}
+		{match: "\x86", name: "punctuation.c1.ctrl-char.ssa.start-of-selected-area"}
+		{match: "\x87", name: "punctuation.c1.ctrl-char.esa.end-of-selected-area"}
+		{match: "\x88", name: "punctuation.c1.ctrl-char.hts.character-tabulation-set.horizontal-tabulation-set"}
+		{match: "\x89", name: "punctuation.c1.ctrl-char.htj.character-tabulation-with-justification.horizontal-tabulation-with-justification"}
+		{match: "\x8A", name: "punctuation.c1.ctrl-char.vts.line-tabulation-set.vertical-tabulation-set"}
+		{match: "\x8B", name: "punctuation.c1.ctrl-char.pld.partial-line-forward.partial-line-down"}
+		{match: "\x8C", name: "punctuation.c1.ctrl-char.plu.partial-line-backward.partial-line-up"}
+		{match: "\x8D", name: "punctuation.c1.ctrl-char.ri.reverse-line-feed.reverse-index.line-starve"}
+		{match: "\x8E", name: "punctuation.c1.ctrl-char.ss2.single-shift-2"}
+		{match: "\x8F", name: "punctuation.c1.ctrl-char.ss3.single-shift-3"}
+		{match: "\x90", name: "punctuation.c1.ctrl-char.dcs.device-control-string"}
+		{match: "\x91", name: "punctuation.c1.ctrl-char.pu1.private-use-1"}
+		{match: "\x92", name: "punctuation.c1.ctrl-char.pu2.private-use-2"}
+		{match: "\x93", name: "punctuation.c1.ctrl-char.sts.set-transmit-state"}
+		{match: "\x94", name: "punctuation.c1.ctrl-char.cch.cancel-character"}
+		{match: "\x95", name: "punctuation.c1.ctrl-char.mw.message-waiting"}
+		{match: "\x96", name: "punctuation.c1.ctrl-char.spa.start-of-protected-area"}
+		{match: "\x97", name: "punctuation.c1.ctrl-char.epa.end-of-protected-area"}
+		{match: "\x98", name: "punctuation.c1.ctrl-char.sos.start-of-string"}
+		{match: "\x99", name: "punctuation.c1.ctrl-char.sgci.single-graphic-character-introducer"}
+		{match: "\x9A", name: "punctuation.c1.ctrl-char.sci.single-character-introducer"}
+		{match: "\x9B", name: "punctuation.c1.ctrl-char.csi.control-sequence-introducer"}
+		{match: "\x9C", name: "punctuation.c1.ctrl-char.st.string-terminator"}
+		{match: "\x9D", name: "punctuation.c1.ctrl-char.osc.operating-system-command"}
+		{match: "\x9E", name: "punctuation.c1.ctrl-char.pm.privacy-message"}
+		{match: "\x9F", name: "punctuation.c1.ctrl-char.apc.application-program-command"}
+	]
