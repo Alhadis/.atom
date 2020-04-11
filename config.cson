@@ -3,6 +3,9 @@
 		showSpacingInStatusBar: false
 	core:
 		customFileTypes:
+			"source.c": [
+				"share/misc/getopt"
+			]
 			"source.ini": [
 				"flake8"
 				"npmrc"
@@ -25,6 +28,7 @@
 			]
 			"text.plain": [
 				"packages/injections/misc/latin-1"
+				"mail.tildehelp"
 			]
 			"text.roff": [
 				"mm"
