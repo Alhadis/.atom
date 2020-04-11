@@ -62,6 +62,7 @@ all: \
 	language-tcltk \
 	language-texinfo \
 	language-turing \
+	language-units \
 	language-v \
 	language-viml \
 	language-vtt \
@@ -152,6 +153,10 @@ language-texinfo:
 
 language-turing:
 	git clone 'git@github.com:Alhadis/language-turing.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+language-units:
+	git clone 'git@github.com:Alhadis/language-units.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 language-viml:
