@@ -183,3 +183,12 @@ xterm-quotes:
 %:
 	apm install $@
 	if [ -f "patches/$@.patch" ]; then patch -d "$@" -p1 < "patches/$@.patch"; fi
+
+language-markdown:
+	git clone --depth=1 'git@github.com:burodepeper/language-markdown.git' $@
+	patch -d "$@" -p1 < "patches/$@.patch"
+	cd $@ && rm -rf lib && sed -i.ugh \
+		-e '/"dependencies": {$$/,/^[[:blank:]]*},$$/d' \
+		-e '/"main":/d' \
+		package.json && rm -f *.ugh
+	find $@ -type f -print0 | xargs -0 perl -pi -e 's/\btext[ .]\Kmd\b/markdown/g'
