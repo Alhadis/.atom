@@ -1,0 +1,9 @@
+".source.odin":
+	editor:
+		commentStart: "// "
+
+".source.r":
+	editor:
+		commentStart: "# "
+		increaseIndentPattern: "^\\s*#region"
+		decreaseIndentPattern: "^\\s*#endregion"
