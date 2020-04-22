@@ -1047,3 +1047,40 @@ atom-text-editor[mini] .scroll-view{
 		text-decoration: underline;
 	}
 }
+
+
+/** OpenBSD package info */
+.syntax--text.syntax--openbsd-pkg{
+	.syntax--markup.syntax--heading{
+		color: #f00;
+	}
+	.syntax--entity.syntax--name.syntax--tag.syntax--field{
+		color: #00f;
+	}
+}
+
+.syntax--source.syntax--openbsd-pkg{
+	.syntax--keyword.syntax--operator.syntax--annotation{
+		color: #ee000b !important;
+		font-weight: bold;
+	}
+	.syntax--meta.syntax--annotation{
+		.syntax--punctuation.syntax--delimiter,
+		.syntax--punctuation.syntax--separator{
+			color: #00f !important;
+			opacity: 0.35;
+		}
+	}
+	.syntax--meta.syntax--package-spec{
+		color: #00f;
+		.syntax--keyword.syntax--operator{
+			color: #f00 !important;
+		}
+		.syntax--constant.syntax--version-string{
+			&, & .syntax--punctuation{
+				color: inherit !important;
+				opacity: 1;
+			}
+		}
+	}
+}
