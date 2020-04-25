@@ -28,4 +28,8 @@ patterns: [{
 			{match: "\\(", name: "meta.brace.round.js"}
 			{match: "\\[", name: "meta.brace.square.js"}
 		]
+},{
+	# While we're here, highlight BigInt-related classes too
+	name:  "support.class.js"
+	match: "\\b(?<![$.])(?:BigUint64Array|BigInt64Array|BigInt)(?![$.])\\b"
 }]
