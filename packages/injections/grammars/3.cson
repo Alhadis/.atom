@@ -1,0 +1,37 @@
+scopeName: "fuck-atom.3"
+injectionSelector: "L:source.js"
+patterns: [{
+	begin: "(?=^\\s*/[/*]\\s*<!DOCTYPE\\s+html[^>]*>)"
+	end:   "(?=A)B"
+	patterns: [
+		{include: "#htmlLine"}
+		
+		begin: "(?=^\\s*/[/*]\\s*</script></body></html>)"
+		end:   "(?=A)B"
+		patterns: [
+			{include: "#htmlLine"}
+			
+			begin: "(?<=</html>)\\s*"
+			end:   "(?=A)B"
+			contentName: "invalid.illegal.unreachable"
+			
+			{include: "source.js"}
+		]
+		
+		{include: "source.js"}
+	]
+}]
+
+repository:
+	htmlLine:
+		begin: "\\G\\s*(//)"
+		end:   "$"
+		beginCaptures:
+			0: name: "comment.line.double-slash.js"
+			1: name: "punctuation.definition.comment.js"
+		patterns: [{
+			name:  "text.embedded.html.basic"
+			match: "\\G(.+)(?=\\s*$)"
+			captures:
+				1: patterns: [include: "text.html.basic"]
+		}]
