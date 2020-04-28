@@ -20,6 +20,36 @@ patterns: [{
 		
 		{include: "source.js"}
 	]
+},{
+	begin: "(?=\\s*(?<!\\$)\\bnew\\s+RegExp\\s*\\(\\s*String\\.raw\\s*`)"
+	end:   "(?<=`)"
+	patterns: [{
+		match: "\\G([^`]+)"
+		captures:
+			1: patterns: [include: "source.js"]
+	},{
+		# new RegExp(String.raw `(?x) …`);
+		name:  "string.quoted.template.regexp.js"
+		begin: "(`)(\\(\\?\\^?[A-Za-wyz]*x[A-Za-z]*[-A-Za-wyz]*\\))"
+		end:   "`"
+		beginCaptures:
+			1: name: "punctuation.definition.string.begin.js"
+			2: patterns: [include: "source.regexp#group"]
+		endCaptures:
+			0: name: "punctuation.definition.string.end.js"
+		patterns: [include: "source.regexp.extended"]
+	},{
+		# new RegExp(String.raw `…`);
+		name:  "string.quoted.template.regexp.js"
+		begin: "`"
+		end:   "`"
+		beginCaptures:
+			1: name: "punctuation.definition.string.begin.js"
+			2: patterns: [include: "source.regexp#group"]
+		endCaptures:
+			0: name: "punctuation.definition.string.end.js"
+		patterns: [include: "source.regexp.extended"]
+	}]
 }]
 
 repository:
