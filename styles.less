@@ -132,22 +132,6 @@ atom-text-editor.is-focused .cursors .cursor{
 	content: "\f011";
 }
 
-[data-path*="/t/0"], [data-path*="/t/1"],
-[data-path*="/t/2"], [data-path*="/t/3"],
-[data-path*="/t/4"], [data-path*="/t/5"],
-[data-path*="/t/6"], [data-path*="/t/7"],
-[data-path*="/t/8"], [data-path*="/t/9"]{
-	&.icon[data-path$=".sh"]::before{
-		font: 17px "File-Icons";
-		content: "\ea63";
-		top: 3px;
-		
-		body:not(.file-icons-colourless) & {
-			color: #90a959;
-		}
-	}
-}
-
 .icon[data-path$="npmrc"]::before{
 	font: 17px "File-Icons";
 	content: "\e91c";
