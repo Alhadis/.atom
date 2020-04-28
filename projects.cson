@@ -5,7 +5,6 @@
 			"~/.atom"
 		]
 		icon: "atom-icon"
-		devMode: true
 	}
 	{
 		title: ".files"
@@ -30,7 +29,6 @@
 			"~/Labs/file-icons/vscode"
 		]
 		icon: "atom-icon"
-		devMode: true
 	}
 	{
 		title: "Utils"
