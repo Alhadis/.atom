@@ -122,7 +122,7 @@
 "body:not(.platform-darwin) .find-and-replace,
  body:not(.platform-darwin) .project-find":
 	"ctrl-r":         "find-and-replace:toggle-regex-option"
-	"shift-ctrl-c":   "find-and-replace:toggle-case-option"
+	"ctrl-i":         "find-and-replace:toggle-case-option"
 
 
 # macOS
@@ -185,7 +185,7 @@
 "body.platform-darwin .find-and-replace,
  body.platform-darwin .project-find":
 	"cmd-r":          "find-and-replace:toggle-regex-option"
-	"shift-cmd-c":    "find-and-replace:toggle-case-option"
+	"cmd-i":          "find-and-replace:toggle-case-option"
 
 "body.platform-darwin .tree-view":
 	"cmd-1":          "pane:show-item-1"
