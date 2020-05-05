@@ -113,6 +113,9 @@
 	"ctrl--":         "user:decrement"
 	"ctrl-_":         "user:decrement"
 
+"body:not(.platform-darwin) atom-text-editor:not([mini])":
+	"ctrl-r":         "symbols-view:toggle-file-symbols"
+
 "body:not(.platform-darwin) .pdf-view":
 	"ctrl-b":         "pdf-view:toggle-binary-view"
 
@@ -172,6 +175,9 @@
 	"cmd-+":          "user:increment"
 	"cmd--":          "user:decrement"
 	"cmd-_":          "user:decrement"
+
+"body.platform-darwin atom-text-editor:not([mini])":
+	"cmd-r":          "symbols-view:toggle-file-symbols"
 
 "body.platform-darwin .pdf-view":
 	"cmd-b":          "pdf-view:toggle-binary-view"
