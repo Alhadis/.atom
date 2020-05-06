@@ -47,6 +47,7 @@
 		openEmptyEditorOnStart: false
 		packagesWithKeymapsDisabled: [
 			"language-markdown"
+			"advanced-open-file"
 		]
 		telemetryConsent: "no"
 		themes: [
