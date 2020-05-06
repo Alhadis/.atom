@@ -123,6 +123,7 @@
 			"text.srt"
 			"text.xml"
 		]
+		noticesMode: "console"
 	"status-bar":
 		fullWidth: false
 	tabs: {}
