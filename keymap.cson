@@ -124,6 +124,8 @@
  body:not(.platform-darwin) .project-find":
 	"ctrl-r":         "find-and-replace:toggle-regex-option"
 	"ctrl-i":         "find-and-replace:toggle-case-option"
+	"ctrl-alt-s":     "unset!"
+	"ctrl-alt-w":     "unset!"
 
 
 # macOS
@@ -188,6 +190,8 @@
  body.platform-darwin .project-find":
 	"cmd-r":          "find-and-replace:toggle-regex-option"
 	"cmd-i":          "find-and-replace:toggle-case-option"
+	"cmd-alt-s":      "unset!"
+	"cmd-alt-w":      "unset!"
 
 "body.platform-darwin .tree-view":
 	"cmd-1":          "pane:show-item-1"
