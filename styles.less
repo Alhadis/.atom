@@ -364,3 +364,21 @@ body:not(.shitting-trees) .grammar-selector .pull-right > .badge{
 		display: none !important;
 	}
 }
+
+
+[data-active-item-path$="/file-icons/icons/icons.tsv"]{
+	.syntax--astral-row         > :nth-child(4) > .hard-tab { margin-right: 0; }
+	.syntax--prime-material-row > :nth-child(4) > .hard-tab { margin-right: -1ch; }
+	
+	.syntax--astral-row, .syntax--prime-material-row{
+		& > :nth-child(3){
+			font-family: File-Icons;
+			vertical-align: middle;
+			text-align: center;
+			line-height: 1;
+			width: 1ch;
+			height: 1em;
+			display: inline-block;
+		}
+	}
+}

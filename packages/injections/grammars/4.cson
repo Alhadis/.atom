@@ -1,0 +1,23 @@
+scopeName: "fuck-atom.4"
+injectionSelector: "L:source.generic-db - file-icon"
+patterns: [{
+	name:  "file-icon.astral-row"
+	begin: "(?=^(?:.*?\\t)?U\\+1[A-Fa-f0-9]{4,}\\t)"
+	end:   "([^\\t]+)?(?=\\s*$)"
+	endCaptures:
+		1: name: "constant.other.field.generic-db"
+	patterns: [{
+		name: "constant.other.field.generic-db"
+		match: "[^\\t]+"
+	}, include: "etc#tab"]
+},{
+	name:  "file-icon.prime-material-row"
+	begin: "(?=^(?:.*?\\t)?U\\+[A-Fa-f0-9]{1,4}\\t)"
+	end:   "([^\\t]+)?(?=\\s*$)"
+	endCaptures:
+		1: name: "constant.other.field.generic-db"
+	patterns: [{
+		name: "constant.other.field.generic-db"
+		match: "[^\\t]+"
+	}, include: "etc#tab"]
+}]
