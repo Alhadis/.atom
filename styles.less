@@ -330,6 +330,19 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 			border-left-width: 3px;
 		}
 	}
+	
+	/* Sharpen contrast of highlighted search-results */
+	.results-view, .preview-pane{
+		.highlight-info{
+			color: #fff;
+			border-radius: 0;
+			background-color: rgba(0, 0, 127, 1);
+			background-clip: padding-box;
+			padding: 1px 2px;
+			border: 0 solid transparent;
+			border-width: 0 1px;
+		}
+	}
 }
 
 
@@ -366,6 +379,7 @@ body:not(.shitting-trees) .grammar-selector .pull-right > .badge{
 }
 
 
+/* Make File-Icons's TSV character map legible */
 [data-active-item-path$="/file-icons/icons/icons.tsv"]{
 	.syntax--astral-row         > :nth-child(4) > .hard-tab { margin-right: 0; }
 	.syntax--prime-material-row > :nth-child(4) > .hard-tab { margin-right: -1ch; }
