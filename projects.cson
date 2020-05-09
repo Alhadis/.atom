@@ -14,6 +14,15 @@
 		icon: "terminal-icon"
 	}
 	{
+		title: "Utils"
+		paths: [
+			"~/Labs/Utils"
+			"~/Labs/JG"
+			"~/Labs/EAL"
+		]
+		icon: "icon-tools"
+	}
+	{
 		title: "language-roff"
 		paths: [
 			"~/Labs/language-roff"
@@ -25,19 +34,12 @@
 		title: "file-icons"
 		paths: [
 			"~/Labs/file-icons/atom"
+			"~/Labs/file-icons/compiler"
 			"~/Labs/file-icons/icons"
 			"~/Labs/file-icons/vscode"
+			"~/Labs/file-icons/atom-fs"
 		]
 		icon: "atom-icon"
-	}
-	{
-		title: "Utils"
-		paths: [
-			"~/Labs/Utils"
-			"~/Labs/JG"
-			"~/Labs/EAL"
-		]
-		icon: "icon-tools"
 	}
 	{
 		title: "Mono"
