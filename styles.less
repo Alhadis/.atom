@@ -9,11 +9,16 @@ atom-text-editor{
 	font-variant-ligatures: contextual;
 
 	// Bunched double/triple-slashes
-	.syntax--comment.syntax--line.syntax--double-slash > .syntax--punctuation.syntax--definition.syntax--comment,
-	.syntax--comment.syntax--line.syntax--triple-slash > .syntax--punctuation.syntax--definition.syntax--comment,
-	.syntax--string.syntax--regexp.syntax--multiline.syntax--coffee > .syntax--punctuation.syntax--definition.syntax--begin,
-	.syntax--string.syntax--regexp.syntax--multiline.syntax--coffee > .syntax--punctuation.syntax--definition.syntax--end,
-	.syntax--string.syntax--regexp.syntax--multiline.syntax--sy     > .syntax--punctuation.syntax--definition.syntax--triple-slash{
+	.syntax--comment.syntax--line.syntax--double-slash                > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--line.syntax--triple-slash                > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--line.syntax--scss                        > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--line.syntax--sass                        > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--block.syntax--documentation.syntax--scss > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--block.syntax--documentation.syntax--sass > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--comment.syntax--block.syntax--documentation.syntax--cs   > .syntax--punctuation.syntax--definition.syntax--comment,
+	.syntax--string.syntax--regexp.syntax--multiline.syntax--coffee   > .syntax--punctuation.syntax--definition.syntax--begin,
+	.syntax--string.syntax--regexp.syntax--multiline.syntax--coffee   > .syntax--punctuation.syntax--definition.syntax--end,
+	.syntax--string.syntax--regexp.syntax--multiline.syntax--sy       > .syntax--punctuation.syntax--definition.syntax--triple-slash{
 		font-variant-ligatures: discretionary-ligatures;
 	}
 
