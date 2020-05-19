@@ -2,6 +2,7 @@
 	"auto-detect-indentation":
 		showSpacingInStatusBar: false
 	core:
+		automaticallyUpdate: false
 		customFileTypes:
 			"source.c": [
 				"share/misc/getopt"
@@ -40,7 +41,6 @@
 			"exception-reporting"
 			"github"
 			"language-clojure"
-			"language-gfm"
 			"language-python"
 			"welcome"
 		]
