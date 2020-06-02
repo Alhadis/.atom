@@ -23,8 +23,8 @@ clean:
 .PHONY: clean
 
 
-# Force Atom v1.25+ to use tabs when updating config.cson
-cson-fix:
+# Brutally hack parts of Atom that aren't configurable
+patch:
 	@ set -o errexit; \
 	case `uname -s` in \
 		Linux)  cd /usr/share/atom/resources;; \
@@ -34,11 +34,17 @@ cson-fix:
 	echo 'Unpacking app.asar'; \
 	sudo asar extract app.asar app-patch; \
 	cd ./app-patch/node_modules/season/lib; \
-	echo 'Patching'; \
+	echo 'Patching CSON'; \
 	sudo sed -i.ugh \
 		-e 's|\(CSON\.stringify(object, visitor\), space|\1, "\\t"|g' \
 		-e 's|\(JSON\.stringify(object, [^,]*\), [^)]*|\1, "\\t"|g' \
 		cson.js && sudo rm -f cson.js.ugh && cd $$OLDPWD; \
+	echo 'Patching spellchecker'; \
+	cd ./app-patch/node_modules/spell-check/lib; \
+	sudo sed -i.ugh \
+		-e 's/^\( *noticesMode *= *\)atom\.config\.get(.spell-check\.noticesMode.)/\1""/g' \
+		-e '/^\/\/# sourceMappingURL=/ d' \
+		locale-checker.js && sudo rm -f *.js.ugh && cd $$OLDPWD; \
 	echo 'Packing updated files'; \
 	sudo mv app.asar app-unpatched.asar && \
 	sudo asar pack app-patch app.asar && \
