@@ -62,6 +62,7 @@
 		paths: [
 			"~/Labs/homebrew-troff"
 			"~/Forks/heirloom-doctools"
+			"~/Forks/man-db"
 			"/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"
 		]
 		icon: "icon-ruby"
