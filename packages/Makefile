@@ -43,13 +43,13 @@ all: \
 	language-mathematica \
 	language-matlab-octave \
 	language-maxscript \
+	language-md \
 	language-mediawiki \
 	language-modula-2 \
 	language-ninja \
 	language-ocaml \
 	language-pascal \
 	language-pcb \
-	language-postscript \
 	language-powershell \
 	language-regexp \
 	language-restructuredtext \
@@ -74,6 +74,7 @@ all: \
 	make-executable \
 	minimap \
 	pdf-view \
+	postscript-preview \
 	project-manager \
 	regex-comments \
 	seti-syntax \
@@ -123,8 +124,16 @@ language-grammars:
 	git clone 'git@github.com:Alhadis/language-grammars.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
+language-markdown:
+	git clone 'git@github.com:burodepeper/language-markdown.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
 language-maxscript:
 	git clone 'git@github.com:Alhadis/language-maxscript.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+language-md:
+	git clone 'git@github.com:Alhadis/language-md.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 language-pcb:
@@ -169,6 +178,10 @@ language-wavefront:
 
 language-webassembly:
 	git clone 'git@github.com:Alhadis/language-webassembly.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+postscript-preview:
+	git clone 'git@github.com:Alhadis/Atom-PostScriptPreview.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 regex-comments:
