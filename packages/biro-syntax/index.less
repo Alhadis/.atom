@@ -33,6 +33,10 @@ atom-text-editor{
 	.search-results .syntax--marker.current-result .region{
 		border: 1px solid #fff;
 	}
+	
+	.syntax--sublimelinter.syntax--gutter-mark{
+		color: #959da5;
+	}
 
 
 
@@ -989,6 +993,18 @@ atom-text-editor[mini] .scroll-view{
 		.syntax--constant.syntax--numeric{
 			color: #00f;
 		}
+	}
+}
+
+
+/** PostScript */
+.syntax--postscript{
+	&.syntax--keyword.syntax--operator{
+		color: #f00 !important;
+	}
+	
+	&.syntax--variable.syntax--other.syntax--executable{
+		color: #000;
 	}
 }
 
