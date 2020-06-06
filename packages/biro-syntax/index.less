@@ -998,8 +998,9 @@ atom-text-editor[mini] .scroll-view{
 
 
 /** PostScript */
-.syntax--postscript{
-	&.syntax--keyword.syntax--operator{
+.syntax--postscript, .syntax--pdf{
+	&.syntax--keyword.syntax--operator,
+	&.syntax--keyword.syntax--control{
 		color: #f00 !important;
 	}
 	
