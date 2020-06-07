@@ -120,11 +120,15 @@
 "body:not(.platform-darwin) .pdf-view":
 	"ctrl-b":         "pdf-view:toggle-binary-view"
 
-"body:not(.platform-darwin) .find-and-replace,
- body:not(.platform-darwin) .project-find":
+"body:not(.platform-darwin) .find-and-replace":
 	"ctrl-r":         "find-and-replace:toggle-regex-option"
 	"ctrl-i":         "find-and-replace:toggle-case-option"
 	"ctrl-alt-s":     "unset!"
+	"ctrl-alt-w":     "unset!"
+
+"body:not(.platform-darwin) .project-find":
+	"ctrl-r":         "project-find:toggle-regex-option"
+	"ctrl-i":         "project-find:toggle-case-option"
 	"ctrl-alt-w":     "unset!"
 
 
@@ -186,11 +190,15 @@
 "body.platform-darwin .pdf-view":
 	"cmd-b":          "pdf-view:toggle-binary-view"
 
-"body.platform-darwin .find-and-replace,
- body.platform-darwin .project-find":
+"body.platform-darwin .find-and-replace":
 	"cmd-r":          "find-and-replace:toggle-regex-option"
 	"cmd-i":          "find-and-replace:toggle-case-option"
 	"cmd-alt-s":      "unset!"
+	"cmd-alt-w":      "unset!"
+
+"body.platform-darwin .project-find":
+	"cmd-r":          "project-find:toggle-regex-option"
+	"cmd-i":          "project-find:toggle-case-option"
 	"cmd-alt-w":      "unset!"
 
 "body.platform-darwin .tree-view":
