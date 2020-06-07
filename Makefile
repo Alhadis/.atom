@@ -23,6 +23,37 @@ clean:
 .PHONY: clean
 
 
+# Steps to run after accidentally installing an update (macOS only)
+version = 1.46.0
+sha256 = 7bfa7c099754a682fa8af8c5224fddc46253ad70bf4adbd95d9a88d68e70dcbc
+downgrade: atom-v$(version).zip
+	@ case `uname -s` in Darwin);; *) printf 'This task only works on macOS\n'; exit 2;; esac
+	@ grep < config.cson -q 'automaticallyUpdate: *false' || {\
+		printf >&2 '"core.automaticallyUpdate" must be set to `false` in `config.cson`\n'; \
+		exit 2; \
+	};
+	@ if atom --version 2>&1 | grep -q '^Atom .*$(version)$$'; then\
+		printf >&2 'Already using Atom v$(version)\n'; \
+		exit 2; \
+	fi
+	printf '%s %s\n' "$(sha256)" "$^" | sha256sum --check -
+	sudo rm -rf /Applications/Atom.app
+	sudo rm -rf ~/Library/Caches/com.github.atom.ShipIt
+	sudo rm -rf ~/Library/Caches/com.github.atom
+	7z x $^
+	mv Atom.app /Applications
+	mkdir -p ~/.files/var/bin; \
+	cd /Applications/Atom.app/Contents/Resources/app; \
+	command -v atom 2>&1 >/dev/null || ln -sf "`pwd`/atom.sh" ~/.files/var/bin/atom; \
+	command -v apm  2>&1 >/dev/null || ln -sf "`pwd`/apm/bin/apm" ~/.files/var/bin;
+	$(MAKE) patch
+.PHONY: downgrade
+
+atom-v$(version).zip:
+	wget 'https://github.com/atom/atom/releases/download/v$(version)/atom-mac.zip'
+	mv atom-mac.zip $@
+
+
 # Brutally hack parts of Atom that aren't configurable
 patch:
 	@ set -o errexit; \
