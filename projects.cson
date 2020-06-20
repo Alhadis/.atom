@@ -76,4 +76,14 @@
 		]
 		icon: "icon-atom"
 	}
+	{
+		title: "Postage"
+		paths: [
+			"~/Labs/Atom-PostScript"
+			"~/Forks/GhostScript"
+			"~/Forks/postscriptbarcode"
+		]
+		icon: "postscript-icon"
+		color: "#da291c"
+	}
 ]
