@@ -874,11 +874,8 @@ atom-text-editor[mini] .scroll-view{
 		color: #aaf;
 	}
 	
-	&.syntax--meta.syntax--definition{
-		
-		> .syntax--name{
-			font-weight: bold;
-		}
+	&.syntax--meta.syntax--definition > .syntax--name{
+		font-weight: bold;
 	}
 	
 	&.syntax--punctuation.syntax--definition.syntax--concealed.syntax--escape.syntax--backslash{
@@ -888,6 +885,25 @@ atom-text-editor[mini] .scroll-view{
 	&.syntax--eqn{
 		.syntax--keyword.syntax--language{
 			color: #00c;
+		}
+	}
+
+	// Hyperlinks
+	&.syntax--markup.syntax--link.syntax--mono{
+		text-decoration: none;
+		
+		.syntax--punctuation.syntax--bracket,
+		.syntax--punctuation.syntax--definition.syntax--macro,
+		.syntax--string.syntax--other.syntax--link{
+			color: #00a;
+		}
+		
+		.syntax--entity.syntax--name{
+			color: #001eff;
+		}
+		
+		.syntax--punctuation.syntax--terminator{
+			color: #000;
 		}
 	}
 }
