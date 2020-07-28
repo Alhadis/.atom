@@ -912,31 +912,53 @@ atom-text-editor[mini] .scroll-view{
 
 /** Device independant Troff output */
 .syntax--ditroff{
-	&.syntax--meta.syntax--change-font,
-	&.syntax--meta.syntax--device-control{
-		text-decoration: underline;
-		
-		.syntax--keyword.syntax--operator,
-		.syntax--keyword.syntax--control{
+	&.syntax--keyword.syntax--device.syntax--control,
+	&.syntax--meta.syntax--change-font    > .syntax--keyword.syntax--operator,
+	&.syntax--meta.syntax--change-font    > .syntax--keyword.syntax--control,
+	&.syntax--meta.syntax--device-control > .syntax--keyword.syntax--operator,
+	&.syntax--meta.syntax--device-control > .syntax--keyword.syntax--control{
+		&.syntax--keyword:not(.syntax--subcommand):not(.syntax--directive),
+		&:not(.syntax--keyword){
 			font-family: Menlo;
 			font-weight: bold;
+			
 			-webkit-font-smoothing: antialiased;
-		}
-		
-		&, & *{
-			color: #f00 !important;
+			text-decoration: underline;
+			color: #f00;
 		}
 	}
+
+	&.syntax--keyword.syntax--operator.syntax--function{
+		color: #f00 !important;
+	}
+
+	&.syntax--meta.syntax--device-control{
+		.syntax--keyword.syntax--device.syntax--control, > .syntax--lhs{
+			text-decoration: underline;
+			&, & *{ color: #f00 !important; }
+		}
+		.syntax--string.syntax--other.syntax--link{
+			text-decoration: underline;
+			color: #001eff;
+		}
+		.syntax--punctuation.syntax--separator   { opacity: .25;   }
+		.syntax--punctuation.syntax--bracket     { color: #00c;    }
+		.syntax--punctuation.syntax--key-value   { color: #f00;    }
+		.syntax--punctuation.syntax--equals-sign { color: #000;    }
+		.syntax--storage.syntax--bookmark        { color: #003a9e; }
+	}
 	
-	&.syntax--meta.syntax--graphics{
+	.show-bracket-matcher &.syntax--meta.syntax--graphics{
 		background-color: #0f0;
 		outline: 1px solid #0a0;
 	}
 	
 	&.syntax--punctuation.syntax--definition.syntax--entity,
+	&.syntax--comment.syntax--dummy,
 	&.syntax--meta.syntax--end-of-line,
 	&.syntax--meta.syntax--colour-mode.syntax--default.syntax--gnu,
-	&.syntax--entity.syntax--name.syntax--function.syntax--word-space{
+	&.syntax--meta.syntax--print-character > .syntax--keyword.syntax--function,
+	&.syntax--keyword.syntax--function.syntax--word-space{
 		opacity: .25;
 	}
 	
