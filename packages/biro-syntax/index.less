@@ -964,11 +964,12 @@ atom-text-editor[mini] .scroll-view{
 	
 	/* Font descriptions */
 	&.syntax--desc{
-		&.syntax--entity.syntax--var{
+		&.syntax--meta.syntax--glyph > .syntax--entity{
 			color: #00f;
 		}
 		
-		&.syntax--punctuation.syntax--terminator{
+		&.syntax--punctuation.syntax--terminator,
+		&.syntax--punctuation.syntax--unnamed.syntax--glyph{
 			color: #00c;
 			opacity: .25;
 		}
