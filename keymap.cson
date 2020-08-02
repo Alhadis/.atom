@@ -95,7 +95,6 @@
 	"ctrl-l":         "grammar-selector:show"
 	"ctrl-[":         "git-diff:move-to-previous-diff"
 	"ctrl-]":         "git-diff:move-to-next-diff"
-	"ctrl-e":         "editor:expand-escapes"
 	"ctrl-shift-u":   "editor:upper-case"
 	"ctrl-u":         "editor:lower-case"
 	"ctrl-d":         "editor:delete-line"
@@ -113,6 +112,9 @@
 	"ctrl-+":         "user:increment"
 	"ctrl--":         "user:decrement"
 	"ctrl-_":         "user:decrement"
+
+"body:not(.platform-darwin) atom-text-editor:not([data-grammar='text roff'])":
+	"ctrl-e":         "editor:expand-escapes"
 
 "body:not(.platform-darwin) atom-text-editor:not([mini])":
 	"ctrl-r":         "symbols-view:toggle-file-symbols"
@@ -165,7 +167,6 @@
 	"cmd-l":          "grammar-selector:show"
 	"cmd-[":          "git-diff:move-to-previous-diff"
 	"cmd-]":          "git-diff:move-to-next-diff"
-	"cmd-e":          "editor:expand-escapes"
 	"cmd-shift-u":    "editor:upper-case"
 	"cmd-u":          "editor:lower-case"
 	"cmd-d":          "editor:delete-line"
@@ -183,6 +184,9 @@
 	"cmd-+":          "user:increment"
 	"cmd--":          "user:decrement"
 	"cmd-_":          "user:decrement"
+
+"body.platform-darwin atom-text-editor:not([data-grammar='text roff'])":
+	"cmd-e":          "editor:expand-escapes"
 
 "body.platform-darwin atom-text-editor:not([mini])":
 	"cmd-r":          "symbols-view:toggle-file-symbols"
