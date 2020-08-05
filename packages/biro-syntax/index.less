@@ -889,7 +889,7 @@ atom-text-editor[mini] .scroll-view{
 	}
 
 	// Hyperlinks
-	&.syntax--markup.syntax--link.syntax--mono{
+	&.syntax--markup.syntax--link.syntax--inline{
 		text-decoration: none;
 		
 		.syntax--punctuation.syntax--bracket,
@@ -897,6 +897,14 @@ atom-text-editor[mini] .scroll-view{
 		.syntax--meta.syntax--link-destination > .syntax--punctuation.syntax--string,
 		.syntax--string.syntax--other.syntax--link{
 			color: #00a;
+		}
+		
+		.syntax--string.syntax--other.syntax--link{
+			text-decoration: underline;
+		}
+		
+		&.syntax--heirloom > .syntax--link-text{
+			color: #f39 !important;
 		}
 		
 		.syntax--entity.syntax--name{
