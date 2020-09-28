@@ -1,0 +1,8 @@
+scopeName: "fuck-atom.5"
+injectionSelector: "R:comment.block.documentation.js"
+patterns: [{
+	name: "storage.type.class.jsdoc"
+	match: "(@)[a-zA-Z_]+"
+	captures:
+		1: name: "punctuation.definition.block.tag.jsdoc"
+}]
