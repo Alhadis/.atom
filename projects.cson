@@ -31,6 +31,13 @@
 		icon: "manpage-icon"
 	}
 	{
+		title: "Grammars, etc"
+		paths: [
+			"~/Labs/language-etc"
+		]
+		icon: "icon-github"
+	}
+	{
 		title: "file-icons"
 		paths: [
 			"~/Labs/file-icons/atom"
