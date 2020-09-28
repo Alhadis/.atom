@@ -74,7 +74,7 @@ all: \
 	make-executable \
 	minimap \
 	pdf-view \
-	postscript-preview \
+	postscript \
 	project-manager \
 	regex-comments \
 	seti-syntax \
@@ -180,8 +180,8 @@ language-webassembly:
 	git clone 'git@github.com:Alhadis/language-webassembly.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
-postscript-preview:
-	git clone 'git@github.com:Alhadis/Atom-PostScriptPreview.git' $@
+postscript:
+	git clone 'git@github.com:Alhadis/Atom-PostScript.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 regex-comments:

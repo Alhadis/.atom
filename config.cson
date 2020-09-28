@@ -41,6 +41,7 @@
 			"exception-reporting"
 			"github"
 			"language-clojure"
+			"language-markdown"
 			"language-python"
 			"welcome"
 		]

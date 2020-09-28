@@ -1,0 +1,114 @@
+diff --git a/grammars/desktop.cson b/grammars/desktop.cson
+deleted file mode 100644
+index a142016..0000000
+--- a/grammars/desktop.cson
++++ /dev/null
+@@ -1,86 +0,0 @@
+-'fileTypes': [
+-  'desktop',
+-]
+-'name': '.desktop'
+-'patterns': [
+-  {
+-    'begin': '^([\\s]+)?(?=#)'
+-    'beginCaptures':
+-      '1':
+-        'name': 'punctuation.whitespace.comment.leading.ini'
+-    'end': '(?!\\G)'
+-    'patterns': [
+-      {
+-        'begin': '#'
+-        'beginCaptures':
+-          '0':
+-            'name': 'punctuation.definition.comment.ini'
+-        'end': '\\n'
+-        'name': 'comment.line.number-sign.ini'
+-      }
+-    ]
+-  }
+-  {
+-    'begin': '^([\\s]+)?(?=;)'
+-    'beginCaptures':
+-      '1':
+-        'name': 'punctuation.whitespace.comment.leading.ini'
+-    'end': '(?!\\G)'
+-    'patterns': [
+-      {
+-        'begin': ';'
+-        'beginCaptures':
+-          '0':
+-            'name': 'punctuation.definition.comment.ini'
+-        'end': '\\n'
+-        'name': 'comment.line.semicolon.ini'
+-      }
+-    ]
+-  }
+-  {
+-    'captures':
+-      '1':
+-        'name': 'punctuation.definition.entity.ini'
+-      '3':
+-        'name': 'punctuation.definition.entity.ini'
+-    'match': '^(\\[)(.*?)(\\])'
+-    'name': 'entity.name.section.group-title.ini'
+-  }
+-  {
+-    'captures':
+-      '1':
+-        'name': 'keyword.other.definition.ini'
+-      '2':
+-        'name': 'punctuation.separator.key-value.ini'
+-    'match': '^([\\[\\][\\s*]a-zA-Z0-9_.-]+)\\s*(=|:)'
+-  }
+-  {
+-    'begin': '\''
+-    'beginCaptures':
+-      '0':
+-        'name': 'punctuation.definition.string.begin.ini'
+-    'end': '\''
+-    'endCaptures':
+-      '0':
+-        'name': 'punctuation.definition.string.end.ini'
+-    'name': 'string.quoted.single.ini'
+-    'patterns': [
+-      {
+-        'match': '\\\\.'
+-        'name': 'constant.character.escape.ini'
+-      }
+-    ]
+-  }
+-  {
+-    'begin': '"'
+-    'beginCaptures':
+-      '0':
+-        'name': 'punctuation.definition.string.begin.ini'
+-    'end': '[!^\\"](?!.*\")'
+-    'endCaptures':
+-      '0':
+-        'name': 'punctuation.definition.string.end.ini'
+-    'name': 'string.quoted.double.ini'
+-  }
+-]
+-'scopeName': 'source.ini'
+diff --git a/grammars/ini.cson b/grammars/ini.cson
+index 0e5cafe..38af44a 100644
+--- a/grammars/ini.cson
++++ b/grammars/ini.cson
+@@ -1,11 +1,15 @@
+ 'fileTypes': [
++  'bitcoin.conf',
+   'cfg',
++  'desktop',
+   'directory',
++  'flake8',
+   'ica',
+-  'inf',
+   'inc',
+-  'ini'
++  'inf',
++  'ini',
++  'npmrc',
+ ]
+ 'name': 'INI'
+ 'patterns': [
+   {
