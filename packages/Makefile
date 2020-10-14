@@ -14,7 +14,6 @@ all: \
 	language-apl \
 	language-applescript \
 	language-asciidoc \
-	language-awk \
 	language-batchfile \
 	language-common-lisp \
 	language-crystal-actual \

@@ -1,3 +1,7 @@
+".source.awk":
+	editor:
+		commentStart: "# "
+
 ".source.odin":
 	editor:
 		commentStart: "// "
