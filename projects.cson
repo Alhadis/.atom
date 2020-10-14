@@ -34,6 +34,10 @@
 		title: "Grammars, etc"
 		paths: [
 			"~/Labs/language-etc"
+			"~/.atom/packages/language-grammars"
+			"~/Labs/language-regexp"
+			"~/.atom/packages/language-fontforge"
+			"~/.atom/packages/language-viml"
 		]
 		icon: "icon-github"
 	}
