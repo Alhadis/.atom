@@ -843,7 +843,8 @@ atom-text-editor[mini] .scroll-view{
 
 /** Roff and its preprocessors */
 .syntax--roff, .syntax--pic, .syntax--ideal{
-	&.syntax--function{
+	&.syntax--function,
+	&.syntax--request{
 		color: #00f;
 		
 		&.syntax--escape .syntax--punctuation{
@@ -1130,8 +1131,9 @@ atom-text-editor[mini] .scroll-view{
 
 
 /** Unicode database files */
-.syntax--meta.syntax--unicode-data.syntax--ucd.syntax--unidata{
-	.syntax--punctuation.syntax--semicolon{
+.syntax--meta.syntax--ucd.syntax--unidata{
+	.syntax--punctuation.syntax--delimiter,
+	.syntax--punctuation.syntax--separator{
 		opacity: 0.35;
 	}
 }
