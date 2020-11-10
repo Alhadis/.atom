@@ -57,6 +57,7 @@
 		paths: [
 			"~/Labs/Mono"
 			"~/Labs/V8.man"
+			"~/Forks/GNU-Groff"
 			"/usr/local/share/groff"
 		]
 		icon: "manpage-icon"
