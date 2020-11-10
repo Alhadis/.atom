@@ -33,6 +33,7 @@
 			]
 			"text.roff": [
 				"mm"
+				"ms"
 			]
 		disabledPackages: [
 			"autocomplete-css"
