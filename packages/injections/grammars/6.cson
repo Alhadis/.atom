@@ -1,0 +1,10 @@
+scopeName: "fuck-atom.6"
+injectionSelector: "(source | text) - (comment | string | diff)"
+patterns: [{
+	name:  "source.embedded.diff"
+	begin: "(^diff (?:--git|\\S+\\s+\\S).*)"
+	end:   "^(?!$|[-+@ ]|(?:diff|index|new|old|\\\\) )"
+	beginCaptures:
+		1: patterns: [include: "source.diff"]
+	patterns: [include: "source.diff"]
+}]
