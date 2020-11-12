@@ -11,6 +11,9 @@
 				"flake8"
 				"npmrc"
 			]
+			"source.makefile": [
+				"mk.config"
+			]
 			"source.perl.5": [
 				"t"
 			]
