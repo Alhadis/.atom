@@ -427,18 +427,16 @@ atom-text-editor{
 /** Diffs/patches */
 .syntax--diff{
 	
-	.syntax--line > &.syntax--source{
-		color: #ccc;
-	}
-	
 	&.syntax--meta{
-		&.syntax--header{
-			color: #795da3;
+		&.syntax--context{
+			color: #ccc;
 		}
 		
-		&.syntax--index,
 		&.syntax--header.syntax--git,
+		&.syntax--header.syntax--command,
 		&.syntax--range{
+			color: #795da3;
+			
 			&.syntax--unified,
 			&.syntax--smpl{
 				font-weight: bold;

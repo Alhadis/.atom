@@ -1,0 +1,8 @@
+@import "syntax-variables";
+
+atom-workspace:not(.theme-biro-syntax) .syntax--diff{
+	&.syntax--inserted { color: @syntax-color-added; }
+	&.syntax--changed  { color: @syntax-color-modified; }
+	&.syntax--deleted  { color: @syntax-color-removed; }
+	&.syntax--only-in  { color: @syntax-color-method; font-weight: bold; }
+}

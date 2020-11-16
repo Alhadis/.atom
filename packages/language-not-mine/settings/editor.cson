@@ -2,6 +2,10 @@
 	editor:
 		commentStart: "# "
 
+".source.diff":
+	whitespace:
+		removeTrailingWhitespace: false
+
 ".source.odin":
 	editor:
 		commentStart: "// "

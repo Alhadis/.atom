@@ -1,9 +1,9 @@
-scopeName: "fuck-atom.6"
+scopeName: "injection.diff"
 injectionSelector: "(source | text) - (comment | string | diff)"
 patterns: [{
 	name:  "source.embedded.diff"
 	begin: "(^diff (?:--git|\\S+\\s+\\S).*)"
-	end:   "^(?!$|[-+@ ]|(?:diff|index|new|old|\\\\) )"
+	end:   "^(?!$|[-+@\\\\ ]|(?:copy|deleted|diff|dissimilarity|index|new|old|rename|similarity) )"
 	beginCaptures:
 		1: patterns: [include: "source.diff"]
 	patterns: [include: "source.diff"]
