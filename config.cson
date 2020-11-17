@@ -108,9 +108,7 @@
 		compactView: true
 		fileIcons: false
 	"spell-check":
-		grammars: [
-			"source.js"
-		]
+		grammars: []
 		noticesMode: "console"
 	"status-bar":
 		fullWidth: false
