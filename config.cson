@@ -60,6 +60,9 @@
 			"biro-syntax"
 		]
 		useTreeSitterParsers: false
+		versionPinnedPackages: [
+			"minimap"
+		]
 	"dash-ui":
 		iconsEnabled: false
 		themeColor: "Indigo"
