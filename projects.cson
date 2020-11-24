@@ -59,6 +59,7 @@
 			"~/Labs/V8.man"
 			"~/Forks/GNU-Groff"
 			"/usr/local/share/groff"
+			"~/Forks/DWB3.3"
 		]
 		icon: "manpage-icon"
 	}
@@ -73,9 +74,9 @@
 		title: "Homebrew Troff"
 		paths: [
 			"~/Labs/homebrew-troff"
+			"/usr/local/Homebrew"
 			"~/Forks/heirloom-doctools"
-			"~/Forks/man-db"
-			"/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"
+			"~/Forks/neatroff_make"
 		]
 		icon: "icon-ruby"
 		color: "#ff0000"
@@ -97,5 +98,15 @@
 		]
 		icon: "postscript-icon"
 		color: "#da291c"
+	}
+	{
+		title: "Vim / Vi"
+		paths: [
+			"~/Forks/nvi"
+			"~/Forks/OpenBSD/usr.bin/vi"
+			"~/Forks/Vim"
+		]
+		icon: "vim-icon"
+		color: "#019833"
 	}
 ]
