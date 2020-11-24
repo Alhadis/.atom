@@ -29,6 +29,10 @@
 			"text.plain": [
 				"packages/injections/misc/latin-1"
 				"mail.tildehelp"
+				"COPYING"
+				"LICENSE"
+				"README"
+				"TODO"
 			]
 			"text.roff": [
 				"mm"
