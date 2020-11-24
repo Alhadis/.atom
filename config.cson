@@ -26,10 +26,6 @@
 			"source.shell": [
 				"profile"
 			]
-			"text.md": [
-				"README"
-				"TODO"
-			]
 			"text.plain": [
 				"packages/injections/misc/latin-1"
 				"mail.tildehelp"
