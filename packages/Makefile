@@ -35,7 +35,7 @@ all: \
 	language-ini \
 	language-jflex \
 	language-latex \
-	language-llvm \
+	language-llvm-ir \
 	language-lua \
 	language-m68k \
 	language-markdown \
@@ -123,10 +123,6 @@ language-grammars:
 	git clone 'git@github.com:Alhadis/language-grammars.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
-language-markdown:
-	git clone 'git@github.com:burodepeper/language-markdown.git' $@
-	cd $@ && apm install . && npm run-script --if-present post-install
-
 language-maxscript:
 	git clone 'git@github.com:Alhadis/language-maxscript.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
@@ -181,7 +177,7 @@ language-webassembly:
 
 postscript:
 	git clone 'git@github.com:Alhadis/Atom-PostScript.git' $@
-	cd $@ && apm install . && npm run-script --if-present post-install
+	cd $@ && npm install --production
 
 regex-comments:
 	git clone 'git@github.com:Alhadis/Regex-Comments.git' $@
