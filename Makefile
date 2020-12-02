@@ -1,6 +1,6 @@
-all: init.js install snippets clean
+all: init.js install hooks snippets clean watch
 
-install: node_modules/roff node_modules/prompt-view
+install: node_modules/roff node_modules/prompt-view hooks
 	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
 
@@ -23,7 +23,7 @@ clean:
 .PHONY: clean
 
 
-# Steps to run after accidentally installing an update (macOS only)
+# Steps to run after accidentally installing an update (macOS ≤ 10.14)
 version = 1.46.0
 sha256 = 7bfa7c099754a682fa8af8c5224fddc46253ad70bf4adbd95d9a88d68e70dcbc
 downgrade: atom-v$(version).zip
@@ -52,6 +52,12 @@ downgrade: atom-v$(version).zip
 atom-v$(version).zip:
 	wget 'https://github.com/atom/atom/releases/download/v$(version)/atom-mac.zip'
 	mv atom-mac.zip $@
+
+
+# Monitor `config.cson` for changes to keep Atom's shitty code-style out of my repository
+watch:
+	@ watchman -- trigger $(PWD) unfuck config.cson -- ./unfuck-config >/dev/null
+.PHONY: watch
 
 
 # Brutally hack parts of Atom that aren't configurable
@@ -95,6 +101,20 @@ node_modules/roff: node_modules
 
 node_modules/%: node_modules
 	(npm install $* 2>&1) >/dev/null; true
+
+
+# Install a hook to prevent fucked indentation being committed to version control
+hooks: .git/hooks/pre-commit
+	
+.git/hooks/pre-commit:
+	@ printf >  $@ '#!/bin/sh\n'
+	@ printf >> $@ 'exec 1>&2\n'
+	@ printf >> $@ 'grep -qm1 "^  " config.cson && {\n'
+	@ printf >> $@ '\techo >&2 "config.cson contains fucked indentation"\n'
+	@ printf >> $@ '\texit 2\n'
+	@ printf >> $@ '}\n'
+	@ chmod  +x $@
+	@ echo "Installed: $@"
 
 
 # Convert YASnippets into something Atom understands

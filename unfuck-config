@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+set -- "${0%/*}/config.cson"
+[ -r "$1" ] || {
+	echo >&2 "${0##*/}: Can't find $1, bailing"
+	exit 2
+}
+grep -qm1 '^  ' "$1" || exit 0
+sed -i.bak -e '
+	:x
+	s/^  /\	/g
+	s/^ \	/	/g
+	s/\(	\) \([^[:blank:]]\)/\1\2/g
+	s/\(	\) $/\1/g
+	/\	  / {
+		s/\(\	\)  /\1\1/
+		bx
+	}
+' "$1" && rm -f "$1.bak"
