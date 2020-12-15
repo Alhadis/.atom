@@ -2,7 +2,6 @@
 	"auto-detect-indentation":
 		showSpacingInStatusBar: false
 	core:
-		automaticallyUpdate: false
 		customFileTypes:
 			"source.c": [
 				"share/misc/getopt"
@@ -60,9 +59,6 @@
 			"biro-syntax"
 		]
 		useTreeSitterParsers: false
-		versionPinnedPackages: [
-			"minimap"
-		]
 	"dash-ui":
 		iconsEnabled: false
 		themeColor: "Indigo"
