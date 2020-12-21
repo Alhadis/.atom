@@ -1,0 +1,7 @@
+{
+	"name": "file-icons-devtools",
+	"version": "v0.0.0",
+	"description": "Hopefully someday I can nuke the shit out of all this.",
+	"private": true,
+	"main": "./index.js"
+}

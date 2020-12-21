@@ -1,0 +1,27 @@
+/* Outlines for icon adjustment */
+.file-icons-show-outlines .icon         { outline: 1px solid blue; }
+.file-icons-show-outlines .icon::before { outline: 1px solid red;  }
+
+
+/* Icon variables */
+.syntax--icon-table.syntax--octicons { --icon-font: "Octicons Regular"; }
+.syntax--icon-table.syntax--fa       { --icon-font: FontAwesome; --icon-width: 1.95ch; }
+.syntax--icon-table.syntax--devicons { --icon-font: Devicons; }
+.syntax--icon-table.syntax--mf       { --icon-font: Mfizz; }
+
+/* Icon column */
+.syntax--character.syntax--icon.syntax--icon-table{
+	font-family: var(--icon-font, file-icons);
+	vertical-align: middle;
+	text-align: center;
+	line-height: 1;
+	width: var(--icon-width, 1ch);
+	height: 1em;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Width compensation */
+.syntax--meta.syntax--record.syntax--icon-table > .hard-tab:nth-child(6){ margin-right: -1ch; }
+.syntax--meta.syntax--fa.syntax--icon-table     > .hard-tab:nth-child(6){ margin-right: -1.1ch; }
+.syntax--meta.syntax--record.syntax--astral     > .hard-tab:nth-child(6){ margin-right: 0; }

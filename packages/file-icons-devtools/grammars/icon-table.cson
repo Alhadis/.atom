@@ -1,0 +1,51 @@
+name: "Icon Table"
+scopeName: "source.icon-table"
+fileTypes: ["icons.tsv"]
+patterns: [include: "#main"]
+
+repository:
+	main:
+		patterns: [
+			{include: "#comment"}
+			{include: "#record"}
+		]
+	
+	# Comment line, used only in header
+	comment:
+		name:  "comment.line.number-sign.icon-table"
+		begin: "(#)(?:\\S+([^\\t]+))?"
+		end:   "$"
+		beginCaptures:
+			1: name: "punctuation.definition.comment.icon-table"
+			2: name: "column.header.icon-table"
+		patterns: [{
+			name: "column.header.icon-table"
+			match: "[^\\t\\n\\r]+"
+		}]
+	
+	# Generic field
+	field:
+		name: "constant.other.field.icon-table"
+		match: "[^\\t\\n\\r]+"
+	
+	# Icon definition line
+	record:
+		patterns: [{
+			name:  "meta.record.astral.$1.icon-table"
+			begin: "^([a-z][-a-z]*)\\t(U\\+[1-9A-F][A-Fa-f0-9]{4,})\\t([^\\t\\s]+)"
+			end:   "$"
+			beginCaptures:
+				1: name: "entity.name.font.icon-table"
+				2: name: "constant.numeric.codepoint.icon-table"
+				3: name: "constant.character.icon.icon-table"
+			patterns: [include: "#field"]
+		},{
+			name:  "meta.record.prime-material.$1.icon-table"
+			begin: "^([a-z][-a-z]*)\\t(U\\+[A-Fa-f0-9]{1,4})\\t([^\\t\\s]+)"
+			end:   "$"
+			beginCaptures:
+				1: name: "entity.name.font.icon-table"
+				2: name: "constant.numeric.codepoint.icon-table"
+				3: name: "constant.character.icon.icon-table"
+			patterns: [include: "#field"]
+		}]

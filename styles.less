@@ -303,18 +303,6 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 }
 
 
-/* File Icons: Outlines for icon adjustment */
-.file-icons-show-outlines{
-	.icon{
-		outline: 1px solid blue;
-		
-		&:before{
-			outline: 1px solid red;
-		}
-	}
-}
-
-
 /* Various UI polishes */
 .theme-atom-light-ui{
 	
@@ -384,24 +372,5 @@ body:not(.shitting-trees) .grammar-selector .pull-right > .badge{
 	
 	> *{
 		display: none !important;
-	}
-}
-
-
-/* Make File-Icons's TSV character map legible */
-[data-active-item-path$="/file-icons/icons/icons.tsv"]{
-	.syntax--astral-row         > :nth-child(4) > .hard-tab { margin-right: 0; }
-	.syntax--prime-material-row > :nth-child(4) > .hard-tab { margin-right: -1ch; }
-	
-	.syntax--astral-row, .syntax--prime-material-row{
-		& > :nth-child(3){
-			font-family: File-Icons;
-			vertical-align: middle;
-			text-align: center;
-			line-height: 1;
-			width: 1ch;
-			height: 1em;
-			display: inline-block;
-		}
 	}
 }

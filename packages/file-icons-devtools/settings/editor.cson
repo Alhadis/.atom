@@ -1,0 +1,6 @@
+".source.icon-table":
+	editor:
+		commentStart: "# "
+		elasticTabstops: on
+		tabLength: 30
+		tabType: "hard"

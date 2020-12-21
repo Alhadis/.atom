@@ -20,6 +20,7 @@
 /packages/*
 !/packages/Makefile
 !/packages/biro-syntax
+!/packages/file-icons-devtools
 !/packages/injections
 !/packages/language-not-mine
 !/packages/patches
