@@ -18,8 +18,9 @@ atom.commands.add("atom-workspace", "file-icons:show-outlines", () =>
 // Make `icons.tsv` nicer to edit
 watchStyleSheet(`${__dirname}/style.css`);
 
-// Recompile `config.cson` on save
 waitToLoad("file-icons").then(pkg => {
+	
+	// Recompile `config.cson` on save
 	let nodePath = "";
 	atom.whenShellEnvironmentLoaded(() => nodePath = which("node").trim());
 	atom.workspace.observeTextEditors(editor => {
@@ -41,10 +42,44 @@ waitToLoad("file-icons").then(pkg => {
 				} finally{}
 			});
 	});
+	
+	// Reload fonts when changes are detected
+	for(const [uri, spec] of buildFontMap()){
+		const path = uri.replace(/^atom:\/\//i, atom.configDirPath + "/packages/");
+		watch(path, () => {
+			++spec.rev;
+			for(const rule of spec.rules){
+				const {src} = rule.style;
+				const index = src.lastIndexOf("/") + 1;
+				rule.style.src = src.slice(0, index) + "/".repeat(spec.rev) + src.slice(index);
+			}
+		}, false);
+	}
 });
 
 
-function watch(target, fn, delay = 10, preempt = true){
+function buildFontMap(){
+	const fonts = new Map();
+	for(const sheet of document.styleSheets)
+	for(const rule of sheet.cssRules || []){
+		if(rule instanceof CSSFontFaceRule){
+			const {src} = rule.style;
+			if(src.startsWith('url("atom://')){
+				let key = src.replace(/(?:\s+format\((?:"[^"]*"|'[^']*'|[^\)]*)\))+\s*$/i, "").slice(5, -2);
+				if(key.indexOf("//" > 5)){
+					key = key.replace(/(?<!^atom:)\/{2,}/g, "/");
+					rule.style.src = `url("${key}")`;
+				}
+				fonts.has(key)
+					? fonts.get(key).rules.add(rule)
+					: fonts.set(key, {rev: 0, rules: new Set([rule])});
+			}
+		}
+	}
+	return fonts;
+}
+
+function watch(target, fn, preempt = true, delay = 10){
 	preempt && fn(target);
 	const symlink = fs.lstatSync(target).isSymbolicLink();
 	target = fs.realpathSync(target);
