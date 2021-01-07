@@ -1,14 +1,12 @@
 "use strict";
 
 const fs   = require("fs");
-const util = require("util");
-const exec = require("child_process").exec[util.promisify.custom];
 const Atom = require("atom");
 
-const {loadFromCore} = require("../../lib/utils/loaders.js");
-const {waitToLoad}   = require("../../lib/utils/other.js");
-const {debounce}     = loadFromCore("lodash");
-const {sync: which}  = loadFromCore("which");
+const {loadFromCore}     = require("../../lib/utils/loaders.js");
+const {pipe, waitToLoad} = require("../../lib/utils/other.js");
+const {debounce}         = loadFromCore("lodash");
+const {sync: which}      = loadFromCore("which");
 
 
 // Toggle bounding-boxes of visible file-icons
@@ -33,9 +31,9 @@ waitToLoad("file-icons").then(pkg => {
 		&& fs.realpathSync(configPath) === fs.realpathSync(openedPath))
 			editor.onDidSave(async result => {
 				try{
-					const {stdout} = await exec(nodePath, [recompiler], editor.getText());
+					const {stdout} = await pipe(editor.getText(), nodePath, [recompiler]);
 					if(stdout){
-						fs.writeFileSync(outputPath, result.stdout);
+						fs.writeFileSync(outputPath, stdout);
 						for(const repo of atom.project.repositories)
 							repo && repo.projectAtRoot && repo.refreshStatus();
 					}
