@@ -6,6 +6,9 @@
 			"source.c": [
 				"share/misc/getopt"
 			]
+			"source.gitconfig": [
+				"config.worktree"
+			]
 			"source.ini": [
 				"flake8"
 				"npmrc"
