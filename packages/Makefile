@@ -71,7 +71,6 @@ all: \
 	lisp-paredit \
 	MagicPython \
 	make-executable \
-	minimap \
 	pdf-view \
 	postscript \
 	project-manager \
@@ -200,3 +199,8 @@ language-markdown:
 		-e '/"main":/d' \
 		package.json && rm -f *.ugh
 	find $@ -type f -print0 | xargs -0 perl -pi -e 's/\btext[ .]\Kmd\b/markdown/g'
+
+minimap:
+	curl -qL 'https://github.com/atom-minimap/minimap/archive/v4.29.9.tar.gz' | bsdtar -xf -
+	mv minimap-* $@
+	cd $@ && apm install .
