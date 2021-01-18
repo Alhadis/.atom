@@ -1,26 +1,9 @@
 scopeName: "fuck-atom.3"
 injectionSelector: "L:source.js"
-patterns: [{
-	begin: "(?=^\\s*/[/*]\\s*<!DOCTYPE\\s+html[^>]*>)"
-	end:   "(?=A)B"
-	patterns: [
-		{include: "#htmlLine"}
-		
-		begin: "(?=^\\s*/[/*]\\s*</script></body></html>)"
-		end:   "(?=A)B"
-		patterns: [
-			{include: "#htmlLine"}
-			
-			begin: "(?<=</html>)\\s*"
-			end:   "(?=A)B"
-			contentName: "invalid.illegal.unreachable"
-			
-			{include: "source.js"}
-		]
-		
-		{include: "source.js"}
-	]
-},{
+patterns: [
+	{include: "#shellEntry"}
+	{include: "#jsEntry"}
+	
 	begin: "(?=\\s*(?<!\\$)\\bnew\\s+RegExp\\s*\\(\\s*String\\.raw\\s*`)"
 	end:   "(?<=`)"
 	patterns: [{
@@ -50,7 +33,7 @@ patterns: [{
 			0: name: "punctuation.definition.string.end.js"
 		patterns: [include: "source.regexp.extended"]
 	}]
-}]
+]
 
 repository:
 	htmlLine:
@@ -65,3 +48,45 @@ repository:
 			captures:
 				1: patterns: [include: "text.html.basic"]
 		}]
+
+	jsEntry:
+		begin: "(?=^\\s*/[/*]\\s*<!DOCTYPE\\s+html[^>]*>)"
+		end:   "(?=A)B"
+		patterns: [
+			{include: "#htmlLine"}
+			
+			begin: "(?=^\\s*/[/*]\\s*</script></body></html>)"
+			end:   "(?=A)B"
+			patterns: [
+				{include: "#htmlLine"}
+				
+				begin: "(?<=</html>)\\s*"
+				end:   "(?=A)B"
+				contentName: "invalid.illegal.unreachable"
+				
+				{include: "source.js"}
+			]
+			
+			{include: "source.js"}
+		]
+	
+	shellEntry:
+		begin: '(?=^\\s*//+bin/sh -c :.*?exec .+?"\\$@")'
+		end:   "(?=A)B"
+		patterns: [
+			begin: "\\G\\s*(//)"
+			end:   "$"
+			beginCaptures:
+				0: name: "comment.line.double-slash.js"
+				1: name: "punctuation.definition.comment.js"
+			patterns: [{
+				name:  "source.embedded.shell"
+				match: "\\G(.+)(?=\\s*$)"
+				captures:
+					1: patterns: [include: "source.shell"]
+			}]
+			
+			{include: "#jsEntry"}
+			{include: "#htmlLine"}
+			{include: "source.js"}
+		]
