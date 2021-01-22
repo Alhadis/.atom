@@ -34,7 +34,7 @@ waitToLoad("file-icons").then(pkg => {
 				try{
 					let stdout = "";
 					const process = spawn(nodePath, [recompiler]);
-					process.stdin.on("data", chunk => stdout += chunk);
+					process.stdout.on("data", chunk => stdout += chunk);
 					process.stdin.write(editor.getText());
 					process.stdin.end();
 					await new Promise(done => process.on("close", done));
