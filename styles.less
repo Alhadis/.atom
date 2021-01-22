@@ -131,6 +131,16 @@ atom-text-editor.is-focused .cursors .cursor{
 	top: 3px;
 }
 
+.icon[data-name$=".alg"]::before{
+	font: 16px "File-Icons";
+	content: "\2a74";
+	top: 4px;
+	
+	body.file-icons-coloured & {
+		color: #90a959;
+	}
+}
+
 .icon[data-path$="/packages/injections/misc/latin-1"]::before{
 	font: 16px "Octicons Regular";
 	top: unset;
