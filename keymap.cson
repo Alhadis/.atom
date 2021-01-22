@@ -136,6 +136,7 @@
 
 # macOS
 "body.platform-darwin":
+	"alt-1":          "user:shell"
 	"cmd-i":          "window:toggle-dev-tools"
 	"cmd-y":          "user:toggle-github-syntax"
 	"cmd-\\":         "user:toggle-sidebar"
