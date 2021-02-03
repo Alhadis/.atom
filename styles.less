@@ -384,3 +384,18 @@ body:not(.shitting-trees) .grammar-selector .pull-right > .badge{
 		display: none !important;
 	}
 }
+
+/* STT tooltips */
+.cursor[data-char]::before{
+	content: attr(data-char);
+	position: absolute;
+	text-align: center;
+	z-index: 5;
+	bottom: 100%;
+	background: #fff;
+	box-shadow: 0 0 1px #000;
+	white-space: nowrap;
+	padding: 1px 4px;
+	margin-bottom: -4px;
+	transform: translate(-50%, -50%);
+}

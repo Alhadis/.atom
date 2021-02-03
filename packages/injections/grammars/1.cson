@@ -1,5 +1,5 @@
 scopeName: "fuck-atom.1"
-injectionSelector: "source.js - (comment | string)"
+injectionSelector: "source.js - (comment | string | stt)"
 patterns: [{
 	# HACK: Shove numeric separator support down Atom's constantly-lagging-behind-everything's throat
 	name: "stupid-hack-1.js"

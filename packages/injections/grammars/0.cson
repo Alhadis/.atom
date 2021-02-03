@@ -1,0 +1,39 @@
+scopeName: "fuck-atom.0"
+injectionSelector: "L:source.js - (comment | string | meta.stt)"
+patterns: [{
+	name:  "meta.stt.${2:/downcase}-table.js"
+	begin: "^(const) (charmap|STT) (=) (?=\\[/\\*═+.*╗$)"
+	end:   "(?<=\\];)"
+	beginCaptures:
+		1: name: "storage.type.const.js"
+		2: name: "constant.other.js"
+		3: name: "keyword.operator.assignment.js"
+	patterns: [{
+		# State transitions
+		name:  "meta.stt.table-row.js"
+		begin: "(?<= [║╙]\\*/\\[)"
+		end:   "(?=\\s*\\],/\\*$)"
+		patterns: [{
+			name:  "meta.stt.table-column.js"
+			match: "(?!\\d)([$\\w]+)(,?)"
+			captures:
+				1: name: "constant.other.stt-transition-id.js"
+				2: name: "meta.delimiter.object.comma.js"
+		}]
+	},{
+		# Character class
+		name:  "meta.stt.table-row.js"
+		begin: "(?<=[0-9A-F]{2} [║╙]\\*/)(?!\\s*\\[)"
+		end:   "\\s*+(([$\\w]+)\\s*)?(?=\\s*(?:\\];?|/\\*[║╜] [0-9A-F]{2}$))"
+		endCaptures:
+			1: name: "meta.stt.table-column.js"
+			2: name: "constant.other.stt-character-class.js"
+		patterns: [{
+			name:  "meta.stt.table-column.js"
+			match: "\\s*(?!\\d)([$\\w]+)(,?)"
+			captures:
+				1: name: "constant.other.stt-character-class.js"
+				2: name: "meta.delimiter.object.comma.js"
+		}]
+	}, include: "source.js"]
+}]
