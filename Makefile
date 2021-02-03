@@ -88,19 +88,29 @@ patch:
 	sudo rm -f app-unpatched.asar;
 
 
-# Install/link dependencies
+# Projects folder that should already exist on my personal workstation(s)
+projects = $(HOME)/Labs
+
+$(projects):
+	[ -d "$@" ] || mkdir "$@"
+
+$(projects)/%: $(projects)
+	[ -d "$@/.git" ] || git -C "$^" clone 'git@github.com:Alhadis/$*.git'
+
+
+# Link dependencies from globally-installed modules, because NPM can't be
+# trusted with symbolic links in `node_modules` directories (apparently).
 node_modules:
 	[ -d "$@" ] || mkdir "$@";
 
-node_modules/roff: node_modules
-	[ -e "$@" ] || { \
-		[ -d ~/Labs/Roff.js/.git ] && ln -s ~/Labs/Roff.js $@ || \
-		git clone 'git@github.com:Alhadis/Roff.js.git' $@; \
-		cd $@ && $(MAKE); \
-	};
-
 node_modules/%: node_modules
-	(npm install $* 2>&1) >/dev/null; true
+	npm install --global $*@latest && ln -sf "`npm root -g`/$*" "$@"
+
+node_modules/roff: node_modules $(projects)/Roff.js
+	[ -h "$@" ] || rm -rf "$@"
+	ln -s ~/Labs/Roff.js $@
+	cd $@ && $(MAKE) umd
+
 
 
 # Install a hook to prevent fucked indentation being committed to version control
