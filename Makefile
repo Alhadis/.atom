@@ -1,6 +1,6 @@
 all: init.js install hooks snippets clean watch
 
-install: node_modules/roff node_modules/prompt-view hooks
+install: node_modules/roff node_modules/prompt-view ascii-info hooks
 	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
 
@@ -172,3 +172,10 @@ packages/Makefile:
 		printf '\n%s%s\n' "$$git" "$$end"; \
 	) > $@;
 .PHONY: packages/Makefile
+
+
+# Character-name lists sourced from ascii(1) utility's repo
+ascii-info: node_modules/record-jar dev/ascii
+
+dev/ascii:
+	git -C dev clone 'https://gitlab.com/esr/ascii.git'
