@@ -182,9 +182,9 @@
 	"cmd-x":          "user:cut"
 	"cmd-r":          "unset!"
 	"cmd-=":          "user:increment"
-	"cmd-+":          "user:increment"
 	"cmd--":          "user:decrement"
 	"cmd-_":          "user:decrement"
+	"cmd-+":          "editor:insert-sequence"
 
 "body.platform-darwin atom-text-editor:not([data-grammar='text roff'])":
 	"cmd-e":          "editor:expand-escapes"
