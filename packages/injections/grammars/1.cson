@@ -14,7 +14,7 @@ patterns: [{
 		|   (0[Oo](?=\\d*_)[_0-7]+n?)
 		|   (0[Xx](?=\\w*_)[_A-Fa-f0-9]+n?)
 		|   (?=[\\d.]*_)([_\\d.]+n?))
-		\\b
+		\\b (?!\\s*=)
 	"""
 	captures:
 		1: name: "keyword.control.js"
