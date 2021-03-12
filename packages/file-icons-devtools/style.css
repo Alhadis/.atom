@@ -22,6 +22,15 @@
 }
 
 /* Width compensation */
-.syntax--meta.syntax--record.syntax--icon-table > .hard-tab:nth-child(6){ margin-right: -1ch; }
-.syntax--meta.syntax--fa.syntax--icon-table     > .hard-tab:nth-child(6){ margin-right: -1.1ch; }
-.syntax--meta.syntax--record.syntax--astral     > .hard-tab:nth-child(6){ margin-right: 0; }
+.syntax--meta.syntax--record.syntax--icon-table > .syntax--font:first-child      ~ .hard-tab:nth-child(6),
+.syntax--meta.syntax--record.syntax--icon-table > .syntax--codepoint:first-child ~ .hard-tab:nth-child(4){
+	margin-right: -1ch;
+}
+.syntax--meta.syntax--fa.syntax--icon-table > .syntax--font:first-child      ~ .hard-tab:nth-child(6),
+.syntax--meta.syntax--fa.syntax--icon-table > .syntax--codepoint:first-child ~ .hard-tab:nth-child(4){
+	margin-right: -1.1ch;
+}
+.syntax--meta.syntax--record.syntax--astral > .syntax--font:first-child      ~ .hard-tab:nth-child(6),
+.syntax--meta.syntax--record.syntax--astral > .syntax--codepoint:first-child ~ .hard-tab:nth-child(4){
+	margin-right: 0;
+}

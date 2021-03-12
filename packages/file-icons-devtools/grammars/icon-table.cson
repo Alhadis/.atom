@@ -32,7 +32,7 @@ repository:
 	record:
 		patterns: [{
 			name:  "meta.record.astral.$1.icon-table"
-			begin: "^([a-z][-a-z]*)\\t(U\\+[1-9A-F][A-Fa-f0-9]{4,})\\t([^\\t\\s]+)"
+			begin: "^(?:([a-z][-a-z]*)\\t)?(U\\+[1-9A-F][A-Fa-f0-9]{4,})\\t([^\\t\\s]+)"
 			end:   "$"
 			beginCaptures:
 				1: name: "entity.name.font.icon-table"
@@ -41,7 +41,7 @@ repository:
 			patterns: [include: "#field"]
 		},{
 			name:  "meta.record.prime-material.$1.icon-table"
-			begin: "^([a-z][-a-z]*)\\t(U\\+[A-Fa-f0-9]{1,4})\\t([^\\t\\s]+)"
+			begin: "^(?:([a-z][-a-z]*)\\t)?(U\\+[A-Fa-f0-9]{1,4})\\t([^\\t\\s]+)"
 			end:   "$"
 			beginCaptures:
 				1: name: "entity.name.font.icon-table"
