@@ -28,6 +28,19 @@
 			"source.shell": [
 				"profile"
 			]
+			"source.yaml": [
+				"clang-tidy"
+				"gemrc"
+				"glide.lock"
+				"mir"
+				"reek"
+				"rviz"
+				"syntax"
+				"yaml-tmlanguage"
+				"yaml.sed"
+				"yarn.lock"
+				"yml.mysql"
+			]
 			"text.plain": [
 				"packages/injections/misc/latin-1"
 				"mail.tildehelp"
@@ -39,6 +52,9 @@
 			"text.roff": [
 				"mm"
 				"ms"
+			]
+			"text.xml": [
+				"xmp"
 			]
 		disabledPackages: [
 			"autocomplete-css"
