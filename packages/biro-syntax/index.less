@@ -649,7 +649,9 @@ atom-text-editor[mini] .scroll-view{
 		color: #00c;
 	}
 
-	.syntax--string:not(.syntax--dollar){
+	.syntax--string:not(.syntax--dollar):not(.syntax--heredoc),
+	[class="syntax--string syntax--unquoted syntax--heredoc syntax--shell"],
+	[class="syntax--string syntax--unquoted syntax--heredoc syntax--no-indent syntax--shell"]{
 		&, & span{
 			color: #f39 !important;
 		}
