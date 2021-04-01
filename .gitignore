@@ -24,3 +24,7 @@
 !/packages/injections
 !/packages/language-not-mine
 !/packages/patches
+
+# Other shite
+*.tmLanguage
+*.yaml-tmLanguage
