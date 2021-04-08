@@ -286,8 +286,11 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 	}
 	
 	.syntax--constant.syntax--other.syntax--reference.syntax--link,
+	.syntax--string.syntax--other.syntax--link,
 	.syntax--underline{
-		text-decoration: underline;
+		&:not(.syntax--gitconfig){
+			text-decoration: underline;
+		}
 	}
 }
 
