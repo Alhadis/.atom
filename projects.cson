@@ -93,6 +93,7 @@
 		title: "Postage"
 		paths: [
 			"~/Labs/Stupid-Post-Tricks"
+			"~/Labs/Inspect.ps"
 			"~/Labs/Atom-PostScript"
 			"~/Forks/GhostScript"
 			"~/Forks/postscriptbarcode"
