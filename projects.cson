@@ -1,15 +1,10 @@
 [
 	{
-		title: ".atom"
-		paths: [
-			"~/.atom"
-		]
-		icon: "atom-icon"
-	}
-	{
-		title: ".files"
+		title: ".{files,atom,emacs.d}"
 		paths: [
 			"~/.files"
+			"~/.atom"
+			"~/.emacs.d"
 		]
 		icon: "terminal-icon"
 	}
