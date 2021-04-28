@@ -1,0 +1,6 @@
+scopeName: "injection.makefile"
+injectionSelector: "L:source.makefile - comment"
+patterns: [{
+	name: "constant.character.escape.continuation.makefile"
+	match: "(\\\\)$"
+}]
