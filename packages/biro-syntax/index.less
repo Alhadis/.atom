@@ -653,6 +653,7 @@ atom-text-editor[mini] .scroll-view{
 
 /** Shell-scripts */
 .syntax--shell{
+
 	.syntax--function,
 	.syntax--builtin,
 	.syntax--control,
@@ -701,6 +702,9 @@ atom-text-editor[mini] .scroll-view{
 	&.syntax--punctuation.syntax--definition.syntax--variable,
 	&.syntax--punctuation.syntax--separator.syntax--key-value{
 		color: #00a;
+	}
+	.syntax--string.syntax--quoted.syntax--shell{
+		color: #f39 !important;
 	}
 }
 
