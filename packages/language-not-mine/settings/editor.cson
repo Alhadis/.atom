@@ -15,3 +15,9 @@
 		commentStart: "# "
 		increaseIndentPattern: "^\\s*#region"
 		decreaseIndentPattern: "^\\s*#endregion"
+
+".source.makefile":
+	editor:
+		increaseIndentPattern: "^[^\\t ]+:"
+		commentStart: "# "
+		tabType: "hard"

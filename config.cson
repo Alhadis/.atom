@@ -63,6 +63,7 @@
 			"exception-reporting"
 			"github"
 			"language-clojure"
+			"language-make"
 			"language-markdown"
 			"language-python"
 			"welcome"
