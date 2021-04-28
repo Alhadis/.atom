@@ -3,8 +3,9 @@
 		title: ".{files,atom,emacs.d}"
 		paths: [
 			"~/.files"
-			"~/.atom"
 			"~/.emacs.d"
+			"~/.atom"
+			"~/Labs/YASR"
 		]
 		icon: "terminal-icon"
 	}
@@ -58,13 +59,6 @@
 			"~/Forks/DWB3.3"
 		]
 		icon: "manpage-icon"
-	}
-	{
-		title: "YASR"
-		paths: [
-			"~/Labs/YASR"
-		]
-		icon: "emacs-icon"
 	}
 	{
 		title: "Homebrew Troff"
