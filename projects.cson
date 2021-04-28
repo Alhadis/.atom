@@ -33,6 +33,7 @@
 			"~/Labs/language-regexp"
 			"~/.atom/packages/language-fontforge"
 			"~/.atom/packages/language-viml"
+			"~/.atom/packages/language-webassembly"
 		]
 		icon: "icon-github"
 	}
