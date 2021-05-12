@@ -7,6 +7,6 @@
 - [ ] Command to run spellchecker on buffer and display the results
 - [ ] Auto-shift focus to active editor when running certain commands (like ~go-to-line~, etc)
 - [ ] Fix increment/decrement commands to operate without selection ranges
-- [ ] Ability to insert ascending list of numbers with aforementioned command
+- [X] Ability to insert ascending list of numbers with aforementioned command
 - [ ] Smart switching of lines containing ternery operators (~move-up:~ -> swaps ~:~ for ~?~, and vice versa)
-- [x] Kill off selection-less line-copy command before it wipes something important
+- [X] Kill off selection-less line-copy command before it wipes something important
