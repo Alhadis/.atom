@@ -543,7 +543,13 @@ atom-text-editor[mini] .scroll-view{
 	.syntax--keyword,
 	.syntax--any-method,
 	.syntax--C99{
-		color: #00c
+		color: #00c;
+	}
+	
+	&.syntax--string.syntax--quoted{
+		&, & > .syntax--punctuation.syntax--definition{
+			color: #f39;
+		}
 	}
 	
 	&.syntax--entity.syntax--name.syntax--function{
