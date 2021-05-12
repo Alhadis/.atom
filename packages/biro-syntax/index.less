@@ -67,7 +67,7 @@ atom-text-editor{
 
 
 /* Generic function/keyword highlighting */
-.syntax--source{
+.syntax--source, .syntax--text[class^="syntax--text "]{
 	&:not(.syntax--js):not(.syntax--ts):not(.syntax--tsx):not(.syntax--apl):not(.syntax--c):not(.syntax--cpp):not(.syntax--turing):not(.syntax--lisp){
 		.syntax--support{  color: #00a; }
 		.syntax--function{ color: #00c; }
