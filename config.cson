@@ -154,9 +154,6 @@
 	editor:
 		softTabs: true
 		tabLength: 2
-".plain.text:not(.null-grammar)":
-	editor:
-		softWrap: true
 ".python.source":
 	editor:
 		softTabs: false

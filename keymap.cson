@@ -161,6 +161,7 @@
 	"alt-cmd-t":      "user:toggle-night-mode"
 
 "body.platform-darwin atom-text-editor":
+	"alt-w":          "editor:toggle-soft-wrap"
 	"cmd-g":          "go-to-line:toggle"
 	"cmd-l":          "grammar-selector:show"
 	"cmd-[":          "git-diff:move-to-previous-diff"
