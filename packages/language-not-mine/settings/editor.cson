@@ -1,4 +1,5 @@
-".source.awk":
+".source.awk,
+ .source.tm-properties":
 	editor:
 		commentStart: "# "
 
