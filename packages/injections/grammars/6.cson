@@ -1,0 +1,8 @@
+scopeName: "fuck-atom.6"
+injectionSelector: "L:source.js - (comment | string)"
+patterns: [{
+	# HACK: Shove nullish coalescing operators down Atom's constantly-lagging-behind-everything's throat
+	match: "\\s*(\\?\\?)"
+	captures:
+		1: name: "keyword.operator.logical.js"
+}]

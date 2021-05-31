@@ -1,8 +1,35 @@
 scopeName: "fuck-atom.1"
-injectionSelector: "L:source.js - (comment | string)"
+injectionSelector: "source.js - (comment | string | stt)"
 patterns: [{
-	# HACK: Shove nullish coalescing operators down Atom's constantly-lagging-behind-everything's throat
-	match: "\\s*(\\?\\?)"
+	# HACK: Shove numeric separator support down Atom's constantly-lagging-behind-everything's throat
+	name: "stupid-hack-1.js"
+	match: """(?x) \\s*
+		(?: \\b (if|else|while|for|do|switch)
+		|   \\b ((?!\\d)[$\\w]+) (?!\\[)
+		)?
+		([\\[\\(]*)
+		([-+]?)
+		\\b
+		(?: (0[Bb](?=\\d*_)[_01]+n?)
+		|   (0[Oo](?=\\d*_)[_0-7]+n?)
+		|   (0[Xx](?=\\w*_)[_A-Fa-f0-9]+n?)
+		|   (?=[\\d.]*_)([_\\d.]+n?))
+		\\b (?!\\s*=)
+	"""
 	captures:
-		1: name: "keyword.operator.logical.js"
+		1: name: "keyword.control.js"
+		2: name: "entity.name.function.js"
+		4: name: "keyword.operator.js"
+		5: name: "constant.numeric.binary.js"
+		6: name: "constant.numeric.octal.js"
+		7: name: "constant.numeric.hex.js"
+		8: name: "constant.numeric.decimal.js"
+		3: patterns: [
+			{match: "\\(", name: "meta.brace.round.js"}
+			{match: "\\[", name: "meta.brace.square.js"}
+		]
+},{
+	# While we're here, highlight BigInt-related classes too
+	name:  "support.class.js"
+	match: "\\b(?<![$.])(?:BigUint64Array|BigInt64Array|BigInt)(?![$.])\\b"
 }]
