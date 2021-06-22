@@ -527,6 +527,17 @@ atom-text-editor[mini] .scroll-view{
 
 
 
+/** XML property lists */
+.syntax--text.syntax--xml.syntax--plist{
+	.syntax--punctuation.syntax--definition.syntax--tag.syntax--xml.syntax--plist{
+		opacity: 0.2;
+	}
+	.syntax--meta.syntax--tag.syntax--key.syntax--xml.syntax--plist{
+		.syntax--entity.syntax--name.syntax--tag.syntax--xml.syntax--plist{
+			opacity: 0.5;
+		}
+	}
+}
 
 
 /** SQL */
@@ -1207,6 +1218,21 @@ atom-text-editor[mini] .scroll-view{
 	.syntax--keyword.syntax--operator.syntax--assignment,
 	.syntax--punctuation.syntax--separator,
 	.syntax--punctuation.syntax--delimiter{
+		opacity: 0.35;
+	}
+}
+
+
+/** Dotenv **/
+.syntax--source.syntax--dotenv{
+	.syntax--storage.syntax--modifier{
+		color: #00f;
+	}
+	.syntax--string.syntax--unquoted{
+		color: #000 !important;
+	}
+	.syntax--keyword.syntax--key-value{
+		color: #006 !important;
 		opacity: 0.35;
 	}
 }
