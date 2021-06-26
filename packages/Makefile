@@ -34,6 +34,7 @@ all: \
 	language-idl \
 	language-ini \
 	language-jflex \
+	language-jq \
 	language-latex \
 	language-llvm-ir \
 	language-lua \
@@ -71,6 +72,7 @@ all: \
 	lisp-paredit \
 	MagicPython \
 	make-executable \
+	minimap \
 	pdf-view \
 	postscript \
 	project-manager \
@@ -81,6 +83,10 @@ all: \
 	theme-reel \
 	xterm-quotes \
 
+
+editorconfig:
+	git clone 'git@github.com:sindresorhus/atom-editorconfig.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
 
 file-icons:
 	git clone 'git@github.com:file-icons/atom.git' $@
@@ -122,6 +128,14 @@ language-grammars:
 	git clone 'git@github.com:Alhadis/language-grammars.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
+language-jq:
+	git clone 'git@github.com:wader/language-jq.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+language-markdown:
+	git clone 'git@github.com:burodepeper/language-markdown.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
 language-maxscript:
 	git clone 'git@github.com:Alhadis/language-maxscript.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
@@ -160,6 +174,10 @@ language-turing:
 
 language-units:
 	git clone 'git@github.com:Alhadis/language-units.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+language-v:
+	git clone 'git@github.com:Cutlery-Drawer/language-v.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 language-viml:

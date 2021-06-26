@@ -141,13 +141,10 @@ snippets:
 
 # Regenerate list of installed packages
 packages/Makefile:
-	@pkglist=`apm list -bi --no-dev \
-	| sed 's/@[^@]*$$//' \
-	| grep -v '^biro-syntax$$' \
-	| grep -v '^patches$$' \
-	| grep -v '^injections$$' \
-	| grep -v '^language-not-mine$$' \
-	| grep -v '^[[:blank:]]*$$' \
+	@ignore=`git ls-tree HEAD:packages | cut -f2`; \
+	pkglist=`apm list -bi --no-dev --no-versions \
+	| grep -vF "$$ignore" \
+	| grep -vi '\.tmBundle$$' \
 	| sort -df`; all=""; git=""; \
 	cwd=$(PWD); \
 	end=`sed -ne '/^\.PHONY:/,//p' "$@"`; \
@@ -157,8 +154,10 @@ packages/Makefile:
 			cd "$$dir/.."; \
 			url=`git remote get-url origin`; \
 			git=`printf "%s%s:\n\tgit clone '%s' \\$$@\nZ" "$$git" "$$i" "$$url"`; \
-			git=`printf '%s\tcd $$@ && apm install .Z' "$${git%Z}"`; \
-			git=`printf '%s && npm run-script --if-present post-install\n\nZ' "$${git%Z}"`; \
+			[ ! "$$i" = postscript ] && { \
+				git=`printf '%s\tcd $$@ && apm install .Z' "$${git%Z}"`; \
+				git=`printf '%s && npm run-script --if-present post-install\n\nZ' "$${git%Z}"`; \
+			} || git=`printf '%s\tcd $$@ && npm install --production\n\nZ' "$${git%Z}"`; \
 			git="$${git%Z}"; \
 		}; \
 		all=`printf '%s%s\nZ' "$$all" "$$i"`; \
