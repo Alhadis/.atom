@@ -86,42 +86,48 @@ atom-text-editor.is-focused .cursors .cursor{
 
 
 /* Debugging highlights for language-grammar development */
-.test1(){
-	background: #f00 !important;
-	&.syntax--faded{
-		background: rgba(255, 0, 0, .25) !important;
-	}
-}
-.test2(){
-	background: #0e0 !important;
-	&.syntax--faded{
-		background: rgba(0, 238, 0, .25) !important;
-	}
-}
-.test3(){
-	background: #6cf !important;
-	&.syntax--faded{
-		background: rgba(102, 204, 255, .25) !important;
-	}
-}
-.box(){
-	outline: 1px solid #ccc;
+atom-workspace:not(.theme-github-atom-light-syntax){
+	--test1-bg: #f00;    --test1-fg: #fff; --test1-o: #800;
+	--test2-bg: #0e0;    --test2-fg: #000; --test2-o: #080;
+	--test3-bg: #6cf;    --test3-fg: #000; --test3-o: #00f;
 	
-	&.syntax--test-1, .syntax--test1,
-	&.syntax--test-2, .syntax--test2,
-	&.syntax--test-3, .syntax--test3{
-		outline-color: #000;
+	&.theme-seti-syntax{
+		--test1-bg: #a00404; --test1-fg: #fff; --test1-o: #f00;
+		--test2-bg: #077b07; --test2-fg: #fff; --test2-o: #0f0;
+		--test3-bg: #0c449c; --test3-fg: #fff; --test3-o: #99f;
 	}
-	
-	&.syntax--faded{
-		opacity: .25;
-	}
-}
 
-.syntax--test-1, .syntax--test1{ .test1(); }
-.syntax--test-2, .syntax--test2{ .test2(); }
-.syntax--test-3, .syntax--test3{ .test3(); }
-.syntax--box:not(.syntax--roff):not(.syntax--request){ .box(); }
+	.syntax--test-0, .syntax--test0,
+	.syntax--test-1, .syntax--test1,
+	.syntax--test-2, .syntax--test2,
+	.syntax--test-3, .syntax--test3{
+		all:              unset           !important;
+		outline:          1px solid       !important;
+		&:empty{
+			padding-left:    0.5ch        !important;
+			border-color:    transparent  !important;
+			background-clip: padding-box  !important;
+		}
+	}
+	.syntax--test-1, .syntax--test1{
+		color:            var(--test1-fg) !important;
+		background-color: var(--test1-bg) !important;
+		outline-color:    var(--test1-o)  !important;
+	}
+	.syntax--test-2, .syntax--test2{
+		color:            var(--test2-fg) !important;
+		background-color: var(--test2-bg) !important;
+		outline-color:    var(--test2-o)  !important;
+	}
+	.syntax--test-3, .syntax--test3{
+		color:            var(--test3-fg) !important;
+		background-color: var(--test3-bg) !important;
+		outline-color:    var(--test3-o)  !important;
+	}
+	.syntax--test-0, .syntax--test0{
+		outline: none !important;
+	}
+}
 
 
 /* HACK: Remove once we do something about pointless icon overrides in File-Icons */
