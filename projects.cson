@@ -36,7 +36,7 @@
 			"~/.atom/packages/language-viml"
 			"~/.atom/packages/language-webassembly"
 		]
-		icon: "icon-github"
+		icon: "bnf-icon"
 	}
 	{
 		title: "file-icons"
