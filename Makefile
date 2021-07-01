@@ -56,7 +56,8 @@ atom-v$(version).zip:
 
 # Monitor `config.cson` for changes to keep Atom's shitty code-style out of my repository
 watch:
-	@ watchman -- trigger $(PWD) unfuck config.cson -- ./unfuck-config >/dev/null
+	watchman watch $(PWD)
+	watchman -- trigger $(PWD) unfuck config.cson -- ./unfuck-config
 .PHONY: watch
 
 
