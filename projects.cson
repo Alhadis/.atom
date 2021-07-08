@@ -49,6 +49,7 @@
 			"~/Labs/file-icons/atom-fs"
 		]
 		icon: "atom-icon"
+		color: "#40a977"
 	}
 	{
 		title: "Mono"
@@ -78,7 +79,8 @@
 			"~/Labs/Atom-LiveView"
 			"~/Labs/Atom-PostScriptPreview"
 		]
-		icon: "icon-atom"
+		icon: "atom-icon"
+		color: "#40a977"
 	}
 	{
 		title: "Postage"
@@ -102,5 +104,14 @@
 		]
 		icon: "vim-icon"
 		color: "#019833"
+	}
+	{
+		title: "Atom CI"
+		paths: [
+			"~/Labs/Atom-CI"
+			"~/Labs/Atom-Mocha"
+		]
+		icon: "atom-icon"
+		color: "#40a977"
 	}
 ]
