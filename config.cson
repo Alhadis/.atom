@@ -154,6 +154,9 @@
 	editor:
 		softTabs: true
 		tabLength: 2
+".powershell.source":
+	editor:
+		nonWordCharacters: "/\\()\"':,.;<>~!@#%^&*|+=[]{}`?-…"
 ".python.source":
 	editor:
 		softTabs: false
