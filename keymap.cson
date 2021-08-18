@@ -48,7 +48,7 @@
 	"alt-ctrl-\\":    "tree-view:toggle"
 	"alt-ctrl-o":     "application:add-project-folder"
 	"shift-ctrl-o":   "application:open-in-new-window"
-	"shift-ctrl-y":   "user:toggle-night-mode"
+	"shift-ctrl-y":   "dark-mode:toggle"
 	"shift-ctrl-r":   "window:reload"
 	"shift-ctrl-b":   "user:toggle-bracket-matcher"
 	"shift-ctrl-w":   "tabs:close-all-tabs"
@@ -88,7 +88,7 @@
 "body:not(.platform-darwin) atom-workspace,
  body:not(.platform-darwin) atom-text-editor:not([mini])":
 	"shift-ctrl-c":   "file-icons:toggle-colours"
-	"alt-ctrl-t":     "user:toggle-night-mode"
+	"alt-ctrl-t":     "dark-mode:toggle"
 	"alt-p":          "editor:log-cursor-scope"
 
 "body:not(.platform-darwin) atom-text-editor":
@@ -142,7 +142,7 @@
 	"alt-cmd-\\":     "tree-view:toggle"
 	"alt-cmd-o":      "application:add-project-folder"
 	"shift-cmd-o":    "application:open-in-new-window"
-	"shift-cmd-y":    "user:toggle-night-mode"
+	"shift-cmd-y":    "dark-mode:toggle"
 	"shift-cmd-r":    "window:reload"
 	"alt-shift-w":    "window:close"
 	"shift-cmd-b":    "user:toggle-bracket-matcher"
@@ -160,7 +160,7 @@
 
 "body.platform-darwin atom-workspace":
 	"shift-cmd-c":    "file-icons:toggle-colours"
-	"alt-cmd-t":      "user:toggle-night-mode"
+	"alt-cmd-t":      "dark-mode:toggle"
 
 "body.platform-darwin atom-text-editor":
 	"alt-w":          "editor:toggle-soft-wrap"
