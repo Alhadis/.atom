@@ -141,6 +141,10 @@
 		showOnStartup: false
 	whitespace:
 		removeTrailingWhitespace: false
+".applescript.source":
+	editor:
+		commentEnd: " *)"
+		commentStart: "(* "
 ".coffee.source":
 	editor:
 		decreaseIndentPattern: "^\\s*(\\}\\]?|\\]|\\b(else|catch|finally)\\b)$"
