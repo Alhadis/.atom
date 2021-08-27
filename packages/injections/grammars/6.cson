@@ -1,12 +1,7 @@
 scopeName: "fuck-atom.6"
 injectionSelector: "L:source.js - (comment | string)"
-patterns: [{
+patterns: [
 	# HACK: Shove ES2020 operators down Atom's constantly-lagging-behind-everything's throat
-	match: "\\s*(\\?\\?)"
-	captures:
-		1: name: "keyword.operator.logical.js"
-},{
-	match: "\\s*(\\?\\.)"
-	captures:
-		1: name: "keyword.operator.optional-chaining.js"
-}]
+	{match: "\\?\\?", name: "keyword.operator.logical.nullish.js"}
+	{match: "\\?\\.", name: "keyword.operator.optional-chaining.js"}
+]
