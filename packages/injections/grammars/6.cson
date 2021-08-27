@@ -4,4 +4,9 @@ patterns: [
 	# HACK: Shove ES2020 operators down Atom's constantly-lagging-behind-everything's throat
 	{match: "\\?\\?", name: "keyword.operator.logical.nullish.js"}
 	{match: "\\?\\.", name: "keyword.operator.optional-chaining.js"}
+	
+	# HACK: Fix highlighting of `import.meta.url`
+	match: "(?<![$.])\\s*(import)\\s*(?=\\.)"
+	captures:
+		1: name: "keyword.control.import.js"
 ]
