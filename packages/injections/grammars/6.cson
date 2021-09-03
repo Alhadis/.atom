@@ -2,11 +2,61 @@ scopeName: "fuck-atom.6"
 injectionSelector: "L:source.js - (comment | string)"
 patterns: [
 	# HACK: Shove ES2020 operators down Atom's constantly-lagging-behind-everything's throat
+	{include: "#optionalMethod"}
+	{include: "#optionalProperty"}
 	{match: "\\?\\?", name: "keyword.operator.logical.nullish.js"}
-	{match: "\\?\\.", name: "keyword.operator.optional-chaining.js"}
+	{match: "\\?\\.", name: "punctuation.accessor.optional.js"}
 	
 	# HACK: Fix highlighting of `import.meta.url`
 	match: "(?<![$.])\\s*(import)\\s*(?=\\.)"
 	captures:
 		1: name: "keyword.control.import.js"
 ]
+
+repository:
+	# object.method?.(…)
+	optionalMethod:
+		name:  "meta.method-call.optional-chaining.js"
+		begin: "(?:((?<!\\?)\\.|(?<![$.])\\b)\\s*(?!\\d)([$\\w]+))?+\\s*(\\?\\.)\\s*(?=\\()"
+		end:   "(?<=\\))"
+		beginCaptures:
+			1: name: "meta.delimiter.method.period.js"
+			2: name: "entity.name.function.js"
+			3: name: "punctuation.accessor.optional.js"
+		patterns: [include: "source.js#arguments"]
+	
+	# HACK: Copied from “source.js#objects” and “source.js#properties”
+	optionalProperty:
+		patterns: [{
+			match: "(?x) (?<![$\\w])
+				( (console)
+				| (Math|Promise)
+				| (?=[A-Z]) ([A-Z0-9_$]+)
+				| (?!\\d)   ([$\\w]+)
+				) (?=\\s*\\?\\.\\s*(?!\\d)[$\\w\\x28\\x5B])"
+			captures:
+				2: name: "entity.name.type.object.console.js"
+				3: name: "support.class.${3:/downcase}.js"
+				4: name: "constant.other.object.js"
+				5: name: "variable.other.object.js"
+		},{
+			match: "(?<=\\?\\.)\\s*((?=[A-Z])[A-Z0-9_$]+\\b\\$*)(?=\\s*\\??\\.\\s*(?!\\d)[$\\w\\x28\\x5B])"
+			captures:
+				1: name: "constant.other.object.property.js"
+		},{
+			match: "(?<=\\?\\.)\\s*(\\$*(?!\\d)[$\\w]+)(?=\\s*\\??\\.\\s*(?!\\d)[$\\w\\x28\\x5B])"
+			captures:
+				1: name: "variable.other.object.property.js"
+		},{
+			match: "(?<=\\?\\.)\\s*((?=[A-Z])[A-Z0-9_$]+\\b\\$*)\\b(?!\\s*[\\x28\\x5B])"
+			captures:
+				1: name: "constant.other.property.js"
+		},{
+			match: "(?<=\\?\\.)\\s*(\\$*(?!\\d)[$\\w]+)\\b(?!\\s*[\\x28\\x5B])"
+			captures:
+				1: name: "variable.other.property.js"
+		},{
+			match: "(?<=\\?\\.)\\s*([0-9][$\\w]*)\\b(?!\\s*[\\x28\\x5B])"
+			captures:
+				1: name: "invalid.illegal.identifier.js"
+		}]
