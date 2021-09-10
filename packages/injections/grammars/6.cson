@@ -1,5 +1,5 @@
 scopeName: "fuck-atom.6"
-injectionSelector: "L:source.js - (comment | string)"
+injectionSelector: "L:source.js - (comment | string.regexp | string.quoted.double | string.quoted.single | (string.quoted.template - source.js.embedded))"
 patterns: [
 	# HACK: Shove ES2020 operators down Atom's constantly-lagging-behind-everything's throat
 	{include: "#optionalMethod"}
