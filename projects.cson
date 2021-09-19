@@ -33,6 +33,7 @@
 			"~/.atom/packages/language-grammars"
 			"~/Labs/language-regexp"
 			"~/Labs/language-roff"
+			"~/.atom/packages/language-emacs-lisp"
 			"~/.atom/packages/language-fontforge"
 			"~/.atom/packages/language-viml"
 			"~/.atom/packages/language-webassembly"
