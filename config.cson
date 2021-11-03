@@ -15,6 +15,7 @@
 			]
 			"source.makefile": [
 				"mk.config"
+				"mkfile"
 			]
 			"source.perl.5": [
 				"t"
