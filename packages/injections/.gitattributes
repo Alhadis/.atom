@@ -1,0 +1,2 @@
+misc/latin-1  linguist-language=text binary
+tests/**/*.rb linguist-documentation
