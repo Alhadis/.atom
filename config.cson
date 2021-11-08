@@ -51,6 +51,10 @@
 				"TODO"
 			]
 			"text.roff": [
+				"tmac.scover"
+				"tmac.sdisp"
+				"tmac.skeep"
+				"tmac.s"
 				"mm"
 				"ms"
 			]
