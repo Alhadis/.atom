@@ -1,0 +1,59 @@
+# Improved highlighting for YARD markup (Ruby, esp. Homebrew)
+scopeName: "fuck-atom.7"
+injectionSelector: "L:comment.line.number-sign.ruby - (meta.example | meta.prologue | source.embedded.ruby)"
+patterns: [{
+	# Fix broken highlighting in “# @see https://…”
+	match: "(?<= )(@)(see)\\s+(https?:\\S+|(?=\\w)[-\\w]+://\\S+)(?:\\s+(\\S.*))?"
+	captures:
+		1: name: "comment.line.keyword.punctuation.yard.ruby"
+		2: name: "comment.line.keyword.yard.ruby"
+		3: name: "variable.other.link.underline.yard.ruby"
+		4: name: "comment.line.string.yard.ruby"
+},{
+	# Examples: <pre>…</pre>
+	name:  "meta.example.yard.ruby"
+	begin: "(?<=#)[ \\t]*(<pre>)((?!.+?</pre>).+)?"
+	end:   "(?!\\G)(^([ \\t]*)(#+)([ \\t]*\\S.*?)?)[ \\t]*(</pre>)(.*)|^(?!\\G)(?![ \\t]*#)|\\G(.*?)(</pre>)"
+	beginCaptures:
+		1: patterns: [include: "#preTagStart"]
+		2: name: "source.embedded.ruby", patterns: [include: "source.ruby"]
+	endCaptures:
+		1: name: "comment.line.yard.ruby"
+		2: name: "punctuation.whitespace.comment.leading.ruby"
+		3: name: "punctuation.definition.comment.ruby"
+		4: name: "source.embedded.ruby", patterns: [include: "source.ruby"]
+		5: patterns: [include: "#preTagEnd"]
+		6: name: "comment.line.number-sign.ruby"
+		7: name: "source.embedded.ruby", patterns: [include: "source.ruby"]
+		8: patterns: [include: "#preTagEnd"]
+	patterns: [{
+		match: "((?!\\G)^([ \\t]+)?(#+)[ \\t]*)(\\S.*)?"
+		captures:
+			1: name: "comment.line.yard.ruby"
+			2: name: "punctuation.whitespace.comment.leading.ruby"
+			3: name: "punctuation.definition.comment.ruby"
+			4: name: "source.embedded.ruby", patterns: [include: "source.ruby"]
+	}]
+},{
+	# “Magic” comments that work outside the “prologue”
+	begin: "(?<=#)(?=\\s*(?:shareable_constant_value|warn_(?:indent|past_scope)):)"
+	end:   "$"
+	patterns: [include: "fuck-atom.8#directives"]
+}]
+
+repository:
+	# <pre>…
+	preTagStart:
+		name: "entity.name.tag.example.begin.yard.ruby"
+		match: "(<)pre(>)"
+		captures:
+			1: name: "punctuation.definition.bracket.angle.begin.yard.ruby"
+			2: name: "punctuation.definition.bracket.angle.end.yard.ruby"
+
+	# …</pre>
+	preTagEnd:
+		name: "entity.name.tag.example.end.yard.ruby"
+		match: "(</)pre(>)"
+		captures:
+			1: name: "punctuation.definition.bracket.angle.begin.yard.ruby"
+			2: name: "punctuation.definition.bracket.angle.end.yard.ruby"

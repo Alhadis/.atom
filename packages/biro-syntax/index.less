@@ -45,7 +45,8 @@ atom-text-editor{
  * Seriously, all I'm getting out of the following ruleses is an endless stream
  * of `.syntax--, .syntax--, .syntax--`…
  */
-.syntax--comment,
+.syntax--comment:not(.syntax--ruby),
+.syntax--comment.syntax--ruby:not(.syntax--yard),
 .syntax--meta.syntax--section.syntax--gitignore,
 .syntax--meta.syntax--subsection.syntax--gitignore,
 .syntax--string.syntax--regexp,
@@ -386,6 +387,16 @@ atom-text-editor{
 	
 	&.syntax--punctuation.syntax--definition.syntax--constant{
 		color: inherit !important;
+	}
+	
+	/** YARD markup */
+	&.syntax--comment.syntax--line.syntax--yard{
+		&.syntax--type,
+		&.syntax--string  { color: #003a9e; }
+		&.syntax--keyword { color: #00c; }
+	}
+	&.syntax--meta.syntax--example.syntax--yard{
+		color: #000;
 	}
 }
 

@@ -1,0 +1,66 @@
+# Highlighting of “magic” Ruby comments
+scopeName: "fuck-atom.8"
+injectionSelector: "L:source.ruby, R:comment.line.number-sign.ruby - source.embedded.ruby"
+patterns: [{
+	# File starting with an interpreter directive
+	name:  "meta.prologue.with-hashbang.ruby"
+	begin: "\\A(#!).*$"
+	end:   "(?!\\G)^(?:(?![ \\t]*#)|(?=\\s*#\\s*@))"
+	beginCaptures:
+		0: name: "comment.line.number-sign.shebang.hashbang.ruby"
+		1: name: "punctuation.definition.comment.shebang.hashbang.ruby"
+	patterns: [include: "#prologue"]
+},{
+	# File starting with an ordinary comment
+	name:  "meta.prologue.without-hashbang.ruby"
+	begin: "\\A[ \\t]*(?=#(?!\\s*@))"
+	end:   "(?!\\G)^(?:(?![ \\t]*#)|(?=\\s*#\\s*@))"
+	beginCaptures:
+		0: name: "punctuation.whitespace.comment.leading.ruby"
+	patterns: [include: "#prologue"]
+}]
+
+repository:
+	# Prologue comments that potentially contain “magic” directives
+	prologue:
+		name:  "meta.prologue-body.ruby"
+		begin: "\\G(#)|(?!\\G)^[ \\t]*((#))"
+		end:   "$"
+		beginCaptures:
+			1: name: "punctuation.whitespace.comment.leading.ruby"
+			2: name: "comment.line.number-sign.ruby"
+			3: name: "punctuation.definition.comment.ruby"
+		contentName: "comment.line.number-sign.ruby"
+		patterns: [include: "#directives"]
+
+	# “Magic” directives recognised inside prologues
+	directives:
+		patterns: [{
+			# “encoding: utf-8”
+			name:  "meta.directive.$1.ruby"
+			match: "\\G[ \\t]*(encoding|coding)(:)[ \\t]*([-\\w]+)"
+			captures:
+				1: name: "variable.assignment.$1.ruby"
+				2: name: "punctuation.separator.key-value.ruby"
+				3: name: "constant.language.encoding-name.ruby"
+		},{
+			# Other magic comments
+			name: "meta.directive.${1/_/-/g}.ruby"
+			match: """(?x) \\G [ \\t]*
+				( frozen_string_literal
+				| shareable_constant_value
+				| typed
+				| warn_indent
+				| warn_past_scope
+				) (:) [ \\t]* (?:(true|false)|(\\S.*?)(?=\\s*$))
+				(?=\\s|$)
+			"""
+			captures:
+				1: name: "constant.language.${1/_/-/g}.ruby"
+				2: name: "punctuation.separator.key-value.ruby"
+				3: name: "constant.language.boolean.$3.ruby"
+				4: name: "source.embedded.ruby", patterns: [
+					{include: "source.ruby"}
+					{match: "(?:^|\\G).+$", name: "support.constant.other.ruby"}
+				]
+		}]

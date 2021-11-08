@@ -144,6 +144,12 @@ atom-workspace:not(.theme-github-atom-light-syntax){
 	}
 }
 
+.icon[data-path*="/packages/injections/tests/"][data-name$=".rb"]::before{
+	font: 17px "File-Icons";
+	top: 3px;
+	content: "\ea68";
+}
+
 .icon[data-path$="/packages/injections/misc/latin-1"]::before{
 	font: 16px "Octicons Regular";
 	top: unset;
@@ -267,6 +273,12 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 		.syntax--meta.syntax--brace.syntax--js,
 		.syntax--meta.syntax--delimiter.syntax--period.syntax--js{
 			color: #4d5a5e;
+		}
+	}
+	
+	&[data-grammar$="source ruby"]{
+		.syntax--string.syntax--unquoted.syntax--heredoc.syntax--ruby{
+			color: #9ac4d7;
 		}
 	}
 	
