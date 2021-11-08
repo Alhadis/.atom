@@ -32,7 +32,25 @@
 	"enter":          "user:jsdoc-newline"
 
 ".tree-view":
-	"i":              "tree-view:toggle-ignored-files"
+	"ctrl-]":         "unset!"
+	"ctrl-[":         "unset!"
+	"alt-left":       "unset!"
+	"alt-right":      "unset!"
+	"alt-ctrl-]":     "unset!"
+	"alt-ctrl-[":     "unset!"
+	"ctrl-C":         "unset!"
+	f2:               "unset!"
+	d:                "unset!"
+	h:                "unset!"
+	i:                "tree-view:toggle-ignored-files"
+	j:                "unset!"
+	k:                "unset!"
+	l:                "unset!"
+	m:                "unset!"
+	delete:           "unset!"
+	backspace:        "unset!"
+	home:             "unset!"
+	end:              "unset!"
 
 "body.yn-mode atom-text-editor:not([mini])":
 	"y":              "yn-mode:yeah"
@@ -62,6 +80,20 @@
 	"ctrl-k left":    "unset!"
 	"ctrl-k down":    "unset!"
 	"shift-ctrl-p":   "unset!"
+	
+".platform-win32 .tree-view,
+ .platform-linux .tree-view":
+	"ctrl-c":         "unset!"
+	"ctrl-x":         "unset!"
+	"ctrl-v":         "unset!"
+	"ctrl-k right":   "unset!"
+	"ctrl-k l":       "unset!"
+	"ctrl-k left":    "unset!"
+	"ctrl-k h":       "unset!"
+	"ctrl-k up":      "unset!"
+	"ctrl-k k":       "unset!"
+	"ctrl-k down":    "unset!"
+	"ctrl-k j":       "unset!"
 	
 # Swap CTRL and ALT keys for switching between tabs
 "body:not(.platform-darwin),
@@ -204,6 +236,18 @@
 	"cmd-alt-w":      "unset!"
 
 "body.platform-darwin .tree-view":
+	"ctrl-f":         "unset!"
+	"ctrl-b":         "unset!"
+	"cmd-c":          "unset!"
+	"cmd-x":          "unset!"
+	"cmd-v":          "unset!"
+	"cmd-k right":    "unset!"
+	"cmd-k l":        "unset!"
+	"cmd-k left":     "unset!"
+	"cmd-k h":        "unset!"
+	"cmd-k up":       "unset!"
+	"cmd-k k":        "unset!"
+	"cmd-k down":     "unset!"
 	"cmd-1":          "user:select-item-1"
 	"cmd-2":          "user:select-item-2"
 	"cmd-3":          "user:select-item-3"
