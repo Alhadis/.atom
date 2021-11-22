@@ -17,6 +17,14 @@ body:not([class~="ff-style-border"]):not([class~="ff-style-caret"]):not([class~=
 		width: 4ch;
 	}
 	
+	// HACK: Fix dimensionless carriage returns
+	&.syntax--carriage-return::before{
+		content: " ";
+		width: 0;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
 	&::after{
 		& when(lightness(@syntax-background-color) <  50%){ color: #4271fb; }
 		& when(lightness(@syntax-background-color) >= 50%){ color: #00c; }
