@@ -24,7 +24,7 @@ repository:
 	# Prologue comments that potentially contain “magic” directives
 	prologue:
 		name:  "meta.prologue-body.ruby"
-		begin: "\\G(#)|(?!\\G)^[ \\t]*((#))"
+		begin: "(?:^|\\G)([ \\t]*)((#))"
 		end:   "$"
 		beginCaptures:
 			1: name: "punctuation.whitespace.comment.leading.ruby"
