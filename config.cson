@@ -9,10 +9,6 @@
 			"source.gitconfig": [
 				"config.worktree"
 			]
-			"source.ini": [
-				"flake8"
-				"npmrc"
-			]
 			"source.makefile": [
 				"make"
 				"makefile"
