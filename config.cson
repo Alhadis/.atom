@@ -69,6 +69,7 @@
 			"language-make"
 			"language-markdown"
 			"language-python"
+			"language-ruby-on-rails"
 			"welcome"
 		]
 		openEmptyEditorOnStart: false
