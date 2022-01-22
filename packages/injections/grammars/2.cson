@@ -4,6 +4,7 @@ injectionSelector: "source, text"
 patterns: [
 	{include: "#c0"}
 	{include: "#c1"}
+	{include: "#tags"}
 ]
 
 repository:
@@ -79,4 +80,111 @@ repository:
 		{match: "\x9D", name: "punctuation.c1.ctrl-char.osc.operating-system-command"}
 		{match: "\x9E", name: "punctuation.c1.ctrl-char.pm.privacy-message"}
 		{match: "\x9F", name: "punctuation.c1.ctrl-char.apc.application-program-command"}
+	]
+
+	# Invisible Unicode tags
+	tags:
+		match: "(?<!\u{1F3F4})[\u{E0000}-\u{E007F}]"
+		captures:
+			0: patterns: [include: "#tag"]
+
+	tag: patterns: [
+		{match: "\u{E0001}", name: "punctuation.unicode-tag.language-tag"}
+		{match: "\u{E0020}", name: "punctuation.unicode-tag.space"}
+		{match: "\u{E0021}", name: "punctuation.unicode-tag.exclamation-mark"}
+		{match: "\u{E0022}", name: "punctuation.unicode-tag.quotation-mark"}
+		{match: "\u{E0023}", name: "punctuation.unicode-tag.number-sign"}
+		{match: "\u{E0024}", name: "punctuation.unicode-tag.dollar-sign"}
+		{match: "\u{E0025}", name: "punctuation.unicode-tag.percent-sign"}
+		{match: "\u{E0026}", name: "punctuation.unicode-tag.ampersand"}
+		{match: "\u{E0027}", name: "punctuation.unicode-tag.apostrophe"}
+		{match: "\u{E0028}", name: "punctuation.unicode-tag.left-parenthesis"}
+		{match: "\u{E0029}", name: "punctuation.unicode-tag.right-parenthesis"}
+		{match: "\u{E002A}", name: "punctuation.unicode-tag.asterisk"}
+		{match: "\u{E002B}", name: "punctuation.unicode-tag.plus-sign"}
+		{match: "\u{E002C}", name: "punctuation.unicode-tag.comma"}
+		{match: "\u{E002D}", name: "punctuation.unicode-tag.hyphen-minus"}
+		{match: "\u{E002E}", name: "punctuation.unicode-tag.full-stop"}
+		{match: "\u{E002F}", name: "punctuation.unicode-tag.solidus"}
+		{match: "\u{E0030}", name: "punctuation.unicode-tag.digit-0"}
+		{match: "\u{E0031}", name: "punctuation.unicode-tag.digit-1"}
+		{match: "\u{E0032}", name: "punctuation.unicode-tag.digit-2"}
+		{match: "\u{E0033}", name: "punctuation.unicode-tag.digit-3"}
+		{match: "\u{E0034}", name: "punctuation.unicode-tag.digit-4"}
+		{match: "\u{E0035}", name: "punctuation.unicode-tag.digit-5"}
+		{match: "\u{E0036}", name: "punctuation.unicode-tag.digit-6"}
+		{match: "\u{E0037}", name: "punctuation.unicode-tag.digit-7"}
+		{match: "\u{E0038}", name: "punctuation.unicode-tag.digit-8"}
+		{match: "\u{E0039}", name: "punctuation.unicode-tag.digit-9"}
+		{match: "\u{E003A}", name: "punctuation.unicode-tag.colon"}
+		{match: "\u{E003B}", name: "punctuation.unicode-tag.semicolon"}
+		{match: "\u{E003C}", name: "punctuation.unicode-tag.less-than-sign"}
+		{match: "\u{E003D}", name: "punctuation.unicode-tag.equals-sign"}
+		{match: "\u{E003E}", name: "punctuation.unicode-tag.greater-than-sign"}
+		{match: "\u{E003F}", name: "punctuation.unicode-tag.question-mark"}
+		{match: "\u{E0040}", name: "punctuation.unicode-tag.commercial-at"}
+		{match: "\u{E0041}", name: "punctuation.unicode-tag.uppercase-a"}
+		{match: "\u{E0042}", name: "punctuation.unicode-tag.uppercase-b"}
+		{match: "\u{E0043}", name: "punctuation.unicode-tag.uppercase-c"}
+		{match: "\u{E0044}", name: "punctuation.unicode-tag.uppercase-d"}
+		{match: "\u{E0045}", name: "punctuation.unicode-tag.uppercase-e"}
+		{match: "\u{E0046}", name: "punctuation.unicode-tag.uppercase-f"}
+		{match: "\u{E0047}", name: "punctuation.unicode-tag.uppercase-g"}
+		{match: "\u{E0048}", name: "punctuation.unicode-tag.uppercase-h"}
+		{match: "\u{E0049}", name: "punctuation.unicode-tag.uppercase-i"}
+		{match: "\u{E004A}", name: "punctuation.unicode-tag.uppercase-j"}
+		{match: "\u{E004B}", name: "punctuation.unicode-tag.uppercase-k"}
+		{match: "\u{E004C}", name: "punctuation.unicode-tag.uppercase-l"}
+		{match: "\u{E004D}", name: "punctuation.unicode-tag.uppercase-m"}
+		{match: "\u{E004E}", name: "punctuation.unicode-tag.uppercase-n"}
+		{match: "\u{E004F}", name: "punctuation.unicode-tag.uppercase-o"}
+		{match: "\u{E0050}", name: "punctuation.unicode-tag.uppercase-p"}
+		{match: "\u{E0051}", name: "punctuation.unicode-tag.uppercase-q"}
+		{match: "\u{E0052}", name: "punctuation.unicode-tag.uppercase-r"}
+		{match: "\u{E0053}", name: "punctuation.unicode-tag.uppercase-s"}
+		{match: "\u{E0054}", name: "punctuation.unicode-tag.uppercase-t"}
+		{match: "\u{E0055}", name: "punctuation.unicode-tag.uppercase-u"}
+		{match: "\u{E0056}", name: "punctuation.unicode-tag.uppercase-v"}
+		{match: "\u{E0057}", name: "punctuation.unicode-tag.uppercase-w"}
+		{match: "\u{E0058}", name: "punctuation.unicode-tag.uppercase-x"}
+		{match: "\u{E0059}", name: "punctuation.unicode-tag.uppercase-y"}
+		{match: "\u{E005A}", name: "punctuation.unicode-tag.uppercase-z"}
+		{match: "\u{E005B}", name: "punctuation.unicode-tag.left-square-bracket"}
+		{match: "\u{E005C}", name: "punctuation.unicode-tag.reverse-solidus"}
+		{match: "\u{E005D}", name: "punctuation.unicode-tag.right-square-bracket"}
+		{match: "\u{E005E}", name: "punctuation.unicode-tag.circumflex-accent"}
+		{match: "\u{E005F}", name: "punctuation.unicode-tag.low-line"}
+		{match: "\u{E0060}", name: "punctuation.unicode-tag.grave-accent"}
+		{match: "\u{E0061}", name: "punctuation.unicode-tag.lowercase-a"}
+		{match: "\u{E0062}", name: "punctuation.unicode-tag.lowercase-b"}
+		{match: "\u{E0063}", name: "punctuation.unicode-tag.lowercase-c"}
+		{match: "\u{E0064}", name: "punctuation.unicode-tag.lowercase-d"}
+		{match: "\u{E0065}", name: "punctuation.unicode-tag.lowercase-e"}
+		{match: "\u{E0066}", name: "punctuation.unicode-tag.lowercase-f"}
+		{match: "\u{E0067}", name: "punctuation.unicode-tag.lowercase-g"}
+		{match: "\u{E0068}", name: "punctuation.unicode-tag.lowercase-h"}
+		{match: "\u{E0069}", name: "punctuation.unicode-tag.lowercase-i"}
+		{match: "\u{E006A}", name: "punctuation.unicode-tag.lowercase-j"}
+		{match: "\u{E006B}", name: "punctuation.unicode-tag.lowercase-k"}
+		{match: "\u{E006C}", name: "punctuation.unicode-tag.lowercase-l"}
+		{match: "\u{E006D}", name: "punctuation.unicode-tag.lowercase-m"}
+		{match: "\u{E006E}", name: "punctuation.unicode-tag.lowercase-n"}
+		{match: "\u{E006F}", name: "punctuation.unicode-tag.lowercase-o"}
+		{match: "\u{E0070}", name: "punctuation.unicode-tag.lowercase-p"}
+		{match: "\u{E0071}", name: "punctuation.unicode-tag.lowercase-q"}
+		{match: "\u{E0072}", name: "punctuation.unicode-tag.lowercase-r"}
+		{match: "\u{E0073}", name: "punctuation.unicode-tag.lowercase-s"}
+		{match: "\u{E0074}", name: "punctuation.unicode-tag.lowercase-t"}
+		{match: "\u{E0075}", name: "punctuation.unicode-tag.lowercase-u"}
+		{match: "\u{E0076}", name: "punctuation.unicode-tag.lowercase-v"}
+		{match: "\u{E0077}", name: "punctuation.unicode-tag.lowercase-w"}
+		{match: "\u{E0078}", name: "punctuation.unicode-tag.lowercase-x"}
+		{match: "\u{E0079}", name: "punctuation.unicode-tag.lowercase-y"}
+		{match: "\u{E007A}", name: "punctuation.unicode-tag.lowercase-z"}
+		{match: "\u{E007B}", name: "punctuation.unicode-tag.left-curly-bracket"}
+		{match: "\u{E007C}", name: "punctuation.unicode-tag.vertical-line"}
+		{match: "\u{E007D}", name: "punctuation.unicode-tag.right-curly-bracket"}
+		{match: "\u{E007E}", name: "punctuation.unicode-tag.tilde"}
+		{match: "\u{E007F}", name: "punctuation.unicode-tag.cancel"}
+		{match: "(^|\\G).+", name: "punctuation.unicode-tag.unassigned"}
 	]

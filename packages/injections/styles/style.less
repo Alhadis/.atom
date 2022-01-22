@@ -5,6 +5,7 @@ span[class^="syntax--carriage-return"]:not(.syntax--test-2),
 body:not([class~="ff-style-border"]):not([class~="ff-style-caret"]):not([class~="ff-style-escape"])
 .syntax--punctuation.syntax--whitespace.syntax--form-feed.syntax--inline,
 .syntax--punctuation.syntax--ctrl-char,
+.syntax--punctuation.syntax--unicode-tag,
 .syntax--punctuation.syntax--whitespace.syntax--vertical-tab,
 .syntax--punctuation.syntax--whitespace.syntax--carriage-return{
 	opacity: 0.5;
@@ -169,6 +170,111 @@ body:not([class~="ff-style-border"]):not([class~="ff-style-caret"]):not([class~=
 		&.syntax--privacy-message           { width: 2.5ch; &::after{ content: "PM";  }}
 		&.syntax--apc                       { width: 3.5ch; &::after{ content: "APC"; }}
 	}
+	
+	// Unicode tags
+	&.syntax--unicode-tag::after{
+		content: "\A0";
+		outline: 1px solid;
+		outline-offset: -1px;
+	}
+	&.syntax--unassigned           { width: 2ch; &::after { content: "??";   }}
+	&.syntax--language-tag         { width: 4ch; &::after { content: "LANG"; }}
+	&.syntax--cancel               { width: 3ch; &::after { content: "END";  }}
+	&.syntax--space                { &::after { content: "\A0"; }}
+	&.syntax--exclamation-mark     { &::after { content: "!";   }}
+	&.syntax--quotation-mark       { &::after { content: '"';   }}
+	&.syntax--number-sign          { &::after { content: "#";   }}
+	&.syntax--dollar-sign          { &::after { content: "$";   }}
+	&.syntax--percent-sign         { &::after { content: "%";   }}
+	&.syntax--ampersand            { &::after { content: "&";   }}
+	&.syntax--apostrophe           { &::after { content: "'";   }}
+	&.syntax--left-parenthesis     { &::after { content: "(";   }}
+	&.syntax--right-parenthesis    { &::after { content: ")";   }}
+	&.syntax--asterisk             { &::after { content: "*";   }}
+	&.syntax--plus-sign            { &::after { content: "+";   }}
+	&.syntax--comma                { &::after { content: ",";   }}
+	&.syntax--hyphen-minus         { &::after { content: "-";   }}
+	&.syntax--full-stop            { &::after { content: ".";   }}
+	&.syntax--solidus              { &::after { content: "/";   }}
+	&.syntax--digit-0              { &::after { content: "0";   }}
+	&.syntax--digit-1              { &::after { content: "1";   }}
+	&.syntax--digit-2              { &::after { content: "2";   }}
+	&.syntax--digit-3              { &::after { content: "3";   }}
+	&.syntax--digit-4              { &::after { content: "4";   }}
+	&.syntax--digit-5              { &::after { content: "5";   }}
+	&.syntax--digit-6              { &::after { content: "6";   }}
+	&.syntax--digit-7              { &::after { content: "7";   }}
+	&.syntax--digit-8              { &::after { content: "8";   }}
+	&.syntax--digit-9              { &::after { content: "9";   }}
+	&.syntax--colon                { &::after { content: ":";   }}
+	&.syntax--semicolon            { &::after { content: ";";   }}
+	&.syntax--less-than-sign       { &::after { content: "<";   }}
+	&.syntax--equals-sign          { &::after { content: "=";   }}
+	&.syntax--greater-than-sign    { &::after { content: ">";   }}
+	&.syntax--question-mark        { &::after { content: "?";   }}
+	&.syntax--commercial-at        { &::after { content: "@";   }}
+	&.syntax--uppercase-a          { &::after { content: "A";   }}
+	&.syntax--uppercase-b          { &::after { content: "B";   }}
+	&.syntax--uppercase-c          { &::after { content: "C";   }}
+	&.syntax--uppercase-d          { &::after { content: "D";   }}
+	&.syntax--uppercase-e          { &::after { content: "E";   }}
+	&.syntax--uppercase-f          { &::after { content: "F";   }}
+	&.syntax--uppercase-g          { &::after { content: "G";   }}
+	&.syntax--uppercase-h          { &::after { content: "H";   }}
+	&.syntax--uppercase-i          { &::after { content: "I";   }}
+	&.syntax--uppercase-j          { &::after { content: "J";   }}
+	&.syntax--uppercase-k          { &::after { content: "K";   }}
+	&.syntax--uppercase-l          { &::after { content: "L";   }}
+	&.syntax--uppercase-m          { &::after { content: "M";   }}
+	&.syntax--uppercase-n          { &::after { content: "N";   }}
+	&.syntax--uppercase-o          { &::after { content: "O";   }}
+	&.syntax--uppercase-p          { &::after { content: "P";   }}
+	&.syntax--uppercase-q          { &::after { content: "Q";   }}
+	&.syntax--uppercase-r          { &::after { content: "R";   }}
+	&.syntax--uppercase-s          { &::after { content: "S";   }}
+	&.syntax--uppercase-t          { &::after { content: "T";   }}
+	&.syntax--uppercase-u          { &::after { content: "U";   }}
+	&.syntax--uppercase-v          { &::after { content: "V";   }}
+	&.syntax--uppercase-w          { &::after { content: "W";   }}
+	&.syntax--uppercase-x          { &::after { content: "X";   }}
+	&.syntax--uppercase-y          { &::after { content: "Y";   }}
+	&.syntax--uppercase-z          { &::after { content: "Z";   }}
+	&.syntax--left-square-bracket  { &::after { content: "[";   }}
+	&.syntax--reverse-solidus      { &::after { content: "\\";  }}
+	&.syntax--right-square-bracket { &::after { content: "]";   }}
+	&.syntax--circumflex-accent    { &::after { content: "^";   }}
+	&.syntax--low-line             { &::after { content: "_";   }}
+	&.syntax--grave-accent         { &::after { content: "`";   }}
+	&.syntax--lowercase-a          { &::after { content: "a";   }}
+	&.syntax--lowercase-b          { &::after { content: "b";   }}
+	&.syntax--lowercase-c          { &::after { content: "c";   }}
+	&.syntax--lowercase-d          { &::after { content: "d";   }}
+	&.syntax--lowercase-e          { &::after { content: "e";   }}
+	&.syntax--lowercase-f          { &::after { content: "f";   }}
+	&.syntax--lowercase-g          { &::after { content: "g";   }}
+	&.syntax--lowercase-h          { &::after { content: "h";   }}
+	&.syntax--lowercase-i          { &::after { content: "i";   }}
+	&.syntax--lowercase-j          { &::after { content: "j";   }}
+	&.syntax--lowercase-k          { &::after { content: "k";   }}
+	&.syntax--lowercase-l          { &::after { content: "l";   }}
+	&.syntax--lowercase-m          { &::after { content: "m";   }}
+	&.syntax--lowercase-n          { &::after { content: "n";   }}
+	&.syntax--lowercase-o          { &::after { content: "o";   }}
+	&.syntax--lowercase-p          { &::after { content: "p";   }}
+	&.syntax--lowercase-q          { &::after { content: "q";   }}
+	&.syntax--lowercase-r          { &::after { content: "r";   }}
+	&.syntax--lowercase-s          { &::after { content: "s";   }}
+	&.syntax--lowercase-t          { &::after { content: "t";   }}
+	&.syntax--lowercase-u          { &::after { content: "u";   }}
+	&.syntax--lowercase-v          { &::after { content: "v";   }}
+	&.syntax--lowercase-w          { &::after { content: "w";   }}
+	&.syntax--lowercase-x          { &::after { content: "x";   }}
+	&.syntax--lowercase-y          { &::after { content: "y";   }}
+	&.syntax--lowercase-z          { &::after { content: "z";   }}
+	&.syntax--left-curly-bracket   { &::after { content: "{";   }}
+	&.syntax--vertical-line        { &::after { content: "|";   }}
+	&.syntax--right-curly-bracket  { &::after { content: "}";   }}
+	&.syntax--tilde                { &::after { content: "~";   }}
 }
 
 
