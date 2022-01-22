@@ -382,6 +382,14 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 }
 
 
+/* Adjust spacing between status-bar elements */
+status-bar{
+	.cursor-position   { margin-right: -7px; }
+	.cursor-offset     { margin-right:  7px; }
+	.cursor-offset > a { margin-right:  0;   }
+}
+
+
 /* Fade briefly when clicked. See: src/index.js */
 status-bar-file{
 	transition: .15s ease-in-out opacity;
