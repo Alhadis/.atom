@@ -64,24 +64,13 @@
 		icon: "manpage-icon"
 	}
 	{
-		title: "Homebrew Troff"
+		title: "Brewage"
 		paths: [
 			"~/Labs/homebrew-troff"
 			"/usr/local/Homebrew"
-			"~/Forks/heirloom-doctools"
-			"~/Forks/neatroff_make"
 		]
 		icon: "icon-ruby"
 		color: "#ff0000"
-	}
-	{
-		title: "atom-live-view"
-		paths: [
-			"~/Labs/Atom-LiveView"
-			"~/Labs/Atom-PostScriptPreview"
-		]
-		icon: "atom-icon"
-		color: "#40a977"
 	}
 	{
 		title: "Postage"
@@ -91,20 +80,9 @@
 			"~/Labs/Atom-PostScript"
 			"~/Forks/GhostScript"
 			"~/Forks/postscriptbarcode"
-			"/usr/local/share/ghostscript/9.53.3/Resource/Init"
 		]
 		icon: "postscript-icon"
 		color: "#da291c"
-	}
-	{
-		title: "Vim / Vi"
-		paths: [
-			"~/Forks/nvi"
-			"~/Forks/OpenBSD/usr.bin/vi"
-			"~/Forks/Vim"
-		]
-		icon: "vim-icon"
-		color: "#019833"
 	}
 	{
 		title: "Atom CI"
