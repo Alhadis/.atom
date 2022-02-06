@@ -320,10 +320,29 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 	}
 }
 
-.theme-seti-syntax .find-and-replace atom-text-editor[mini]{
-	font-family: var(--editor-font-family);
-	font-size:   var(--editor-font-size);
-	letter-spacing: 0;
+
+/* Seti UI: Polish broken and/or questionable styling choices */
+.theme-seti-ui{
+	.results-view .list-group,
+	.results-view .list-tree{
+		.selected::before{ opacity: 0.2; }
+	}
+	
+	/* Keep search fields looking consistent with other text-editors */
+	.find-and-replace atom-text-editor[mini],
+	.project-find     atom-text-editor[mini]{
+		font-family: var(--editor-font-family);
+		font-size:   var(--editor-font-size);
+		letter-spacing: 0;
+	}
+	
+	/* Restore icons that still get clobbered even when Seti's icons are disabled */
+	.icon-info::before     { content: "\f059"; font: 16px "Octicons Regular"; }
+	.icon-lock::before     { content: "\f06a"; font: 16px "Octicons Regular"; }
+	.icon-markdown::before { content: "\f0c9"; font: 16px "Octicons Regular"; }
+	.icon-ruby::before     { content: "\f047"; font: 16px "Octicons Regular"; }
+	.icon-search::before   { content: "\f02e"; font: 16px "Octicons Regular"; }
+	.icon-settings::before { content: "\f07c"; font: 16px "Octicons Regular"; }
 }
 
 
