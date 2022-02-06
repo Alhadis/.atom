@@ -64,7 +64,7 @@
 		icon: "manpage-icon"
 	}
 	{
-		title: "Brewage"
+		title: "Homebrew tap(s)"
 		paths: [
 			"~/Labs/homebrew-troff"
 			"/usr/local/Homebrew"
