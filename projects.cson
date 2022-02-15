@@ -94,4 +94,21 @@
 		icon: "atom-icon"
 		color: "#40a977"
 	}
+	{
+		title: "V8"
+		paths: [
+			"~/Labs/V8.man"
+			"~/Forks/v8"
+		]
+		icon: "v8-icon"
+		color: "#4285f4"
+	}
+	{
+		title: "GitHub Linguist"
+		paths: [
+			"~/Forks/GitHub-Linguist"
+			"~/Labs/Harvester"
+		]
+		icon: "github-icon"
+	}
 ]
