@@ -278,7 +278,7 @@ body:not([class~="ff-style-border"]):not([class~="ff-style-caret"]):not([class~=
 
 // Hide injections we can't suppress because of Atom's half-assed
 // implementation of TextMate's scope-selectors (and injections).
-.syntax--string.syntax--quoted.syntax--template.syntax--js > *{
+.syntax--string.syntax--quoted.syntax--template.syntax--js:not(.syntax--regexp) > *{
 &:not([class="syntax--constant syntax--character syntax--escape syntax--js"]){
 &:not([class="syntax--source syntax--js syntax--embedded syntax--source"]){
 	&, & *{ color: inherit !important; }
