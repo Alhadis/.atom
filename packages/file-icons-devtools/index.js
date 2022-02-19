@@ -69,7 +69,7 @@ function buildFontMap(){
 		if(rule instanceof CSSFontFaceRule){
 			const {src} = rule.style;
 			if(src.startsWith('url("atom://')){
-				let key = src.replace(/(?:\s+format\((?:"[^"]*"|'[^']*'|[^\)]*)\))+\s*$/i, "").slice(5, -2);
+				let key = src.replace(/,.+/s, "").replace(/(?:\s+format\((?:"[^"]*"|'[^']*'|[^\)]*)\))+\s*$/i, "").slice(5, -2);
 				if(key.indexOf("//" > 5)){
 					key = key.replace(/(?<!^atom:)\/{2,}/g, "/");
 					rule.style.src = `url("${key}")`;
