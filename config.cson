@@ -94,6 +94,7 @@
 		autoIndentOnPaste: false
 		fontFamily: "Menlig"
 		lineHeight: 1.3
+		maxScreenLineLength: 1500
 		softTabs: false
 		tabLength: 4
 	"exception-reporting":
