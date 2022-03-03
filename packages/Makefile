@@ -1,12 +1,12 @@
 all: \
 	advanced-open-file \
+	atom-github-syntax \
 	atom-html-preview \
 	auto-detect-indentation \
 	editorconfig \
 	file-icons \
 	form-feeds \
 	git-blame \
-	github-atom-light-syntax \
 	language-ada \
 	language-agc \
 	language-antlr \
@@ -30,6 +30,7 @@ all: \
 	language-glsl \
 	language-gn \
 	language-grammars \
+	language-graphql \
 	language-haskell \
 	language-idl \
 	language-ini \
@@ -83,6 +84,10 @@ all: \
 	theme-reel \
 	xterm-quotes \
 
+
+atom-github-syntax:
+	git clone 'git@github.com:Alhadis/Atom-GitHubSyntax.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
 
 editorconfig:
 	git clone 'git@github.com:sindresorhus/atom-editorconfig.git' $@
