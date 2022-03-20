@@ -1,4 +1,6 @@
 "*":
+	"atom-github-syntax":
+		matchFont: false
 	"auto-detect-indentation":
 		showSpacingInStatusBar: false
 	core:
