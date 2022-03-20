@@ -6,6 +6,7 @@
 			"~/.atom"
 			"~/.emacs.d"
 			"~/Labs/YASR"
+			"~/Labs/Atom-GitHubSyntax"
 		]
 		icon: "terminal-icon"
 	}
@@ -15,6 +16,7 @@
 			"~/Labs/Utils"
 			"~/Labs/JG"
 			"~/Labs/EAL"
+			"~/Labs/Print"
 		]
 		icon: "icon-tools"
 	}
