@@ -14,6 +14,7 @@
 !/projects.cson
 !/styles.less
 !/.gitignore
+!/.eslintrc.json
 
 # Ignore every package directory EXCEPT for our custom syntax-theme
 !/packages/

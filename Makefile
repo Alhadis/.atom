@@ -1,4 +1,4 @@
-all: init.js install hooks snippets clean watch
+all: init.js install hooks snippets clean lint watch
 
 install: node_modules/roff node_modules/prompt-view ascii-info hooks
 	command -v asar >/dev/null || npm -g i asar
@@ -53,6 +53,12 @@ atom-v$(version).zip:
 	wget 'https://github.com/atom/atom/releases/download/v$(version)/atom-mac.zip'
 	mv atom-mac.zip $@
 
+
+
+# Check source code for errors and style violations
+lint: node_modules/jg
+	npx jg lint -j
+	
 
 # Monitor `config.cson` for changes to keep Atom's shitty code-style out of my repository
 watch:
@@ -109,9 +115,12 @@ node_modules/%: node_modules
 
 node_modules/roff: node_modules $(projects)/Roff.js
 	[ -h "$@" ] || rm -rf "$@"
-	ln -s ~/Labs/Roff.js $@
+	ln -s "$(projects)/Roff.js" $@
 	cd $@ && $(MAKE) umd
 
+node_modules/jg: node_modules $(projects)/JG
+	[ -h "$@" ] || rm -rf "$@"
+	ln -s "$(projects)/JG" $@
 
 
 # Install a hook to prevent fucked indentation being committed to version control

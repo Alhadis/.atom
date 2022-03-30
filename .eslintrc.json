@@ -1,0 +1,54 @@
+{
+	"extends": "@alhadis/eslint-config/atom",
+	"ignorePatterns": [
+		"/*",
+		"!/*.js",
+		"!/init.js",
+		"!/lib",
+		"!/packages/biro-syntax",
+		"!/packages/file-icons-devtools",
+		"!/packages/injections"
+	],
+	"globals": {
+		"ed":                  "readonly",
+		"fs":                  "readonly",
+		"vm":                  "readonly",
+		"loadFromCore":        "readonly",
+		"sortForRegExp":       "readonly",
+		"CompositeDisposable": "readonly"
+	},
+	"rules": {
+		"no-underscore-dangle": ["error", {
+			"allow": ["_FileIcons", "_linkedBinding"]
+		}]
+	},
+	"overrides": [{
+		"files": "lib/hacks/devtools.js",
+		"globals": {
+			"Common":  "readonly",
+			"Console": "readonly"
+		},
+		"rules": {
+			"no-underscore-dangle": ["error", {
+				"allow": ["_registry", "_filterStatusText"],
+				"allowAfterThis": true
+			}]
+		}
+	},{
+		"files": "lib/utils/diagnostics.js",
+		"rules": {"prefer-rest-params": 0}
+	},{
+		"files": "lib/hacks/natives.js",
+		"rules": {"no-inner-declarations": 0}
+	},{
+		"files": "lib/hacks/stt.js",
+		"rules": {
+			"no-unused-vars": ["error", {
+				"varsIgnorePattern": "^(?:CHARMAP_COL|CHARMAP|ID_CHAR|ID_STT|STT|TBL_COL|TBL_ROW)$"
+			}]
+		}
+	},{
+		"files": "lib/hacks/whitespace.js",
+		"rules": {"brace-style": 0}
+	}]
+}
