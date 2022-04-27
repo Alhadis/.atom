@@ -325,6 +325,13 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 
 /* Seti UI: Polish broken and/or questionable styling choices */
 .theme-seti-ui{
+	.tree-view .project-root{
+		.header .icon-repo::before  { margin-right: 0 }
+		&.status-added    > .header { color: #8dc149; }
+		&.status-ignored  > .header { color: #41535b; }
+		&.status-modified > .header { color: #cbcb41; }
+	}
+	
 	.results-view .list-group,
 	.results-view .list-tree{
 		.selected::before{ opacity: 0.2; }
