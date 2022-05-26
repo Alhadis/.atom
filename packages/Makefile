@@ -59,14 +59,13 @@ all: \
 	language-rust \
 	language-scheme \
 	language-sed \
-	language-srt \
+	language-subtitles \
 	language-tcltk \
 	language-texinfo \
 	language-turing \
 	language-units \
 	language-v \
 	language-viml \
-	language-vtt \
 	language-wavefront \
 	language-webassembly \
 	language-x86-64-assembly \
@@ -167,6 +166,10 @@ language-roff:
 
 language-sed:
 	git clone 'git@github.com:Alhadis/language-sed.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+language-subtitles:
+	git clone 'git@github.com:Alhadis/language-subtitles.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 language-texinfo:
