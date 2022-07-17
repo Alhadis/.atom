@@ -11,12 +11,14 @@ diff --git a/styles/languages/markdown.less b/styles/languages/markdown.less
 index ff1923f..dde387e 100644
 --- a/styles/languages/markdown.less
 +++ b/styles/languages/markdown.less
-@@ -1,6 +1,7 @@
+@@ -1,7 +1,9 @@
  @import "colors";
  
 -.syntax--source.syntax--md {
 +.syntax--source.syntax--md,
-+.syntax--text.syntax--md {
++.syntax--text.syntax--md,
++.syntax--text.syntax--restructuredtext {
    color: @code-font-color;
  
    .syntax--heading-1 {
+     color: @markup-h1;
