@@ -284,6 +284,15 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 		}
 	}
 	
+	&[data-grammar="text restructuredtext"]{
+		.syntax--markup.syntax--raw.syntax--restructuredtext{
+			&, > .syntax--punctuation.syntax--definition.syntax--raw{
+				border-left:  none;
+				border-right: none;
+			}
+		}
+	}
+	
 	.syntax--source.syntax--yacc{
 		color: inherit;
 		
