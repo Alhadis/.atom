@@ -8,6 +8,10 @@
 			"source.c": [
 				"share/misc/getopt"
 			]
+			"source.ditroff": [
+				"spec/fixtures/input/ditroff.2"
+				"spec/fixtures/input/ditroff.3"
+			]
 			"source.gitconfig": [
 				"config.worktree"
 			]
