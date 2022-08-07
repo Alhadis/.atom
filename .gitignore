@@ -28,4 +28,5 @@
 
 # Other shite
 *.tmLanguage
+*.tmLanguage.json
 *.yaml-tmLanguage
