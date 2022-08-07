@@ -284,12 +284,24 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 		}
 	}
 	
-	&[data-grammar="text restructuredtext"]{
-		.syntax--markup.syntax--raw.syntax--restructuredtext{
+	&[data-grammar="text restructuredtext"] .syntax--restructuredtext{
+		&.syntax--markup.syntax--raw{
 			&, > .syntax--punctuation.syntax--definition.syntax--raw{
 				border-left:  none;
 				border-right: none;
 			}
+		}
+		&.syntax--punctuation.syntax--definition.syntax--link{
+			color: #4d5a5e;
+		}
+		&.syntax--comment [class$=" syntax--hyperlink"]{
+			color: inherit;
+		}
+		&.syntax--punctuation.syntax--definition.syntax--italic,
+		&.syntax--punctuation.syntax--definition.syntax--bold{
+			color: #4d5a5e;
+			font-style:  normal !important;
+			font-weight: normal !important;
 		}
 	}
 	
