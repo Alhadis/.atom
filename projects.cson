@@ -17,6 +17,8 @@
 			"~/Labs/JG"
 			"~/Labs/EAL"
 			"~/Labs/Print"
+			"~/Labs/Synapse"
+			"~/Labs/Sandbox"
 		]
 		icon: "icon-tools"
 	}
@@ -41,6 +43,7 @@
 			"~/.atom/packages/language-subtitles"
 			"~/.atom/packages/language-viml"
 			"~/.atom/packages/language-webassembly"
+			"~/Labs/language-texinfo"
 		]
 		icon: "bnf-icon"
 	}
@@ -113,5 +116,16 @@
 			"~/Labs/Harvester"
 		]
 		icon: "github-icon"
+	}
+	{
+		title: "reStructuredText"
+		paths: [
+			"~/Labs/language-restructuredtext"
+			"~/Forks/docutils"
+			"~/Forks/Sphinx"
+			"~/Labs/Sandbox"
+		]
+		icon: "rst-icon"
+		color: "#46788d"
 	}
 ]
