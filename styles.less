@@ -90,22 +90,36 @@ atom-text-editor.is-focused .cursors .cursor{
 
 /* Debugging highlights for language-grammar development */
 atom-workspace:not(.theme-atom-github-syntax){
-	--test1-bg: #f00;    --test1-fg: #fff; --test1-o: #800;
-	--test2-bg: #0e0;    --test2-fg: #000; --test2-o: #080;
-	--test3-bg: #6cf;    --test3-fg: #000; --test3-o: #00f;
+	--test1-bg: #f00; --test1-fg: #fff; --test1-o: #800;
+	--test2-bg: #0e0; --test2-fg: #000; --test2-o: #080;
+	--test3-bg: #6cf; --test3-fg: #000; --test3-o: #00f;
+	
+	&:not(.theme-seti-syntax){
+		.syntax--test1 { --test1-bg: #f003; --test1-o: #f006; }
+		.syntax--test2 { --test2-bg: #0e03; --test2-o: #0f06; }
+		.syntax--test3 { --test3-bg: #6cf3; --test3-o: #00f6; }
+	}
 	
 	&.theme-seti-syntax{
 		--test1-bg: #a00404; --test1-fg: #fff; --test1-o: #f00;
 		--test2-bg: #077b07; --test2-fg: #fff; --test2-o: #0f0;
 		--test3-bg: #0c449c; --test3-fg: #fff; --test3-o: #99f;
+		
+		.syntax--test1 { --test1-bg: #a0040455; --test1-o: #f009; }
+		.syntax--test2 { --test2-bg: #077b0755; --test2-o: #0f09; }
+		.syntax--test3 { --test3-bg: #0c449c55; --test3-o: #99f9; }
 	}
 
+	.syntax--test-0 { all: unset !important; }
+	.syntax--test-1 { all: unset !important; color: var(--test1-fg) !important; }
+	.syntax--test-2 { all: unset !important; color: var(--test2-fg) !important; }
+	.syntax--test-3 { all: unset !important; color: var(--test3-fg) !important; }
+	
 	.syntax--test-0, .syntax--test0,
 	.syntax--test-1, .syntax--test1,
 	.syntax--test-2, .syntax--test2,
 	.syntax--test-3, .syntax--test3{
-		all:              unset           !important;
-		outline:          1px solid       !important;
+		outline: 1px solid !important;
 		&:empty{
 			padding-left:    0.5ch        !important;
 			border-color:    transparent  !important;
@@ -113,17 +127,14 @@ atom-workspace:not(.theme-atom-github-syntax){
 		}
 	}
 	.syntax--test-1, .syntax--test1{
-		color:            var(--test1-fg) !important;
 		background-color: var(--test1-bg) !important;
 		outline-color:    var(--test1-o)  !important;
 	}
 	.syntax--test-2, .syntax--test2{
-		color:            var(--test2-fg) !important;
 		background-color: var(--test2-bg) !important;
 		outline-color:    var(--test2-o)  !important;
 	}
 	.syntax--test-3, .syntax--test3{
-		color:            var(--test3-fg) !important;
 		background-color: var(--test3-bg) !important;
 		outline-color:    var(--test3-o)  !important;
 	}
