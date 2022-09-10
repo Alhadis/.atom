@@ -124,6 +124,7 @@
 			"~/Forks/docutils"
 			"~/Forks/Sphinx"
 			"~/Labs/Sandbox"
+			"~/Forks/SIMH/simh"
 		]
 		icon: "rst-icon"
 		color: "#46788d"
