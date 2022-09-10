@@ -1,0 +1,31 @@
+name: "TestMate"
+scopeName: "testmate"
+patterns: [include: "#main"]
+fileTypes: ["testmate"]
+
+repository:
+	main:
+		patterns: [
+			{include: "#group"}
+			{include: "#cutShort"}
+		]
+
+	group:
+		name:  "test-1"
+		begin: "\\("
+		end:   "\\)"
+		beginCaptures: 0: name: "test-2"
+		endCaptures:   0: name: "test-3"
+		patterns: [include: "#main"]
+
+	cutShort:
+		name:  "test1"
+		begin: "(<<<)"
+		end:   "((>>>))|\\."
+		beginCaptures:
+			0: name: "test1"
+			1: name: "test2"
+		endCaptures:
+			1: name: "test1"
+			2: name: "test3"
+		patterns: [include: "#main"]
