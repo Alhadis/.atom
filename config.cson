@@ -11,6 +11,9 @@
 			"source.gitconfig": [
 				"config.worktree"
 			]
+			"source.json": [
+				"carton.lock"
+			]
 			"source.makefile": [
 				"make"
 				"makefile"
