@@ -84,8 +84,8 @@
 		]
 		telemetryConsent: "no"
 		themes: [
-			"atom-light-ui"
-			"biro-syntax"
+			"seti-ui"
+			"seti-syntax"
 		]
 		useTreeSitterParsers: false
 		versionPinnedPackages: [
@@ -105,7 +105,6 @@
 	"exception-reporting":
 		userId: "4b2dfe3a-7eef-a871-4d35-230cb11366f8"
 	"file-icons":
-		coloured: false
 		strategies: {}
 	"find-and-replace":
 		showSearchWrapIcon: false
