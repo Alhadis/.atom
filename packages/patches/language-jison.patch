@@ -1,0 +1,38 @@
+diff --git a/grammars/jison.cson b/grammars/jison.cson
+index 15e2cab..66cf869 100644
+--- a/grammars/jison.cson
++++ b/grammars/jison.cson
+@@ -71,13 +71,17 @@ repository:
+       # Jison declarations sections can have lexers embedded between %lex and
+       # /lex.
+       {
+-        begin: "^\\s*(%lex)\\s*$"
+-        end:   "^\\s*(/lex)\\b"
++        begin: "^\\s*((%)lex)\\s*$"
++        end:   "^\\s*((/)lex)\\b"
+         # There may be a better choice of scope than “entity.name.tag”, but
+         # using a tag scope makes the start and end matches stand out. Also, the
+         # end match “/lex” is somewhat like an end tag.
+-        beginCaptures: 1: name: "entity.name.tag.lexer.begin.jison"
+-        endCaptures:   1: name: "entity.name.tag.lexer.end.jison"
++        beginCaptures:
++          1: name: "keyword.control.lexer.begin.jison"
++          2: name: "punctuation.definition.lexer.jison"
++        endCaptures:
++          1: name: "keyword.control.lexer.end.jison"
++          2: name: "punctuation.definition.lexer.jison"
+         # Simply setting the patterns object to {include: "source.jisonlex"}
+         # here doesn’t work for several reasons:
+         # - The Jison Lex grammar’s rules section treats /lex as a valid regex
+diff --git a/grammars/jisonlex.cson b/grammars/jisonlex.cson
+index e7758da..fde6693 100644
+--- a/grammars/jisonlex.cson
++++ b/grammars/jisonlex.cson
+@@ -1,6 +1,6 @@
+ "name": "Jison Lex"
+ scopeName: "source.jisonlex"
+-fileTypes: ["jisonlex"]
++fileTypes: ["jisonlex", "semwhitespace_lex.jison"]
+ 
+ # This grammar is based on the Jison Lex files from
+ # https://github.com/zaach/lex-parser and

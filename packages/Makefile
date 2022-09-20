@@ -7,6 +7,7 @@ all: \
 	file-icons \
 	form-feeds \
 	git-blame \
+	ide-svelte \
 	language-ada \
 	language-agc \
 	language-antlr \
@@ -35,6 +36,7 @@ all: \
 	language-idl \
 	language-ini \
 	language-jflex \
+	language-jison \
 	language-jq \
 	language-latex \
 	language-llvm-ir \
@@ -136,10 +138,6 @@ language-jq:
 	git clone 'git@github.com:wader/language-jq.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
-language-markdown:
-	git clone 'git@github.com:burodepeper/language-markdown.git' $@
-	cd $@ && apm install . && npm run-script --if-present post-install
-
 language-maxscript:
 	git clone 'git@github.com:Alhadis/language-maxscript.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
@@ -216,6 +214,11 @@ xterm-quotes:
 %:
 	apm install $@
 	if [ -f "patches/$@.patch" ]; then patch -d "$@" -p1 < "patches/$@.patch"; fi
+
+language-jison:
+	git clone --depth=1 'git@github.com:cdibbs/language-jison.git' $@
+	find $@ -type f \! \( -path '$@/.git/*' \) -print0 | xargs -0 perl -0777 -pi -e 's/\r\n/\n/g'
+	patch -d $@ -p1 < "patches/$@.patch"
 
 language-markdown:
 	git clone --depth=1 'git@github.com:burodepeper/language-markdown.git' $@

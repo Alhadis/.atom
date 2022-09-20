@@ -159,17 +159,19 @@ packages/Makefile:
 	cwd=$(PWD); \
 	end=`sed -ne '/^\.PHONY:/,//p' "$@"`; \
 	for i in $$pkglist; do \
-		dir=~/.atom/packages/$$i/.git; \
-		[ -d "$$dir" ] && { \
-			cd "$$dir/.."; \
-			url=`git remote get-url origin`; \
-			git=`printf "%s%s:\n\tgit clone '%s' \\$$@\nZ" "$$git" "$$i" "$$url"`; \
-			[ ! "$$i" = postscript ] && { \
-				git=`printf '%s\tcd $$@ && apm install .Z' "$${git%Z}"`; \
-				git=`printf '%s && npm run-script --if-present post-install\n\nZ' "$${git%Z}"`; \
-			} || git=`printf '%s\tcd $$@ && npm install --production\n\nZ' "$${git%Z}"`; \
-			git="$${git%Z}"; \
-		}; \
+		case $${i#language-} in markdown|jison);; *) \
+			dir=~/.atom/packages/$$i/.git; \
+			[ -d "$$dir" ] && { \
+				cd "$$dir/.."; \
+				url=`git remote get-url origin`; \
+				git=`printf "%s%s:\n\tgit clone '%s' \\$$@\nZ" "$$git" "$$i" "$$url"`; \
+				[ ! "$$i" = postscript ] && { \
+					git=`printf '%s\tcd $$@ && apm install .Z' "$${git%Z}"`; \
+					git=`printf '%s && npm run-script --if-present post-install\n\nZ' "$${git%Z}"`; \
+				} || git=`printf '%s\tcd $$@ && npm install --production\n\nZ' "$${git%Z}"`; \
+				git="$${git%Z}"; \
+			}; \
+		;; esac; \
 		all=`printf '%s%s\nZ' "$$all" "$$i"`; \
 		all=$${all%Z}; \
 	done; \
