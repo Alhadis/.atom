@@ -185,6 +185,15 @@ packages/Makefile:
 .PHONY: packages/Makefile
 
 
+# Backup all packages installed using apm(1)
+apm-packages.tgz: packages
+	[ ! -f $@ ] || rm -f $@
+	find packages -type d -maxdepth 1 -exec git check-ignore -q {} \; \( \
+		-exec test \! -d "{}/.git" \; -or \
+		-exec sh -c 'git 2>/dev/null -C {}/.git/.. remote get-url origin | grep -qv Alhadis' \; \
+	\) -print0 | xargs -0 tar -czf $@ --
+
+
 # Character-name lists sourced from ascii(1) utility's repo
 ascii-info: node_modules/record-jar dev/ascii
 
