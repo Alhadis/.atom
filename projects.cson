@@ -33,17 +33,18 @@
 	{
 		title: "Grammars, etc"
 		paths: [
-			"~/Labs/language-etc"
+			"~/.atom/packages/language-etc"
 			"~/.atom/packages/language-grammars"
-			"~/Labs/language-regexp"
-			"~/Labs/language-roff"
+			"~/.atom/packages/language-regexp"
+			"~/.atom/packages/language-roff"
 			"~/.atom/packages/language-emacs-lisp"
 			"~/.atom/packages/language-fontforge"
+			"~/.atom/packages/language-mermaid"
 			"~/.atom/packages/language-pcb"
 			"~/.atom/packages/language-subtitles"
 			"~/.atom/packages/language-viml"
 			"~/.atom/packages/language-webassembly"
-			"~/Labs/language-texinfo"
+			"~/.atom/packages/language-texinfo"
 		]
 		icon: "bnf-icon"
 	}
