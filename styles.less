@@ -273,6 +273,26 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 
 /* Seti Syntax: Tweak some colour choices */
 .theme-seti-syntax atom-text-editor{
+	
+	// GitHub parity
+	.syntax--brackethighlighter{
+		color: #8b949e;
+		&.syntax--unmatched{
+			color: #f85149;
+		}
+	}
+	.syntax--invalid{
+		&.syntax--broken,
+		&.syntax--unimplemented{
+			color: #cc3e44;
+		}
+	}
+	.syntax--sublimelinter{
+		&.syntax--gutter-mark          { color: #484f58; }
+		&.syntax--mark.syntax--error   { color: #f85149; }
+		&.syntax--mark.syntax--warning { color: #ffa657; }
+	}
+	
 	.syntax--markup.syntax--heading{
 		& .syntax--punctuation.syntax--definition.syntax--heading{
 			color: #2d3e3a;
