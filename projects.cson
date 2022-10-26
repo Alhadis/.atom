@@ -38,6 +38,7 @@
 			"~/.atom/packages/language-regexp"
 			"~/.atom/packages/language-roff"
 			"~/.atom/packages/language-emacs-lisp"
+			"~/.atom/packages/language-file-magic"
 			"~/.atom/packages/language-fontforge"
 			"~/.atom/packages/language-mermaid"
 			"~/.atom/packages/language-pcb"
