@@ -275,7 +275,7 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 .theme-seti-syntax atom-text-editor{
 	
 	// GitHub parity
-	.syntax--brackethighlighter{
+	:not(.syntax--punctuation) > .syntax--brackethighlighter{
 		color: #8b949e;
 		&.syntax--unmatched{
 			color: #f85149;
@@ -287,7 +287,7 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 			color: #cc3e44;
 		}
 	}
-	.syntax--sublimelinter{
+	:not(.syntax--punctuation) > .syntax--sublimelinter{
 		&.syntax--gutter-mark          { color: #484f58; }
 		&.syntax--mark.syntax--error   { color: #f85149; }
 		&.syntax--mark.syntax--warning { color: #ffa657; }
