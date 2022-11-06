@@ -149,6 +149,7 @@
 
 "body:not(.platform-darwin) atom-text-editor:not([mini])":
 	"ctrl-r":         "symbols-view:toggle-file-symbols"
+	"ctrl-|":         "math:round"
 
 "body:not(.platform-darwin) .pdf-view":
 	"ctrl-b":         "pdf-view:toggle-binary-view"
@@ -222,6 +223,7 @@
 
 "body.platform-darwin atom-text-editor:not([mini])":
 	"cmd-r":          "symbols-view:toggle-file-symbols"
+	"cmd-|":          "math:round"
 
 "body.platform-darwin .pdf-view":
 	"cmd-b":          "pdf-view:toggle-binary-view"
