@@ -11,6 +11,10 @@
 			"source.gitconfig": [
 				"config.worktree"
 			]
+			"source.gnuplot": [
+				"gnuplot_history"
+				"gnuplotrc"
+			]
 			"source.json": [
 				"carton.lock"
 			]
