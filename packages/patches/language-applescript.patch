@@ -1,0 +1,25 @@
+diff --git a/grammars/applescript.cson b/grammars/applescript.cson
+--- a/grammars/applescript.cson	2022-11-17 13:10:35.000000000 +1100
++++ b/grammars/applescript.cson	2022-11-17 13:10:38.000000000 +1100
+@@ -824,9 +824,9 @@
+         'begin': '^\\s*(#!)'
+         'captures':
+           '1':
+             'name': 'punctuation.definition.comment.applescript'
+-        'end': '\\n'
++        'end': '$'
+         'name': 'comment.line.number-sign.applescript'
+       }
+       {
+         'begin': '(^[ \\t]+)?(?=--)'
+@@ -839,9 +839,9 @@
+             'begin': '--'
+             'beginCaptures':
+               '0':
+                 'name': 'punctuation.definition.comment.applescript'
+-            'end': '\\n'
++            'end': '$'
+             'name': 'comment.line.double-dash.applescript'
+           }
+         ]
+       }
