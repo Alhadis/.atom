@@ -19,6 +19,7 @@
 	'"':              "user:double-quote"
 
 "atom-text-editor:not([mini])":
+	"alt-g":          "user:open-grammar"
 	"tab":            "editor:expand"
 
 "atom-text-editor:not([data-grammar='text roff'])":
