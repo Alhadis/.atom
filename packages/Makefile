@@ -27,7 +27,6 @@ all: \
 	language-file-magic \
 	language-fontforge \
 	language-fortran \
-	language-generic-config \
 	language-glsl \
 	language-gn \
 	language-grammars \
@@ -48,6 +47,7 @@ all: \
 	language-maxscript \
 	language-md \
 	language-mediawiki \
+	language-mermaid \
 	language-modula-2 \
 	language-ninja \
 	language-ocaml \
@@ -71,6 +71,7 @@ all: \
 	language-wavefront \
 	language-webassembly \
 	language-x86-64-assembly \
+	linter-lilypond \
 	lisp-paredit \
 	MagicPython \
 	make-executable \
@@ -83,6 +84,7 @@ all: \
 	seti-ui \
 	split-diff \
 	theme-reel \
+	vscode-lean \
 	xterm-quotes \
 
 
@@ -146,6 +148,10 @@ language-md:
 	git clone 'git@github.com:Alhadis/language-md.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
+language-mermaid:
+	git clone 'git@github.com:Alhadis/language-mermaid.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
 language-pcb:
 	git clone 'git@github.com:Alhadis/language-pcb.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
@@ -198,12 +204,20 @@ language-webassembly:
 	git clone 'git@github.com:Alhadis/language-webassembly.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
+linter-lilypond:
+	git clone 'git@github.com:nwhetsell/linter-lilypond.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
 postscript:
 	git clone 'git@github.com:Alhadis/Atom-PostScript.git' $@
 	cd $@ && npm install --production
 
 regex-comments:
 	git clone 'git@github.com:Alhadis/Regex-Comments.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+vscode-lean:
+	git clone 'git@github.com:leanprover/vscode-lean.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 xterm-quotes:
