@@ -1095,6 +1095,23 @@ atom-text-editor[mini] .scroll-view{
 }
 
 
+/** AppleScript */
+.syntax--applescript{
+	&.syntax--keyword.syntax--control{
+		color: #00f !important;
+	}
+
+	&.syntax--string{
+		color: #f39;
+	}
+	
+	&.syntax--punctuation.syntax--separator.syntax--continuation{
+		opacity: 0.25;
+		color: #00c;
+	}
+}
+
+
 /** PostScript */
 .syntax--postscript, .syntax--pdf, .syntax--stdbez{
 	&.syntax--keyword.syntax--operator,
