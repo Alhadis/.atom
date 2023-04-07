@@ -1,18 +1,55 @@
 diff --git a/grammars/applescript.cson b/grammars/applescript.cson
---- a/grammars/applescript.cson	2022-11-17 13:10:35.000000000 +1100
-+++ b/grammars/applescript.cson	2022-11-17 13:10:38.000000000 +1100
-@@ -824,9 +824,9 @@
-         'begin': '^\\s*(#!)'
-         'captures':
+--- a/grammars/applescript.cson	2023-04-08 07:30:36.000000000 +1000
++++ b/grammars/applescript.cson	2023-04-08 07:27:27.000000000 +1000
+@@ -210,8 +210,18 @@
+           }
+         ]
+       }
+       {
++        name:  "meta.statement.if.applescript"
++        begin: "^\\s*(if)\\b(.*?)\\b(then)\\b"
++        end:   "(?<!¬)$"
++        beginCaptures:
++          1: name: "keyword.control.if.applescript"
++          2: patterns: [include: "$self"]
++          3: name: "keyword.control.then.applescript"
++        patterns: [include: "$self"]
++      }
++      {
+         'begin': '^\\s*(if)\\b'
+         'beginCaptures':
            '1':
-             'name': 'punctuation.definition.comment.applescript'
+             'name': 'keyword.control.if.applescript'
+@@ -820,14 +830,23 @@
+     ]
+   'comments':
+     'patterns': [
+       {
+-        'begin': '^\\s*(#!)'
+-        'captures':
++        'begin': '(^[ \\t]+)?(?=#)'
++        'beginCaptures':
+           '1':
+-            'name': 'punctuation.definition.comment.applescript'
 -        'end': '\\n'
-+        'end': '$'
-         'name': 'comment.line.number-sign.applescript'
+-        'name': 'comment.line.number-sign.applescript'
++            'name': 'punctuation.whitespace.comment.leading.applescript'
++        'end': '(?!\\G)'
++        'patterns': [
++          {
++            'begin': '#'
++            'beginCaptures':
++              '0':
++                'name': 'punctuation.definition.comment.applescript'
++            'end': '$'
++            'name': 'comment.line.number-sign.applescript'
++          }
++        ]
        }
        {
          'begin': '(^[ \\t]+)?(?=--)'
-@@ -839,9 +839,9 @@
+         'beginCaptures':
+@@ -839,9 +858,9 @@
              'begin': '--'
              'beginCaptures':
                '0':
