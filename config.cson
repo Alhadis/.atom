@@ -15,6 +15,9 @@
 				"gnuplot_history"
 				"gnuplotrc"
 			]
+			"source.ini": [
+				"vlcrc"
+			]
 			"source.json": [
 				"carton.lock"
 			]
