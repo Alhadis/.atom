@@ -19,6 +19,7 @@
 			"~/Labs/Print"
 			"~/Labs/Synapse"
 			"~/Labs/Sandbox"
+			"~/Labs/Geom.js"
 		]
 		icon: "icon-tools"
 	}
@@ -27,6 +28,7 @@
 		paths: [
 			"~/Labs/language-roff"
 			"~/Labs/Roff.js"
+			"~/Forks/sprite"
 		]
 		icon: "manpage-icon"
 	}
