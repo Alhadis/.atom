@@ -81,7 +81,10 @@
 	"ctrl-k left":    "unset!"
 	"ctrl-k down":    "unset!"
 	"shift-ctrl-p":   "unset!"
-	
+
+"body:not(.platform-darwin) atom-text-editor[data-grammar~='mediawiki']":
+	"ctrl-s":         "editor:save-without-trailing-newline"
+
 ".platform-win32 .tree-view,
  .platform-linux .tree-view":
 	"ctrl-c":         "native!"
@@ -221,6 +224,9 @@
 	"cmd--":          "user:decrement"
 	"cmd-_":          "user:decrement"
 	"cmd-+":          "editor:insert-sequence"
+
+"body.platform-darwin atom-text-editor[data-grammar~='mediawiki']":
+	"cmd-s":          "editor:save-without-trailing-newline"
 
 "body.platform-darwin atom-text-editor:not([mini])":
 	"cmd-r":          "symbols-view:toggle-file-symbols"
