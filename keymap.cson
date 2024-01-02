@@ -83,7 +83,7 @@
 	"shift-ctrl-p":   "unset!"
 
 "body:not(.platform-darwin) atom-text-editor[data-grammar~='mediawiki']":
-	"ctrl-s":         "editor:save-without-trailing-newline"
+	"ctrl-a":         "editor:select-all-except-trailing-whitespace"
 
 ".platform-win32 .tree-view,
  .platform-linux .tree-view":
@@ -226,7 +226,7 @@
 	"cmd-+":          "editor:insert-sequence"
 
 "body.platform-darwin atom-text-editor[data-grammar~='mediawiki']":
-	"cmd-s":          "editor:save-without-trailing-newline"
+	"cmd-a":          "editor:select-all-except-trailing-whitespace"
 
 "body.platform-darwin atom-text-editor:not([mini])":
 	"cmd-r":          "symbols-view:toggle-file-symbols"
