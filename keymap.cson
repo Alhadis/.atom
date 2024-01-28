@@ -53,10 +53,6 @@
 	home:             "native!"
 	end:              "native!"
 
-"body.yn-mode atom-text-editor:not([mini])":
-	"y":              "yn-mode:yeah"
-	"n":              "yn-mode:nah"
-
 
 # Linux/Windows
 "body:not(.platform-darwin)":
