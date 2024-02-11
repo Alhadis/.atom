@@ -1,6 +1,6 @@
 all: init.js install hooks snippets clean lint watch
 
-install: node_modules/roff node_modules/prompt-view ascii-info hooks
+install: node_modules/roff node_modules/prompt-view node_modules/plist node_modules/js-toml ascii-info hooks
 	command -v asar >/dev/null || npm -g i asar
 	cd packages && $(MAKE)
 
