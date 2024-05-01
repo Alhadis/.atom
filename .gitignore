@@ -26,6 +26,11 @@
 !/packages/language-not-mine
 !/packages/patches
 
+# Include makefile for installing/linking NPM modules
+!/node_modules/
+/node_modules/*
+!/node_modules/Makefile
+
 # Other shite
 *.tmLanguage
 *.tmLanguage.json

@@ -1,8 +1,15 @@
 all: init.js install hooks snippets clean lint watch
 
-install: node_modules/roff node_modules/prompt-view node_modules/plist node_modules/js-toml ascii-info hooks
-	command -v asar >/dev/null || npm -g i asar
-	cd packages && $(MAKE)
+install-npm:; cd node_modules && $(MAKE)
+install-pkg:; cd packages     && $(MAKE)
+install: \
+	install-npm \
+	install-pkg \
+	ascii-info \
+	hooks
+
+node_modules/%:
+	$(MAKE) -C $(@D) $*
 
 
 # Initialisation file, untracked alias for lib/index.js
@@ -93,34 +100,6 @@ patch:
 	sudo mv app.asar app-unpatched.asar && \
 	sudo asar pack app-patch app.asar && \
 	sudo rm -f app-unpatched.asar;
-
-
-# Projects folder that should already exist on my personal workstation(s)
-projects = $(HOME)/Labs
-
-$(projects):
-	[ -d "$@" ] || mkdir "$@"
-
-$(projects)/%: $(projects)
-	[ -d "$@/.git" ] || git -C "$^" clone 'git@github.com:Alhadis/$*.git'
-
-
-# Link dependencies from globally-installed modules, because NPM can't be
-# trusted with symbolic links in `node_modules` directories (apparently).
-node_modules:
-	[ -d "$@" ] || mkdir "$@";
-
-node_modules/%: node_modules
-	npm install --global $*@latest && ln -sf "`npm root -g`/$*" "$@"
-
-node_modules/roff: node_modules $(projects)/Roff.js
-	[ -h "$@" ] || rm -rf "$@"
-	ln -s "$(projects)/Roff.js" $@
-	cd $@ && $(MAKE) umd
-
-node_modules/jg: node_modules $(projects)/JG
-	[ -h "$@" ] || rm -rf "$@"
-	ln -s "$(projects)/JG" $@
 
 
 # Install a hook to prevent fucked indentation being committed to version control
