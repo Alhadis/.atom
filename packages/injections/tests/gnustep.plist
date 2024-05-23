@@ -1,0 +1,12 @@
+{
+	// GNUstep syntax extensions
+	True    = <*Y>;
+	False   = <*N>;
+	Date    = <*D1987-04-18 03:31:00 +1000>;
+	Integer = <*I9007199254740991>;
+	Real    = <*R3.141592653589793>;
+
+	// Override incorrectly tokenised data values
+	Binary  = <7FF8000000000001>;
+	Base64  = <[VGNzdGltZw==]>;
+}

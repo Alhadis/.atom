@@ -1,0 +1,93 @@
+# Highlight GNUstep extensions to the “old-style” plist(5) format
+# https://gnustep.github.io/resources/documentation/Developer/Base/Reference/NSPropertyList.html
+scopeName: "fuck-atom.9"
+injectionSelector: "L:source.plist meta.scope.dictionary-item - (comment | string | meta.gnustep)"
+patterns: [
+	{include: "#gnustep"}
+	{include: "#binary"}
+]
+
+repository:
+	binary:
+		patterns: [
+			{include: "#binary-base64"}
+			{include: "#binary-hex"}
+		]
+
+	# Hex-encoded binary data
+	"binary-base64":
+		name:  "meta.binary-data.hex.plist"
+		begin: "(<)(?!\\[|\\*)[ \\t]*"
+		end:   "\\s*(>)"
+		beginCaptures: 1: name: "punctuation.definition.data.begin.plist"
+		endCaptures:   1: name: "punctuation.definition.data.end.plist"
+		contentName: "constant.numeric.hexadecimal.plist"
+		patterns: [{
+			name: "invalid.illegal.invalid-character.plist"
+			match: "[^\\s0-9A-Fa-f]+"
+		}]
+
+	# Base64-encoded binary data
+	"binary-hex":
+		name:  "meta.binary-data.base64.gnuplist.plist"
+		begin: "(<\\[)[ \\t]*"
+		end:   "\\s*(=*)\\s*(\\]>)"
+		beginCaptures:
+			1: name: "punctuation.definition.data.begin.plist"
+		endCaptures:
+			1: name: "punctuation.terminator.data.plist"
+			2: name: "punctuation.definition.data.end.plist"
+		contentName: "constant.numeric.base64.plist"
+		patterns: [{
+			name: "invalid.illegal.invalid-character.plist"
+			match: "[^A-Za-z0-9+/ \\n]+"
+		}]
+
+
+	# GNUstep extensions for XML parity
+	gnustep:
+		begin: "\\s*(?=<\\*[DYNIR])"
+		end:   "(?!\\G)"
+		patterns: [{
+			# NSDate: <*DYYYY-MM-DD HH:MM:SS +0000>
+			name:  "meta.date.gnustep.plist"
+			begin: "\\G(<\\*)(D)[ \\t]*"
+			end:   "\\s*(>)"
+			contentName: "constant.other.timestamp.plist"
+			beginCaptures:
+				1: name: "punctuation.definition.value.begin.plist"
+				2: name: "storage.type.class.plist"
+			endCaptures:
+				1: name: "punctuation.definition.value.end.plist"
+		},{
+			# Integral NSNumber: <*Innnn…>
+			name:  "meta.integer.gnustep.plist"
+			begin: "\\G(<\\*)(I)[ \\t]*"
+			end:   "\\s*(>)"
+			contentName: "constant.numeric.integer.decimal.plist"
+			beginCaptures:
+				1: name: "punctuation.definition.value.begin.plist"
+				2: name: "storage.type.class.plist"
+			endCaptures:
+				1: name: "punctuation.definition.value.end.plist"
+		},{
+			# Floating-point NSNumber: <*Rnnnn…>
+			name:  "meta.real.gnustep.plist"
+			begin: "\\G(<\\*)(R)[ \\t]*"
+			end:   "\\s*(>)"
+			contentName: "constant.numeric.float.decimal.plist"
+			beginCaptures:
+				1: name: "punctuation.definition.value.begin.plist"
+				2: name: "storage.type.class.plist"
+			endCaptures:
+				1: name: "punctuation.definition.value.end.plist"
+		},{
+			# NSBoolean: <*Y> <*N>
+			name: "meta.boolean.gnustep.plist"
+			match: "\\G(<\\*)(?:(Y)|(N))(>)"
+			captures:
+				1: name: "punctuation.definition.value.begin.plist"
+				2: name: "storage.type.boolean.true.plist"
+				3: name: "storage.type.boolean.false.plist"
+				4: name: "punctuation.definition.value.end.plist"
+		}]
