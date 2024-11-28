@@ -15,6 +15,7 @@
 		"vm":                  "readonly",
 		"loadFromCore":        "readonly",
 		"sortForRegExp":       "readonly",
+		"BarcodeDetector":     "readonly",
 		"CompositeDisposable": "readonly"
 	},
 	"rules": {
