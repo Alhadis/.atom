@@ -40,10 +40,14 @@
 				"profile"
 			]
 			"source.yaml": [
+				"CITATION.cff"
 				"clang-tidy"
+				"clangd"
 				"gemrc"
 				"glide.lock"
 				"mir"
+				"otp"
+				"pixi.lock"
 				"reek"
 				"rviz"
 				"syntax"
