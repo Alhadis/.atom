@@ -1,7 +1,7 @@
 # Improve support for non-standard (and now Mozilla-specific) “@document” blocks
 # See: https://developer.mozilla.org/en-US/docs/Web/CSS/@document
 scopeName: "fuck-atom.10"
-injectionSelector: "L:source.css - (comment | meta.at-rule.document)"
+injectionSelector: "L:source.css - (comment | meta.at-rule & (document | media.header) | meta.pseudo-state.vendored)"
 patterns: [{
 	# “@document” and “@-moz-document” at-rules
 	name:  "meta.at-rule.document.header.css"
@@ -27,6 +27,65 @@ patterns: [{
 		beginCaptures: 0: name: "punctuation.section.document.begin.bracket.curly.css"
 		endCaptures:   0: name: "punctuation.section.document.end.bracket.curly.css"
 		patterns: [include: "source.css"]
+	}]
+},{
+	# Vendor-prefixed, function-like :pseudo-class(…) or ::pseudo-element(…)
+	name: "meta.pseudo-state.vendored.${1:/downcase}.css"
+	applyEndPatternLast: yes
+	begin: """(?xi)(?=
+		::? -?
+		(
+			# Vendor prefix
+			(?:
+				# Leading dash attached
+				(?<=-) (?:ah|apple|atsc|epub|hp|khtml|moz|ms|o|rim|ro|tc|wap|webkit|xv)
+				|
+				# No leading dash (rare)
+				(?<!-) (?:mso|prince)
+			)
+			-[a-zA-Z0-9](?:-[a-zA-Z0-9]|[a-zA-Z0-9]+)*+
+		)
+		\\\x28
+	)"""
+	end: "(?!\\G)"
+	patterns: [{
+		begin: "\\G((::?)[-a-zA-Z0-9]+)(\\()"
+		end:   "\\)"
+		beginCaptures:
+			1: name: "entity.other.attribute-name.pseudo-class.css"
+			2: name: "punctuation.definition.entity.css"
+			3: name: "punctuation.section.function.begin.bracket.round.css"
+		endCaptures:
+			0: name: "punctuation.section.function.end.bracket.round.css"
+		patterns: [include: "source.css#property-values"]
+	}]
+},{
+	# Function-like :pseudo-classes(…) and ::pseudo-elements(…)
+	name:  "meta.pseudo-state.${3:/downcase}.css"
+	begin: """(?xi)(?=
+		::?
+		(
+			# Pseudo-elements
+			(?<=::) (?:cue|highlight|part|slotted|view-transition-(?:group|image-pair|new|old))
+			|
+			# Pseudo-classes
+			(?<!::) (?:host-context|host|is|state|where)
+		)
+		\\\x28
+	)"""
+	end: "(?!\\G)"
+	patterns: [{
+		begin: "(?i)\\G(?:((::)[-a-z]+)|((:)[-a-z]+))(\\()"
+		end:   "\\)"
+		beginCaptures:
+			1: name: "entity.other.attribute-name.pseudo-element.css"
+			3: name: "entity.other.attribute-name.pseudo-class.css"
+			2: name: "punctuation.definition.entity.css"
+			4: name: "punctuation.definition.entity.css"
+			5: name: "punctuation.section.function.begin.bracket.round.css"
+		endCaptures:
+			0: name: "punctuation.section.function.end.bracket.round.css"
+		patterns: [include: "source.css#selector-innards"]
 	}]
 }]
 
