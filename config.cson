@@ -5,6 +5,10 @@
 		showSpacingInStatusBar: false
 	core:
 		customFileTypes:
+			"source.apache-config": [
+				"apache2.conf"
+				"apache2/httpd.conf"
+			]
 			"source.c": [
 				"share/misc/getopt"
 			]
