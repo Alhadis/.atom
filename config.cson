@@ -166,6 +166,8 @@
 		showOnStartup: false
 	whitespace:
 		removeTrailingWhitespace: false
+	"wrap-guide":
+		enabled: false
 ".applescript.source":
 	editor:
 		commentStart: "-- "
