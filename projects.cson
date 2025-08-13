@@ -88,6 +88,7 @@
 		paths: [
 			"~/Labs/Stupid-Post-Tricks"
 			"~/Labs/Inspect.ps"
+			"~/Labs/PDFMarker"
 			"~/Labs/Atom-PostScript"
 			"~/Forks/GhostScript"
 			"~/Forks/postscriptbarcode"
