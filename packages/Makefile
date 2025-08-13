@@ -56,6 +56,7 @@ all: \
 	language-powershell \
 	language-regexp \
 	language-restructuredtext \
+	language-rfc \
 	language-roff \
 	language-rpm-spec \
 	language-rust \
@@ -162,6 +163,10 @@ language-regexp:
 
 language-restructuredtext:
 	git clone 'git@github.com:Lukasa/language-restructuredtext.git' $@
+	cd $@ && apm install . && npm run-script --if-present post-install
+
+language-rfc:
+	git clone 'git@github.com:Alhadis/language-rfc.git' $@
 	cd $@ && apm install . && npm run-script --if-present post-install
 
 language-roff:

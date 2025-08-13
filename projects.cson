@@ -44,6 +44,7 @@
 			"~/.atom/packages/language-fontforge"
 			"~/.atom/packages/language-mermaid"
 			"~/.atom/packages/language-pcb"
+			"~/.atom/packages/language-rfc"
 			"~/.atom/packages/language-subtitles"
 			"~/.atom/packages/language-viml"
 			"~/.atom/packages/language-webassembly"
