@@ -144,4 +144,13 @@
 		icon: "icon-issue-opened"
 		color: "#f00"
 	}
+	{
+		title: "Music-related stuff"
+		paths: [
+			"~/Labs/Record-Collection"
+			"~/Labs/MusicDB"
+		]
+		icon: "music-icon"
+		color: "#f0a"
+	}
 ]
