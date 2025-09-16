@@ -137,6 +137,8 @@
 		indentListItems: false
 		linkShortcuts: false
 		removeEmptyListItems: false
+	"language-rfc":
+		rfcDirectory: "~/Forks/RFCs"
 	"markdown-preview":
 		grammars: [
 			"source.gfm"
@@ -190,6 +192,9 @@
 ".python.source":
 	editor:
 		softTabs: false
+".rfc.text":
+	editor:
+		tabLength: 3
 ".rust.source":
 	editor:
 		softTabs: false
