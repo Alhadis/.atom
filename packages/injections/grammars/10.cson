@@ -4,12 +4,12 @@ scopeName: "fuck-atom.10"
 injectionSelector: "L:source.css - (comment | meta.at-rule & (document | media.header) | meta.pseudo-state.vendored)"
 patterns: [{
 	# “@document” and “@-moz-document” at-rules
-	name:  "meta.at-rule.document.header.css"
 	begin: "(?i)\\s*(?=@(?:-moz-)?document(?:[\\s'\"{;]|/\\*|$))"
 	end:   "(?<=})(?!\\G)"
 	patterns: [{
+		name:  "meta.at-rule.document.header.css"
 		begin: "(?i)\\G(@)(?:-moz-)?document"
-		end:   "(?=\\s*[{;])"
+		end:   "(?=[{;])"
 		beginCaptures:
 			0: name: "keyword.control.at-rule.document.css"
 			1: name: "punctuation.definition.keyword.css"
