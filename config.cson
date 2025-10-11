@@ -20,6 +20,8 @@
 				"gnuplotrc"
 			]
 			"source.ini": [
+				"kdeglobals"
+				"kdenliverc"
 				"vlcrc"
 			]
 			"source.json": [
