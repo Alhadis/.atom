@@ -36,6 +36,7 @@
 		title: "Grammars, etc"
 		paths: [
 			"~/.atom/packages/language-etc"
+			"~/.atom/packages/language-dsv"
 			"~/.atom/packages/language-grammars"
 			"~/.atom/packages/language-regexp"
 			"~/.atom/packages/language-roff"
@@ -49,6 +50,7 @@
 			"~/.atom/packages/language-viml"
 			"~/.atom/packages/language-webassembly"
 			"~/.atom/packages/language-texinfo"
+			"~/.atom/packages/language-x11"
 		]
 		icon: "bnf-icon"
 	}
@@ -60,6 +62,8 @@
 			"~/Labs/file-icons/icons"
 			"~/Labs/file-icons/vscode"
 			"~/Labs/file-icons/atom-fs"
+			"~/Labs/file-icons/DevOpicons"
+			"~/Labs/file-icons/MFixx"
 		]
 		icon: "atom-icon"
 		color: "#40a977"
