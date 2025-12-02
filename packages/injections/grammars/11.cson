@@ -1,0 +1,11 @@
+# Highlight CSS inside CDATA-guarded stylesheet blocks in XHTML
+scopeName: "fuck-atom.11"
+injectionSelector: "L:(source.css.embedded & (*.html | *.xml.svg)) - (comment | string | meta.cdata.css)"
+patterns: [{
+	name:  "meta.cdata.css"
+	begin: "<!\\[CDATA\\["
+	end:   "\\]\\]>"
+	beginCaptures: 0: name: "comment.ignored.cdata.begin.css"
+	endCaptures:   0: name: "comment.ignored.cdata.end.css"
+	patterns: [include: "source.css"]
+}]
