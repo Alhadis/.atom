@@ -398,6 +398,38 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 			text-decoration: underline;
 		}
 	}
+	
+	// Make XML plist(5) files marginally easier to follow
+	&[data-grammar="text xml plist"] .syntax--xml.syntax--plist{
+		&.syntax--constant.syntax--numeric.syntax--base64    { color: #cc3e44;   } // <data>…</data>
+		&.syntax--constant.syntax--other.syntax--name        { color: #cbcb41;   } // <key>…</key>
+		&.syntax--constant.syntax--other.syntax--date        { color: #78f471;   } // <date>…</date>
+		&.syntax--string.syntax--quoted.syntax--other        { color: #9ac4d7;   } // <string>…</string>
+		&.syntax--punctuation.syntax--definition.syntax--tag { color: #7d7d7d99; }
+		
+		// Mute XML tag colours so their contents are pronounced for the reader
+		&.syntax--meta.syntax--tag{
+			&:not(.syntax--boolean) .syntax--entity.syntax--name.syntax--tag { color: #7d7d7d; }
+			&.syntax--boolean       .syntax--entity.syntax--name.syntax--tag { color: #a074c4; }
+		}
+		
+		// Ensure data/syntax errors stand out
+		&.syntax--invalid.syntax--illegal{
+			background: #cc3e44 !important;
+			color: #fff !important;
+		}
+	}
+	
+	// Keep the “old-style” property list's colours consistent with the above
+	&[data-grammar="source plist"] .syntax--plist{
+		&.syntax--constant.syntax--numeric.syntax--base64,
+		&.syntax--constant.syntax--numeric.syntax--hexadecimal { color: #cc3e44; }
+		&.syntax--constant.syntax--other.syntax--timestamp     { color: #8dc149; }
+		&.syntax--invalid.syntax--illegal.syntax--invalid-character{
+			background: #cc3e44 !important;
+			color: #fff !important;
+		}
+	}
 }
 
 
