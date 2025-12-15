@@ -40,13 +40,13 @@ repository:
 		contentName: "constant.numeric.base64.plist"
 		patterns: [{
 			name: "invalid.illegal.invalid-character.plist"
-			match: "[^A-Za-z0-9+/ \\n]+"
+			match: "[^A-Za-z0-9+/\\s]+"
 		}]
 
 
 	# GNUstep extensions for XML parity
 	gnustep:
-		begin: "\\s*(?=<\\*[DYNIR])"
+		begin: "\\s*(?=<\\*[BDIR])"
 		end:   "(?!\\G)"
 		patterns: [{
 			# NSDate: <*DYYYY-MM-DD HH:MM:SS +0000>
@@ -82,12 +82,13 @@ repository:
 			endCaptures:
 				1: name: "punctuation.definition.value.end.plist"
 		},{
-			# NSBoolean: <*Y> <*N>
+			# NSBoolean: <*BY> <*BN>
 			name: "meta.boolean.gnustep.plist"
-			match: "\\G(<\\*)(?:(Y)|(N))(>)"
+			match: "\\G(<\\*)(B)(?:(Y)|(N))(>)"
 			captures:
 				1: name: "punctuation.definition.value.begin.plist"
-				2: name: "storage.type.boolean.true.plist"
-				3: name: "storage.type.boolean.false.plist"
-				4: name: "punctuation.definition.value.end.plist"
+				2: name: "storage.type.class.plist"
+				3: name: "constant.language.boolean.true.plist"
+				4: name: "constant.language.boolean.false.plist"
+				5: name: "punctuation.definition.value.end.plist"
 		}]
