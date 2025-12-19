@@ -1,0 +1,30 @@
+{
+	NeXTSTEP = {
+		String = "Quoted text";
+		Number = 1;
+		Array = (1, 2, 3, "last");
+		Dictionary = {
+			Unquoted = ABC;
+			"Quoted" = "X Y Z";
+		};
+		Data = <
+			47494638396101000100800000000000FFFFFF21F9
+			0401000001002C00000000010001000002014C003B
+		>;
+	};
+	
+	// GNUStep plist(5) extensions
+	"GNUStep Extensions" = {
+		Boolean = {
+			YES = <*BY>;
+			NO  = <*BN>;
+		};
+		Integer = <*I09007199254740991>;
+		Real    = <*R3.141592653589793>;
+		Date    = <*D1987-04-18 03:31:00 +1000>;
+		Data    = <[
+			R0lGODlhAQABAIAAAAAAAP///yH5
+			BAEAAAEALAAAAAABAAEAAAIBTAA7
+		]>;
+	};
+}

@@ -1,2 +1,5 @@
 misc/latin-1  linguist-language=text binary
 tests/**/*.rb linguist-documentation
+
+# TODO: Remove this once convert-plist(1) supports GNUstep extensions
+tests/*.plist diff=text
