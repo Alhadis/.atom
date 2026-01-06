@@ -1,0 +1,252 @@
+# Highlight UserScript metadata blocks in JavaScript
+scopeName: "fuck-atom.12"
+injectionSelector: "L:source.js - (comment | string | meta.userscript)"
+patterns: [{
+	# Metadata block: https://violentmonkey.github.io/api/metadata-block/
+	name:  "meta.userscript.prologue.js"
+	begin: "^(//)\\s+((==)UserScript(==))[ \\t]*$"
+	end:   "^(//)\\s+((==/)UserScript(==))[ \\t]*$"
+	beginCaptures:
+		0: name: "comment.line.documentation.double-slash.js"
+		1: name: "punctuation.definition.comment.js"
+		2: name: "keyword.other.userscript.begin.js"
+		3: name: "punctuation.definition.keyword.begin.js"
+		4: name: "punctuation.definition.keyword.end.js"
+	endCaptures:
+		0: name: "comment.line.documentation.double-slash.js"
+		1: name: "punctuation.definition.comment.js"
+		2: name: "keyword.other.userscript.end.js"
+		3: name: "punctuation.definition.keyword.begin.js"
+		4: name: "punctuation.definition.keyword.end.js"
+	patterns: [
+		{include: "#tag"}
+		{include: "source.js"}
+	]
+}]
+
+repository:
+	# Single-line userscript metadata field: “// @tag …”
+	tag:
+		patterns: [{
+			# Localised field identified with an IANA language tag
+			applyEndPatternLast: yes
+			name:  "meta.field.localised.${2:/downcase}-locale.${1:/downcase}.js"
+			begin: "^(?=//\\s+@([-\\w]+):(?!-)((?:(?:-|(?<=:))[-A-Za-z0-9.]+)++(?:$|\\s)))"
+			end:   "(?!\\G)"
+			contentName: "comment.line.double-slash.documentation.js"
+			patterns: [include: "#tagInnards"]
+		},{
+			# Unlocalised (default locale)
+			applyEndPatternLast: yes
+			name:  "meta.field.unlocalised.default-locale.${1:/downcase}.js"
+			begin: "^(?=//\\s+@([-\\w]+)(?:$|\\s))"
+			end:   "(?!\\G)"
+			contentName: "comment.line.double-slash.documentation.js"
+			patterns: [include: "#tagInnards"]
+		}]
+
+	# Stuff matched inside both localised and unlocalised fields
+	tagInnards:
+		begin: "\\G(//)\\s+(((@)[-\\w]+))(?=$|:|\\s)"
+		end:   "(?=\\s*$)"
+		beginCaptures:
+			1: name: "punctuation.definition.comment.js"
+			2: name: "meta.field.key.js"
+			3: name: "entity.name.tag.userscript.js"
+			4: name: "punctuation.definition.block.tag.userscript.js"
+		patterns: [{
+			# Boolean (argument-less) fields
+			begin: "(?x)
+				(?<= @check[-_]for[-_]updates
+				|    @merge[-_]exclude[-_]matches
+				|    @merge[-_]excludes
+				|    @merge[-_]includes
+				|    @merge[-_]matches
+				|    @noframes
+				|    @scriptWillUpdate
+				|    @top[-_]level[-_]await
+				|    @unwrap
+				)\\G"
+			end: "(?=\\s*$)"
+			patterns: [include: "#tagLocale"]
+		},{
+			# Version string(s)
+			begin: "(?<=@version)\\G"
+			end:   "(?=\\s*$)"
+			patterns: [
+				{include: "#tagLocale"}
+				
+				# Blindly match whatever as version info
+				name: "constant.numeric.version.userscript.js"
+				match: "(?<=\\s)(?=\\d)(\\S+)"
+			]
+		},{
+			# Resource field: [type] [url]
+			begin: "(?<=@resource)\\G(?=\\S*\\s+\\S+\\s+\\S)"
+			end:   "(?=\\s*$)"
+			patterns: [
+				{include: "#tagLocale"}
+				begin: "[ \\t]+"
+				end:   "(?=\\s*$)"
+				patterns: [{
+					# Resource name (e.g., "icon", "text")
+					name: "entity.name.constant.resource.userscript.js"
+					match: "\\G\\S+"
+				}, include: "#link"]
+			]
+		},{
+			# URL-typed fields
+			begin: "(?xi)
+				(?<= @icon
+				|    @contributionURL
+				|    @downloadURL
+				|    @download
+				|    @homepageURL
+				|    @homepage
+				|    @installURL
+				|    @install
+				|    @namespace
+				|    @require
+				|    @resource
+				|    @supportURL
+				|    @support
+				|    @updateURL
+				|    @update
+				)\\G"
+			end: "(?=\\s*$)"
+			patterns: [
+				{include: "#tagLocale"}
+				{include: "#link"}
+			]
+		},{
+			# URL-matching rules (https://violentmonkey.github.io/api/matching/)
+			begin: "(?<=@match|@exclude-match|@exclude|@include)\\G"
+			end:   "(?=\\s*$)"
+			patterns: [{
+				# Exclude locale ID from pattern tokenisation
+				begin: "\\G(?=:)"
+				end:   "(?=$|\\s)"
+				patterns: [include: "#tagLocale"]
+			},{
+				# Match rule itself
+				begin: "\\s+(?=\\S)"
+				end:   "(?=\\s*$)"
+				patterns: [
+					# Special keyword to match all URLs
+					name: "keyword.operator.any-url.match.userscript.js"
+					match: "(?<=\\s)(<)all_urls(>)(?=\\s*$)"
+					captures:
+						1: name: "punctuation.definition.begin.bracket.angle.js"
+						2: name: "punctuation.definition.begin.bracket.angle.js"
+					
+					{include: "#regexp"}
+					{include: "#url"}
+					{include: "#wildcard"}
+				]
+			}]
+		},{
+			# Script execution event
+			begin: "(?<=@run-at)\\G"
+			end:   "\\s+(document-(?:start|body|end|idle))(?=$|\\s)|(?=\\s*$)"
+			endCaptures:
+				1: name: "constant.language.event.$1.userscript.js"
+			patterns: [include: "#tagLocale"]
+		},{
+			# Access requests to privileged APIs
+			begin: "(?<=@grant)\\G"
+			end:   "\\s+(?:(none)|(\\S+))(?=$|\\s)|(?=\\s*$)"
+			endCaptures:
+				1: name: "keyword.operator.no-privileges.userscript.js"
+				2: name: "constant.language.privilege.userscript.js"
+			patterns: [include: "#tagLocale"]
+		},{
+			# Undocumented tags; ostensible domain-connection whitelist
+			begin: "(?<=@connect|@domain)\\G"
+			end:   "(?=\\s*$)"
+			patterns: [
+				{include: "#tagLocale"}
+				{name: "keyword.operator.self.userscript.js", match: "(?<=\\s)self(?=\\s*$)"}
+				{include: "#regexp"}
+				{include: "#url"}
+				{include: "#wildcard"}
+				{include: "source.hosts#host"}
+			]
+		},{
+			# Browser (in)compatibility info
+			begin: "(?<=@incompatible|@compatible)\\G"
+			end:   "(?=\\s*$)"
+			patterns: [
+				{include: "#tagLocale"}
+				
+				begin: "\\s+(firefox|chrome|opera|safari|edge)(?=$|\\s)[ \\t]*"
+				end:   "(?=\\s*$)"
+				beginCaptures:
+					1: name: "constant.language.browser.$1.userscript.js"
+				contentName: "string.unquoted.field.compatibility-message.js"
+			]
+		},{
+			# Anti-feature disclosure(s): ads, user-tracking, paywall, etc.
+			begin: "(?<=@antifeature)\\G"
+			end:   "(?=\\s*$)"
+			patterns: [
+				{include: "#tagLocale"}
+				
+				begin: "\\s+(\\S+)(?=$|\\s)[ \\t]*"
+				end:   "(?=\\s*$)"
+				beginCaptures:
+					1: name: "constant.language.antifeature.$1.userscript.js"
+				contentName: "string.unquoted.field.disclosure-details.js"
+			]
+		},{
+			# Anything else
+			begin: "\\G"
+			end:   "(?=\\s*$)"
+			patterns: [{
+				# Exclude locale ID from string-scope
+				begin: "\\G(?=:)"
+				end:   "(?=$|\\s)"
+				patterns: [include: "#tagLocale"]
+			},{
+				# Unquoted string data
+				contentName: "string.unquoted.field.userscript.js"
+				begin: "\\s+(?=\\S)"
+				end:   "(?=\\s*$)"
+			}]
+		}, include: "#tagLocale"]
+
+	# Locale ID affixed to tag: `:en-AU`
+	tagLocale:
+		name: "meta.field.key.js"
+		match: "\\G(:)(?!-)((?:(?:-|(?<=:))[-A-Za-z0-9.]+)+)"
+		captures:
+			1: name: "punctuation.separator.key-value.js"
+			2: name: "entity.name.locale.js"
+
+	# Underlined hyperlink token, used inside a tokenised field body
+	link:
+		name: "constant.other.reference.link"
+		match: "(?<=\\s)(\\S+)"
+
+	# Case-insensitive, flagless /Regular\x20Expression/
+	regexp:
+		name: "string.regexp.match.userscript.js"
+		match: "(?<=\\s)(/)((?:[^\\s/\\\\]|\\\\.|/(?!$|\\s))++)(/)(?=$|\\s)"
+		captures:
+			1: name: "punctuation.definition.string.begin.js"
+			2: patterns: [include: "source.js.regexp"]
+			3: name: "punctuation.definition.string.end.js"
+
+	# URL string match, possibly containing wildcards
+	url:
+		name: "string.other.link.url.userscript.js"
+		match: "(?i)(?<=\\s)((?:\\*|http[s*]?|file|ftp|urn)://[^\\s/]*?)(\\.tld)?(/\\S*)?(?=$|\\s)"
+		captures:
+			0: name: "markup.underline.link.hyperlink"
+			1: patterns: [include: "#wildcard"]
+			3: patterns: [include: "#wildcard"]
+			2: name: "keyword.operator.tld.match.userscript.js"
+
+	# Wildcard operator: “*”
+	wildcard:
+		name:  "keyword.operator.wildcard.match.userscript.js"
+		match: "\\*"
