@@ -467,6 +467,45 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 		.selected::before{ opacity: 0.2; }
 	}
 	
+	.config-menu{
+		button.btn{
+			background: #1b688a !important;
+		}
+		li a.icon-settings::before{
+			font-size: 20px;
+			display: inline-block;
+			vertical-align: -20%;
+			line-height: 1;
+			width: unset;
+			height: unset;
+			position: static;
+			margin: unset;
+			left: unset;
+			top: unset;
+		}
+	}
+	
+	.keybinding-panel table{
+		thead{
+			font-size: 1.1em;
+		}
+		tbody td:not(.source){
+			font-family: Menlo, monospace;
+		}
+	}
+	
+	/* Make highlights and monospaced text in Settings legible */
+	.highlight{
+		color: #a1c5ff;
+		background-color: none;
+	}
+	.setting-description, .package-readme{
+		code, samp, tt, pre{
+			color: #76deff !important;
+			background-color: #151b23 !important;
+		}
+	}
+	
 	/* Keep search fields looking consistent with other text-editors */
 	.find-and-replace atom-text-editor[mini],
 	.project-find     atom-text-editor[mini]{
