@@ -1,0 +1,11 @@
+"*":
+	editor:
+		formatter:
+			command: "user:unfuck-tabstops"
+			type: "Atom command"
+
+".source.json":
+	editor:
+		formatter:
+			command: "formatJSON"
+			type: "Global"

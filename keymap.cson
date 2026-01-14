@@ -20,6 +20,7 @@
 
 "atom-text-editor:not([mini])":
 	"alt-g":          "user:edit-grammar"
+	"alt-f":          "editor:format"
 	"tab":            "editor:expand"
 
 "atom-text-editor:not([data-grammar='text roff'])":
