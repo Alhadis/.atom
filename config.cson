@@ -93,6 +93,7 @@
 			"language-markdown"
 			"language-python"
 			"language-ruby-on-rails"
+			"language-yaml"
 			"welcome"
 		]
 		openEmptyEditorOnStart: false
