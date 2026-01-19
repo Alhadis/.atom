@@ -1,0 +1,13 @@
+diff --git a/syntaxes/lean-markdown.json b/syntaxes/lean-markdown.json
+index 1aa5a7e..d5f64d6 100644
+--- a/syntaxes/lean-markdown.json
++++ b/syntaxes/lean-markdown.json
+@@ -4,7 +4,7 @@
+ 		"We've mainly changed it so that the productions do not consume the final -/ of a doc string"
+ 	],
+ 	"version": "https://github.com/microsoft/vscode/blob/df3ae4adefbb780f5f686e58ac6a8d305a8c86dc/extensions/markdown-basics/syntaxes/markdown.tmLanguage.json",
+-	"name": "Markdown",
++	"hideFromUser": true,
+ 	"scopeName": "source.lean.markdown",
+ 	"patterns": [
+ 		{
