@@ -1,0 +1,139 @@
+# Improve perl(1) highlighting
+scopeName: "fuck-atom.14"
+injectionSelector: "L:source.perl - (comment | string)"
+patterns: [include: "#main"]
+repository:
+	main:
+		patterns: [
+			{include: "#eof"}
+			{include: "#ref"}
+			{include: "#new"}
+			{include: "#regexVars"}
+		]
+
+	# End-of-file mark
+	eof:
+		begin: "\\b(__DATA__|__END__)\\n?"
+		end:   "(?=A)B"
+		beginCaptures:
+			1: name: "keyword.control.eof.perl"
+		contentName: "comment.block.documentation.perl"
+		patterns: [include: "source.perl#pod"]
+
+	# Faux-constructor
+	new:
+		name: "meta.class.instance.constructor.perl"
+		match: "\\b(new)(?:\\s+(\\w+(?:::\\w+)*+))?\\b"
+		captures:
+			1: name: "support.function.constructor.new.perl"
+			2: patterns: [{
+				name: "entity.name.class.instance.perl"
+				match: "\\w+"
+			}, include: "source.perl#separators"]
+
+	# Indirect reference
+	ref:
+		name: "storage.modifier.reference.perl"
+		match: "\\\\(?=[$@%*&])"
+
+	# Missing tokenisation for regex-specific variables
+	regexVars:
+		patterns: [{
+			# @{^CAPTURE}
+			name: "variable.other.regexp.last-match-captures.perl"
+			match: "(@{)\\^CAPTURE(})"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# $MATCH, ${^MATCH}
+			name: "variable.other.regexp.match.perl"
+			match: "(\\$(?:{(?=\\^?\\w+}))?)(?:(?<={)\\^)?MATCH((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# $PREMATCH, ${^PREMATCH}
+			name: "variable.other.regexp.pre-match.perl"
+			match: "(\\$(?:{(?=\\^?\\w+}))?)(?:(?<={)\\^)?PREMATCH((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# $POSTMATCH, ${^POSTMATCH}
+			name: "variable.other.regexp.post-match.perl"
+			match: "(\\$(?:{(?=\\^?\\w+}))?)(?:(?<={)\\^)?POSTMATCH((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# %+, %LAST_PAREN_MATCH, %{^CAPTURE}
+			name: "variable.other.regexp.last-paren-match.perl"
+			match: "([$%](?:{(?=\\^?\\w+}))?)(?:\\+|LAST_PAREN_MATCH|(?<=%{)\\^CAPTURE(?=}))((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# @-, @LAST_MATCH_START
+			name: "variable.other.regexp.last-match-start.perl"
+			match: "(@(?:{(?=\\w+}))?)(?:-|LAST_MATCH_START)((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# @+, @LAST_MATCH_END
+			name: "variable.other.regexp.last-match-end.perl"
+			match: "(@(?:{(?=\\w+}))?)(?:\\+|LAST_MATCH_END)((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# %-, %{^CAPTURE_ALL}
+			name: "variable.other.regexp.capture-all.perl"
+			match: "(%(?:{(?=\\^\\w+}))?)(?:-|\\^CAPTURE_ALL)((?<=\\w)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# $^R, $LAST_REGEXP_CODE_RESULT
+			name: "variable.other.regexp.last-code-result.perl"
+			match: "(\\$(?:{(?=\\w+}))?)(?:\\^R|LAST_REGEXP_CODE_RESULT)((?<=T)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# $^N, $LAST_SUBMATCH_RESULT
+			name: "variable.other.regexp.last-submatch-result.perl"
+			match: "(\\$(?:{(?=\\w+}))?)(?:\\^N|LAST_SUBMATCH_RESULT)((?<=T)})?(?![A-Za-z0-9_])"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# ${^LAST_SUCCESSFUL_PATTERN}
+			name: "variable.other.regexp.last-successful-pattern.perl"
+			match: "(\\${)\\^LAST_SUCCESSFUL_PATTERN(})"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# ${^RE_COMPILE_RECURSION_LIMIT}
+			name: "variable.other.regexp.compile-recursion-limit.perl"
+			match: "(\\${)\\^RE_COMPILE_RECURSION_LIMIT(})"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# ${^RE_DEBUG_FLAGS}
+			name: "variable.other.regexp.debug-flags.perl"
+			match: "(\\${)\\^RE_DEBUG_FLAGS(})"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		},{
+			# ${^RE_TRIE_MAXBUF}
+			name: "variable.other.regexp.trie-buffer-limit.perl"
+			match: "(\\${)\\^RE_TRIE_MAXBUF(})"
+			captures:
+				1: name: "punctuation.definition.variable.perl"
+				2: name: "punctuation.definition.variable.perl"
+		}]

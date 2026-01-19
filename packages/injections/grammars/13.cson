@@ -1,0 +1,365 @@
+# Improve perlpod(1) highlighting
+scopeName: "fuck-atom.13"
+injectionSelector: "L:comment.block.documentation.perl - (meta.formatting-code | meta.paragraph.verbatim)"
+patterns: [include: "#main"]
+repository:
+	main:
+		patterns: [
+			{include: "#for"}
+			{include: "#begin"}
+			{include: "#verbatim"}
+			{include: "#formattingCodes"}
+		]
+
+
+	# Format-specific output (multi-paragraph)
+	# NB: Embedded HTML blocks already supported by grammar
+	begin:
+		patterns: [{
+			# Roff
+			name:  "meta.embedded.roff-block.pod.perl"
+			begin: "^(=begin)\\s+([tng]?roff|man|tbl|eqn)(?=$|\\s)"
+			end:   "^(=end)\\s+(\\2)(?=$|\\s)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "text.embedded.roff"
+			patterns: [include: "text.roff"]
+		},{
+			# TeX
+			name:  "meta.embedded.tex-block.pod.perl"
+			begin: "^(=begin)\\s+(tex)(?=$|\\s)"
+			end:   "^(=end)\\s+(\\2)(?=$|\\s)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "text.embedded.tex"
+			patterns: [include: "text.tex"]
+		},{
+			# LaTeX
+			name:  "meta.embedded.latex-block.pod.perl"
+			begin: "^(=begin)\\s+(latex)(?=$|\\s)"
+			end:   "^(=end)\\s+(\\2)(?=$|\\s)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "text.embedded.tex.latex"
+			patterns: [include: "text.tex.latex"]
+		},{
+			# Plain-text
+			name:  "meta.embedded.text-block.pod.perl"
+			begin: "^(=begin)\\s+(text)(?=$|\\s)"
+			end:   "^(=end)\\s+(\\2)(?=$|\\s)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+		},{
+			# User comments (ignored)
+			name:  "meta.embedded.comment-block.pod.perl"
+			begin: "^(=begin)\\s+(comment)(?=$|\\s)"
+			end:   "^(=end)\\s+(\\2)(?=$|\\s)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "comment.block.ignored.pod.perl"
+		},{
+			# Unrecognised format
+			name:  "meta.embedded.${2:/downcase}-block.pod.perl"
+			begin: "^(=begin)\\s+(?!html\\b)(\\w+)(?=$|\\s)"
+			end:   "^(=end)\\s+(\\2)(?=$|\\s)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+		}]
+
+
+	# Format-specific output (single-paragraph)
+	for:
+		patterns: [{
+			# HTML
+			name:  "meta.embedded.html-block.pod.perl"
+			begin: "^(=for)\\s+(html)(?=$|\\s)"
+			end:   "(?!\\G)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+			patterns: [{
+				name:  "text.embedded.html.basic"
+				begin: "\\G"
+				end:   "(?=^\\s*$)"
+				patterns: [include: "text.html.basic"]
+			}]
+		},{
+			# Roff source with groff_man(7) macros
+			name:  "meta.embedded.roff-block.pod.perl"
+			begin: "^(=for)\\s+([tng]?roff|man|tbl|eqn)(?=$|\\s)"
+			end:   "(?!\\G)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+			patterns: [{
+				name:  "text.embedded.roff"
+				begin: "\\G"
+				end:   "(?=^\\s*$)"
+				patterns: [include: "text.roff"]
+			}]
+		},{
+			# TeX source
+			name:  "meta.embedded.tex-block.pod.perl"
+			begin: "^(=for)\\s+(tex)(?=$|\\s)"
+			end:   "(?!\\G)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+			patterns: [{
+				name:  "text.embedded.tex"
+				begin: "\\G"
+				end:   "(?=^\\s*$)"
+				patterns: [include: "text.tex"]
+			}]
+		},{
+			# LaTeX source
+			name:  "meta.embedded.latex-block.pod.perl"
+			begin: "^(=for)\\s+(latex)(?=$|\\s)"
+			end:   "(?!\\G)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+			patterns: [{
+				name:  "text.embedded.tex.latex"
+				begin: "\\G"
+				end:   "(?=^\\s*$)"
+				patterns: [include: "text.tex.latex"]
+			}]
+		},{
+			# User comments (ignored)
+			name:  "meta.embedded.comment-block.pod.perl"
+			begin: "^(=for)\\s+(comment)(?=$|\\s)"
+			end:   "(?=^\\s*$)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "comment.block.ignored.pod.perl"
+		},{
+			# Plain-text
+			name:  "meta.embedded.text-block.pod.perl"
+			begin: "^(=for)\\s+(text)(?=$|\\s)"
+			end:   "(?=^\\s*$)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+		},{
+			# Unrecognised format
+			name:  "meta.embedded.${2:/downcase}-block.pod.perl"
+			begin: "^(=for)\\s+(\\w+)(?=$|\\s)"
+			end:   "(?=^\\s*$)"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: name: "entity.name.tag.format.pod.perl"
+			contentName: "markup.raw.code.pod.perl"
+		}]
+
+
+	# Interior sequences
+	formattingCodes:
+		patterns: [
+			{include: "#escape"}
+			{include: "#bold"}
+			{include: "#italic"}
+			{include: "#code"}
+			{include: "#link"}
+			{include: "#file"}
+			{include: "#nowrap"}
+			{include: "#index"}
+			{include: "#null"}
+		]
+
+
+	# B<bold text>
+	bold:
+		name: "meta.formatting-code.bold.pod.perl"
+		begin: "(B)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		contentName: "markup.bold.pod.perl"
+		patterns: [include: "#formattingCodes"]
+
+
+	# C<monospaced text>
+	code:
+		name: "meta.formatting-code.code.pod.perl"
+		begin: "(C)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		contentName: "markup.raw.monospace.pod.perl"
+		patterns: [include: "#formattingCodes"]
+
+
+	# E<escape_sequence>
+	escape:
+		patterns: [{
+			# Character specified by codepoint
+			name: "meta.formatting-code.escape.pod.perl"
+			match: "(E)(<)\\s*((0x[0-9A-Fa-f]+)|(0\\d+)|(\\d+))\\s*(>)"
+			captures:
+				1: name: "storage.type.class.pod.perl"
+				2: patterns: [include: "#punct"]
+				3: name: "constant.character.escape.codepoint.pod.perl"
+				4: name: "constant.numeric.integer.int.hexadecimal.hex.pod.perl"
+				5: name: "constant.numeric.integer.int.octal.oct.pod.perl", patterns: [{
+					name: "invalid.illegal.octal-digit.pod.perl"
+					match: "8|9"
+				}]
+				6: name: "constant.numeric.integer.int.decimal.dec.pod.perl"
+				7: patterns: [include: "#punct"]
+		},{
+			# Named character entity
+			name:  "meta.formatting-code.escape.pod.perl"
+			begin: "(E)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+			end:   "\\s*(>)|(?=\\s*$)"
+			contentName: "entity.name.entity.other.pod.perl"
+			beginCaptures:
+				1: name: "storage.type.class.pod.perl"
+				2: patterns: [include: "#punct"]
+			endCaptures:
+				1: patterns: [include: "#punct"]
+			patterns: [include: "#formattingCodes"]
+		}]
+
+
+	# F<filename>
+	file:
+		name:  "meta.formatting-code.filename.pod.perl"
+		begin: "(F)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		contentName: "constant.other.filename.pod.perl"
+		patterns: [include: "#formattingCodes"]
+
+
+	# X<index entry>
+	index:
+		name: "meta.formatting-code.index.pod.perl"
+		begin: "(X)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		contentName: "variable.topic.index.pod.perl"
+		patterns: [include: "#formattingCodes"]
+
+
+	# I<italics>
+	italic:
+		name:  "meta.formatting-code.italic.pod.perl"
+		begin: "(I)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		contentName: "markup.italic.pod.perl"
+		patterns: [include: "#formattingCodes"]
+
+
+	# L<displayed text|https://link.to/something>
+	link:
+		name:  "meta.formatting-code.link.pod.perl"
+		begin: "(L)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		patterns: [{
+			# Link label
+			begin: "\\G(?=[^|]*?\\|)"
+			end:   "\\||(?=\\s*(?:$|>))"
+			contentName: "string.unquoted.pod.perl"
+			endCaptures:
+				0: patterns: [include: "#punct"]
+			patterns: [include: "#formattingCodes"]
+		},{
+			# Link destination
+			name:  "constant.other.reference.link.hyperlink.pod.perl"
+			begin: "\\G|(?<=\\|)"
+			end:   "(?=\\s*(?:$|>))"
+			patterns: [include: "#formattingCodes"]
+		}]
+
+
+	# S<no line breaks>
+	nowrap:
+		name:  "meta.formatting-code.no-wrap.pod.perl"
+		begin: "(S)(<)\\s*(?!\\s)(?=(?:[^<>]|[IBCLEFSXZ]<.*?>)+>)"
+		end:   "\\s*(>)|(?=\\s*$)"
+		beginCaptures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+		endCaptures:
+			1: patterns: [include: "#punct"]
+		contentName: "markup.raw.no-wrap.pod.perl"
+		patterns: [include: "#formattingCodes"]
+
+
+	# Z<> (Null character)
+	null:
+		name: "meta.formatting-code.null.pod.perl"
+		match: "(Z)(<>)"
+		captures:
+			1: name: "storage.type.class.pod.perl"
+			2: patterns: [include: "#punct"]
+
+
+	# Punctuation
+	punct:
+		patterns: [{
+			# Pipe
+			name: "keyword.operator.separator.pipe.pod.perl"
+			match: "\\|"
+			captures:
+				0: name: "punctuation.separator.pipe.pod.perl"
+		},{
+			# Angle bracket, opening
+			name: "punctuation.definition.tag.begin.pod.perl"
+			match: "<"
+			captures:
+				0: name: "sublimelinter.gutter-mark"
+		},{
+			# Angle bracket, closing
+			name: "punctuation.definition.tag.end.pod.perl"
+			match: ">"
+			captures:
+				0: name: "sublimelinter.gutter-mark"
+		}]
+
+
+	# Verbatim paragraph
+	verbatim:
+		name:  "meta.paragraph.verbatim.pod.perl"
+		begin: "(?=^[ \\t]+\\S)"
+		end:   "(?!\\G)(?=^\\S)"
+		contentName: "markup.raw.code.monospace.pod.perl"
