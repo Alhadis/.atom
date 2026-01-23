@@ -79,6 +79,9 @@
 				"mm"
 				"ms"
 			]
+			"text.shell-session": [
+				"Terminal Saved Output.txt"
+			]
 			"text.xml": [
 				"xmp"
 			]
