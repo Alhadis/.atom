@@ -97,6 +97,7 @@
 			"language-python"
 			"language-ruby-on-rails"
 			"language-yaml"
+			"minimap"
 			"welcome"
 		]
 		openEmptyEditorOnStart: false
