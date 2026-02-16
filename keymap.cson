@@ -59,7 +59,7 @@
 "body:not(.platform-darwin)":
 	"ctrl-i":         "window:toggle-dev-tools"
 	"ctrl-y":         "user:toggle-github-syntax"
-	"ctrl-\\":        "user:toggle-sidebar"
+	"ctrl-\\":        "unset!"
 	"alt-l":          "user:toggle-ligatures"
 	"alt-ctrl-\\":    "tree-view:toggle"
 	"alt-ctrl-o":     "application:add-project-folder"
@@ -172,7 +172,7 @@
 	"alt-1":          "user:shell"
 	"cmd-i":          "window:toggle-dev-tools"
 	"cmd-y":          "user:toggle-github-syntax"
-	"cmd-\\":         "user:toggle-sidebar"
+	"cmd-\\":         "unset!"
 	"ctrl-l":         "user:toggle-ligatures"
 	"alt-cmd-\\":     "tree-view:toggle"
 	"alt-cmd-o":      "application:add-project-folder"
