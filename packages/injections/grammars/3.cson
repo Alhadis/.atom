@@ -1,41 +1,120 @@
+# Embedded syntax highlighting for JavaScript template literals
 scopeName: "fuck-atom.3"
 injectionSelector: "L:source.js"
 patterns: [
 	{include: "#shellEntry"}
 	{include: "#jsEntry"}
-	
-	begin: "(?=\\s*(?<!\\$)\\bnew\\s+RegExp\\s*\\(\\s*String\\.raw\\s*`)"
-	end:   "(?<=`)"
-	patterns: [{
-		match: "\\G([^`]+)"
-		captures:
-			1: patterns: [include: "source.js"]
-	},{
-		# new RegExp(String.raw `(?x) …`);
-		name:  "string.quoted.template.regexp.js"
-		begin: "(`)(\\(\\?\\^?[A-Za-wyz]*x[A-Za-z]*[-A-Za-wyz]*\\))"
-		end:   "`"
-		beginCaptures:
-			1: name: "punctuation.definition.string.begin.js"
-			2: patterns: [include: "source.regexp#group"]
-		endCaptures:
-			0: name: "punctuation.definition.string.end.js"
-		patterns: [include: "source.regexp.extended"]
-	},{
-		# new RegExp(String.raw `…`);
-		name:  "string.quoted.template.regexp.js"
-		begin: "`"
-		end:   "`"
-		beginCaptures:
-			1: name: "punctuation.definition.string.begin.js"
-			2: patterns: [include: "source.regexp#group"]
-		endCaptures:
-			0: name: "punctuation.definition.string.end.js"
-		patterns: [include: "source.regexp.extended"]
-	}]
+	{include: "#extendedRegexp"}
+	{include: "#embeddedXML"}
 ]
 
 repository:
+	# RegExp highlighting in tagged template literals
+	extendedRegexp:
+		patterns: [{
+			# new RegExp(String.raw `…`)
+			begin: "(?=\\s*(?<!\\$)\\bnew\\s+RegExp\\s*\\(\\s*String\\.raw\\s*`)"
+			end:   "(?<=`)"
+			patterns: [{
+				match: "\\G([^`]+)"
+				captures:
+					1: patterns: [include: "source.js"]
+			},{
+				# new RegExp(String.raw `(?x) …`);
+				name:  "string.quoted.template.regexp.js"
+				begin: "(`)(\\(\\?\\^?[A-Za-wyz]*x[A-Za-z]*[-A-Za-wyz]*\\))"
+				end:   "`"
+				beginCaptures:
+					1: name: "punctuation.definition.string.begin.js"
+					2: patterns: [include: "source.regexp#group"]
+				endCaptures:
+					0: name: "punctuation.definition.string.end.js"
+				patterns: [include: "source.regexp.extended"]
+			},{
+				# new RegExp(String.raw `…`);
+				name:  "string.quoted.template.regexp.js"
+				begin: "`"
+				end:   "`"
+				beginCaptures: 0: name: "punctuation.definition.string.begin.js"
+				endCaptures:   0: name: "punctuation.definition.string.end.js"
+				patterns: [include: "source.js.regexp"]
+			}]
+		},{
+			# xe`…`
+			name:  "meta.extended-regexp-function.$1.js"
+			begin: "(?=\\s*(?<!\\$)\\b(xe)\\s*`)"
+			end:   "(?<=`)"
+			patterns: [{
+				match: "\\G\\s*([^\\s`]+)"
+				captures:
+					1: name: "support.function.$1.js"
+			},{
+				name:  "string.quoted.template.regexp.js"
+				begin: "`"
+				end:   "`"
+				beginCaptures: 0: name: "punctuation.definition.string.begin.js"
+				endCaptures:   0: name: "punctuation.definition.string.end.js"
+				patterns: [include: "source.regexp.extended"]
+			}]
+		}]
+
+
+	# XML-based language highlighting in tagged template literals
+	embeddedXML:
+		patterns: [{
+			# Regular XML
+			name:  "string.quoted.template.xml.js"
+			begin: "(?=\\s*(?<!\\$)\\b(xml|XML)\\s*`)"
+			end:   "(?<=`)"
+			patterns: [{
+				match: "\\G\\s*(\\w+)"
+				captures:
+					1: name: "entity.name.function.js"
+			},{
+				begin: "`"
+				end:   "`"
+				beginCaptures: 0: name: "punctuation.definition.string.begin.js"
+				endCaptures:   0: name: "punctuation.definition.string.end.js"
+				contentName: "text.embedded.xml"
+				patterns: [include: "text.xml"]
+			}]
+		},{
+			# SVG
+			name:  "string.quoted.template.xml.svg.js"
+			begin: "(?=\\s*(?<!\\$)\\b(svg|SVG)\\s*`)"
+			end:   "(?<=`)"
+			patterns: [{
+				match: "\\G\\s*(\\w+)"
+				captures:
+					1: name: "entity.name.function.js"
+			},{
+				begin: "`"
+				end:   "`"
+				beginCaptures: 0: name: "punctuation.definition.string.begin.js"
+				endCaptures:   0: name: "punctuation.definition.string.end.js"
+				contentName: "text.embedded.xml.svg"
+				patterns: [include: "text.xml.svg"]
+			}]
+		},{
+			# XML property list
+			name:  "string.quoted.template.xml.plist.js"
+			begin: "(?=\\s*(?<!\\$)\\b(plist|PLIST|Plist)\\s*`)"
+			end:   "(?<=`)"
+			patterns: [{
+				match: "\\G\\s*(\\w+)"
+				captures:
+					1: name: "entity.name.function.js"
+			},{
+				begin: "`"
+				end:   "`"
+				beginCaptures: 0: name: "punctuation.definition.string.begin.js"
+				endCaptures:   0: name: "punctuation.definition.string.end.js"
+				contentName: "text.embedded.xml.plist"
+				patterns: [include: "text.xml.plist"]
+			}]
+		}]
+
+	
 	htmlLine:
 		begin: "\\G\\s*(//)"
 		end:   "$"
