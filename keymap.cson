@@ -148,6 +148,9 @@
 	"ctrl--":         "user:decrement"
 	"ctrl-_":         "user:decrement"
 
+"body:not(.platform-darwin) atom-text-editor[data-grammar='text srt']":
+	"ctrl-g":         "language-subtitles:go-to-subrip-entry"
+
 "body:not(.platform-darwin) atom-text-editor:not([mini])":
 	"ctrl-r":         "symbols-view:toggle-file-symbols"
 	"ctrl-|":         "math:round"
@@ -224,6 +227,9 @@
 
 "body.platform-darwin atom-text-editor[data-grammar~='mediawiki']":
 	"cmd-a":          "editor:select-all-except-trailing-whitespace"
+
+"body.platform-darwin atom-text-editor[data-grammar='text srt']":
+	"cmd-g":          "language-subtitles:go-to-subrip-entry"
 
 "body.platform-darwin atom-text-editor:not([mini])":
 	"cmd-r":          "symbols-view:toggle-file-symbols"
