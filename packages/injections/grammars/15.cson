@@ -1,0 +1,16 @@
+# Fix numeric values being incorrectly highlighted as errors
+scopeName: "fuck-atom.15"
+injectionSelector: "L:text.xml.plist - (comment | string)"
+patterns: [{
+	name: "constant.numeric.real.xml.plist"
+	match: "(?<=<real>)[-+]?(?:\\d*\\.(?:\\d+[Ee][-+]?)?\\d+|\\d+\\.?[Ee][-+]?\\d+)(?=$|<)"
+},{
+	name: "constant.language.infinity.plist"
+	match: "(?<=<real>)[-+]?(?i:inf(?:inity)?)(?=$|<)"
+},{
+	name: "constant.language.nan.plist"
+	match: "(?<=<real>)(?i:nan)(?=$|<)"
+},{
+	name: "constant.numeric.integer.xml.plist"
+	match: "(?<=<integer>)[-+]?0[Xx][0-9A-Fa-f]+(?=$|<)"
+}]

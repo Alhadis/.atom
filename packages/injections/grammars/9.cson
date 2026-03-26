@@ -5,6 +5,8 @@ injectionSelector: "L:source.plist meta.scope.dictionary-item - (comment | strin
 patterns: [
 	{include: "#gnustep"}
 	{include: "#binary"}
+	{include: "#date"}
+	{include: "#unquoted"}
 ]
 
 repository:
@@ -42,6 +44,25 @@ repository:
 			name: "invalid.illegal.invalid-character.plist"
 			match: "[^A-Za-z0-9+/\\s]+"
 		}]
+
+
+	# Quoted datetime string
+	date:
+		name: "string.quoted.timestamp.plist"
+		match: """(?x)
+			(?<=[=,\\(]|^|\\G)\\s*
+			("|')
+			(
+				[0-9]{4} - (?:0[1-9]|1[0-2]) - (?:0[1-9]|[12][0-9]|3[01])
+				[T\\x20] (?:[01][0-9]|2[0-4]) (?::[0-5][0-9]){2}
+				\\x20 \\+0000
+			)
+			(\\1)
+		"""
+		captures:
+			1: name: "punctuation.definition.string.begin.plist"
+			2: name: "constant.other.timestamp.plist"
+			3: name: "punctuation.definition.string.end.plist"
 
 
 	# GNUstep extensions for XML parity
@@ -92,3 +113,19 @@ repository:
 				4: name: "constant.language.boolean.false.plist"
 				5: name: "punctuation.definition.value.end.plist"
 		}]
+
+
+	# Unquoted strings
+	unquoted:
+		match: "(?<=[=,\\(]|^|\\G)\\s*([\\w$+/:.-]+)(?:\\s*(,)|(?=\\s*(?:$|[;\\)])))"
+		captures:
+			2: name: "punctuation.separator.array.plist"
+			1: patterns: [
+				{name: "constant.language.boolean.true.plist",  match: "^(?i:YES|TRUE|ON)$"}
+				{name: "constant.language.boolean.false.plist", match: "^(?i:NO|FALSE|OFF)$"}
+				{name: "constant.language.infinity.plist",      match: "(?i)^-?inf(?:inity)?$"}
+				{name: "constant.language.nan.plist",           match: "(?i)^nan$"}
+				{name: "constant.numeric.real.plist",           match: "^-?(?:\\d*\\.(?:\\d+[Ee]-?)?\\d+|\\d+(?:\\.\\d*)?[Ee]-?\\d+)$"}
+				{name: "constant.numeric.integer.plist",        match: "^-?(0[Xx][0-9A-Fa-f]+|\\d+)$"}
+				{name: "string.unquoted.plist",                 match: "^\\S+$"}
+			]
