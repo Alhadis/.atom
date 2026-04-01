@@ -63,6 +63,9 @@
 				"yarn.lock"
 				"yml.mysql"
 			]
+			"text.bibtex": [
+				"bibtex"
+			]
 			"text.plain": [
 				"packages/injections/misc/latin-1"
 				"mail.tildehelp"
