@@ -37,6 +37,13 @@
 			}]
 		}
 	},{
+		"files": "lib/hacks/other.js",
+		"rules": {
+			"camelcase": ["error",{
+				"allow": ["total_count", "incomplete_results", "search_type"]
+			}]
+		}
+	},{
 		"files": "lib/utils/diagnostics.js",
 		"rules": {"prefer-rest-params": 0}
 	},{
