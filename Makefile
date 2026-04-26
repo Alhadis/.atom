@@ -178,3 +178,28 @@ ascii-info: node_modules/record-jar dev/ascii
 
 dev/ascii:
 	git -C dev clone 'https://gitlab.com/esr/ascii.git'
+
+
+# JSON-encoded API reference for Atom and Electron
+docs = dev/docs/atom-api.json dev/docs/electron-api.json dev/docs/nodejs-api.js
+docs: $(docs)
+
+dev/docs:
+	[ -d $@ ] || mkdir -p $@
+
+$(docs): dev/docs
+	@ case "$(@F)" in \
+		atom-*)     url='https://github.com/atom/atom/releases/download/v1.61.0-beta0/atom-api.json';; \
+		electron-*) url='https://github.com/electron/electron/releases/download/v11.4.12/electron-api.json';; \
+		nodejs-*)   url='https://nodejs.org/docs/latest-v12.x/api/all.json';; \
+		*)          printf >&2 'Unrecognised target: %s\n' "$@"; exit 2;; \
+	esac; \
+	test -n "$$url" || { echo >&2 "Empty download URL, aborting"; exit 2; }; \
+	printf 'Downloading: \033[4m%s\033[24m\n' "$$url"; \
+	{ curl --dump-header "$@.http" -L "$$url" | tabfix; echo; } \
+	| sed -e :a -e '/^\n*$$/{$$d;N;};/\n$$/ba' > "$@"; \
+	xattr -w user.xdg.origin.url "$$url" "$@"; \
+	date=`tac "$@.http" | grep -im1 '^last-modified:' | sed 's/^[^:]*: *//; s/ *\r//;'`; \
+	mtime "`node -p '+new Date("Tue, 08 Mar 2022 00:54:18 GMT")/1000'`" "$@"; \
+	chmod -w "$@"; \
+	rm -rf "$@.http"
