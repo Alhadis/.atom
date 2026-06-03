@@ -43,6 +43,7 @@
 				"gclient_entries"
 			]
 			"source.shell": [
+				"bashrc_Apple_Terminal"
 				"profile"
 			]
 			"source.yaml": [
