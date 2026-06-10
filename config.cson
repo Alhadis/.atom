@@ -20,8 +20,12 @@
 				"gnuplotrc"
 			]
 			"source.ini": [
+				"Shell.profile"
+				"colorscheme"
 				"kdeglobals"
 				"kdenliverc"
+				"qt.conf"
+				"terminalrc"
 				"vlcrc"
 			]
 			"source.json": [
@@ -87,6 +91,9 @@
 				"Terminal Saved Output.txt"
 			]
 			"text.xml": [
+				"doap"
+				"konsoleui.rc"
+				"sessionui.rc"
 				"xmp"
 			]
 		disabledPackages: [
