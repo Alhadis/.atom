@@ -22,6 +22,7 @@
 			"source.ini": [
 				"Shell.profile"
 				"colorscheme"
+				"gitreview"
 				"kdeglobals"
 				"kdenliverc"
 				"qt.conf"
