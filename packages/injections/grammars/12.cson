@@ -1,6 +1,6 @@
 # Highlight UserScript metadata blocks in JavaScript
 scopeName: "fuck-atom.12"
-injectionSelector: "L:source.js - (comment | string | meta.userscript)"
+injectionSelector: "L:source.js - (comment | string | meta.stt | meta.userscript)"
 patterns: [{
 	# Metadata block: https://violentmonkey.github.io/api/metadata-block/
 	name:  "meta.userscript.prologue.js"
