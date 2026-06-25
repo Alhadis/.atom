@@ -31,6 +31,7 @@
 			]
 			"source.json": [
 				"carton.lock"
+				"env-cmdrc"
 			]
 			"source.makefile": [
 				"make"
@@ -71,6 +72,9 @@
 			]
 			"text.bibtex": [
 				"bibtex"
+			]
+			"text.git-commit": [
+				"gitmessage"
 			]
 			"text.plain": [
 				"packages/injections/misc/latin-1"
