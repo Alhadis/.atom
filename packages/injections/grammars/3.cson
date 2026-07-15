@@ -1,6 +1,6 @@
 # Embedded syntax highlighting for JavaScript template literals
 scopeName: "fuck-atom.3"
-injectionSelector: "L:source.js"
+injectionSelector: "L:source.js - (comment | string | meta.stt)"
 patterns: [
 	{include: "#shellEntry"}
 	{include: "#jsEntry"}
