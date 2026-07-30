@@ -48,6 +48,13 @@
 				"gclient"
 				"gclient_entries"
 			]
+			"source.r": [
+				"Rapp.history"
+				"Rhistory"
+				"expr-dist"
+				"rd"
+				"rsx"
+			]
 			"source.shell": [
 				"bashrc_Apple_Terminal"
 				"profile"
