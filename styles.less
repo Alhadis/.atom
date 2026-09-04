@@ -9,6 +9,7 @@ atom-text-editor{
 	font-variant-ligatures: contextual;
 
 	// Bunched double/triple-slashes
+	&[data-grammar="source rust"] .syntax--comment.syntax--line,
 	.syntax--comment.syntax--line.syntax--double-slash                > .syntax--punctuation.syntax--definition.syntax--comment,
 	.syntax--comment.syntax--line.syntax--triple-slash                > .syntax--punctuation.syntax--definition.syntax--comment,
 	.syntax--comment.syntax--line.syntax--scss                        > .syntax--punctuation.syntax--definition.syntax--comment,
