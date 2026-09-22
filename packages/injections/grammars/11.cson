@@ -2,10 +2,22 @@
 scopeName: "fuck-atom.11"
 injectionSelector: "L:(source.css.embedded & (*.html | *.xml.svg)) - (comment | string | meta.cdata.css)"
 patterns: [{
+	# XML character data section
 	name:  "meta.cdata.css"
 	begin: "<!\\[CDATA\\["
 	end:   "\\]\\]>"
 	beginCaptures: 0: name: "comment.ignored.cdata.begin.css"
 	endCaptures:   0: name: "comment.ignored.cdata.end.css"
+	patterns: [include: "source.css"]
+},{
+	# HTML-style comment blocks
+	begin: "<!--"
+	end:   "-->|(?=</style>)"
+	beginCaptures:
+		0: name: "comment.block.xml.css"
+		1: name: "punctuation.definition.comment.begin.xml.css"
+	endCaptures:
+		0: name: "comment.block.xml.css"
+		1: name: "punctuation.definition.comment.end.xml.css"
 	patterns: [include: "source.css"]
 }]
