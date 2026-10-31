@@ -299,6 +299,10 @@ body:not(.show-toggle-buttons) .atom-dock-toggle-button{
 		&.syntax--unimplemented{
 			color: #cc3e44;
 		}
+		&.syntax--illegal.syntax--line-too-long.syntax--git-commit{
+			background: #cc3e44 !important;
+			color: #fff !important;
+		}
 	}
 	:not(.syntax--punctuation) > .syntax--sublimelinter{
 		&.syntax--gutter-mark          { color: #484f58; }
