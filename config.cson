@@ -15,12 +15,21 @@
 			"source.gitconfig": [
 				"config.worktree"
 			]
+			"source.gitignore": [
+				"aiexclude"
+				"aiignore"
+				"clang-format-ignore"
+				"cursorignore"
+				"elpaignore"
+				"nxignore"
+			]
 			"source.gnuplot": [
 				"gnuplot_history"
 				"gnuplotrc"
 			]
 			"source.ini": [
 				"Shell.profile"
+				"codespellrc"
 				"colorscheme"
 				"gitreview"
 				"kdeglobals"
@@ -30,6 +39,7 @@
 				"vlcrc"
 			]
 			"source.json": [
+				"autorc"
 				"carton.lock"
 				"env-cmdrc"
 			]
