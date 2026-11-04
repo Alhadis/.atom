@@ -1,0 +1,15 @@
+{
+	"name": "language-text",
+	"version": "v1.0.0",
+	"license": "ISC",
+	"private": true,
+	"author": "John Gardner <gardnerjohng@gmail.com>",
+	"description": "Refactored and extended fork of TextMate's Text.tmbundle.",
+	"engines": {"atom": "*", "node": "*"},
+	"homepage": "https://github.com/textmate/text.tmbundle",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Alhadis/.atom.git",
+		"directory": "packages/language-text"
+	}
+}

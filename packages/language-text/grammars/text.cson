@@ -1,0 +1,160 @@
+name: "Plain Text"
+scopeName: "text.plain"
+mimeType: "text/plain"
+fileTypes: [
+	"txt", "text"
+	
+	# Override filenames with non-text extensions
+	"COPYRIGHT.regex"
+	"COPYING.regex"
+	"INSTALL.mysql"
+	"LICENSE.mysql"
+	"README.me"
+	"README.mysql"
+	"README.nss"
+	"README.pc"
+	
+	# Classify files with ".me" suffixes as text, not Roff
+	"read.me"
+	"click.me"
+	"delete.me"
+	"keep.me"
+	"test.me"
+	"readme.1st"
+]
+patterns: [include: "#main"]
+keyEquivalent: "^~P"
+uuid: "3130E4FA-B10E-11D9-9F75-000D93589AF6"
+firstLineMatch: """(?x)
+
+	# Emacs modeline
+	-\\*-(?i:[ \\t]*(?=[^:;\\s]+[ \\t]*-\\*-)|(?:.*?[ \\t;]|(?<=-\\*-))[ \\t]*mode[ \\t]*:[ \\t]*)
+		(?i:fundamental|text|parindent|(?:indented|paragraph-indent)-text)
+	(?=[ \\t;]|(?<![-*])-\\*-).*?-\\*-
+	
+	|
+	
+	# Vim modeline
+	(?:(?:^|[ \\t])(?:vi|Vi(?=m))(?:m[<=>]?[0-9]+|m)?|[ \\t]ex)(?=:(?=[ \\t]*set?[ \\t][^\\r\\n:]+:)|:(?![ \\t]*set?[ \\t]))
+	(?:(?:[ \\t]*:[ \\t]*|[ \\t])\\w*(?:[ \\t]*=(?:[^\\\\\\s]|\\\\.)*)?)*[ \\t:]
+	(?:filetype|ft|syntax)[ \\t]*=
+		(?i:text)
+	(?=$|\\s|:)
+"""
+
+repository:
+	main:
+		patterns: [
+			{include: "#dividers"}
+			{include: "#rcs-keyword"}
+			{include: "#bullet-points"}
+			{include: "#paragraph"}
+		]
+
+
+	# Lines prefixed with common list-marker characters
+	"bullet-points":
+		patterns: [{
+			name:  "meta.bullet-point.strong.text"
+			match: "^(\\s*)(•).*$\\r?\\n?"
+			captures:
+				1: patterns: [include: "#indent"]
+				2: name: "punctuation.definition.item.text"
+		},{
+			name:  "meta.bullet-point.light.text"
+			match: "^(\\s*)(·).*$\\r?\\n?"
+			captures:
+				1: patterns: [include: "#indent"]
+				2: name: "punctuation.definition.item.text"
+		},{
+			name:  "meta.bullet-point.star.text"
+			match: "^(\\s*)(\\*).*$\\r?\\n?"
+			captures:
+				1: patterns: [include: "#indent"]
+				2: name: "punctuation.definition.item.text"
+		}]
+
+
+	# Unambiguous section dividers
+	dividers:
+		patterns: [{
+			# Line comprised entirely of dashes or equals-signs
+			name:  "meta.divider.horizontal-rule.text"
+			match: "^-{4,}$|^={4,}$"
+			captures:
+				0: name: "punctuation.separator.section.divider.text"
+		},{
+			# Perforation line separating prologue from patch data, used by git-mailinfo(1)
+			name:  "meta.divider.perforation.text"
+			match: "^(?=[-=]{3,}[^-=]+.*?[-=]{3,}$)(?:[-=]+| ?(?:8<|>8|[✀✂️✂︎✄]) ?)++$|^-- >8 --$"
+			captures:
+				0: patterns: [{
+					name: "punctuation.markup.other.scissors.text"
+					match: "8<|>8|[✀✂️✂︎✄]"
+				},{
+					name: "punctuation.separator.section.divider.text"
+					match: "[-=]+"
+				}]
+		}]
+
+
+	# Different classifications of indentation
+	indent:
+		patterns: [{
+			# Indented with tabs like nature intended
+			name:  "punctuation.whitespace.leading.indent.tabs.text"
+			match: "^\\t+(?=\\S)"
+		},{
+			# Indented by an arbitrary number of spaces
+			name:  "punctuation.whitespace.leading.indent.spaces.text"
+			match: "^\\x20+(?=\\S)"
+		},{
+			# Indented by a mixture of both
+			name:  "punctuation.whitespace.leading.indent.mixed.text"
+			match: "^(?=\\t* | *\\t)[ \\t]+(?=\\S)"
+		}]
+
+
+	# Block of (possibly indented) text
+	paragraph:
+		contentName: "meta.paragraph.text"
+		begin: "^([ \\t]*)(?=\\S)"
+		end:   "^(?!\\1(?=\\S))"
+		beginCaptures:
+			1: patterns: [include: "#indent"]
+		patterns: [
+			{include: "#sentence-space"}
+			{include: "#rcs-keyword"}
+			{include: "#dividers"}
+		]
+
+
+	# RCS/SCSS-format keyword lines
+	"rcs-keyword":
+		patterns: [{
+			# $Name:…$
+			name:  "meta.rcs-keyword.${3:/downcase}.has-value.text"
+			match: "(\\$)((\\w+)(:))\\s*(\\S.*?)\\s*(\\$)"
+			captures:
+				1: name: "punctuation.definition.keyword.begin.text"
+				2: name: "entity.name.tag.rcs-keyword.text"
+				4: name: "keyword.operator.assignment.key-value.colon.text"
+				5: name: "string.quoted.other.dollar-signs.text"
+				6: name: "punctuation.definition.keyword.end.text"
+		},{
+			# $Id$
+			name:  "meta.rcs-keyword.${3:/downcase}.no-value.text"
+			match: "(?<=\\s|^)(\\$)((\\w+))(\\$)(?=$|\\s)"
+			captures:
+				1: name: "punctuation.definition.keyword.begin.text"
+				2: name: "entity.name.tag.rcs-keyword.text"
+				4: name: "punctuation.definition.keyword.end.text"
+		}]
+
+
+	# The ever-controversial inter-sentence spacing amount
+	"sentence-space":
+		# NOTE: Lookbehind should ideally match `\p{Sentence_Terminal`,
+		# but as usual, Atom throws a tantrum over the unsupported escape.
+		name: "punctuation.whitespace.sentence-space.text"
+		match: "(?<=[.?!․‽‼️⁇⁈⁉️⸮⹓⹔⸼])\\x20{2}(?=\\S)"

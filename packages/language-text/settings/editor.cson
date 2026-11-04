@@ -1,0 +1,23 @@
+".text.plain":
+	editor:
+		increaseIndentPattern: "(?<=[^\\s:]):$"
+		commentStart: null
+		softWrap: true
+	"bracket-matcher":
+		autocompleteCharacters: [
+			'""'
+			"''"
+			"``"
+			"()"
+			"{}"
+			"[]"
+			"“”"
+			"‘’"
+			"„“"
+			"‚‘"
+			"«»"
+			"‹›"
+			"「」"
+			"『』"
+			"《》"
+		]

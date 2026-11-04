@@ -24,6 +24,7 @@
 !/packages/file-icons-devtools
 !/packages/injections
 !/packages/language-not-mine
+!/packages/language-text
 !/packages/patches
 
 # Include makefile for installing/linking NPM modules

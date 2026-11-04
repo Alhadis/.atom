@@ -1,0 +1,16 @@
+$Id: Foo $
+$Id$
+
+
+* Item 1
+* Item 2
+
+	Four score and something something
+soft-wrapped paragraph blah-blah LOREM
+IPSUM DOLOR SIT AMET:
+
+	New paragraph?
+
+--------------------8<----------------------
+-- >8 --
+====================8<======================
