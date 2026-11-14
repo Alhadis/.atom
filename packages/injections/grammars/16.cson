@@ -1,0 +1,11 @@
+# Interpreter directives for grammars that don't support them
+scopeName: "fuck-atom.16"
+injectionSelector: "R:(source | text) - embedded"
+patterns: [{
+	name:  "comment.line.interpreter-directive.hashbang"
+	begin: "\\A(#!)([ \\t]+)?"
+	end:   "$"
+	beginCaptures:
+		1: name: "punctuation.definition.comment.shebang.hashbang"
+		2: name: "punctuation.whitespace.intermediate.shebang.hashbang"
+}]
