@@ -227,6 +227,9 @@
 	editor:
 		softTabs: true
 		tabLength: 2
+".plain.text":
+	editor:
+		softWrap: false
 ".powershell.source":
 	editor:
 		nonWordCharacters: "/\\()\"':,.;<>~!@#%^&*|+=[]{}`?-…"
